@@ -1,0 +1,21 @@
+{
+    "name": "colour-theme",
+    "displayName": "colour-theme",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.61.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "colour-theme",
+                "uiTheme": "vs",
+                "path": "./themes/colour-theme.json"
+            }
+        ]
+    }
+}

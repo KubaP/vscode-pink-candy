@@ -1,0 +1,8 @@
+{
+    "name": "colour-theme",
+    "type": "light",
+    "colors": {
+        "editor.background": "#fff",
+        "editor.foreground": "#000"
+    }
+}
