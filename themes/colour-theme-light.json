@@ -1,0 +1,388 @@
+{
+	"name": "colour-theme",
+	"type": "light",
+	"colors": {
+		// EDITOR
+		"editor.foreground": "#565869",
+		"editor.background": "#FAFBFC"
+	},
+	"semanticHighlighting": true,
+	"semanticTokenColors": {
+		// BASICS
+		"keyword": "#F767BB",
+		"function": "#09A1ED", // Static function.
+		"method": "#09A1ED", // Object method.
+		"macro": "#09A1ED",
+		"variable": "#565869",
+		"parameter": {
+			"fontStyle": "italic"
+		},
+		"number": "#FF5C57",
+		"boolean": "#2DAE58",
+		"*.constant": "#2DAE58",
+		"comment": "#ADB1C2",
+		"label": "#8cba10", // Rust: `'outer: while`
+		"punctuation": "#777777",
+		// TYPES
+		"builtinType": "#F767BB",
+		"type": "#F767BB",
+		"struct": "#13BBB7",
+		"class": "#13BBB7",
+		"enum": "#13BBB7",
+		"enumMember": "#2DAE58",
+		"union": "#13BBB7",
+		"typeAlias": "#13BBB7",
+		"selfKeyword": "#F767BB",
+		"property": "#9c638c", // Object members.
+		// GENERICS
+		"typeParameter": "#13BBB7", // Generic type annotation, e.g. `T`
+		"interface": "#c75af3", // Rust: `MyTrait`
+		"lifetime": "#8cba10", // Rust: `'a`
+		// OPERATORS
+		"operator": "#777777",
+		"arithmetic": "#777777", // `+`, `-`, `*`, `/`
+		"logical": "#777777",
+		"comparison": "#777777", // `==`, `!=`, `===`
+		"bitwise": "#777777",
+		"newOperator": "#F767BB",
+		"operator.controlFlow": "#F767BB", // Rust: `?`
+		// TEXT
+		"character": "#FF5C57", // `'b'`
+		"string": "#CF9C00", // `"string"`
+		"escapeSequence": "#FF5C57", // `\n`
+		// OTHER
+		"unresolvedReference": {
+			"foreground": "#FF5C56"
+		},
+		// RUST
+		"*.mutable": {
+			"fontStyle": "underline"
+		},
+		// Unset the underline effect, since something like `+=` would otherwise be underlined.
+		"arithmetic.mutable": {
+			"fontStyle": ""
+		},
+		// Also unset.
+		"bitwise.mutable": {
+			"fontStyle": ""
+		},
+		// param: &mut T
+		"parameter.mutable": {
+			"fontStyle": "italic underline"
+		},
+		"*.unsafe": {
+			"fontStyle": "bold"
+		},
+		"*.mutable.unsafe": {
+			"fontStyle": "bold underline"
+		},
+		"attribute": "#FF5C57", // The #[]!() symbols in an attribute.
+		"parenthesis.attribute": {
+			"foreground": "#FF5C57"
+		},
+		"macro.attribute": "#FF5C57", // `#[derive()]`
+		"macro.attribute.library": "#c75af3", // `Debug`, `Clone` derives, etc.
+		"builtinAttribute": "#FF5C57" // `#[inline]`, `#[cfg]`, etc.
+	},
+	"tokenColors": [
+		// BASICS
+		{
+			// Keywords such as `let`, `var`, `for`, `while`, `class` etc.
+			"name": "Keyword, Storage",
+			"scope": [
+				"keyword",
+				"storage.type",
+				"storage.modifier",
+				"punctuation.definition.directive.c",
+				"punctuation.definition.directive.cpp",
+				"storage.type.impl.rust",
+				"keyword.type.go",
+				"storage.class.d",
+				"variable.language.super.rust",
+				"markup.deleted.git_gutter",
+				"entity.name.tag.css",
+				"punctuation.definition.keyword.css",
+				"entity.name.tag.wildcard.css"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			// Free-standing functions and object methods.
+			"name": "Function, Special Method",
+			"scope": [
+				"entity.name.function",
+				"meta.function-call",
+				"variable.function",
+				"support.function",
+				"keyword.other.special-method",
+				"keyword.other.common.function"
+			],
+			"settings": {
+				"foreground": "#09A1ED"
+			}
+		},
+		{
+			// Macros and other fancy functions.
+			"name": "Special functions, Hygienic Macros, etc",
+			"scope": [
+				"support.function.macro.rust",
+				"support.function.macro.builtin.rust",
+				"support.function.macro.core.rust",
+				"entity.name.type.macro.rust",
+				"entity.name.function.macro.rust",
+				"entity.name.function.macro.rules.rust",
+				"support.function.macro.julia",
+				"support.function.builtin.zig"
+			],
+			"settings": {
+				"foreground": "#09A1ED"
+			}
+		},
+		{
+			// Variable declarations and uses.
+			"name": "Variables",
+			"scope": [
+				"variable",
+				"meta.function-call.arguments",
+				"string constant.other.placeholder",
+				"meta.function-call.java",
+				"storage.modifier.import.java",
+				"variable.other.object",
+				"variable.other.readwrite"
+			],
+			"settings": {
+				"foreground": "#565869"
+			}
+		},
+		{
+			"name": "Punctuation & Operators",
+			"scope": [
+				"punctuation",
+				"keyword.operator",
+				"keyword.operator.sigil.rust",
+				"keyword.operator.access.dot.rust",
+				"keyword.operator.key-value.rust",
+				"keyword.operator.attribute.inner.rust",
+				"punctuation.definition.tag",
+				"punctuation.definition.tag.html",
+				"punctuation.definition.tag.begin.html",
+				"punctuation.definition.tag.end.html"
+			],
+			"settings": {
+				"foreground": "#777777"
+			}
+		},
+		{
+			"name": "Mutable variables",
+			"scope": [],
+			"settings": {
+				"fontStyle": "underline"
+			}
+		},
+		{
+			// Function parameters.
+			"name": "Parameters",
+			"scope": [
+				"variable.parameter",
+				"keyword.other.self.rust",
+				"meta.parens.block.c",
+				"variable.css"
+				// "meta.function.definition.parameters",
+			],
+			"settings": {
+				"fontStyle": "italic"
+			}
+		},
+		{
+			"name": "Comment",
+			"scope": [
+				"comment",
+				"punctuation.definition.comment"
+			],
+			"settings": {
+				"foreground": "#ADB1C2"
+			}
+		},
+		{
+			"name": "Constants",
+			"scope": [
+				"constant.other.caps.rust"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
+			}
+		},
+		{
+			"name": "Number",
+			"scope": [
+				"constant.numeric.decimal.rust",
+				"punctuation.separator.dot.decimal.rust"
+			],
+			"settings": {
+				"foreground": "#FF5C57"
+			}
+		},
+		{
+			"name": "Attributes",
+			"scope": [
+				"punctuation.definition.attribute.rust",
+				"punctuation.brackets.attribute.rust",
+				"keyword.operator.attribute.inner.rust",
+				"meta.attribute.rust"
+			],
+			"settings": {
+				"foreground": "#FF5C57"
+			}
+		},
+		// TYPES
+		{
+			"name": "Built-in Types",
+			"scope": [
+				"entity.name.type.primitive",
+				"entity.name.type.primitive.rust",
+				"entity.name.type.numeric.rust",
+				"variable.language.self.rust"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "Class, Support",
+			"scope": [
+				"support.type",
+				"support.class",
+				"support.other.namespace.use.php",
+				"meta.use.php",
+				"support.other.namespace.php",
+				"markup.changed.git_gutter",
+				"support.type.sys-types",
+				"entity.other.attribute-name.table.toml",
+				"variable.key.table.toml",
+				"storage.type.haskell",
+				"storage.type.java",
+				"storage.type.primitive.java",
+				"storage.type.object.array.java",
+				"storage.type.c",
+				"storage.type.built-in.c",
+				"meta.function.definition.parameters.c",
+				"storage.type.built-in.cpp",
+				"storage.type.built-in.primitive.cpp",
+				"entity.name.class.kotlin",
+				"entity.name.type.rust",
+				"entity.name.type.struct.rust",
+				"storage.type.go",
+				"storage.type.boolean.go",
+				"storage.type.byte.go",
+				"storage.type.error.go",
+				"storage.type.numeric.go",
+				"storage.type.rune.go",
+				"storage.type.string.go",
+				"storage.type.uintptr.go",
+				"storage.type.concrete.nim",
+				"storage.type.basic-type.d",
+				"storage.type.d",
+				"support.type.python",
+				"basicTypes.nim",
+				"meta.class.stanza.dune",
+				"storage.type.cs",
+				"entity.name.type.declaration.rust"
+			],
+			"settings": {
+				"foreground": "#13BBB7"
+			}
+		},
+		{
+			"name": "Enum variant, Sum Types, etc",
+			"scope": [
+				"support.enum.core.rust",
+				"entity.name.type.option.rust",
+				"entity.name.type.result.rust",
+				"constant.other.haskell",
+				"variable.other.enummember.cpp"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
+			}
+		},
+		// GENERICS
+		{
+			"name": "Interfaces",
+			"scope": [
+				"entity.name.type.trait.rust"
+			],
+			"settings": {
+				"foreground": "#c75af3"
+			}
+		},
+		{
+			"name": "Lifetimes",
+			"scope": [
+				"punctuation.definition.lifetime.rust",
+				"entity.name.type.lifetime.rust",
+				"storage.modifier.lifetime.rust"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
+			}
+		},
+		// OPERATORS
+		{
+			"name": "Operator ControlFlow",
+			"scope": [
+				"keyword.operator.misc.question-mark.rust",
+				"keyword.operator.question.rust"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		// TEXT
+		{
+			"name": "String & character",
+			"scope": [
+				"string",
+				"punctuation.definition.string",
+				"constant.other.symbol",
+				"constant.other.key",
+				"meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js"
+			],
+			"settings": {
+				"foreground": "#CF9C00"
+			}
+		},
+		{
+			"name": "Escape Characters",
+			"scope": [
+				"constant.character.escape"
+			],
+			"settings": {
+				"foreground": "#FF5C57"
+			}
+		},
+		{
+			"name": "URL",
+			"scope": [
+				"*url*",
+				"*link*",
+				"*uri*"
+			],
+			"settings": {
+				"fontStyle": "underline"
+			}
+		},
+		// OTHER
+		{
+			"name": "Invalid",
+			"scope": [
+				"invalid",
+				"invalid.illegal"
+			],
+			"settings": {
+				"foreground": "#FF5C56"
+			}
+		},
+	]
+}
