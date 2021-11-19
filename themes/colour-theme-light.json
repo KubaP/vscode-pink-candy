@@ -384,5 +384,167 @@
 				"foreground": "#FF5C56"
 			}
 		},
+		//
+		// MARKDOWN
+		//
+		{
+			// Normal undecorated text.
+			"name": "Markdown - Plain",
+			"scope": [
+				"text.html.markdown",
+				"punctuation.definition.list_item.markdown"
+			],
+			"settings": {
+				"foreground": "#ADB1C2"
+			}
+		},
+		{
+			// The `#` symbol in titles.
+			"name": "Markdown - Heading Character",
+			"scope": [
+				"markdown.heading",
+				"markup.heading | markup.heading entity.name",
+				"markup.heading.markdown punctuation.definition.heading.markdown"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			// The actual text in a title.
+			"name": "Markdown - Heading Text",
+			"scope": [
+				"entity.name.section.markdown"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "Markup - Bold",
+			"scope": [
+				"punctuation.definition.bold.markdown",
+				"markup.bold",
+				"markup.bold string"
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#FF5C57"
+			}
+		},
+		{
+			"name": "Markup - Italic",
+			"scope": [
+				"punctuation.definition.italic.markdown",
+				"markup.italic"
+			],
+			"settings": {
+				"fontStyle": "italic",
+				"foreground": "#09A1ED"
+			}
+		},
+		{
+			"name": "Markup - Bold-Italic",
+			"scope": [
+				"markup.bold markup.italic",
+				"markup.italic markup.bold",
+				"markup.quote markup.bold",
+				"markup.bold markup.italic string",
+				"markup.italic markup.bold string",
+				"markup.quote markup.bold string"
+			],
+			"settings": {
+				"foreground": "#13BBB7",
+				"fontStyle": "italic bold"
+			}
+		},
+		{
+			"name": "Markdown - Quote",
+			"scope": [
+				"punctuation.definition.quote.begin.markdown",
+				"markup.quote.markdown"
+			],
+			"settings": {
+				"foreground": "#c75af3",
+				"fontStyle": "italic"
+			}
+		},
+		{
+			// Inline code block text.
+			"name": "Markdown - Markup Raw Inline",
+			"scope": [
+				"punctuation.definition.raw.markdown",
+				"markup.inline.raw.string.markdown"
+			],
+			"settings": {
+				"foreground": "#565869"
+			}
+		},
+		{
+			// Fenced code block text.
+			"name": "Markdown - Raw Block Fenced",
+			"scope": [
+				"markup.fenced_code.block.markdown"
+			],
+			"settings": {
+				"foreground": "#565869"
+			}
+		},
+		{
+			// The language identifier in a fenced code block, e.g. ```rust
+			"name": "Markdown - Raw Block Language Identifier",
+			"scope": [
+				"fenced_code.block.language.markdown"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "Markdown - Separator",
+			"scope": [
+				"meta.separator.markdown"
+			],
+			"settings": {
+				"foreground": "#565869",
+				"fontStyle": "bold"
+			}
+		},
+		{
+			// The `1.` or `-` or `*` symbols in a list entry.
+			"name": "Markdown - List",
+			"scope": [
+				"punctuation.definition.list.begin.markdown"
+			],
+			"settings": {
+				"foreground": "#565869"
+			}
+		},
+		{
+			// Text comment/description around a link, e.g. `[Go to this link](...)`, or `[](... "some website")`
+			"name": "Markup - Url String",
+			"scope": [
+				"punctuation.definition.string.begin.markdown",
+				"punctuation.definition.string.end.markdown",
+				"string.other.link.description.title.markdown",
+				"string.other.link.description.markdown",
+				"string.other.link.title.markdown"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
+			}
+		},
+		{
+			// The url part of the link.
+			"name": "Markup - Url Underline",
+			"scope": [
+				"markup.underline.link",
+				"constant.other.reference.link.markdown"
+			],
+			"settings": {
+				"foreground": "#565869",
+				"fontStyle": "underline"
+			}
+		}
 	]
 }
