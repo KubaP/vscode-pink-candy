@@ -3,8 +3,151 @@
 	"type": "light",
 	"colors": {
 		// EDITOR
+		// Basics
 		"editor.foreground": "#565869",
-		"editor.background": "#FAFBFC"
+		"editor.background": "#FAFBFC",
+		"errorForeground": "#FF1277",
+		//
+		// Cursor/line
+		"editorCursor.foreground": "#FF1277",
+		"editorCursor.background": "#fff", // Colour of a character when using block cursor.
+		"editor.lineHighlightBackground": "#00000007", // Current line background colour.
+		"editor.lineHighlightBorder": "#00000000", // Remove current line border.
+		"editorLineNumber.foreground": "#ADB1C2", // Line number colour in the gutter.
+		"editorLineNumber.activeForeground": "#FF1277", // Current line number colour in the gutter.
+		"editor.foldBackground": "#00000007", // Colour of a line containing a folded range.
+		"editor.hoverHighlightBackground": "#00000007", // Background when hovering over a symbol.
+		//
+		// Text selection boxes/ranges
+		"editor.selectionBackground": "#FF12771a", // Background of selected text.
+		//"editor.selectionForeground": "",
+		"editor.inactiveSelectionBackground": "#FF127710", // Background of selection when editor not focused.
+		"editor.selectionHighlightBackground": "#FF12771a", // Background of matching text.
+		//"editor.selectionHighlightBorder": "",
+		//
+		// Symbol selection boxes/ranges
+		"editor.wordHighlightBackground": "#FF12771a", // Background for selected symbol.
+		//"editor.wordHighlightBorder": "",
+		"editor.wordHighlightStrongBackground": "#FF12771a", // Background of matching symbol.
+		//"editor.wordHighlightStrongBorder": "",
+		//
+		// Search highlight boxes
+		"editor.findMatchBackground": "#00000000", // Currently selected found match.
+		"editor.findMatchBorder": "#2faf648a",
+		"editor.findMatchHighlightBackground": "#eff3283a", // Other found matches.
+		//"editor.findMatchHighlightBorder": "",
+		"editor.findRangeHighlightBackground": "#FF127710", // Colour of the range of the current search.
+		//"editor.findRangeHighlightBorder": "",
+		//
+		// Within the "search editor"
+		"searchEditor.findMatchBackground": "#eff3283a",
+		"searchEditor.findMatchBorder": "#2faf648a",
+		//"searchEditor.textInputBorder": "",
+		//
+		// Highlight colour of line containing found matching text.
+		"editor.rangeHighlightBackground": "#eff3283a",
+		//"editor.rangeHighlightBorder": "",
+		"editor.symbolHighlightBackground": "#eff3283a", // ???
+		//"editor.symbolHighlightBorder": "",
+		//
+		// Matching brackets
+		"editorBracketMatch.border": "#777777", // Border around matching brackets.
+		"editorBracketMatch.background": "#00000000", // Remove match background.
+		//
+		// Bracket pair colours
+		"editorBracketHighlight.foreground1": "#2faf64",
+		"editorBracketHighlight.foreground2": "#00b7e4",
+		"editorBracketHighlight.foreground3": "#a8759a",
+		"editorBracketHighlight.foreground4": "#CF9C00",
+		"editorBracketHighlight.foreground5": "#FF5C57",
+		"editorBracketHighlight.foreground6": "#c75af3",
+		"editorBracketHighlight.unexpectedBracket.foreground": "#FF1277",
+		"editorBracketPairGuide.foreground1": "#2faf64",
+		"editorBracketPairGuide.foreground2": "#00b7e4",
+		"editorBracketPairGuide.foreground3": "#a8759a",
+		"editorBracketPairGuide.foreground4": "#CF9C00",
+		"editorBracketPairGuide.foreground5": "#FF5C57",
+		"editorBracketPairGuide.foreground6": "#c75af3",
+		//
+		// Inlay hints
+		"editorInlayHint.foreground": "#747474",
+		"editorInlayHint.background": "#00000000",
+		"editorInlayHint.typeForeground": "#747474",
+		"editorInlayHint.typeBackground": "#00000000",
+		"editorInlayHint.parameterForeground": "#747474",
+		"editorInlayHint.parameterBackground": "#00000000",
+		"rust_analyzer.inlayHints.foreground": "#747474",
+		"rust_analyzer.inlayHints.background": "#00000000",
+		"rust_analyzer.inlayHints.foreground.typeHints": "#747474",
+		"rust_analyzer.inlayHints.background.typeHints": "#00000000",
+		"rust_analyzer.inlayHints.foreground.chainingHints": "#747474",
+		"rust_analyzer.inlayHints.background.chainingHints": "#00000000",
+		"rust_analyzer.inlayHints.foreground.parameterHints": "#747474",
+		"rust_analyzer.inlayHints.background.parameterHints": "#00000000",
+		"editorCodeLens.foreground": "#747474",
+		// Debug inlay hints
+		//"editor.inlineValuesForeground": "",
+		//"editor.inlineValuesBackground": "#00000000",
+		//
+		// Whitespace and indentation
+		"editorWhitespace.foreground": "#CECECE",
+		"editorIndentGuide.background": "#CECECE",
+		"editorIndentGuide.activeBackground": "#aaa",
+		"editorRuler.foreground": "#CECECE",
+		//
+		// Ghost text
+		"editorGhostText.foreground": "#ADB1C2", // Inline completion text.
+		//"editorGhostText.border": "",
+		//
+		// Other
+		"editorLink.activeForeground": "#FF1277", // When ctrl+hovering over a symbol.
+		"editorLightBulb.foreground": "#ffc104", // Colour of the light-bulb.
+		"editorLightBulbAutoFix.foreground": "#ffc104", // ???
+		//
+		//
+		//
+		// SNIPPETS [x]
+		"editor.snippetTabstopHighlightBackground": "#FF12776a",
+		//"editor.snippetTabstopHighlightBorder": "",
+		"editor.snippetFinalTabstopHighlightBackground": "#FF12776a",
+		//"editor.snippetFinalTabstopHighlightBorder": "",
+		//
+		// ERRORS/WARNINGS/INFO [x]
+		"editorHint.foreground": "#2faf64", // Hint squiggle
+		//"editorHint.border": "",
+		"editorInfo.foreground": "#00b7e4", // Info squiggle
+		//"editorInfo.border": "",
+		//"editorInfo.background": "",
+		"editorWarning.foreground": "#ff942f", // Warning squiggle
+		//"editorWarning.border": "",
+		//"editorWarning.background": "",
+		"editorError.foreground": "#FF1277", // Error squiggle
+		//"editorError.border": "",
+		//"editorError.background": "",
+		"editorUnnecessaryCode.opacity": "#000000c0", // Unused symbols/text - 75% opacity.
+		//"editorUnnecessaryCode.border": "",
+		"problemsInfoIcon.foreground": "#00b7e4", // Icons, e.g. symbols in problem panel
+		"problemsWarningIcon.foreground": "#ff942f",
+		"problemsErrorIcon.foreground": "#FF1277",
+		//
+		// ERROR LENS [x]
+		"errorLens.infoForegroundLight": "#00b7e4",
+		"errorLens.infoBackgroundLight": "#00b7e420",
+		"errorLens.hintForegroundLight": "#2faf64",
+		"errorLens.hintBackgroundLight": "#17a2a220",
+		"errorLens.warningForegroundLight": "#ff942f",
+		"errorLens.warningBackgroundLight": "#ff942f20",
+		"errorLens.errorForegroundLight": "#FF1277",
+		"errorLens.errorBackgroundLight": "#FF12771a",
+		"errorLens.statusBarIconWarningForeground": "#fff",
+		"errorLens.statusBarIconErrorForeground": "#fff",
+		"errorLens.statusBarInfoForeground": "#fff",
+		"errorLens.statusBarHintForeground": "#fff",
+		"errorLens.statusBarWarningForeground": "#fff",
+		"errorLens.statusBarErrorForeground": "#fff",
+		"errorLens.infoGutterIconColor": "#00b7e4",
+		"errorLens.warningGutterIconColor": "#ff942f",
+		"errorLens.errorGutterIconColor": "#FF1277",
 	},
 	"semanticHighlighting": true,
 	"semanticTokenColors": {
