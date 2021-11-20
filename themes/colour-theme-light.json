@@ -550,6 +550,102 @@
 		//"statusBar.debuggingBackground": "",
 		//"statusBar.debuggingForeground": "",
 		//"statusBar.debuggingBorder": "",
+		//
+		//
+		//
+		// SYMBOLS [x]
+		"symbolIcon.arrayForeground": "#565869",
+		"symbolIcon.booleanForeground": "#2DAE58",
+		"symbolIcon.classForeground": "#13BBB7",
+		"symbolIcon.colorForeground": "#565869",
+		"symbolIcon.constantForeground": "#2DAE58",
+		"symbolIcon.enumeratorForeground": "#13BBB7",
+		"symbolIcon.enumeratorMemberForeground": "#2DAE58",
+		"symbolIcon.eventForeground": "#565869",
+		"symbolIcon.fieldForeground": "#a8759a",
+		"symbolIcon.fileForeground": "#565869",
+		"symbolIcon.folderForeground": "#565869",
+		"symbolIcon.functionForeground": "#09A1ED",
+		"symbolIcon.interfaceForeground": "#c75af3",
+		"symbolIcon.keyForeground": "#565869",
+		"symbolIcon.keywordForeground": "#F767BB",
+		"symbolIcon.methodForeground": "#09A1ED",
+		"symbolIcon.moduleForeground": "#565869",
+		"symbolIcon.namespaceForeground": "#565869",
+		"symbolIcon.nullForeground": "#FF1277",
+		"symbolIcon.numberForeground": "#FF5C57",
+		"symbolIcon.objectForeground": "#13BBB7",
+		"symbolIcon.operatorForeground": "#777777",
+		"symbolIcon.packageForeground": "#565869",
+		"symbolIcon.propertyForeground": "#a8759a",
+		"symbolIcon.referenceForeground": "#F767BB",
+		"symbolIcon.snippetForeground": "#F767BB",
+		"symbolIcon.stringForeground": "#CF9C00",
+		"symbolIcon.structForeground": "#13BBB7",
+		"symbolIcon.textForeground": "#565869",
+		"symbolIcon.typeParameterForeground": "#13BBB7",
+		"symbolIcon.unitForeground": "#F767BB",
+		"symbolIcon.variableForeground": "#565869",
+		//
+		// TESTING COLOURS [x]
+		"testing.iconPassed": "#2DAE58",
+		"testing.iconFailed": "#FF1277",
+		"testing.iconErrored": "#FF1277",
+		"testing.iconQueued": "#09A1ED",
+		"testing.iconUnset": "#ADB1C2",
+		"testing.iconSkipped": "#ADB1C2",
+		"testing.peekBorder": "#CECECE",
+		//"testing.peekHeaderBackground": "",
+		"testing.message.info.lineBackground": "#00b7e420",
+		"testing.message.info.decorationForeground": "#00b7e4",
+		"testing.message.error.lineBackground": "#FF12771a",
+		"testing.message.error.decorationForeground": "#FF1277",
+		//
+		// CHART COLOURS [x]
+		"charts.foreground": "#565869",
+		"charts.lines": "#333333",
+		"charts.blue": "#09A1ED",
+		"charts.green": "#2DAE58",
+		"charts.yellow": "#CF9C00",
+		"charts.orange": "#f77708",
+		"charts.red": "#ff0046",
+		"charts.purple": "#c75af3",
+		//
+		// TERMINAL COLOURS [x]
+		"terminal.foreground": "#333333",
+		"terminal.background": "#FAFBFC",
+		"terminal.ansiBlue": "#09A1ED",
+		"terminal.ansiBrightBlue": "#41b9ff",
+		"terminal.ansiCyan": "#13BBB7",
+		"terminal.ansiBrightCyan": "#16dad6",
+		"terminal.ansiGreen": "#2DAE58",
+		"terminal.ansiBrightGreen": "#25da6a",
+		"terminal.ansiYellow": "#CF9C00",
+		"terminal.ansiBrightYellow": "#ffc104",
+		"terminal.ansiRed": "#ff0046",
+		"terminal.ansiBrightRed": "#ff2e87",
+		"terminal.ansiMagenta": "#c75af3",
+		"terminal.ansiBrightMagenta": "#c010ef",
+		"terminal.ansiWhite": "#FAFBFC",
+		"terminal.ansiBlack": "#333333",
+		"terminal.ansiBrightBlack": "#000",
+		"terminal.selectionBackground": "#FF12771a",
+		"terminalCursor.foreground": "#FF1277",
+		"terminalCursor.background": "#FAFBFC", // Colour of text when selected by block cursor.
+		//"terminal.dropBackground": "", // ???
+		"terminal.tab.activeBorder": "#CECECE", // ???
+		//
+		// GIT COLOURS [x]
+		"gitDecoration.untrackedResourceForeground": "#FF1277",
+		"gitDecoration.addedResourceForeground": "#2DAE58", // Files added to vcs that are not currently tracked.
+		"gitDecoration.modifiedResourceForeground": "#09A1ED", // Files already in vcs that are modified.
+		"gitDecoration.renamedResourceForeground": "#13BBB7",
+		"gitDecoration.deletedResourceForeground": "#c75af3",
+		"gitDecoration.stageModifiedResourceForeground": "#2DAE58",
+		"gitDecoration.stageDeletedResourceForeground": "#ADB1C2",
+		"gitDecoration.ignoredResourceForeground": "#ADB1C2",
+		"gitDecoration.conflictingResourceForeground": "#FF1277",
+		"gitDecoration.submoduleResourceForeground": "#ADB1C2"
 	},
 	"semanticHighlighting": true,
 	"semanticTokenColors": {
