@@ -33,7 +33,7 @@
 		"union": "#13BBB7",
 		"typeAlias": "#13BBB7",
 		"selfKeyword": "#F767BB",
-		"property": "#9c638c", // Object members.
+		"property": "#a8759a", // Object members.
 		// GENERICS
 		"typeParameter": "#13BBB7", // Generic type annotation, e.g. `T`
 		"interface": "#c75af3", // Rust: `MyTrait`
@@ -52,10 +52,14 @@
 		"escapeSequence": "#FF5C57", // `\n`
 		// OTHER
 		"unresolvedReference": {
-			"foreground": "#FF5C56"
+			"foreground": "#FF1277"
 		},
+		"variable.mutable": "#565869",
 		// RUST
-		"*.mutable": {
+		"method.mutable": {
+			"fontStyle": "underline"
+		},
+		"function.mutable": {
 			"fontStyle": "underline"
 		},
 		// Unset the underline effect, since something like `+=` would otherwise be underlined.
@@ -67,13 +71,16 @@
 			"fontStyle": ""
 		},
 		// param: &mut T
-		"parameter.mutable": {
-			"fontStyle": "italic underline"
-		},
+		//"parameter.mutable": {
+		//	"fontStyle": "italic underline"
+		//},
 		"*.unsafe": {
 			"fontStyle": "bold"
 		},
 		"*.mutable.unsafe": {
+			"fontStyle": "bold underline"
+		},
+		"keyword.unsafe": {
 			"fontStyle": "bold underline"
 		},
 		"attribute": "#FF5C57", // The #[]!() symbols in an attribute.
@@ -81,7 +88,7 @@
 			"foreground": "#FF5C57"
 		},
 		"macro.attribute": "#FF5C57", // `#[derive()]`
-		"macro.attribute.library": "#c75af3", // `Debug`, `Clone` derives, etc.
+		//"macro.attribute.library": "#c75af3", // `Debug`, `Clone` derives, etc.
 		"builtinAttribute": "#FF5C57" // `#[inline]`, `#[cfg]`, etc.
 	},
 	"tokenColors": [
@@ -381,7 +388,7 @@
 				"invalid.illegal"
 			],
 			"settings": {
-				"foreground": "#FF5C56"
+				"foreground": "#FF1277"
 			}
 		},
 		//
