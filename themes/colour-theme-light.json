@@ -655,9 +655,7 @@
 		"method": "#09A1ED", // Object method.
 		"macro": "#09A1ED",
 		"variable": "#565869",
-		"parameter": {
-			"fontStyle": "italic"
-		},
+		"parameter": "#6e82a6",
 		"number": "#FF5C57",
 		"boolean": "#2DAE58",
 		"*.constant": "#2DAE58",
@@ -695,13 +693,67 @@
 		"unresolvedReference": {
 			"foreground": "#FF1277"
 		},
-		"variable.mutable": "#565869",
 		// RUST
+		//
+		// REFERENCE
+		"variable.reference": {
+			"fontStyle": "italic"
+		},
+		"method.reference": {
+			"fontStyle": "italic"
+		},
+		"function.reference": {
+			"fontStyle": "italic"
+		},
+		"parameter.reference": {
+			"fontStyle": "italic"
+		},
+		"selfKeyword.reference": {
+			"fontStyle": "italic"
+		},
+		//
+		// MUTABLE
+		"variable.mutable": {
+			"foreground": "#6c6e83",
+			"fontStyle": "bold"
+		},
 		"method.mutable": {
-			"fontStyle": "underline"
+			"foreground": "#1daef6",
+			"fontStyle": "bold"
 		},
 		"function.mutable": {
-			"fontStyle": "underline"
+			"foreground": "#1daef6",
+			"fontStyle": "bold"
+		},
+		"parameter.mutable": {
+			"foreground": "#7b8dae",
+			"fontStyle": "bold"
+		},
+		"selfKeyword.mutable": {
+			"foreground": "#f871c0",
+			"fontStyle": "bold"
+		},
+		//
+		// MUTABLE REFERENCE
+		"variable.mutable.reference": {
+			"foreground": "#6c6e83",
+			"fontStyle": "italic bold"
+		},
+		"method.mutable.reference": {
+			"foreground": "#1daef6",
+			"fontStyle": "italic bold"
+		},
+		"function.mutable.reference": {
+			"foreground": "#1daef6",
+			"fontStyle": "italic bold"
+		},
+		"parameter.mutable.reference": {
+			"foreground": "#7b8dae",
+			"fontStyle": "italic bold"
+		},
+		"selfKeyword.mutable.reference": {
+			"foreground": "#f871c0",
+			"fontStyle": "italic bold"
 		},
 		// Unset the underline effect, since something like `+=` would otherwise be underlined.
 		"arithmetic.mutable": {
@@ -711,26 +763,38 @@
 		"bitwise.mutable": {
 			"fontStyle": ""
 		},
-		// param: &mut T
-		//"parameter.mutable": {
-		//	"fontStyle": "italic underline"
-		//},
-		"*.unsafe": {
-			"fontStyle": "bold"
-		},
-		"*.mutable.unsafe": {
-			"fontStyle": "bold underline"
-		},
+		//
+		// UNSAFE
+		"*.unsafe": "#FF5C57",
 		"keyword.unsafe": {
 			"fontStyle": "bold underline"
 		},
-		"attribute": "#FF5C57", // The #[]!() symbols in an attribute.
-		"parenthesis.attribute": {
-			"foreground": "#FF5C57"
+		"function.unsafe": {
+			"fontStyle": "underline"
 		},
+		"function.mutable.unsafe": {
+			"fontStyle": "bold underline"
+		},
+		"function.mutable.reference.unsafe": {
+			"fontStyle": "bold underline italic"
+		},
+		"method.unsafe": {
+			"fontStyle": "underline"
+		},
+		"method.mutable.unsafe": {
+			"fontStyle": "bold underline"
+		},
+		"method.mutable.reference.unsafe": {
+			"fontStyle": "bold underline italic"
+		},
+		//
+		// ATTRIBUTES
+		"attribute": "#FF5C57", // The #[]!() symbols in an attribute.
+		"parenthesis.attribute": "#FF5C57",
 		"macro.attribute": "#FF5C57", // `#[derive()]`
-		//"macro.attribute.library": "#c75af3", // `Debug`, `Clone` derives, etc.
-		"builtinAttribute": "#FF5C57" // `#[inline]`, `#[cfg]`, etc.
+		"builtinAttribute": "#FF5C57", // `#[inline]`, `#[cfg]`, etc.
+		"generic.attribute": "#FF5C57" // Inside the attribute, e.g. `clippy::something` or `debug_assertions`.
+		//"macro.attribute.library": "#c75af3", // `Debug`, `Clone` derives specifically.
 	},
 	"tokenColors": [
 		// BASICS
@@ -826,7 +890,7 @@
 			"name": "Mutable variables",
 			"scope": [],
 			"settings": {
-				"fontStyle": "underline"
+				"fontStyle": "bold"
 			}
 		},
 		{
@@ -840,7 +904,7 @@
 				// "meta.function.definition.parameters",
 			],
 			"settings": {
-				"fontStyle": "italic"
+				"foreground": "#6e82a6"
 			}
 		},
 		{
@@ -973,7 +1037,7 @@
 				"storage.modifier.lifetime.rust"
 			],
 			"settings": {
-				"foreground": "#2DAE58"
+				"foreground": "#8cba10"
 			}
 		},
 		// OPERATORS
