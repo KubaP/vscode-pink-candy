@@ -134,7 +134,7 @@
 		"errorLens.infoForegroundLight": "#00b7e4",
 		"errorLens.infoBackgroundLight": "#00b7e420",
 		"errorLens.hintForegroundLight": "#2faf64",
-		"errorLens.hintBackgroundLight": "#17a2a220",
+		"errorLens.hintBackgroundLight": "#2faf6420",
 		"errorLens.warningForegroundLight": "#ff942f",
 		"errorLens.warningBackgroundLight": "#ff942f20",
 		"errorLens.errorForegroundLight": "#FF1277",
@@ -158,17 +158,17 @@
 		"editorOverviewRuler.wordHighlightForeground": "#FBCEE2", // Matching symbol at position.
 		"editorOverviewRuler.wordHighlightStrongForeground": "#FBCEE2", // ???
 		"editorOverviewRuler.bracketMatchForeground": "#7777775a",
-		"editorOverviewRuler.addedForeground": "#2DAE58",
-		"editorOverviewRuler.modifiedForeground": "#09A1ED",
+		"editorOverviewRuler.addedForeground": "#2faf64",
+		"editorOverviewRuler.modifiedForeground": "#00b7e4",
 		"editorOverviewRuler.deletedForeground": "#FF1277",
-		"editorOverviewRuler.errorForeground": "#FF1277",
+		"editorOverviewRuler.infoForeground": "#00b7e4",
 		"editorOverviewRuler.warningForeground": "#ff942f",
-		"editorOverviewRuler.infoForeground": "#09A1ED",
+		"editorOverviewRuler.errorForeground": "#FF1277",
 		//
 		// GUTTER [x]
 		"editorGutter.background": "#FAFBFC",
-		"editorGutter.addedBackground": "#2DAE58", // Added strip.
-		"editorGutter.modifiedBackground": "#09A1ED", // Modified strip.
+		"editorGutter.addedBackground": "#2faf64", // Added strip.
+		"editorGutter.modifiedBackground": "#00b7e4", // Modified strip.
 		"editorGutter.deletedBackground": "#FF1277", // Removed mark.
 		"editorGutter.commentRangeForeground": "#ADB1C2", // ???
 		//"editorGutter.foldingControlForeground": "", // Arrow for folding code ranges.
@@ -184,9 +184,9 @@
 		"minimapSlider.background": "#00000010", // Slider
 		"minimapSlider.hoverBackground": "#0000001f", // Slider hover
 		"minimapSlider.activeBackground": "#0000002f", // Slider held-down
-		//"minimapGutter.addedBackground": "",
-		//"minimapGutter.modifiedBackground": "",
-		//"minimapGutter.deletedBackground": "",
+		"minimapGutter.addedBackground": "#2faf64",
+		"minimapGutter.modifiedBackground": "#00b7e4",
+		"minimapGutter.deletedBackground": "#FF1277",
 		//
 		// BREADCRUMBS [x]
 		"breadcrumb.foreground": "#999",
@@ -198,7 +198,7 @@
 		// Pop-up widgets, e.g. find & replace dialogue.
 		"editorWidget.foreground": "#565869", // All text.
 		"editorWidget.background": "#F3F3F3",
-		"editorWidget.border": "#F3F3F3", // Horizontal line on the left of the widget.
+		"editorWidget.border": "#CECECE", // Horizontal line on the left of the widget.
 		"editorWidget.resizeBorder": "#CECECE",
 		// Intellisense widget
 		"editorSuggestWidget.foreground": "#565869", // All text.
@@ -213,17 +213,17 @@
 		"editorHoverWidget.foreground": "#565869",
 		"editorHoverWidget.background": "#F3F3F3",
 		"editorHoverWidget.border": "#CECECE",
-		"editorHoverWidget.highlightForeground": "#09A1ED", // ???
+		"editorHoverWidget.highlightForeground": "#00b7e4", // ???
 		"editorHoverWidget.statusBarBackground": "#E5E5E5", // The bottom bar, e.g. `View problem, no fixes available`
 		// Debug Exception widget
 		"debugExceptionWidget.background": "#F7F9CB",
 		"debugExceptionWidget.border": "#CECECE",
 		// Peek view errors/warnings
 		"editorMarkerNavigation.background": "#FAFBFC",
-		"editorMarkerNavigationInfo.background": "#09A1ED",
-		"editorMarkerNavigationInfo.headerBackground": "#E2F1FA",
+		"editorMarkerNavigationInfo.background": "#00b7e4",
+		"editorMarkerNavigationInfo.headerBackground": "#DAF3F9",
 		"editorMarkerNavigationWarning.background": "#ff942f",
-		"editorMarkerNavigationWarning.headerBackground": "#FBF0E7",
+		"editorMarkerNavigationWarning.headerBackground": "#FBEEE1",
 		"editorMarkerNavigationError.background": "#FF1277",
 		"editorMarkerNavigationError.headerBackground": "#FBE3EE",
 		// Peek view normal
@@ -234,16 +234,16 @@
 		"peekViewResult.background": "#F3F3F3",
 		"peekViewResult.fileForeground": "#000", // File header text.
 		"peekViewResult.lineForeground": "#565869", // Symbol text.
-		"peekViewResult.selectionForeground": "#CECECE", // Clicked entry.
+		"peekViewResult.selectionForeground": "#000", // Clicked entry.
 		"peekViewResult.selectionBackground": "#FF1277", // Clicked entry.
 		"peekViewResult.matchHighlightBackground": "#F7F9CB", // Matching text in symbol.
-		"peekView.border": "#09A1ED",
-		"peekViewTitle.background": "#E2F1FA",
+		"peekView.border": "#00b7e4",
+		"peekViewTitle.background": "#DAF3F9",
 		"peekViewTitleLabel.foreground": "#000",
 		"peekViewTitleDescription.foreground": "#565869",
 		//
 		// DIFF VIEWER [x]
-		"diffEditor.insertedTextBackground": "#2DAE582a",
+		"diffEditor.insertedTextBackground": "#2faf642a",
 		//"diffEditor.insertedTextBorder": "",
 		"diffEditor.removedTextBackground": "#FF127720",
 		//"diffEditor.removedTextBorder": "",
@@ -251,15 +251,15 @@
 		"diffEditor.diagonalFill": "#ADB1C2aa", // Diagonal hatchings for differences.
 		//
 		// MERGE CONFLICT VIEWER [x]
-		"merge.currentHeaderBackground": "#2DAE586a",
+		"merge.currentHeaderBackground": "#2faf646a",
 		"merge.currentContentBackground": "#09A1ED2a",
 		"merge.incomingHeaderBackground": "#09A1ED6a",
 		"merge.incomingContentBackground": "#09A1ED2a",
 		"merge.border": "#CECECE",
 		//"merge.commonContentBackground": "",
 		//"merge.commonHeaderBackground": "",
-		"editorOverviewRuler.currentContentForeground": "#2DAE58",
-		"editorOverviewRuler.incomingContentForeground": "#09A1ED",
+		"editorOverviewRuler.currentContentForeground": "#2faf64",
+		"editorOverviewRuler.incomingContentForeground": "#00b7e4",
 		//"editorOverviewRuler.commonContentForeground": "",
 		//
 		//
@@ -267,7 +267,8 @@
 		// GENERAL TEXT
 		"textLink.foreground": "#FF1277", // Link colour.
 		"textLink.activeForeground": "#DA005F", // Link hover/active colour.
-		"descriptionForeground": "#717171",
+		"descriptionForeground": "#999",
+		"textPreformat.foreground": "#09A1ED", // Code block text
 		//
 		// SELECTION
 		"focusBorder": "#FF1277", // Border colour of focused panes/panels.
@@ -306,14 +307,14 @@
 		"list.highlightForeground": "#565869", // E.g. matching text in the command palette.
 		"list.focusHighlightForeground": "#fff", // E.g. matching text in the currently selected entry in the command palette.
 		// Un-focused list
-		"list.inactiveSelectionBackground": "#FBCEE2", // Colour of a selected item when the list is not actively selected.
+		"list.inactiveSelectionBackground": "#FF12771a", // Colour of a selected item when the list is not actively selected.
 		//"list.inactiveSelectionForeground": "",
 		//"list.inactiveSelectionIconForeground": "",
 		//"list.inactiveFocusOutline": "", //
 		"list.inactiveFocusBackground": "#FBCEE2", // ???
 		// Other
 		"list.dropBackground": "#FF12771a",
-		"list.hoverBackground": "#00000010", // Background on individual entry on hover.
+		"list.hoverBackground": "#0000001a", // Background on individual entry on hover.
 		"list.errorForeground": "#FF1277", // Text colour when there's an error.
 		"list.warningForeground": "#ff942f", // Text colour when there's a warning.
 		"list.deemphasizedForeground": "#ADB1C2",
@@ -323,27 +324,27 @@
 		"listFilterWidget.outline": "#CECECE",
 		"listFilterWidget.noMatchesOutline": "#FF1277",
 		"list.filterMatchBackground": "#F7F9CB", // Background of list entries which match the filter.
-		"list.filterMatchBorder": "#2DAE58",
-		"tree.indentGuidesStroke": "#999",
+		"list.filterMatchBorder": "#2faf64",
+		"tree.indentGuidesStroke": "#D0D1D2",
 		"tree.tableColumnsBorder": "#CECECE",
 		//
 		// INPUT FIELDS [x]
 		"input.border": "#CECECE",
 		"input.foreground": "#565869",
 		"input.background": "#fff",
-		"input.placeholderForeground": "#999",
+		"input.placeholderForeground": "#CECECE",
 		"inputOption.activeBackground": "#FBE3EE",
 		//"inputOption.activeForeground": "#",
 		//"inputOption.activeBorder": "",
 		"inputValidation.infoForeground": "#00b7e4",
-		"inputValidation.infoBackground": "#00b7e420",
-		//"inputValidation.infoBorder": "",
+		"inputValidation.infoBackground": "#DAF3F9",
+		"inputValidation.infoBorder": "#00b7e4",
 		"inputValidation.warningForeground": "#ff942f",
-		"inputValidation.warningBackground": "#ff942f20",
-		//"inputValidation.warningBorder": "",
+		"inputValidation.warningBackground": "#FBEEE1",
+		"inputValidation.warningBorder": "#ff942f",
 		"inputValidation.errorForeground": "#FF1277",
-		"inputValidation.errorBackground": "#FF12771a",
-		//"inputValidation.errorBorder": "",
+		"inputValidation.errorBackground": "#FBE3EE",
+		"inputValidation.errorBorder": "#FF1277",
 		//
 		// SCROLLBAR [x]
 		//"scrollbar.shadow": "",
@@ -444,22 +445,22 @@
 		//
 		// DEBUG TOOLBAR & PANEL [x]
 		"debugToolBar.background": "#F3F3F3",
-		"debugToolBar.border": "#CECECE",
+		"debugToolBar.border": "#F3F3F3",
 		"debugIcon.breakpointForeground": "#FF1277", // The dot in the gutter.
 		"debugIcon.breakpointDisabledForeground": "#ADB1C2", // Disable dot.
 		//"debugIcon.breakpointUnverifiedForeground": "", // ???
 		//"debugIcon.breakpointCurrentStackframeForeground": "", // ???
 		//"debugIcon.breakpointStackframeForeground": "" // ???
 		"debugIcon.startForeground": "#FF1277", // The `|>` symbol in the debug panel.
-		"debugIcon.pauseForeground": "#ffc104", // The `||` symbol in the debug controller pop-down.
+		"debugIcon.pauseForeground": "#ff942f", // The `||` symbol in the debug controller pop-down.
 		"debugIcon.stopForeground": "#FF1277",
 		"debugIcon.disconnectForeground": "#FF1277",
 		"debugIcon.restartForeground": "#FF1277",
-		"debugIcon.stepOverForeground": "#09A1ED",
-		"debugIcon.stepIntoForeground": "#09A1ED",
-		"debugIcon.stepOutForeground": "#09A1ED",
-		"debugIcon.stepBackForeground": "#09A1ED",
-		"debugIcon.continueForeground": "#2DAE58",
+		"debugIcon.stepOverForeground": "#00b7e4",
+		"debugIcon.stepIntoForeground": "#00b7e4",
+		"debugIcon.stepOutForeground": "#00b7e4",
+		"debugIcon.stepBackForeground": "#00b7e4",
+		"debugIcon.continueForeground": "#2faf64",
 		"debugConsole.infoForeground": "#09A1ED",
 		"debugConsole.warningForeground": "#CF9C00",
 		"debugConsole.errorForeground": "#ff2e87",
@@ -483,10 +484,10 @@
 		//"notificationToast.border": "", // Border of notification pop-ups.
 		"notifications.border": "#D0D1D2", // Border between notifications in notification centre.
 		"notificationCenterHeader.background": "#F3F3F3",
-		"notificationCenterHeader.foreground": "#616161",
+		"notificationCenterHeader.foreground": "#565869",
 		//"notificationCenter.border": "", // Border of notification centre pop-up.
-		"notificationsInfoIcon.foreground": "#09A1ED",
-		"notificationsWarningIcon.foreground": "#ffc104",
+		"notificationsInfoIcon.foreground": "#00b7e4",
+		"notificationsWarningIcon.foreground": "#ff942f",
 		"notificationsErrorIcon.foreground": "#FF1277",
 		"notificationLink.foreground": "#FF1277", // ???
 		//
@@ -497,7 +498,7 @@
 		"quickInputList.focusBackground": "#FF1277",
 		"quickInputList.focusForeground": "#fff",
 		"quickInputList.focusIconForeground": "#fff",
-		"pickerGroup.border": "#999", // Border between groups within the drop down.
+		"pickerGroup.border": "#D0D1D2", // Border between groups within the drop down.
 		"pickerGroup.foreground": "#FF1277", // The little text seen sometimes, e.g. `other commands`.
 		//
 		//
@@ -515,7 +516,7 @@
 		//"menu.selectionBorder": "",
 		"menu.separatorBackground": "#999",
 		"menubar.selectionForeground": "#565869",
-		"menubar.selectionBackground": "#E1E1E1", // Background of hover/active menu bar item.
+		"menubar.selectionBackground": "#0000001a", // Background of hover/active menu bar item.
 		//"menubar.selectionBorder": "",
 		//"window.activeBorder": "",
 		//"window.inactiveBorder": "",
@@ -567,7 +568,7 @@
 		"symbolIcon.folderForeground": "#565869",
 		"symbolIcon.functionForeground": "#09A1ED",
 		"symbolIcon.interfaceForeground": "#c75af3",
-		"symbolIcon.keyForeground": "#565869",
+		"symbolIcon.keyForeground": "#FF5C57",
 		"symbolIcon.keywordForeground": "#F767BB",
 		"symbolIcon.methodForeground": "#09A1ED",
 		"symbolIcon.moduleForeground": "#565869",
@@ -588,10 +589,10 @@
 		"symbolIcon.variableForeground": "#565869",
 		//
 		// TESTING COLOURS [x]
-		"testing.iconPassed": "#2DAE58",
+		"testing.iconPassed": "#2faf64",
 		"testing.iconFailed": "#FF1277",
 		"testing.iconErrored": "#FF1277",
-		"testing.iconQueued": "#09A1ED",
+		"testing.iconQueued": "#00b7e4",
 		"testing.iconUnset": "#ADB1C2",
 		"testing.iconSkipped": "#ADB1C2",
 		"testing.peekBorder": "#CECECE",
@@ -636,12 +637,12 @@
 		"terminal.tab.activeBorder": "#CECECE", // ???
 		//
 		// GIT COLOURS [x]
-		"gitDecoration.untrackedResourceForeground": "#FF1277",
-		"gitDecoration.addedResourceForeground": "#2DAE58", // Files added to vcs that are not currently tracked.
-		"gitDecoration.modifiedResourceForeground": "#09A1ED", // Files already in vcs that are modified.
+		"gitDecoration.untrackedResourceForeground": "#c75af3",
+		"gitDecoration.addedResourceForeground": "#2faf64", // Files added to vcs that are not currently tracked.
+		"gitDecoration.modifiedResourceForeground": "#00b7e4", // Files already in vcs that are modified.
 		"gitDecoration.renamedResourceForeground": "#13BBB7",
-		"gitDecoration.deletedResourceForeground": "#c75af3",
-		"gitDecoration.stageModifiedResourceForeground": "#2DAE58",
+		"gitDecoration.deletedResourceForeground": "#FF1277",
+		"gitDecoration.stageModifiedResourceForeground": "#2faf64",
 		"gitDecoration.stageDeletedResourceForeground": "#ADB1C2",
 		"gitDecoration.ignoredResourceForeground": "#ADB1C2",
 		"gitDecoration.conflictingResourceForeground": "#FF1277",
