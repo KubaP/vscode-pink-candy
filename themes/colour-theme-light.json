@@ -1,4 +1,76 @@
 {
+	// FOREGROUNDS
+	// Text: #565869
+	// Muted text: #ADB1C2
+	//  Comments, Gutter numbers/icons, Diff viewer hatching, De-emphasized list 
+	// Light text: #999
+	//  Breadcrumbs, Inactive window title/menu text
+	// Very light text: #CECECE
+	//  Input field placeholder, Editor whitespace & indents & ruler
+	// Code block: #09A1ED
+	// Link: #FF1277 (hover: #DA005F)
+	// Codelens: #747474
+	//
+	// Button: #FFF
+	// Checkbox: #FF1277
+
+	// BACKGROUNDS
+	// Pure white: #FFF
+	// 	Input fields, Dropdowns, Checkboxes
+	// Primary background: #FAFBFC
+	//	Editor, Activity bar, Panel, Menu dropdowns, Notifications
+	// Secondary background: #F3F3F3
+	//	Titlebar, Sidebar, Widgets, Debug toolbar, Panel headers, Notification header
+	//  Palette
+	// Heading background: #E5E5E5
+	//  Sidebar headers, Hover widget botton header
+	//
+	// Button: #FF1277 (hover: #DA005F)
+	// Secondary button: #09A1ED (hover: #0784C2)
+	// Tertiary: #ffc104
+	//  Light bulb, extension star
+	
+	// SELECTIONS
+	// Primary: #FF12771a (#FBE3EE on primary bckg) (#FBCEE2 in ruler/minimap)
+	//  Editor selection, Pane drag-and-drop
+	// Button: #0000001a (#DADADA on #F3F3F3) (selected: #0000002a)
+	//  Titlebar menu hover, list hover, Small button hover
+	// Input: #FBE3EE
+	//  Input fields, Widget selected options
+	// Search match: #eff3283a  (#F7F9CB on primary bckg) (#f0e657 in ruler/minimap)
+	// Search match border: #2faf648a (#2faf64 on primary bckg)
+	// Bracket match: #7777775a (#CDCDCE on primary bckg)
+
+	// OTHER
+	// Border: #CECECE
+	//	Input fields, Dropdowns, Checkboxes, Editor dividers, Panel dividers,
+	//  Widgets
+	// 	Exception: Debug toolbar (because it's too thick)
+	// Focused border: #FF1277
+	//	Focused input fields, draggable border
+	// List separator: #D0D1D2
+	//  Menu separator, Palette separator,
+
+	// ERRORS/WARNINGS/INFO
+	// Foreground: #00b7e4
+	// Info background: #00b7e420 (#DAF3F9 on primary bckg)
+	// Foreground: #2faf64
+	// Hint background: #2faf6420 (#E0F2E8 on bckg)
+	// Foreground: #ff942f
+	// Warning background: #ff942f20 (#FBEEE1 on primary bckg)
+	// Foreground: #FF1277
+	// Error background: #FF12771a (#FBE3EE on primary bckg)
+	//  Foreground used for Error lens text, underline squiggles, Gutter colours,
+	//  Problem/notification icons, Peek view headers, Input validation
+
+	// GIT
+	// Added/staged: #2faf64
+	// Modified: #00b7e4
+	// Renamed: #13BBB7
+	// Untracked: #c75af3
+	// Removed/conflicting: #FF1277
+	// Ignored/submodule/staged removed: #ADB1C2
+
 	"name": "colour-theme",
 	"type": "light",
 	"colors": {
