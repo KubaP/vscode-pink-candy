@@ -13,14 +13,13 @@
 	//
 	// Button: #FFF
 	// Checkbox: #FF1277
-
 	// BACKGROUNDS
 	// Pure white: #FFF
 	// 	Input fields, Dropdowns, Checkboxes
 	// Primary background: #FAFBFC
-	//	Editor, Activity bar, Panel, Menu dropdowns, Notifications
+	//	Editor, Activity bar, Panel, Menu dropdowns, Notifications, Active tab
 	// Secondary background: #F3F3F3
-	//	Titlebar, Sidebar, Widgets, Debug toolbar, Panel headers, Notification header
+	//	Titlebar, Sidebar, Widgets, Debug toolbar, Panel headers, Notification header, Inactive tabs
 	//  Palette
 	// Heading background: #E5E5E5
 	//  Sidebar headers, Hover widget botton header
@@ -29,7 +28,6 @@
 	// Secondary button: #09A1ED (hover: #0784C2)
 	// Tertiary: #ffc104
 	//  Light bulb, extension star
-	
 	// SELECTIONS
 	// Primary: #FF12771a (#FBE3EE on primary bckg) (#FBCEE2 in ruler/minimap)
 	//  Editor selection, Pane drag-and-drop
@@ -40,7 +38,6 @@
 	// Search match: #eff3283a  (#F7F9CB on primary bckg) (#f0e657 in ruler/minimap)
 	// Search match border: #2faf648a (#2faf64 on primary bckg)
 	// Bracket match: #7777775a (#CDCDCE on primary bckg)
-
 	// OTHER
 	// Border: #CECECE
 	//	Input fields, Dropdowns, Checkboxes, Editor dividers, Panel dividers,
@@ -50,7 +47,6 @@
 	//	Focused input fields, draggable border
 	// List separator: #D0D1D2
 	//  Menu separator, Palette separator,
-
 	// ERRORS/WARNINGS/INFO
 	// Foreground: #00b7e4
 	// Info background: #00b7e420 (#DAF3F9 on primary bckg)
@@ -62,7 +58,6 @@
 	// Error background: #FF12771a (#FBE3EE on primary bckg)
 	//  Foreground used for Error lens text, underline squiggles, Gutter colours,
 	//  Problem/notification icons, Peek view headers, Input validation
-
 	// GIT
 	// Added/staged: #2faf64
 	// Modified: #00b7e4
@@ -70,7 +65,6 @@
 	// Untracked: #c75af3
 	// Removed/conflicting: #FF1277
 	// Ignored/submodule/staged removed: #ADB1C2
-
 	"name": "colour-theme",
 	"type": "light",
 	"colors": {
@@ -445,9 +439,15 @@
 		// Individual tabs
 		"tab.activeForeground": "#565869",
 		"tab.activeBackground": "#FAFBFC",
+		"tab.unfocusedActiveBackground": "#FAFBFC",
 		"tab.activeBorderTop": "#FF1277",
+		"tab.inactiveBackground": "#F3F3F3",
+		"tab.unfocusedInactiveBackground": "#F3F3F3",
 		"tab.hoverBackground": "#FAFBFC",
+		"tab.unfocusedHoverBackground": "#FAFBFC",
 		"editorPane.background": "#FAFBFC", // Background to the left/right side when the editor pane is centred.
+		"sideBySideEditor.horizontalBorder": "#CECECE",
+		"sideBySideEditor.verticalBorder": "#CECECE",
 		//
 		// ACTIVITY BAR [x], icons on the left/right
 		"activityBar.background": "#FAFBFC", // Background of the entire bar.
