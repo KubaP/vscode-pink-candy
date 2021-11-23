@@ -1,4 +1,82 @@
 {
+    // FOREGROUNDS
+    // Text: #abb2bf
+    // Muted text: #636d83
+    //  Comments, Gutter numbers/icons, Diff viewer hatching, De-emphasized list 
+    // Light text: #7c869b
+    //  Breadcrumbs, Inactive window title/menu text
+    // Very light text: #4d5665
+    //  Input field placeholder, Editor whitespace & indents & ruler
+    // Code block: #09A1ED
+    // Link: #FF1277 (hover: #DA005F)
+    // Codelens: #9c9c9c
+    //
+    // Button: #FFF
+    // Checkbox: #FF1277
+    //
+    //
+    // BACKGROUNDS
+    // Pure black: #22252A
+    // 	Input fields, Dropdowns, Checkboxes
+    // Primary background: #282c34
+    //	Editor, Activity bar, Panel, Menu dropdowns, Notifications, Active tab
+    // Secondary background: #22252A
+    //	Titlebar, Sidebar, Widgets, Debug toolbar, Panel headers, Notification header, Inactive tabs
+    //  Palette
+    // Heading background: #1d2024
+    //  Sidebar headers, Hover widget botton header
+    //
+    // Button: #FF1277 (hover: #DA005F)
+    // Secondary button: #09A1ED (hover: #0784C2)
+    // Tertiary: #ffc104
+    //  Light bulb, extension star
+    //
+    //
+    // SELECTIONS
+    // Primary: #ff4c981a (#3E303E on primary bckg) (#81577a in ruler/minimap)
+    //  Editor selection, Pane drag-and-drop
+    // Button: #0000001a (#DADADA on #F3F3F3) (selected: #0000002a)
+    //  Titlebar menu hover, list hover, Small button hover
+    // Input: #FBE3EE
+    //  Input fields, Widget selected options
+    // Search match: #ccd00c3a  (#4E522B on primary bckg) (#9ca320 in ruler/minimap)
+    // Search match border: #31a1558a (#31a155 on primary bckg)
+    // Bracket match: #5a63755a (#39404B on primary bckg)
+    //
+    //
+    // OTHER
+    // Border: #3d434f
+    //	Input fields, Dropdowns, Checkboxes, Editor dividers, Panel dividers,
+    //  Widgets
+    // 	Exception: Debug toolbar (because it's too thick)
+    // Focused border: #FF1277
+    //	Focused input fields, draggable border
+    // List separator: #3d434f
+    //  Menu separator, Palette separator,
+    //
+    //
+    // ERRORS/WARNINGS/INFO
+    // Foreground: #018acc
+    // Info background: #018acc20 (#233847 on primary bckg)
+    // Foreground: #31a155
+    // Hint background: #31a15520 (#293B38 on bckg)
+    // Foreground: #e17615
+    // Warning background: #e1761520 (#403530 on primary bckg)
+    // Foreground: #FF1277
+    // Error background: #FF12771a (#3E2A3B on primary bckg)
+    //  Foreground used for Error lens text, underline squiggles, Gutter colours,
+    //  Problem/notification icons, Peek view headers, Input validation
+    //
+    //
+    // GIT
+    // Added/staged: #31a155
+    // Modified: #018acc
+    // Renamed: #13BBB7
+    // Untracked: #c75af3
+    // Removed/conflicting: #FF1277
+    // Ignored/submodule/staged removed: #636d83
+    //
+    //
     "name": "colour-theme-dark",
     "type": "dark",
     "colors": {
@@ -261,6 +339,302 @@
         "editorOverviewRuler.currentContentForeground": "#31a155",
         "editorOverviewRuler.incomingContentForeground": "#018acc",
         //"editorOverviewRuler.commonContentForeground": "",
+        //
+        //
+        //
+        // GENERAL TEXT
+        "textLink.foreground": "#FF1277", // Link colour.
+        "textLink.activeForeground": "#DA005F", // Link hover/active colour.
+        "descriptionForeground": "#7c869b",
+        "textPreformat.foreground": "#e17615",
+        //
+        // SELECTION
+        "focusBorder": "#FF1277", // Border colour of focused panes/panels.
+        "selection.background": "#3E303E",
+        //
+        // BUTTONS [x]
+        "button.foreground": "#fff",
+        "button.background": "#FF1277",
+        "button.hoverBackground": "#DA005F",
+        "button.secondaryForeground": "#fff", // Secondary button, e.g. `Cancel` on a delete file dialogue.
+        "button.secondaryBackground": "#09A1ED",
+        "button.secondaryHoverBackground": "#0784C2",
+        //"button.border": "",
+        "checkbox.foreground": "#FF1277", // Colour of the tick itself.
+        "checkbox.background": "#22252A",
+        "checkbox.border": "#3d434f",
+        // All sorts of buttons everywhere, e.g. the little `...`, or the `show diff`, or the `vcs commit` buttons.
+        "toolbar.hoverBackground": "#0000001a",
+        "toolbar.activeBackground": "#0000002a",
+        "icon.foreground": "#abb2bf", // All sorts of icons/buttons everywhere.
+        //"toolbar.hoverOutline": "",
+        //
+        // DROPDOWNS [x]
+        "dropdown.background": "#22252A", // Background of dropdown that's not open.
+        "dropdown.listBackground": "#22252A", // Background of the list that opens.
+        "dropdown.foreground": "#abb2bf", // All text.
+        "dropdown.border": "#3d434f",
+        //
+        // LISTS [x]
+        "list.activeSelectionBackground": "#FF1277",
+        "list.activeSelectionForeground": "#fff",
+        "list.activeSelectionIconForeground": "#fff", // Doesn't work?
+        //"list.focusOutline": "", // Outline of focused entry in list.
+        "list.focusBackground": "#3E303E", // Background colour of a focused list entry when searching & matching.
+        "list.focusForeground": "#abb2bf", // Text colour of a focused list entry when searching & matching.
+        "list.highlightForeground": "#abb2bf", // E.g. matching text in the command palette.
+        "list.focusHighlightForeground": "#fff", // E.g. matching text in the currently selected entry in the command palette.
+        // Un-focused list
+        "list.inactiveSelectionBackground": "#ff4c981a", // Colour of a selected item when the list is not actively selected.
+        //"list.inactiveSelectionForeground": "",
+        //"list.inactiveSelectionIconForeground": "",
+        //"list.inactiveFocusOutline": "", //
+        "list.inactiveFocusBackground": "#3E303E", // ???
+        // Other
+        "list.dropBackground": "#ff4c981a",
+        "list.hoverBackground": "#0000001a", // Background on individual entry on hover.
+        "list.errorForeground": "#FF1277", // Text colour when there's an error.
+        "list.warningForeground": "#e17615", // Text colour when there's a warning.
+        "list.deemphasizedForeground": "#7c869b",
+        "list.invalidItemForeground": "#FF1277", // Some error in the list.
+        // Filter
+        "listFilterWidget.background": "#4E522B", // The little pop-up when you start typing (searching) in a tree view.
+        "listFilterWidget.outline": "#3d434f",
+        "listFilterWidget.noMatchesOutline": "#FF1277",
+        "list.filterMatchBackground": "#4E522B", // Background of list entries which match the filter.
+        "list.filterMatchBorder": "#31a155",
+        "tree.indentGuidesStroke": "#3d434f",
+        "tree.tableColumnsBorder": "#3d434f",
+        //
+        // INPUT FIELDS [x]
+        "input.border": "#3d434f",
+        "input.foreground": "#abb2bf",
+        "input.background": "#22252A",
+        "input.placeholderForeground": "#4d5665",
+        "inputOption.activeBackground": "#3E303E", // TODO
+        //"inputOption.activeForeground": "#",
+        //"inputOption.activeBorder": "",
+        "inputValidation.infoForeground": "#018acc",
+        "inputValidation.infoBackground": "#233847",
+        "inputValidation.infoBorder": "#018acc",
+        "inputValidation.warningForeground": "#e17615",
+        "inputValidation.warningBackground": "#403530",
+        "inputValidation.warningBorder": "#e17615",
+        "inputValidation.errorForeground": "#FF1277",
+        "inputValidation.errorBackground": "#3E2A3B",
+        "inputValidation.errorBorder": "#FF1277",
+        //
+        // SCROLLBAR [x]
+        //"scrollbar.shadow": "",
+        "scrollbarSlider.background": "#ffffff10", // Handle when mouse is in the pane.
+        "scrollbarSlider.hoverBackground": "#ffffff1f", // Mouse-over.
+        "scrollbarSlider.activeBackground": "#ffffff2f", // Held-down.
+        //
+        // PROGRESS BAR [x], e.g. vsc panel refresh/pull/push animation
+        "progressBar.background": "#FF1277",
+        //
+        // SMALL BADGES [x], e.g. # of changes in vcs panel, or # of problems
+        "badge.background": "#FF1277",
+        "badge.foreground": "#fff",
+        //
+        //
+        //
+        // TABS [ ]
+        "editorGroup.border": "#3d434f", // Border between editor panes.
+        "editorGroup.dropBackground": "#ff4c981a", // Background for re-organising tab panes.
+        "editorGroupHeader.tabsBackground": "#22252A", // Background of tab row.
+        "editorGroupHeader.noTabsBackground": "#22252A", // Background of no-tab row.
+        //"editorGroup.tabsBorder": "", // ???
+        //"editorGroupHeader.border": "", // Border underneath the tabs & breadcrumbs, if enabled.
+        "editorGroup.emptyBackground": "#282c34",
+        //"editorGroup.focusedEmptyBorder": "",
+        // Individual tabs
+        "tab.activeForeground": "#abb2bf",
+        "tab.activeBackground": "#282c34",
+        "tab.unfocusedActiveBackground": "#282c34",
+        "tab.activeBorderTop": "#FF1277",
+        "tab.inactiveBackground": "#22252A",
+        "tab.unfocusedInactiveBackground": "#22252A",
+        "tab.hoverBackground": "#22252A",
+        "tab.unfocusedHoverBackground": "#22252A",
+        "editorPane.background": "#22252A", // Background to the left/right side when the editor pane is centred.
+        "sideBySideEditor.verticalBorder": "#3d434f",
+        "sideBySideEditor.horizontalBorder": "#3d434f",
+        //
+        // ACTIVITY BAR [x], icons on the left/right
+        "activityBar.background": "#282c34", // Background of the entire bar.
+        "activityBar.dropBorder": "#FF1277", // Colour for when re-arranging icons.
+        //"activityBar.border": "", // Border between bar and sidebar.
+        "activityBar.foreground": "#FF1277", // Icon selected/hover colour.
+        "activityBar.inactiveForeground": "#636d83", // Icon not-selected colour.
+        //"activityBar.activeBackground": "", // Background of active icon.
+        "activityBarBadge.foreground": "#fff",
+        "activityBarBadge.background": "#FF1277",
+        "activityBar.activeBorder": "#FF1277", // Line next to active icon.
+        //"activityBar.activeFocusBorder": "", // ???
+        //
+        // SIDEBAR [x]
+        "sideBar.background": "#22252A",
+        "sideBar.foreground": "#abb2bf", // All text
+        "sideBarTitle.foreground": "#abb2bf", // Title, e.g. `Explorer` or `Run and Debug`.
+        "sideBarSectionHeader.foreground": "#abb2bf", // Header, e.g. `Outline` or `Task Explorer`.
+        "sideBarSectionHeader.background": "#1d2024", // Header background
+        //"sideBarSectionHeader.border": "", // Border between sections in a single pane.
+        "sideBar.border": "#3d434f", // Border with the main editor pane.
+        "sideBar.dropBackground": "#ff4c981a", // Background for re-organising panes in the sidebar.
+        //
+        // EXTENSION SIDEBAR [x]
+        "extensionIcon.verifiedForeground": "#09A1ED",
+        "extensionIcon.starForeground": "#ffc104", // Colour of the star icon.
+        "extensionBadge.remoteForeground": "#fff",
+        "extensionBadge.remoteBackground": "#09A1ED",
+        "extensionButton.prominentForeground": "#fff", // `Install` button
+        "extensionButton.prominentBackground": "#FF1277",
+        "extensionButton.prominentHoverBackground": "#DA005F",
+        //
+        // VCS SIDEBAR [x]
+        "scm.providerBorder": "#3d434f",
+        //
+        // SETTINGS PAGE [x]
+        "settings.headerForeground": "#abb2bf", // Titles and headings
+        "settings.modifiedItemIndicator": "#FF1277", // Strip at the side of any modified settings.
+        "settings.rowHoverBackground": "#00000000", // Background colour of the currently active setting.
+        "settings.focusedRowBackground": "#00000000",
+        "settings.focusedRowBorder": "#3d434f",
+        //
+        // WELCOME PAGE [x]
+        "welcomePage.background": "#282c34",
+        //"welcomePage.progress.foreground": "",
+        //"welcomePage.progress.background": "",
+        //"welcomePage.tileBackground": "",
+        //"welcomePage.tileHoverBackground": "",
+        //"welcomePage.tileShadow": "",
+        "walkThrough.embeddedEditorBackground": "#282c34",
+        //
+        // TODO: NOTEBOOK PAGE 
+        //
+        // PANEL [x]
+        "panel.background": "#282c34",
+        "panel.border": "#3d434f", // Border between panel and main editor pane.
+        "panelSection.border": "#3d434f",
+        //"panelInput.border": "", // ???
+        //"panel.dropBorder": "", // ???
+        "panelTitle.activeForeground": "#FF1277", // Panel tabs, e.g. `Problems` or `Terminal`.
+        "panelTitle.activeBorder": "#FF1277", // Active tab underline.
+        "panelTitle.inactiveForeground": "#abb2bf",
+        "panelSectionHeader.background": "#22252A", // E.g. `Debug Console` and `Output` panels in tab.
+        "panelSectionHeader.foreground": "#abb2bf",
+        "panelSectionHeader.border": "#3d434f",
+        "panelSection.dropBackground": "#ff4c981a", // Background for re-organising panels in a tab.
+        //
+        // DEBUG TOOLBAR & PANEL [x]
+        "debugToolBar.background": "#22252A",
+        "debugToolBar.border": "#CECECE",
+        "debugIcon.breakpointForeground": "#FF1277", // The dot in the gutter.
+        "debugIcon.breakpointDisabledForeground": "#636d83", // Disable dot.
+        //"debugIcon.breakpointUnverifiedForeground": "", // ???
+        //"debugIcon.breakpointCurrentStackframeForeground": "", // ???
+        //"debugIcon.breakpointStackframeForeground": "" // ???
+        "debugIcon.startForeground": "#FF1277", // The `|>` symbol in the debug panel.
+        "debugIcon.pauseForeground": "#e17615", // The `||` symbol in the debug controller pop-down.
+        "debugIcon.stopForeground": "#FF1277",
+        "debugIcon.disconnectForeground": "#FF1277",
+        "debugIcon.restartForeground": "#FF1277",
+        "debugIcon.stepOverForeground": "#018acc",
+        "debugIcon.stepIntoForeground": "#018acc",
+        "debugIcon.stepOutForeground": "#018acc",
+        "debugIcon.stepBackForeground": "#018acc",
+        "debugIcon.continueForeground": "#2faf64",
+        "debugConsole.infoForeground": "#10b1fe",
+        "debugConsole.warningForeground": "#f9c859",
+        "debugConsole.errorForeground": "#ff2884",
+        "debugConsole.sourceForeground": "#3fc56b",
+        "debugConsoleInputIcon.foreground": "#c75af3",
+        //"debugView.exceptionLabelForeground": "",
+        //"debugView.exceptionLabelBackground": "",
+        //"debugView.stateLabelForeground": "",
+        //"debugView.stateLabelForeground": "",
+        //"debugView.valueChangedHighlight": "",
+        "debugTokenExpression.name": "#abb2bf",
+        "debugTokenExpression.value": "#abb2bf",
+        "debugTokenExpression.string": "#f9c859",
+        "debugTokenExpression.boolean": "#3fc56b",
+        "debugTokenExpression.number": "#ff6b66",
+        "debugTokenExpression.error": "#ff2884",
+        //
+        // NOTIFICATIONS [x]
+        "notifications.foreground": "#abb2bf",
+        "notifications.background": "#282c34",
+        //"notificationToast.border": "", // Border of notification pop-ups.
+        "notifications.border": "#3d434f", // Border between notifications in notification centre.
+        "notificationCenterHeader.background": "#22252A",
+        "notificationCenterHeader.foreground": "#abb2bf",
+        //"notificationCenter.border": "", // Border of notification centre pop-up.
+        "notificationsInfoIcon.foreground": "#018acc",
+        "notificationsWarningIcon.foreground": "#e17615",
+        "notificationsErrorIcon.foreground": "#FF1277",
+        "notificationLink.foreground": "#FF1277", // ???
+        //
+        // DROP DOWN COMMAND BAR [x]
+        "quickInputTitle.background": "#282c34",
+        "quickInput.foreground": "#abb2bf", // All text.
+        "quickInput.background": "#282c34",
+        "quickInputList.focusBackground": "#FF1277",
+        "quickInputList.focusForeground": "#fff",
+        "quickInputList.focusIconForeground": "#fff",
+        "pickerGroup.border": "#3d434f", // Border between groups within the drop down.
+        "pickerGroup.foreground": "#FF1277", // The little text seen sometimes, e.g. `other commands`.
+        //
+        //
+        //
+        // WINDOW [x]
+        "titleBar.activeForeground": "#abb2bf",
+        "titleBar.activeBackground": "#22252A",
+        "titleBar.inactiveForeground": "#7c869b",
+        "titleBar.inactiveBackground": "#22252A",
+        //"titleBar.border": "",
+        "menu.foreground": "#abb2bf",
+        "menu.background": "#282c34", // Background of a fly-out.
+        "menu.selectionForeground": "#fff",
+        "menu.selectionBackground": "#FF1277",
+        //"menu.selectionBorder": "",
+        "menu.separatorBackground": "#7c869b",
+        "menubar.selectionForeground": "#abb2bf",
+        "menubar.selectionBackground": "#0000001a", // Background of hover/active menu bar item.
+        //"menubar.selectionBorder": "",
+        //"window.activeBorder": "",
+        //"window.inactiveBorder": "",
+        "sash.hoverBorder": "#FF1277", // Dragable border to resize panes.
+        //
+        // BANNER [x]
+        "banner.foreground": "#fff",
+        "banner.background": "#FF1277",
+        "banner.iconForeground": "#fff",
+        //
+        // STATUS BAR [x]
+        "statusBar.foreground": "#fff",
+        "statusBar.background": "#FF1277",
+        //"statusBar.border": "",
+        "statusBarItem.hoverBackground": "#0000002f",
+        "statusBarItem.activeBackground": "#0000004f",
+        "statusBarItem.prominentForeground": "#fff",
+        "statusBarItem.prominentBackground": "#FF1277",
+        "statusBarItem.prominentHoverBackground": "#0000002f",
+        "statusBarItem.errorBackground": "#fff",
+        "statusBarItem.errorForeground": "#FF1277",
+        "statusBarItem.warningForeground": "#fff",
+        "statusBarItem.warningBackground": "#FF1277",
+        // Remote icon
+        "statusBarItem.remoteForeground": "#fff",
+        "statusBarItem.remoteBackground": "#09A1ED",
+        // When no folder open.
+        "statusBar.noFolderForeground": "#565869",
+        "statusBar.noFolderBackground": "#E5E5E5",
+        //"statusBar.noFolderBorder": "",
+        // When debugging
+        //"statusBar.debuggingBackground": "",
+        //"statusBar.debuggingForeground": "",
+        //"statusBar.debuggingBorder": "",
     },
     "semanticHighlighting": true,
     "semanticTokenColors": {
