@@ -13,6 +13,8 @@
 	//
 	// Button: #FFF
 	// Checkbox: #FF1277
+	//
+	//
 	// BACKGROUNDS
 	// Pure white: #FFF
 	// 	Input fields, Dropdowns, Checkboxes
@@ -28,6 +30,8 @@
 	// Secondary button: #09A1ED (hover: #0784C2)
 	// Tertiary: #ffc104
 	//  Light bulb, extension star
+	//
+	//
 	// SELECTIONS
 	// Primary: #FF12771a (#FBE3EE on primary bckg) (#FBCEE2 in ruler/minimap)
 	//  Editor selection, Pane drag-and-drop
@@ -36,8 +40,10 @@
 	// Input: #FBE3EE
 	//  Input fields, Widget selected options
 	// Search match: #eff3283a  (#F7F9CB on primary bckg) (#f0e657 in ruler/minimap)
-	// Search match border: #2faf648a (#2faf64 on primary bckg)
+	// Search match border: #11c6788a (#11c678 on primary bckg)
 	// Bracket match: #7777775a (#CDCDCE on primary bckg)
+	//
+	//
 	// OTHER
 	// Border: #CECECE
 	//	Input fields, Dropdowns, Checkboxes, Editor dividers, Panel dividers,
@@ -47,24 +53,30 @@
 	//	Focused input fields, draggable border
 	// List separator: #D0D1D2
 	//  Menu separator, Palette separator,
+	//
+	//
 	// ERRORS/WARNINGS/INFO
 	// Foreground: #00b7e4
 	// Info background: #00b7e420 (#DAF3F9 on primary bckg)
-	// Foreground: #2faf64
-	// Hint background: #2faf6420 (#E0F2E8 on bckg)
+	// Foreground: #11c678
+	// Hint background: #11c67820 (#DCF5EB on bckg)
 	// Foreground: #ff942f
 	// Warning background: #ff942f20 (#FBEEE1 on primary bckg)
 	// Foreground: #FF1277
 	// Error background: #FF12771a (#FBE3EE on primary bckg)
 	//  Foreground used for Error lens text, underline squiggles, Gutter colours,
 	//  Problem/notification icons, Peek view headers, Input validation
+	//
+	//
 	// GIT
-	// Added/staged: #2faf64
+	// Added/staged: #11c678
 	// Modified: #00b7e4
 	// Renamed: #13BBB7
 	// Untracked: #c75af3
 	// Removed/conflicting: #FF1277
 	// Ignored/submodule/staged removed: #ADB1C2
+	//
+	//
 	"name": "colour-theme",
 	"type": "light",
 	"colors": {
@@ -99,7 +111,7 @@
 		//
 		// Search highlight boxes
 		"editor.findMatchBackground": "#00000000", // Currently selected found match.
-		"editor.findMatchBorder": "#2faf648a",
+		"editor.findMatchBorder": "#11c6788a",
 		"editor.findMatchHighlightBackground": "#eff3283a", // Other found matches.
 		//"editor.findMatchHighlightBorder": "",
 		"editor.findRangeHighlightBackground": "#FF127710", // Colour of the range of the current search.
@@ -107,7 +119,7 @@
 		//
 		// Within the "search editor"
 		"searchEditor.findMatchBackground": "#eff3283a",
-		"searchEditor.findMatchBorder": "#2faf648a",
+		"searchEditor.findMatchBorder": "#11c6788a",
 		//"searchEditor.textInputBorder": "",
 		//
 		// Highlight colour of line containing found matching text.
@@ -179,7 +191,7 @@
 		//"editor.snippetFinalTabstopHighlightBorder": "",
 		//
 		// ERRORS/WARNINGS/INFO [x]
-		"editorHint.foreground": "#2faf64", // Hint squiggle
+		"editorHint.foreground": "#11c678", // Hint squiggle
 		//"editorHint.border": "",
 		"editorInfo.foreground": "#00b7e4", // Info squiggle
 		//"editorInfo.border": "",
@@ -199,8 +211,8 @@
 		// ERROR LENS [x]
 		"errorLens.infoForegroundLight": "#00b7e4",
 		"errorLens.infoBackgroundLight": "#00b7e420",
-		"errorLens.hintForegroundLight": "#2faf64",
-		"errorLens.hintBackgroundLight": "#2faf6420",
+		"errorLens.hintForegroundLight": "#11c678",
+		"errorLens.hintBackgroundLight": "#11c67820",
 		"errorLens.warningForegroundLight": "#ff942f",
 		"errorLens.warningBackgroundLight": "#ff942f20",
 		"errorLens.errorForegroundLight": "#FF1277",
@@ -224,7 +236,7 @@
 		"editorOverviewRuler.wordHighlightForeground": "#FBCEE2", // Matching symbol at position.
 		"editorOverviewRuler.wordHighlightStrongForeground": "#FBCEE2", // ???
 		"editorOverviewRuler.bracketMatchForeground": "#7777775a",
-		"editorOverviewRuler.addedForeground": "#2faf64",
+		"editorOverviewRuler.addedForeground": "#11c678",
 		"editorOverviewRuler.modifiedForeground": "#00b7e4",
 		"editorOverviewRuler.deletedForeground": "#FF1277",
 		"editorOverviewRuler.infoForeground": "#00b7e4",
@@ -233,7 +245,7 @@
 		//
 		// GUTTER [x]
 		"editorGutter.background": "#FAFBFC",
-		"editorGutter.addedBackground": "#2faf64", // Added strip.
+		"editorGutter.addedBackground": "#11c678", // Added strip.
 		"editorGutter.modifiedBackground": "#00b7e4", // Modified strip.
 		"editorGutter.deletedBackground": "#FF1277", // Removed mark.
 		"editorGutter.commentRangeForeground": "#ADB1C2", // ???
@@ -250,7 +262,7 @@
 		"minimapSlider.background": "#00000010", // Slider
 		"minimapSlider.hoverBackground": "#0000001f", // Slider hover
 		"minimapSlider.activeBackground": "#0000002f", // Slider held-down
-		"minimapGutter.addedBackground": "#2faf64",
+		"minimapGutter.addedBackground": "#11c678",
 		"minimapGutter.modifiedBackground": "#00b7e4",
 		"minimapGutter.deletedBackground": "#FF1277",
 		//
@@ -295,7 +307,7 @@
 		// Peek view normal
 		"peekViewEditor.background": "#FAFBFC",
 		"peekViewEditor.matchHighlightBackground": "#F7F9CB", // Matching text in symbol.
-		"peekViewEditor.matchHighlightBorder": "#2faf648a", // Matching text border.
+		"peekViewEditor.matchHighlightBorder": "#11c6788a", // Matching text border.
 		"peekViewEditorGutter.background": "#FAFBFC",
 		"peekViewResult.background": "#F3F3F3",
 		"peekViewResult.fileForeground": "#000", // File header text.
@@ -309,7 +321,7 @@
 		"peekViewTitleDescription.foreground": "#565869",
 		//
 		// DIFF VIEWER [x]
-		"diffEditor.insertedTextBackground": "#2faf642a",
+		"diffEditor.insertedTextBackground": "#11c6782a",
 		//"diffEditor.insertedTextBorder": "",
 		"diffEditor.removedTextBackground": "#FF127720",
 		//"diffEditor.removedTextBorder": "",
@@ -317,14 +329,14 @@
 		"diffEditor.diagonalFill": "#ADB1C2aa", // Diagonal hatchings for differences.
 		//
 		// MERGE CONFLICT VIEWER [x]
-		"merge.currentHeaderBackground": "#2faf646a",
-		"merge.currentContentBackground": "#09A1ED2a",
+		"merge.currentHeaderBackground": "#11c6786a",
+		"merge.currentContentBackground": "#11c6782a",
 		"merge.incomingHeaderBackground": "#09A1ED6a",
 		"merge.incomingContentBackground": "#09A1ED2a",
 		"merge.border": "#CECECE",
 		//"merge.commonContentBackground": "",
 		//"merge.commonHeaderBackground": "",
-		"editorOverviewRuler.currentContentForeground": "#2faf64",
+		"editorOverviewRuler.currentContentForeground": "#11c678",
 		"editorOverviewRuler.incomingContentForeground": "#00b7e4",
 		//"editorOverviewRuler.commonContentForeground": "",
 		//
@@ -390,7 +402,7 @@
 		"listFilterWidget.outline": "#CECECE",
 		"listFilterWidget.noMatchesOutline": "#FF1277",
 		"list.filterMatchBackground": "#F7F9CB", // Background of list entries which match the filter.
-		"list.filterMatchBorder": "#2faf64",
+		"list.filterMatchBorder": "#11c678",
 		"tree.indentGuidesStroke": "#D0D1D2",
 		"tree.tableColumnsBorder": "#CECECE",
 		//
@@ -532,7 +544,7 @@
 		"debugIcon.stepIntoForeground": "#00b7e4",
 		"debugIcon.stepOutForeground": "#00b7e4",
 		"debugIcon.stepBackForeground": "#00b7e4",
-		"debugIcon.continueForeground": "#2faf64",
+		"debugIcon.continueForeground": "#11c678",
 		"debugConsole.infoForeground": "#09A1ED",
 		"debugConsole.warningForeground": "#CF9C00",
 		"debugConsole.errorForeground": "#ff2e87",
@@ -661,7 +673,7 @@
 		"symbolIcon.variableForeground": "#565869",
 		//
 		// TESTING COLOURS [x]
-		"testing.iconPassed": "#2faf64",
+		"testing.iconPassed": "#11c678",
 		"testing.iconFailed": "#FF1277",
 		"testing.iconErrored": "#FF1277",
 		"testing.iconQueued": "#00b7e4",
@@ -710,11 +722,11 @@
 		//
 		// GIT COLOURS [x]
 		"gitDecoration.untrackedResourceForeground": "#c75af3",
-		"gitDecoration.addedResourceForeground": "#2faf64", // Files added to vcs that are not currently tracked.
+		"gitDecoration.addedResourceForeground": "#11c678", // Files added to vcs that are not currently tracked.
 		"gitDecoration.modifiedResourceForeground": "#00b7e4", // Files already in vcs that are modified.
 		"gitDecoration.renamedResourceForeground": "#13BBB7",
 		"gitDecoration.deletedResourceForeground": "#FF1277",
-		"gitDecoration.stageModifiedResourceForeground": "#2faf64",
+		"gitDecoration.stageModifiedResourceForeground": "#11c678",
 		"gitDecoration.stageDeletedResourceForeground": "#ADB1C2",
 		"gitDecoration.ignoredResourceForeground": "#ADB1C2",
 		"gitDecoration.conflictingResourceForeground": "#FF1277",
