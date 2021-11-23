@@ -635,6 +635,102 @@
         //"statusBar.debuggingBackground": "",
         //"statusBar.debuggingForeground": "",
         //"statusBar.debuggingBorder": "",
+        //
+        //
+        //
+        // SYMBOLS [x]
+        "symbolIcon.arrayForeground": "#abb2bf",
+        "symbolIcon.booleanForeground": "#3fc56b",
+        "symbolIcon.classForeground": "#15c9c5",
+        "symbolIcon.colorForeground": "#abb2bf",
+        "symbolIcon.constantForeground": "#3fc56b",
+        "symbolIcon.enumeratorForeground": "#15c9c5",
+        "symbolIcon.enumeratorMemberForeground": "#3fc56b",
+        "symbolIcon.eventForeground": "#abb2bf",
+        "symbolIcon.fieldForeground": "#b58e95",
+        "symbolIcon.fileForeground": "#abb2bf",
+        "symbolIcon.folderForeground": "#abb2bf",
+        "symbolIcon.functionForeground": "#10b1fe",
+        "symbolIcon.interfaceForeground": "#d177f5",
+        "symbolIcon.keyForeground": "#abb2bf",
+        "symbolIcon.keywordForeground": "#f85eb4",
+        "symbolIcon.methodForeground": "#10b1fe",
+        "symbolIcon.moduleForeground": "#abb2bf",
+        "symbolIcon.namespaceForeground": "#abb2bf",
+        "symbolIcon.nullForeground": "#ff2884",
+        "symbolIcon.numberForeground": "#ff6b66",
+        "symbolIcon.objectForeground": "#13BBB7",
+        "symbolIcon.operatorForeground": "#828da0",
+        "symbolIcon.packageForeground": "#abb2bf",
+        "symbolIcon.propertyForeground": "#b58e95",
+        "symbolIcon.referenceForeground": "#f85eb4",
+        "symbolIcon.snippetForeground": "#f85eb4",
+        "symbolIcon.stringForeground": "#f9c859",
+        "symbolIcon.structForeground": "#15c9c5",
+        "symbolIcon.textForeground": "#abb2bf",
+        "symbolIcon.typeParameterForeground": "#15c9c5",
+        "symbolIcon.unitForeground": "#f85eb4",
+        "symbolIcon.variableForeground": "#abb2bf",
+        //
+        // TESTING COLOURS [x]
+        "testing.iconPassed": "#31a155",
+        "testing.iconFailed": "#FF1277",
+        "testing.iconErrored": "#FF1277",
+        "testing.iconQueued": "#018acc",
+        "testing.iconUnset": "#636d83",
+        "testing.iconSkipped": "#636d83",
+        "testing.peekBorder": "#3d434f",
+        //"testing.peekHeaderBackground": "",
+        "testing.message.info.lineBackground": "#018acc20",
+        "testing.message.info.decorationForeground": "#018acc",
+        "testing.message.error.lineBackground": "#FF12771a",
+        "testing.message.error.decorationForeground": "#FF1277",
+        //
+        // CHART COLOURS [x]
+        "charts.foreground": "#abb2bf",
+        "charts.lines": "#333333",
+        "charts.blue": "#09A1ED",
+        "charts.green": "#3fc56b",
+        "charts.yellow": "#ffc104",
+        "charts.orange": "#f77708",
+        "charts.red": "#ff0046",
+        "charts.purple": "#c75af3",
+        //
+        // TERMINAL COLOURS [x]
+        "terminal.foreground": "#abb2bf",
+        "terminal.background": "#282C34",
+        "terminal.ansiBlue": "#09A1ED",
+        "terminal.ansiBrightBlue": "#41b9ff",
+        "terminal.ansiCyan": "#13BBB7",
+        "terminal.ansiBrightCyan": "#16dad6",
+        "terminal.ansiGreen": "#2DAE58",
+        "terminal.ansiBrightGreen": "#25da6a",
+        "terminal.ansiYellow": "#ffc104",
+        "terminal.ansiBrightYellow": "#ffcb2c",
+        "terminal.ansiRed": "#ff0046",
+        "terminal.ansiBrightRed": "#ff2e87",
+        "terminal.ansiMagenta": "#c75af3",
+        "terminal.ansiBrightMagenta": "#c010ef",
+        "terminal.ansiWhite": "#fff",
+        "terminal.ansiBlack": "#282C34",
+        "terminal.ansiBrightBlack": "#000",
+        "terminal.selectionBackground": "#FF12771a",
+        "terminalCursor.foreground": "#FF1277",
+        "terminalCursor.background": "#fff", // Colour of text when selected by block cursor.
+        //"terminal.dropBackground": "", // ???
+        "terminal.tab.activeBorder": "#3d434f", // ???
+        //
+        // GIT COLOURS [x]
+        "gitDecoration.untrackedResourceForeground": "#c75af3",
+        "gitDecoration.addedResourceForeground": "#31a155", // Files added to vcs that are not currently tracked.
+        "gitDecoration.modifiedResourceForeground": "#018acc", // Files already in vcs that are modified.
+        "gitDecoration.renamedResourceForeground": "#13BBB7",
+        "gitDecoration.deletedResourceForeground": "#FF1277",
+        "gitDecoration.stageModifiedResourceForeground": "#31a155",
+        "gitDecoration.stageDeletedResourceForeground": "#636d83",
+        "gitDecoration.ignoredResourceForeground": "#636d83",
+        "gitDecoration.conflictingResourceForeground": "#FF1277",
+        "gitDecoration.submoduleResourceForeground": "#636d83"
     },
     "semanticHighlighting": true,
     "semanticTokenColors": {
