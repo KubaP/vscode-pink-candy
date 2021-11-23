@@ -899,7 +899,10 @@
 				"markup.deleted.git_gutter",
 				"entity.name.tag.css",
 				"punctuation.definition.keyword.css",
-				"entity.name.tag.wildcard.css"
+				"entity.name.tag.wildcard.css",
+				"keyword.control.powershell",
+				"storage.type.powershell",
+				"meta.function.powershell"
 			],
 			"settings": {
 				"foreground": "#F767BB"
@@ -914,7 +917,8 @@
 				"variable.function",
 				"support.function",
 				"keyword.other.special-method",
-				"keyword.other.common.function"
+				"keyword.other.common.function",
+				"support.function.powershell"
 			],
 			"settings": {
 				"foreground": "#09A1ED"
@@ -946,8 +950,7 @@
 				"string constant.other.placeholder",
 				"meta.function-call.java",
 				"storage.modifier.import.java",
-				"variable.other.object",
-				"variable.other.readwrite"
+				"variable.other.object"
 			],
 			"settings": {
 				"foreground": "#565869"
@@ -979,6 +982,16 @@
 			}
 		},
 		{
+			// Object members/properties.
+			"name": "Members",
+			"scope": [
+				"variable.other.member.powershell"
+			],
+			"settings": {
+				"foreground": "#a8759a"
+			}
+		},
+		{
 			// Function parameters.
 			"name": "Parameters",
 			"scope": [
@@ -996,7 +1009,8 @@
 			"name": "Comment",
 			"scope": [
 				"comment",
-				"punctuation.definition.comment"
+				"punctuation.definition.comment",
+				"comment.line.powershell"
 			],
 			"settings": {
 				"foreground": "#ADB1C2"
@@ -1005,7 +1019,8 @@
 		{
 			"name": "Constants",
 			"scope": [
-				"constant.other.caps.rust"
+				"constant.other.caps.rust",
+				"constant.language.powershell"
 			],
 			"settings": {
 				"foreground": "#2DAE58"
@@ -1015,7 +1030,10 @@
 			"name": "Number",
 			"scope": [
 				"constant.numeric.decimal.rust",
-				"punctuation.separator.dot.decimal.rust"
+				"punctuation.separator.dot.decimal.rust",
+				"constant.numeric.integer.powershell",
+				"constant.numeric.hex.powershell",
+				"constant.numeric.octal.powershell"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1027,7 +1045,9 @@
 				"punctuation.definition.attribute.rust",
 				"punctuation.brackets.attribute.rust",
 				"keyword.operator.attribute.inner.rust",
-				"meta.attribute.rust"
+				"meta.attribute.rust",
+				"support.function.attribute.powershell",
+				"variable.parameter.attribute.powershell"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1144,7 +1164,9 @@
 				"punctuation.definition.string",
 				"constant.other.symbol",
 				"constant.other.key",
-				"meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js"
+				"meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js",
+				"string.quoted.double.powershell",
+				"string.quoted.single.powershell"
 			],
 			"settings": {
 				"foreground": "#CF9C00"
@@ -1153,7 +1175,8 @@
 		{
 			"name": "Escape Characters",
 			"scope": [
-				"constant.character.escape"
+				"constant.character.escape",
+				"constant.character.escape.powershell"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1179,6 +1202,38 @@
 			],
 			"settings": {
 				"foreground": "#FF1277"
+			}
+		},
+		//
+		// POWERSHELL
+		//
+		{
+			"name": "Powershell Special Variables",
+			"scope": [
+				"variable.other.readwrite.powershell",
+				"punctuation.definition.variable.powershell",
+				"storage.modifier.scope.powershell",
+				"support.variable.automatic.powershell"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
+			}
+		},
+		{
+			"name": "Powershell Operators",
+			"scope": [
+				"keyword.operator.comparison.powershell",
+				"keyword.operator.logical.powershell"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "Powershell Comment Keywords",
+			"scope": "keyword.operator.documentation.powershell",
+			"settings": {
+				"foreground": "#565869"
 			}
 		},
 		//
