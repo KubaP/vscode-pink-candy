@@ -15,6 +15,11 @@
                 "label": "colour-theme",
                 "uiTheme": "vs",
                 "path": "./themes/colour-theme-light.json"
+            },
+            {
+                "label": "colour-theme-dark",
+                "uiTheme": "vs-dark",
+                "path": "./themes/colour-theme-dark.json"
             }
         ]
     }

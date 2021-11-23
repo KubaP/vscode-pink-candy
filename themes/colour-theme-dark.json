@@ -1,0 +1,629 @@
+{
+    "name": "colour-theme-dark",
+    "type": "dark",
+    "colors": {
+        // EDITOR
+        // Basics
+        "editor.foreground": "#abb2bf",
+        "editor.background": "#282c34",
+        "errorForeground": "#FF1277",
+        //
+        // Cursor/line
+        "editorCursor.foreground": "#FF1277",
+        "editorCursor.background": "#fff", // Colour of a character when using block cursor.
+        "editor.lineHighlightBackground": "#ffffff07", // Current line background colour. 00000007
+        "editor.lineHighlightBorder": "#00000000", // Remove current line border.
+    },
+    "semanticHighlighting": true,
+    "semanticTokenColors": {
+        // BASICS
+        "keyword": "#f85eb4",
+        "function": "#10b1fe", // Static function.
+        "method": "#10b1fe", // Object method.
+        "macro": "#10b1fe",
+        "variable": "#b9bfca",
+        "parameter": "#97bccd",
+        "number": "#ff6b66",
+        "boolean": "#3fc56b",
+        "*.constant": "#3fc56b",
+        "comment": "#636d83",
+        "label": "#9acc12", // Rust: `'outer: while`
+        "punctuation": "#828da0",
+        // TYPES
+        "builtinType": "#f85eb4",
+        "type": "#f85eb4",
+        "struct": "#15c9c5",
+        "class": "#15c9c5",
+        "enum": "#15c9c5",
+        "enumMember": "#3fc56b",
+        "union": "#15c9c5",
+        "typeAlias": "#15c9c5",
+        "selfKeyword": "#f85eb4",
+        "property": "#b58e95", // Object members.
+        // GENERICS
+        "typeParameter": "#15c9c5", // Generic type annotation, e.g. `T`
+        "interface": "#d177f5", // Rust: `MyTrait`
+        "lifetime": "#9acc12", // Rust: `'a`
+        // OPERATORS
+        "operator": "#828da0",
+        "arithmetic": "#828da0", // `+`, `-`, `*`, `/`
+        "logical": "#828da0",
+        "comparison": "#828da0", // `==`, `!=`, `===`
+        "bitwise": "#828da0",
+        "newOperator": "#f85eb4",
+        "operator.controlFlow": "#f85eb4", // Rust: `?`
+        // TEXT
+        "character": "#ff6b66", // `'b'`
+        "string": "#f9c859", // `"string"`
+        "escapeSequence": "#ff6b66", // `\n`
+        // OTHER
+        "unresolvedReference": {
+            "foreground": "#ff2884"
+        },
+        // RUST
+        //
+        // REFERENCE
+        "variable.reference": {
+            "fontStyle": "italic"
+        },
+        "method.reference": {
+            "fontStyle": "italic"
+        },
+        "function.reference": {
+            "fontStyle": "italic"
+        },
+        "parameter.reference": {
+            "fontStyle": "italic"
+        },
+        "selfKeyword.reference": {
+            "fontStyle": "italic"
+        },
+        //
+        // MUTABLE
+        "variable.mutable": {
+            "foreground": "#abb2bf",
+            "fontStyle": "bold"
+        },
+        "method.mutable": {
+            "foreground": "#01aafa",
+            "fontStyle": "bold"
+        },
+        "function.mutable": {
+            "foreground": "#01aafa",
+            "fontStyle": "bold"
+        },
+        "parameter.mutable": {
+            "foreground": "#87b2c5",
+            "fontStyle": "bold"
+        },
+        "selfKeyword.mutable": {
+            "foreground": "#f750ae",
+            "fontStyle": "bold"
+        },
+        //
+        // MUTABLE REFERENCE
+        "variable.mutable.reference": {
+            "foreground": "#abb2bf",
+            "fontStyle": "italic bold"
+        },
+        "method.mutable.reference": {
+            "foreground": "#01aafa",
+            "fontStyle": "italic bold"
+        },
+        "function.mutable.reference": {
+            "foreground": "#01aafa",
+            "fontStyle": "italic bold"
+        },
+        "parameter.mutable.reference": {
+            "foreground": "#87b2c5",
+            "fontStyle": "italic bold"
+        },
+        "selfKeyword.mutable.reference": {
+            "foreground": "#f750ae",
+            "fontStyle": "italic bold"
+        },
+        // Unset the underline effect, since something like `+=` would otherwise be underlined.
+        "arithmetic.mutable": {
+            "fontStyle": ""
+        },
+        // Also unset.
+        "bitwise.mutable": {
+            "fontStyle": ""
+        },
+        //
+        // UNSAFE
+        "*.unsafe": "#ff6b66",
+        "keyword.unsafe": {
+            "fontStyle": "bold underline"
+        },
+        "function.unsafe": {
+            "fontStyle": "underline"
+        },
+        "function.mutable.unsafe": {
+            "fontStyle": "bold underline"
+        },
+        "function.mutable.reference.unsafe": {
+            "fontStyle": "bold underline italic"
+        },
+        "method.unsafe": {
+            "fontStyle": "underline"
+        },
+        "method.mutable.unsafe": {
+            "fontStyle": "bold underline"
+        },
+        "method.mutable.reference.unsafe": {
+            "fontStyle": "bold underline italic"
+        },
+        //
+        // ATTRIBUTES
+        "attribute": "#ff6b66", // The #[]!() symbols in an attribute.
+        "parenthesis.attribute": "#ff6b66",
+        "macro.attribute": "#ff6b66", // `#[derive()]`
+        "builtinAttribute": "#ff6b66", // `#[inline]`, `#[cfg]`, etc.
+        "generic.attribute": "#ff6b66" // Inside the attribute, e.g. `clippy::something` or `debug_assertions`.
+        //"macro.attribute.library": "#d177f5", // `Debug`, `Clone` derives specifically.
+    },
+    "tokenColors": [
+        // BASICS
+        {
+            // Keywords such as `let`, `var`, `for`, `while`, `class` etc.
+            "name": "Keyword, Storage",
+            "scope": [
+                "keyword",
+                "storage.type",
+                "storage.modifier",
+                "punctuation.definition.directive.c",
+                "punctuation.definition.directive.cpp",
+                "storage.type.impl.rust",
+                "keyword.type.go",
+                "storage.class.d",
+                "variable.language.super.rust",
+                "markup.deleted.git_gutter",
+                "entity.name.tag.css",
+                "punctuation.definition.keyword.css",
+                "entity.name.tag.wildcard.css"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            // Free-standing functions and object methods.
+            "name": "Function, Special Method",
+            "scope": [
+                "entity.name.function",
+                "meta.function-call",
+                "variable.function",
+                "support.function",
+                "keyword.other.special-method",
+                "keyword.other.common.function"
+            ],
+            "settings": {
+                "foreground": "#10b1fe"
+            }
+        },
+        {
+            // Macros and other fancy functions.
+            "name": "Special functions, Hygienic Macros, etc",
+            "scope": [
+                "support.function.macro.rust",
+                "support.function.macro.builtin.rust",
+                "support.function.macro.core.rust",
+                "entity.name.type.macro.rust",
+                "entity.name.function.macro.rust",
+                "entity.name.function.macro.rules.rust",
+                "support.function.macro.julia",
+                "support.function.builtin.zig"
+            ],
+            "settings": {
+                "foreground": "#10b1fe"
+            }
+        },
+        {
+            // Variable declarations and uses.
+            "name": "Variables",
+            "scope": [
+                "variable",
+                "meta.function-call.arguments",
+                "string constant.other.placeholder",
+                "meta.function-call.java",
+                "storage.modifier.import.java",
+                "variable.other.object",
+                "variable.other.readwrite"
+            ],
+            "settings": {
+                "foreground": "#b9bfca"
+            }
+        },
+        {
+            "name": "Punctuation & Operators",
+            "scope": [
+                "punctuation",
+                "keyword.operator",
+                "keyword.operator.sigil.rust",
+                "keyword.operator.access.dot.rust",
+                "keyword.operator.key-value.rust",
+                "keyword.operator.attribute.inner.rust",
+                "punctuation.definition.tag",
+                "punctuation.definition.tag.html",
+                "punctuation.definition.tag.begin.html",
+                "punctuation.definition.tag.end.html"
+            ],
+            "settings": {
+                "foreground": "#828da0"
+            }
+        },
+        {
+            "name": "Mutable variables",
+            "scope": [],
+            "settings": {
+                "fontStyle": "bold"
+            }
+        },
+        {
+            // Function parameters.
+            "name": "Parameters",
+            "scope": [
+                "variable.parameter",
+                "keyword.other.self.rust",
+                "meta.parens.block.c",
+                "variable.css"
+                // "meta.function.definition.parameters",
+            ],
+            "settings": {
+                "foreground": "#97bccd"
+            }
+        },
+        {
+            "name": "Comment",
+            "scope": [
+                "comment",
+                "punctuation.definition.comment"
+            ],
+            "settings": {
+                "foreground": "#636d83"
+            }
+        },
+        {
+            "name": "Constants",
+            "scope": [
+                "constant.other.caps.rust"
+            ],
+            "settings": {
+                "foreground": "#3fc56b"
+            }
+        },
+        {
+            "name": "Number",
+            "scope": [
+                "constant.numeric.decimal.rust",
+                "punctuation.separator.dot.decimal.rust"
+            ],
+            "settings": {
+                "foreground": "#ff6b66"
+            }
+        },
+        {
+            "name": "Attributes",
+            "scope": [
+                "punctuation.definition.attribute.rust",
+                "punctuation.brackets.attribute.rust",
+                "keyword.operator.attribute.inner.rust",
+                "meta.attribute.rust"
+            ],
+            "settings": {
+                "foreground": "#ff6b66"
+            }
+        },
+        // TYPES
+        {
+            "name": "Built-in Types",
+            "scope": [
+                "entity.name.type.primitive",
+                "entity.name.type.primitive.rust",
+                "entity.name.type.numeric.rust",
+                "variable.language.self.rust"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "Class, Support",
+            "scope": [
+                "support.type",
+                "support.class",
+                "support.other.namespace.use.php",
+                "meta.use.php",
+                "support.other.namespace.php",
+                "markup.changed.git_gutter",
+                "support.type.sys-types",
+                "entity.other.attribute-name.table.toml",
+                "variable.key.table.toml",
+                "storage.type.haskell",
+                "storage.type.java",
+                "storage.type.primitive.java",
+                "storage.type.object.array.java",
+                "storage.type.c",
+                "storage.type.built-in.c",
+                "meta.function.definition.parameters.c",
+                "storage.type.built-in.cpp",
+                "storage.type.built-in.primitive.cpp",
+                "entity.name.class.kotlin",
+                "entity.name.type.rust",
+                "entity.name.type.struct.rust",
+                "storage.type.go",
+                "storage.type.boolean.go",
+                "storage.type.byte.go",
+                "storage.type.error.go",
+                "storage.type.numeric.go",
+                "storage.type.rune.go",
+                "storage.type.string.go",
+                "storage.type.uintptr.go",
+                "storage.type.concrete.nim",
+                "storage.type.basic-type.d",
+                "storage.type.d",
+                "support.type.python",
+                "basicTypes.nim",
+                "meta.class.stanza.dune",
+                "storage.type.cs",
+                "entity.name.type.declaration.rust"
+            ],
+            "settings": {
+                "foreground": "#15c9c5"
+            }
+        },
+        {
+            "name": "Enum variant, Sum Types, etc",
+            "scope": [
+                "support.enum.core.rust",
+                "entity.name.type.option.rust",
+                "entity.name.type.result.rust",
+                "constant.other.haskell",
+                "variable.other.enummember.cpp"
+            ],
+            "settings": {
+                "foreground": "#3fc56b"
+            }
+        },
+        // GENERICS
+        {
+            "name": "Interfaces",
+            "scope": [
+                "entity.name.type.trait.rust"
+            ],
+            "settings": {
+                "foreground": "#d177f5"
+            }
+        },
+        {
+            "name": "Lifetimes",
+            "scope": [
+                "punctuation.definition.lifetime.rust",
+                "entity.name.type.lifetime.rust",
+                "storage.modifier.lifetime.rust"
+            ],
+            "settings": {
+                "foreground": "#9acc12"
+            }
+        },
+        // OPERATORS
+        {
+            "name": "Operator ControlFlow",
+            "scope": [
+                "keyword.operator.misc.question-mark.rust",
+                "keyword.operator.question.rust"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        // TEXT
+        {
+            "name": "String & character",
+            "scope": [
+                "string",
+                "punctuation.definition.string",
+                "constant.other.symbol",
+                "constant.other.key",
+                "meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js"
+            ],
+            "settings": {
+                "foreground": "#f9c859"
+            }
+        },
+        {
+            "name": "Escape Characters",
+            "scope": [
+                "constant.character.escape"
+            ],
+            "settings": {
+                "foreground": "#ff6b66"
+            }
+        },
+        {
+            "name": "URL",
+            "scope": [
+                "*url*",
+                "*link*",
+                "*uri*"
+            ],
+            "settings": {
+                "fontStyle": "underline"
+            }
+        },
+        // OTHER
+        {
+            "name": "Invalid",
+            "scope": [
+                "invalid",
+                "invalid.illegal"
+            ],
+            "settings": {
+                "foreground": "#ff2884"
+            }
+        },
+        //
+        // MARKDOWN
+        //
+        {
+            // Normal undecorated text.
+            "name": "Markdown - Plain",
+            "scope": [
+                "text.html.markdown",
+                "punctuation.definition.list_item.markdown"
+            ],
+            "settings": {
+                "foreground": "#636d83"
+            }
+        },
+        {
+            // The `#` symbol in titles.
+            "name": "Markdown - Heading Character",
+            "scope": [
+                "markdown.heading",
+                "markup.heading | markup.heading entity.name",
+                "markup.heading.markdown punctuation.definition.heading.markdown"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            // The actual text in a title.
+            "name": "Markdown - Heading Text",
+            "scope": [
+                "entity.name.section.markdown"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "Markup - Bold",
+            "scope": [
+                "punctuation.definition.bold.markdown",
+                "markup.bold",
+                "markup.bold string"
+            ],
+            "settings": {
+                "fontStyle": "bold",
+                "foreground": "#ff6b66"
+            }
+        },
+        {
+            "name": "Markup - Italic",
+            "scope": [
+                "punctuation.definition.italic.markdown",
+                "markup.italic"
+            ],
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": "#10b1fe"
+            }
+        },
+        {
+            "name": "Markup - Bold-Italic",
+            "scope": [
+                "markup.bold markup.italic",
+                "markup.italic markup.bold",
+                "markup.quote markup.bold",
+                "markup.bold markup.italic string",
+                "markup.italic markup.bold string",
+                "markup.quote markup.bold string"
+            ],
+            "settings": {
+                "foreground": "#15c9c5",
+                "fontStyle": "italic bold"
+            }
+        },
+        {
+            "name": "Markdown - Quote",
+            "scope": [
+                "punctuation.definition.quote.begin.markdown",
+                "markup.quote.markdown"
+            ],
+            "settings": {
+                "foreground": "#d177f5",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            // Inline code block text.
+            "name": "Markdown - Markup Raw Inline",
+            "scope": [
+                "punctuation.definition.raw.markdown",
+                "markup.inline.raw.string.markdown"
+            ],
+            "settings": {
+                "foreground": "#abb2bf"
+            }
+        },
+        {
+            // Fenced code block text.
+            "name": "Markdown - Raw Block Fenced",
+            "scope": [
+                "markup.fenced_code.block.markdown"
+            ],
+            "settings": {
+                "foreground": "#abb2bf"
+            }
+        },
+        {
+            // The language identifier in a fenced code block, e.g. ```rust
+            "name": "Markdown - Raw Block Language Identifier",
+            "scope": [
+                "fenced_code.block.language.markdown"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "Markdown - Separator",
+            "scope": [
+                "meta.separator.markdown"
+            ],
+            "settings": {
+                "foreground": "#abb2bf",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            // The `1.` or `-` or `*` symbols in a list entry.
+            "name": "Markdown - List",
+            "scope": [
+                "punctuation.definition.list.begin.markdown"
+            ],
+            "settings": {
+                "foreground": "#abb2bf"
+            }
+        },
+        {
+            // Text comment/description around a link, e.g. `[Go to this link](...)`, or `[](... "some website")`
+            "name": "Markup - Url String",
+            "scope": [
+                "punctuation.definition.string.begin.markdown",
+                "punctuation.definition.string.end.markdown",
+                "string.other.link.description.title.markdown",
+                "string.other.link.description.markdown",
+                "string.other.link.title.markdown"
+            ],
+            "settings": {
+                "foreground": "#3fc56b"
+            }
+        },
+        {
+            // The url part of the link.
+            "name": "Markup - Url Underline",
+            "scope": [
+                "markup.underline.link",
+                "constant.other.reference.link.markdown"
+            ],
+            "settings": {
+                "foreground": "#abb2bf",
+                "fontStyle": "underline"
+            }
+        }
+    ]
+}
