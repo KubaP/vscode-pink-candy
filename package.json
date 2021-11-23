@@ -1,7 +1,7 @@
 {
-    "name": "colour-theme",
-    "displayName": "colour-theme",
-    "description": "",
+    "name": "theme-pink-candy",
+    "displayName": "Pink Candy Theme",
+    "description": "A vivid colour scheme with a pink accent, with both light and dark variants.",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.61.0"
@@ -12,14 +12,14 @@
     "contributes": {
         "themes": [
             {
-                "label": "colour-theme",
+                "label": "Pink Candy Light",
                 "uiTheme": "vs",
-                "path": "./themes/colour-theme-light.json"
+                "path": "./themes/pink-candy-light.json"
             },
             {
-                "label": "colour-theme-dark",
+                "label": "Pink Candy Dark",
                 "uiTheme": "vs-dark",
-                "path": "./themes/colour-theme-dark.json"
+                "path": "./themes/pink-candy-dark.json"
             }
         ]
     }
