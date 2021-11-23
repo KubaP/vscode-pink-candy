@@ -13,6 +13,254 @@
         "editorCursor.background": "#fff", // Colour of a character when using block cursor.
         "editor.lineHighlightBackground": "#ffffff07", // Current line background colour. 00000007
         "editor.lineHighlightBorder": "#00000000", // Remove current line border.
+        "editorLineNumber.foreground": "#636d83", // Line number colour in the gutter.
+        "editorLineNumber.activeForeground": "#FF1277", // Current line number colour in the gutter.
+        "editor.foldBackground": "#ffffff07", // Colour of a line containing a folded range.
+        "editor.hoverHighlightBackground": "#ffffff07", // Background when hovering over a symbol.
+        //
+        // Text selection boxes/ranges
+        "editor.selectionBackground": "#ff4c981a", // Background of selected text.
+        //"editor.selectionForeground": "",
+        "editor.inactiveSelectionBackground": "#ff4c9810", // Background of selection when editor not focused.
+        "editor.selectionHighlightBackground": "#ff4c981a", // Background of matching text.
+        //"editor.selectionHighlightBorder": "",
+        //
+        // Symbol selection boxes/ranges
+        "editor.wordHighlightBackground": "#ff4c981a", // Background for selected symbol.
+        //"editor.wordHighlightBorder": "",
+        "editor.wordHighlightStrongBackground": "#ff4c981a", // Background of matching symbol.
+        //"editor.wordHighlightStrongBorder": "",
+        //
+        // Search highlight boxes
+        "editor.findMatchBackground": "#00000000", // Currently selected found match.
+        "editor.findMatchBorder": "#31a1558a",
+        "editor.findMatchHighlightBackground": "#ccd00c3a", // Other found matches.
+        //"editor.findMatchHighlightBorder": "",
+        "editor.findRangeHighlightBackground": "#ff4c9810", // Colour of the range of the current search.
+        //"editor.findRangeHighlightBorder": "",
+        //
+        // Within the "search editor"
+        "searchEditor.findMatchBackground": "#ccd00c3a",
+        "searchEditor.findMatchBorder": "#31a1558a",
+        //"searchEditor.textInputBorder": "",
+        //
+        // Highlight colour of line containing found matching text.
+        "editor.rangeHighlightBackground": "#ccd00c3a",
+        //"editor.rangeHighlightBorder": "",
+        "editor.symbolHighlightBackground": "#ccd00c3a", // ???
+        //"editor.symbolHighlightBorder": "",
+        //
+        // Matching brackets
+        "editorBracketMatch.border": "#5a6375", // Border around matching brackets.
+        "editorBracketMatch.background": "#00000000", // Remove match background.
+        //
+        // Bracket pair colours
+        "editorBracketHighlight.foreground1": "#2faf64",
+        "editorBracketHighlight.foreground2": "#00b7e4",
+        "editorBracketHighlight.foreground3": "#a8759a",
+        "editorBracketHighlight.foreground4": "#CF9C00",
+        "editorBracketHighlight.foreground5": "#FF5C57",
+        "editorBracketHighlight.foreground6": "#c75af3",
+        "editorBracketHighlight.unexpectedBracket.foreground": "#FF1277",
+        "editorBracketPairGuide.foreground1": "#2faf64",
+        "editorBracketPairGuide.foreground2": "#00b7e4",
+        "editorBracketPairGuide.foreground3": "#a8759a",
+        "editorBracketPairGuide.foreground4": "#CF9C00",
+        "editorBracketPairGuide.foreground5": "#FF5C57",
+        "editorBracketPairGuide.foreground6": "#c75af3",
+        //
+        // Inlay hints
+        "editorInlayHint.foreground": "#9c9c9c",
+        "editorInlayHint.background": "#00000000",
+        "editorInlayHint.typeForeground": "#9c9c9c",
+        "editorInlayHint.typeBackground": "#00000000",
+        "editorInlayHint.parameterForeground": "#9c9c9c",
+        "editorInlayHint.parameterBackground": "#00000000",
+        "rust_analyzer.inlayHints.foreground": "#9c9c9c",
+        "rust_analyzer.inlayHints.background": "#00000000",
+        "rust_analyzer.inlayHints.foreground.typeHints": "#9c9c9c",
+        "rust_analyzer.inlayHints.background.typeHints": "#00000000",
+        "rust_analyzer.inlayHints.foreground.chainingHints": "#9c9c9c",
+        "rust_analyzer.inlayHints.background.chainingHints": "#00000000",
+        "rust_analyzer.inlayHints.foreground.parameterHints": "#9c9c9c",
+        "rust_analyzer.inlayHints.background.parameterHints": "#00000000",
+        "editorCodeLens.foreground": "#9c9c9c",
+        // Debug inlay hints
+        //"editor.inlineValuesForeground": "",
+        //"editor.inlineValuesBackground": "#00000000",
+        //
+        // Whitespace and indentation
+        "editorWhitespace.foreground": "#3d434f",
+        "editorIndentGuide.background": "#3d434f",
+        "editorIndentGuide.activeBackground": "#5a6375",
+        "editorRuler.foreground": "#3d434f",
+        //
+        // Ghost text
+        "editorGhostText.foreground": "#636d83", // Inline completion text.
+        //"editorGhostText.border": "",
+        //
+        // Other
+        "editorLink.activeForeground": "#FF1277", // When ctrl+hovering over a symbol.
+        "editorLightBulb.foreground": "#ffc104", // Colour of the light-bulb.
+        "editorLightBulbAutoFix.foreground": "#ffc104", // ???
+        //
+        //
+        //
+        // SNIPPETS [x]
+        "editor.snippetTabstopHighlightBackground": "#ff4c986a",
+        //"editor.snippetTabstopHighlightBorder": "",
+        "editor.snippetFinalTabstopHighlightBackground": "#ff4c986a",
+        //"editor.snippetFinalTabstopHighlightBorder": "",
+        //
+        // ERRORS/WARNINGS/INFO [x]
+        "editorHint.foreground": "#31a155", // Hint squiggle
+        //"editorHint.border": "",
+        "editorInfo.foreground": "#018acc", // Info squiggle
+        //"editorInfo.border": "",
+        //"editorInfo.background": "",
+        "editorWarning.foreground": "#e17615", // Warning squiggle
+        //"editorWarning.border": "",
+        //"editorWarning.background": "",
+        "editorError.foreground": "#FF1277", // Error squiggle
+        //"editorError.border": "",
+        //"editorError.background": "",
+        "editorUnnecessaryCode.opacity": "#000000c0", // Unused symbols/text - 75% opacity.
+        //"editorUnnecessaryCode.border": "",
+        "problemsInfoIcon.foreground": "#018acc", // Icons, e.g. symbols in problem panel
+        "problemsWarningIcon.foreground": "#e17615",
+        "problemsErrorIcon.foreground": "#FF1277",
+        //
+        // ERROR LENS [x]
+        "errorLens.infoForeground": "#018acc",
+        "errorLens.infoBackground": "#018acc20",
+        "errorLens.hintForeground": "#31a155",
+        "errorLens.hintBackground": "#31a15520",
+        "errorLens.warningForeground": "#e17615",
+        "errorLens.warningBackground": "#e1761520",
+        "errorLens.errorForeground": "#FF1277",
+        "errorLens.errorBackground": "#FF12771a",
+        "errorLens.statusBarIconWarningForeground": "#fff",
+        "errorLens.statusBarIconErrorForeground": "#fff",
+        "errorLens.statusBarInfoForeground": "#fff",
+        "errorLens.statusBarHintForeground": "#fff",
+        "errorLens.statusBarWarningForeground": "#fff",
+        "errorLens.statusBarErrorForeground": "#fff",
+        "errorLens.infoGutterIconColor": "#018acc",
+        "errorLens.warningGutterIconColor": "#e17615",
+        "errorLens.errorGutterIconColor": "#FF1277",
+        //
+        // RULER [x]
+        //"editorOverviewRuler.background": "",
+        "editorOverviewRuler.border": "#3d434f", // Border between scroll-bar and editor.
+        "editorOverviewRuler.findMatchForeground": "#9ca320", // Matching text through find/replace.
+        "editorOverviewRuler.rangeHighlightForeground": "#ff4c981a", // Range of selected symbol, e.g. picking symbol with @NAME
+        "editorOverviewRuler.selectionHighlightForeground": "#81577a", // Symbol at current cursor position..
+        "editorOverviewRuler.wordHighlightForeground": "#81577a", // Matching symbol at position.
+        "editorOverviewRuler.wordHighlightStrongForeground": "#81577a", // ???
+        "editorOverviewRuler.bracketMatchForeground": "#5a63755a",
+        "editorOverviewRuler.addedForeground": "#31a155",
+        "editorOverviewRuler.modifiedForeground": "#018acc",
+        "editorOverviewRuler.deletedForeground": "#FF1277",
+        "editorOverviewRuler.infoForeground": "#018acc",
+        "editorOverviewRuler.warningForeground": "#e17615",
+        "editorOverviewRuler.errorForeground": "#FF1277",
+        //
+        // GUTTER [x]
+        "editorGutter.background": "#282c34",
+        "editorGutter.addedBackground": "#31a155", // Added strip.
+        "editorGutter.modifiedBackground": "#018acc", // Modified strip.
+        "editorGutter.deletedBackground": "#FF1277", // Removed mark.
+        "editorGutter.commentRangeForeground": "#636d83", // ???
+        //"editorGutter.foldingControlForeground": "", // Arrow for folding code ranges.
+        //
+        // MINIMAP [x]
+        "minimap.background": "#282c34",
+        //"minimap.foregroundOpacity": "", // ???
+        "minimap.selectionHighlight": "#81577a", // Selection & current line
+        "minimap.findMatchHighlight": "#9ca320", // Matching lines from find/replace.
+        "minimap.errorHighlight": "#FF1277",
+        "minimap.warningHighlight": "#e17615",
+        //"minimap.selectionOccurrenceHighlight": "", // ???
+        "minimapSlider.background": "#ffffff10", // Slider
+        "minimapSlider.hoverBackground": "#ffffff1f", // Slider hover
+        "minimapSlider.activeBackground": "#ffffff2f", // Slider held-down
+        "minimapGutter.addedBackground": "#31a155",
+        "minimapGutter.modifiedBackground": "#018acc",
+        "minimapGutter.deletedBackground": "#FF1277",
+        //
+        // BREADCRUMBS [x]
+        "breadcrumb.foreground": "#7c869b",
+        "breadcrumb.background": "#282c34",
+        "breadcrumb.focusForeground": "#FF1277",
+        "breadcrumb.activeSelectionForeground": "#FF1277",
+        "breadcrumbPicker.background": "#282c34",
+        // WIDGETS [x], 
+        // Pop-up widgets, e.g. find & replace dialogue.
+        "editorWidget.foreground": "#abb2bf", // All text.
+        "editorWidget.background": "#22252A",
+        "editorWidget.border": "#3d434f", // Horizontal line on the left of the widget.
+        "editorWidget.resizeBorder": "#3d434f",
+        // Intellisense widget
+        "editorSuggestWidget.foreground": "#abb2bf", // All text.
+        "editorSuggestWidget.background": "#22252A",
+        "editorSuggestWidget.border": "#3d434f",
+        "editorSuggestWidget.highlightForeground": "#FF1277", // Matching letters in other entries.
+        "editorSuggestWidget.focusHighlightForeground": "#fff", // Matching letters in currently selected entry.
+        "editorSuggestWidget.selectedBackground": "#FF1277", // Background of selected entry.
+        "editorSuggestWidget.selectedForeground": "#fff", // Text in selected entry.
+        "editorSuggestWidget.selectedIconForeground": "#fff", // Icon in selected entry.
+        // Hover/documentation widget
+        "editorHoverWidget.foreground": "#abb2bf",
+        "editorHoverWidget.background": "#22252A",
+        "editorHoverWidget.border": "#3d434f",
+        "editorHoverWidget.highlightForeground": "#018acc", // ???
+        "editorHoverWidget.statusBarBackground": "#1d2024", // The bottom bar, e.g. `View problem, no fixes available`
+        // Debug Exception widget
+        "debugExceptionWidget.background": "#3D412F",
+        "debugExceptionWidget.border": "#3d434f",
+        // Peek view errors/warnings
+        "editorMarkerNavigation.background": "#282c34",
+        "editorMarkerNavigationInfo.background": "#018acc",
+        "editorMarkerNavigationInfo.headerBackground": "#233847",
+        "editorMarkerNavigationWarning.background": "#e17615",
+        "editorMarkerNavigationWarning.headerBackground": "#403530",
+        "editorMarkerNavigationError.background": "#FF1277",
+        "editorMarkerNavigationError.headerBackground": "#3E2A3B",
+        // Peek view normal
+        "peekViewEditor.background": "#282c34",
+        "peekViewEditor.matchHighlightBackground": "#4E522B", // Matching text in symbol.
+        "peekViewEditor.matchHighlightBorder": "#31a1558a", // Matching text border.
+        "peekViewEditorGutter.background": "#282c34",
+        "peekViewResult.background": "#22252A",
+        "peekViewResult.fileForeground": "#000", // File header text.
+        "peekViewResult.lineForeground": "#565869", // Symbol text.
+        "peekViewResult.selectionForeground": "#fff", // Clicked entry.
+        "peekViewResult.selectionBackground": "#FF1277", // Clicked entry.
+        "peekViewResult.matchHighlightBackground": "#3D412F", // Matching text in symbol.
+        "peekView.border": "#018acc",
+        "peekViewTitle.background": "#233847",
+        "peekViewTitleLabel.foreground": "#fff",
+        "peekViewTitleDescription.foreground": "#abb2bf",
+        //
+        // DIFF VIEWER [x]
+        "diffEditor.insertedTextBackground": "#31a1552a",
+        //"diffEditor.insertedTextBorder": "",
+        "diffEditor.removedTextBackground": "#FF127720",
+        //"diffEditor.removedTextBorder": "",
+        "diffEditor.border": "#3d434f", // Border between the two diff viewers.
+        "diffEditor.diagonalFill": "#636d83aa", // Diagonal hatchings for differences.
+        //
+        // MERGE CONFLICT VIEWER [x]
+        "merge.currentHeaderBackground": "#31a1556a",
+        "merge.currentContentBackground": "#31a1552a",
+        "merge.incomingHeaderBackground": "#018acc6a",
+        "merge.incomingContentBackground": "#018acc2a",
+        "merge.border": "#3d434f",
+        //"merge.commonContentBackground": "",
+        //"merge.commonHeaderBackground": "",
+        "editorOverviewRuler.currentContentForeground": "#31a155",
+        "editorOverviewRuler.incomingContentForeground": "#018acc",
+        //"editorOverviewRuler.commonContentForeground": "",
     },
     "semanticHighlighting": true,
     "semanticTokenColors": {
