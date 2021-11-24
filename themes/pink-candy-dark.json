@@ -900,6 +900,7 @@
                 "entity.name.tag.css",
                 "punctuation.definition.keyword.css",
                 "entity.name.tag.wildcard.css",
+                ///
                 "keyword.control.powershell",
                 "storage.type.powershell",
                 "meta.function.powershell"
@@ -918,6 +919,7 @@
                 "support.function",
                 "keyword.other.special-method",
                 "keyword.other.common.function",
+                ///
                 "support.function.powershell"
             ],
             "settings": {
@@ -950,6 +952,7 @@
                 "string constant.other.placeholder",
                 "meta.function-call.java",
                 "storage.modifier.import.java",
+                ///
                 "variable.other.object"
             ],
             "settings": {
@@ -985,6 +988,7 @@
             // Object members/properties.
             "name": "Members",
             "scope": [
+                ///
                 "variable.other.member.powershell"
             ],
             "settings": {
@@ -1010,6 +1014,7 @@
             "scope": [
                 "comment",
                 "punctuation.definition.comment",
+                ///
                 "comment.line.powershell"
             ],
             "settings": {
@@ -1020,6 +1025,7 @@
             "name": "Constants",
             "scope": [
                 "constant.other.caps.rust",
+                ///
                 "constant.language.powershell"
             ],
             "settings": {
@@ -1031,6 +1037,7 @@
             "scope": [
                 "constant.numeric.decimal.rust",
                 "punctuation.separator.dot.decimal.rust",
+                ///
                 "constant.numeric.integer.powershell",
                 "constant.numeric.hex.powershell",
                 "constant.numeric.octal.powershell"
@@ -1046,6 +1053,7 @@
                 "punctuation.brackets.attribute.rust",
                 "keyword.operator.attribute.inner.rust",
                 "meta.attribute.rust",
+                ///
                 "support.function.attribute.powershell",
                 "variable.parameter.attribute.powershell"
             ],
@@ -1165,6 +1173,7 @@
                 "constant.other.symbol",
                 "constant.other.key",
                 "meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js",
+                ///
                 "string.quoted.double.powershell",
                 "string.quoted.single.powershell"
             ],
@@ -1176,6 +1185,7 @@
             "name": "Escape Characters",
             "scope": [
                 "constant.character.escape",
+                ///
                 "constant.character.escape.powershell"
             ],
             "settings": {
