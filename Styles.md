@@ -251,8 +251,55 @@ Comment Keywords #565869 #b9bfca
 - "keyword.operator.documentation.powershell" `.SYNOPSIS ...`
 
 ### Limitations
-- No way to differentiate between function declaration and type/class, hence why types are in pink rather than cyan.
+-` No way to differentiate between function declaration and type/class, hence why types are in pink rather than cyan.
 - No support for differentiation between built-in types and classes.
 - No support for parameters, e.g. `-Path`.
 - No support for pipe `|`.
 
+
+
+## Markdown
+
+### Text #ADB1C2 #636d83
+- "text.html.markdown"
+- "punctuation.definition.list_item.markdown"
+
+### Titles #F767BB #f85eb4
+- "entity.name.section.markdown" `... Heading title`
+- "markdown.heading"
+- "markup.heading.markdown"
+- "punctuation.definition.heading.markdown" `## ...`
+
+### Bold #FF5C57 #ff6b66 (bold)
+- "markup.bold"
+- "punctuation.definition.bold.markdown" `** ... **`
+
+### Italic #09A1ED #10b1fe
+- "markup.italic"
+- "punctuation.definition.italic.markdown" `* ... *`
+
+### Quote #c75af3 #d177f5
+- "markup.quote.markdown"
+- "punctuation.definition.quote.begin.markdown" `> ...`
+
+### Inline Code #565869 #abb2bf
+- "markup.inline.raw.string.markdown"
+- "punctuation.definition.raw.markdown" `` `...` ``
+
+### Fenced Codeblock #565869 #abb2bf
+- "markup.fenced_code.block.markdown"
+#### Language identifier #F767BB #f85eb4
+- "fenced_code.block.language.markdown" ```` ```rust ````
+
+### List #565869 #abb2bf
+- "punctuation.definition.list.begin.markdown" `- ...`, `1. ...`, `* ...`
+
+### Url description #2DAE58 #3fc56b
+- "string.other.link.title.markdown"
+- "string.other.link.description.markdown"
+- "string.other.link.description.title.markdown"
+- "punctuation.definition.string.begin.markdown" `[](... "...")`
+- "punctuation.definition.string.end.markdown" `[](... "...")`
+#### Link #565869 #abb2bf (underline)
+- "markup.underline.link"
+- "constant.other.reference.link.markdown"
