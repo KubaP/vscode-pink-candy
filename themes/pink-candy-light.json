@@ -734,51 +734,61 @@
 	},
 	"semanticHighlighting": true,
 	"semanticTokenColors": {
-		// BASICS
+		//
 		"keyword": "#F767BB",
-		"function": "#09A1ED", // Static function.
-		"method": "#09A1ED", // Object method.
-		"macro": "#09A1ED",
-		"variable": "#565869",
-		"parameter": "#6e82a6",
-		"number": "#FF5C57",
-		"boolean": "#2DAE58",
-		"*.constant": "#2DAE58",
-		"comment": "#ADB1C2",
-		"label": "#8cba10", // Rust: `'outer: while`
-		"punctuation": "#777777",
-		// TYPES
 		"builtinType": "#F767BB",
 		"type": "#F767BB",
-		"struct": "#13BBB7",
-		"class": "#13BBB7",
-		"enum": "#13BBB7",
-		"enumMember": "#2DAE58",
-		"union": "#13BBB7",
-		"typeAlias": "#13BBB7",
-		"selfKeyword": "#F767BB",
-		"property": "#a8759a", // Object members.
-		// GENERICS
-		"typeParameter": "#13BBB7", // Generic type annotation, e.g. `T`
-		"interface": "#c75af3", // Rust: `MyTrait`
-		"lifetime": "#8cba10", // Rust: `'a`
-		// OPERATORS
+		//
+		//
+		"punctuation": "#777777",
 		"operator": "#777777",
 		"arithmetic": "#777777", // `+`, `-`, `*`, `/`
 		"logical": "#777777",
 		"comparison": "#777777", // `==`, `!=`, `===`
 		"bitwise": "#777777",
 		"newOperator": "#F767BB",
-		"operator.controlFlow": "#F767BB", // Rust: `?`
-		// TEXT
-		"character": "#FF5C57", // `'b'`
+		//
+		//
+		"function": "#09A1ED", // Static function.
+		"method": "#09A1ED", // Object method.
+		"macro": "#09A1ED",
+		"namespace": "#565869",
+		"struct": "#13BBB7",
+		"class": "#13BBB7",
+		"enum": "#13BBB7",
+		"union": "#13BBB7",
+		"typeAlias": "#13BBB7",
+		"enumMember": "#2DAE58",
+		"boolean": "#2DAE58",
+		//
+		//
+		"interface": "#c75af3", // Rust: `MyTrait`
+		"typeParameter": "#13BBB7", // Generic type annotation, e.g. `T`
+		//
+		//
+		"variable": "#565869",
+		"parameter": "#6e82a6",
+		"property": "#a8759a", // Object members.
+		"selfKeyword": "#F767BB",
+		"*.constant": "#2DAE58",
+		//
+		//
 		"string": "#CF9C00", // `"string"`
 		"escapeSequence": "#FF5C57", // `\n`
-		// OTHER
+		"character": "#FF5C57", // `'b'`
+		"number": "#FF5C57",
+		"comment": "#ADB1C2",
+		//
+		//
+		"attribute": "#FF5C57", // The #[]!() symbols in an attribute.
 		"unresolvedReference": {
 			"foreground": "#FF1277"
 		},
+		//
 		// RUST
+		"operator.controlFlow": "#F767BB", // Rust: `?`
+		"label": "#8cba10", // Rust: `'outer: while`
+		"lifetime": "#8cba10", // Rust: `'a`
 		//
 		// REFERENCE
 		"variable.reference": {
@@ -874,7 +884,6 @@
 		},
 		//
 		// ATTRIBUTES
-		"attribute": "#FF5C57", // The #[]!() symbols in an attribute.
 		"parenthesis.attribute": "#FF5C57",
 		"macro.attribute": "#FF5C57", // `#[derive()]`
 		"builtinAttribute": "#FF5C57", // `#[inline]`, `#[cfg]`, etc.
@@ -885,7 +894,7 @@
 		// BASICS
 		{
 			// Keywords such as `let`, `var`, `for`, `while`, `class` etc.
-			"name": "Keyword, Storage",
+			"name": "Keywords",
 			"scope": [
 				"keyword",
 				"storage.type",
@@ -900,6 +909,7 @@
 				"entity.name.tag.css",
 				"punctuation.definition.keyword.css",
 				"entity.name.tag.wildcard.css",
+				// powershell
 				"keyword.control.powershell",
 				"storage.type.powershell",
 				"meta.function.powershell"
@@ -909,8 +919,41 @@
 			}
 		},
 		{
+			"name": "Built-in Types",
+			"scope": [
+				"entity.name.type.primitive",
+				"entity.name.type.primitive.rust",
+				"entity.name.type.numeric.rust",
+				"variable.language.self.rust"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "Punctuation & Operators",
+			"scope": [
+				"punctuation",
+				"keyword.operator",
+				"keyword.operator.sigil.rust",
+				"keyword.operator.access.dot.rust",
+				"keyword.operator.key-value.rust",
+				"keyword.operator.attribute.inner.rust",
+				"punctuation.definition.tag",
+				"punctuation.definition.tag.html",
+				"punctuation.definition.tag.begin.html",
+				"punctuation.definition.tag.end.html"
+			],
+			"settings": {
+				"foreground": "#777777"
+			}
+		},
+		//
+		//
+		//
+		{
 			// Free-standing functions and object methods.
-			"name": "Function, Special Method",
+			"name": "Function and Methods",
 			"scope": [
 				"entity.name.function",
 				"meta.function-call",
@@ -918,6 +961,7 @@
 				"support.function",
 				"keyword.other.special-method",
 				"keyword.other.common.function",
+				// powershell
 				"support.function.powershell"
 			],
 			"settings": {
@@ -939,131 +983,6 @@
 			],
 			"settings": {
 				"foreground": "#09A1ED"
-			}
-		},
-		{
-			// Variable declarations and uses.
-			"name": "Variables",
-			"scope": [
-				"variable",
-				"meta.function-call.arguments",
-				"string constant.other.placeholder",
-				"meta.function-call.java",
-				"storage.modifier.import.java",
-				"variable.other.object"
-			],
-			"settings": {
-				"foreground": "#565869"
-			}
-		},
-		{
-			"name": "Punctuation & Operators",
-			"scope": [
-				"punctuation",
-				"keyword.operator",
-				"keyword.operator.sigil.rust",
-				"keyword.operator.access.dot.rust",
-				"keyword.operator.key-value.rust",
-				"keyword.operator.attribute.inner.rust",
-				"punctuation.definition.tag",
-				"punctuation.definition.tag.html",
-				"punctuation.definition.tag.begin.html",
-				"punctuation.definition.tag.end.html"
-			],
-			"settings": {
-				"foreground": "#777777"
-			}
-		},
-		{
-			"name": "Mutable variables",
-			"scope": [],
-			"settings": {
-				"fontStyle": "bold"
-			}
-		},
-		{
-			// Object members/properties.
-			"name": "Members",
-			"scope": [
-				"variable.other.member.powershell"
-			],
-			"settings": {
-				"foreground": "#a8759a"
-			}
-		},
-		{
-			// Function parameters.
-			"name": "Parameters",
-			"scope": [
-				"variable.parameter",
-				"keyword.other.self.rust",
-				"meta.parens.block.c",
-				"variable.css"
-				// "meta.function.definition.parameters",
-			],
-			"settings": {
-				"foreground": "#6e82a6"
-			}
-		},
-		{
-			"name": "Comment",
-			"scope": [
-				"comment",
-				"punctuation.definition.comment",
-				"comment.line.powershell"
-			],
-			"settings": {
-				"foreground": "#ADB1C2"
-			}
-		},
-		{
-			"name": "Constants",
-			"scope": [
-				"constant.other.caps.rust",
-				"constant.language.powershell"
-			],
-			"settings": {
-				"foreground": "#2DAE58"
-			}
-		},
-		{
-			"name": "Number",
-			"scope": [
-				"constant.numeric.decimal.rust",
-				"punctuation.separator.dot.decimal.rust",
-				"constant.numeric.integer.powershell",
-				"constant.numeric.hex.powershell",
-				"constant.numeric.octal.powershell"
-			],
-			"settings": {
-				"foreground": "#FF5C57"
-			}
-		},
-		{
-			"name": "Attributes",
-			"scope": [
-				"punctuation.definition.attribute.rust",
-				"punctuation.brackets.attribute.rust",
-				"keyword.operator.attribute.inner.rust",
-				"meta.attribute.rust",
-				"support.function.attribute.powershell",
-				"variable.parameter.attribute.powershell"
-			],
-			"settings": {
-				"foreground": "#FF5C57"
-			}
-		},
-		// TYPES
-		{
-			"name": "Built-in Types",
-			"scope": [
-				"entity.name.type.primitive",
-				"entity.name.type.primitive.rust",
-				"entity.name.type.numeric.rust",
-				"variable.language.self.rust"
-			],
-			"settings": {
-				"foreground": "#F767BB"
 			}
 		},
 		{
@@ -1124,7 +1043,9 @@
 				"foreground": "#2DAE58"
 			}
 		},
-		// GENERICS
+		//
+		//
+		//
 		{
 			"name": "Interfaces",
 			"scope": [
@@ -1134,29 +1055,62 @@
 				"foreground": "#c75af3"
 			}
 		},
+		//
+		//
+		//
 		{
-			"name": "Lifetimes",
+			// Variable declarations and uses.
+			"name": "Variables",
 			"scope": [
-				"punctuation.definition.lifetime.rust",
-				"entity.name.type.lifetime.rust",
-				"storage.modifier.lifetime.rust"
+				"variable",
+				"meta.function-call.arguments",
+				"string constant.other.placeholder",
+				"meta.function-call.java",
+				"storage.modifier.import.java",
+				//
+				"variable.other.object"
 			],
 			"settings": {
-				"foreground": "#8cba10"
+				"foreground": "#565869"
 			}
 		},
-		// OPERATORS
 		{
-			"name": "Operator ControlFlow",
+			"name": "Parameters",
 			"scope": [
-				"keyword.operator.misc.question-mark.rust",
-				"keyword.operator.question.rust"
+				"variable.parameter",
+				"keyword.other.self.rust",
+				"meta.parens.block.c",
+				"variable.css"
+				// "meta.function.definition.parameters",
 			],
 			"settings": {
-				"foreground": "#F767BB"
+				"foreground": "#6e82a6"
 			}
 		},
-		// TEXT
+		{
+			"name": "Members",
+			"scope": [
+				// powershell
+				"variable.other.member.powershell"
+			],
+			"settings": {
+				"foreground": "#a8759a"
+			}
+		},
+		{
+			"name": "Constants",
+			"scope": [
+				"constant.other.caps.rust",
+				/// powershell
+				"constant.language.powershell"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
+			}
+		},
+		//
+		//
+		//
 		{
 			"name": "String & character",
 			"scope": [
@@ -1165,6 +1119,7 @@
 				"constant.other.symbol",
 				"constant.other.key",
 				"meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js",
+				// powershell
 				"string.quoted.double.powershell",
 				"string.quoted.single.powershell"
 			],
@@ -1173,13 +1128,77 @@
 			}
 		},
 		{
-			"name": "Escape Characters",
+			"name": "Escape characters",
 			"scope": [
 				"constant.character.escape",
+				// powershell
 				"constant.character.escape.powershell"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
+			}
+		},
+		{
+			"name": "Character literals",
+			"scope": [
+			],
+			"settings": {
+				"foreground": "#FF5C57"
+			}
+		},
+		{
+			"name": "Number literals",
+			"scope": [
+				"constant.numeric",
+				"constant.numeric.decimal.rust",
+				"punctuation.separator.dot.decimal.rust",
+				// powershell
+				"constant.numeric.integer.powershell",
+				"constant.numeric.hex.powershell",
+				"constant.numeric.octal.powershell"
+			],
+			"settings": {
+				"foreground": "#FF5C57"
+			}
+		},
+		{
+			"name": "Comment",
+			"scope": [
+				"comment",
+				"punctuation.definition.comment",
+				// powershell
+				"comment.line.powershell"
+			],
+			"settings": {
+				"foreground": "#ADB1C2"
+			}
+		},
+		//
+		//
+		//
+		{
+			"name": "Attributes",
+			"scope": [
+				"punctuation.definition.attribute.rust",
+				"punctuation.brackets.attribute.rust",
+				"keyword.operator.attribute.inner.rust",
+				"meta.attribute.rust",
+				// powershell
+				"support.function.attribute.powershell",
+				"variable.parameter.attribute.powershell"
+			],
+			"settings": {
+				"foreground": "#FF5C57"
+			}
+		},
+		{
+			"name": "Unresolved Symbol",
+			"scope": [
+				"invalid",
+				"invalid.illegal"
+			],
+			"settings": {
+				"foreground": "#FF1277"
 			}
 		},
 		{
@@ -1193,15 +1212,28 @@
 				"fontStyle": "underline"
 			}
 		},
-		// OTHER
+		//
+		// RUST
+		//
 		{
-			"name": "Invalid",
+			"name": "? Operator",
 			"scope": [
-				"invalid",
-				"invalid.illegal"
+				"keyword.operator.misc.question-mark.rust",
+				"keyword.operator.question.rust"
 			],
 			"settings": {
-				"foreground": "#FF1277"
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "Lifetimes",
+			"scope": [
+				"punctuation.definition.lifetime.rust",
+				"entity.name.type.lifetime.rust",
+				"storage.modifier.lifetime.rust"
+			],
+			"settings": {
+				"foreground": "#8cba10"
 			}
 		},
 		//
