@@ -8,53 +8,53 @@ View this document inside of a text editor with hex colour highlighting support,
 ## General
 
 ### Keywords #F767BB #f85eb4
-- "keyword"
-- "newOperator" `new`
+- s: "keyword"
+- s: "newOperator" `new`
 #### csharp
 - s: "plainKeyword", "controlKeyword"
 - tm: "storage.modifier.cs" `public`, `static`, etc.
 - tm: "keyword.*.cs" (Lots of specific differentiations)
 
 ### Built-in Type #F767BB #f85eb4
-- "builtinType", "type"
+- s: "builtinType", "type"
 #### csharp
-- "keyword.type.cs" `void`, `string`, etc.
+- tm: "keyword.type.cs" `void`, `string`, etc.
 
 ### Punctuation #777777 #828da0
-- "punctuation"
+- s: "punctuation"
 
 ### Operators #777777 #828da0
-- "operator"
-- "arithmetic"
-- "logical"
-- "comparison"
-- "bitwise"
+- s: "operator"
+- s: "arithmetic"
+- s: "logical"
+- s: "comparison"
+- s: "bitwise"
 
 
 
 ### Function #09A1ED #10b1fe
-- "function"
+- s: "function"
 #### csharp
 - s: "member.static"
 - tm: "entity.name.function.cs"
 
 ### Method #09A1ED #10b1fe
-- "method"
+- s: "method"
 #### csharp
 - s: "member"
 - tm: "entity.name.function.cs"
 
 ### Namespace #565869 #abb2bf
-- "namespace"
+- s: "namespace"
 
 ### Custom Type #13BBB7 #15c9c5
-- "struct", "class", "enum", "union", "typeAlias"
+- s: "struct", "class", "enum", "union", "typeAlias"
 #### csharp
 - tm: "storage.type.cs" `class`
 
 ### Enum Member #2DAE58 #3fc56b
-ℹ Includes boolean types.
-- "enumMember", "boolean"
+ℹ Includes boolean `true/false`.
+- s: "enumMember", "boolean"
 #### csharp
 - tm: "constant.language.boolean.false.cs"
 - tm: "constant.language.boolean.true.cs"
@@ -62,44 +62,44 @@ View this document inside of a text editor with hex colour highlighting support,
 
 
 ### Interface #c75af3 #d177f5
-- "interface"
+- s: "interface"
 
 ### Type Parameters #13BBB7 #15c9c5
-- "typeParameter"
+- s: "typeParameter"
 
 
 
 ### Variables #565869 #b9bfca
-- "variable"
+- s: "variable"
 #### csharp
 - s: "local"
 - tm: "entity.name.variable.local.cs"
 
 ### Parameters #6e82a6 #97bccd
-- "parameter"
+- s: "parameter"
 #### csharp
 - tm: "entity.name.variable.parameter.cs"
 
 ### Object members #a8759a #b58e95
-- "property"
+- s: "property"
 #### csharp
 - s: "field"
 - tm: "variable.other.object.property.cs"
 
 ### Self/This #F767BB #f85eb4
-- "selfKeyword"
+- s: "selfKeyword"
 #### csharp
 - tm: "keyword.other.this.cs" `this`
 
 ### Constants #2DAE58 #3fc56b
-- "*.constant"
+- s: "*.constant"
 #### csharp
 - s: "variable.static"
 
 
 
 ### Strings #CF9C00 #f9c859
-- "string"
+- s: "string"
 #### csharp
 - tm: "string.quoted.double.cs"
 
@@ -109,24 +109,24 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "string.quoted.double.cs"
 
 ### Escape characters #FF5C57 #ff6b66
-- "escapeSequence"
+- s: "escapeSequence"
 #### csharp
 - tm: "constant.character.escape.cs" `\n`
 
 ### Character Literals #FF5C57 #ff6b66
-- "character"
+- s: "character"
 #### csharp
 - tm: "string.quoted.single.cs" `'b'`
 
 ### Number Literals #FF5C57 #ff6b66
-- "number"
+- s: "number"
 #### csharp
 - tm: "constant.numeric.decimal.cs"
 - tm: "constant.numeric.binary.cs"
 - tm: "constant.numeric.hex.cs"
 
 ### Comments #ADB1C2 #636d83
-- "comment"
+- s: "comment"
 #### csharp
 - s: "comment.documentation.cs"
 - tm: "comment.block.documentation.cs"
@@ -134,7 +134,7 @@ View this document inside of a text editor with hex colour highlighting support,
 
 
 ### Attributes #FF5C57 #ff6b66
-- "attribute"
+- s: "attribute"
 #### rust
 - s: "parenthesis.attribute" `()`
 - s: "macro.attribute" `#[derive()]`
@@ -148,16 +148,40 @@ View this document inside of a text editor with hex colour highlighting support,
 
 ## Rust
 
+### References (italic)
+- s: "*.reference"
+  - "variable.reference" - Reference to a variable.
+  - "method.reference" - Method which takes `&self`.
+  - "parameter.reference" - Parameter of type `&T`.
+  - "selfKeyword.reference" - `&self`.
+
+### Mutability (bold)
+- s: "*.mutable"
+  - "variable.mutable" - Mutable variable.
+  - "method.mutable" - Method which takes `mut self`.
+  - "parameter.mutable" - Parameter of type `mut T`.
+  - "selfKeyword.mutable" - `mut self`.
+
+### Mutable References (bold italic)
+- s: "*.mutable.reference"
+  - "variable.mutable.reference" - Mutable reference to a variable.
+  - "method.mutable.reference" - Method which takes `&mut self`.
+  - "parameter.mutable.reference" - Parameter of type `&mut T`.
+  - "selfKeyword.mutable.reference" - `&mut self`.
+
 ### Try operator `?` #F767BB #f85eb4
 - s: "operator.controlFlow" 
 - tm: "keyword.operator.mics.question-mark.rust"
 - tm: "keyword.operator.question.rust"
 
-### Lifetimes #8cba10 #9acc12
+### Lifetimes `'a` #8cba10 #9acc12
 - s: "lifetime"
 - tm: "punctuation.definition.lifetime.rust"
 - tm: "entity.name.type.lifetime.rust"
 - tm: "storage.modifier.lifetime.rust"
+
+### Labels `'outer: while ...` #8cba10 #9acc12
+- s: "label"
 
 
 
@@ -259,6 +283,7 @@ Comment Keywords #565869 #b9bfca
 
 
 ## Markdown
+Markdown only supports textmate highlighting; it has no semantic highlighting.
 
 ### Text #ADB1C2 #636d83
 - "text.html.markdown"
