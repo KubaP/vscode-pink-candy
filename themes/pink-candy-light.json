@@ -736,6 +736,8 @@
 	"semanticTokenColors": {
 		//
 		"keyword": "#F767BB",
+		"plainKeyword:csharp": "#F767BB",
+		"controlKeyword:csharp": "#F767BB",
 		"builtinType": "#F767BB",
 		"type": "#F767BB",
 		//
@@ -750,7 +752,12 @@
 		//
 		//
 		"function": "#09A1ED", // Static function.
+		"member.static:csharp": { // Static function.
+			"foreground": "#09A1ED",
+			"fontStyle": "underline"
+		},
 		"method": "#09A1ED", // Object method.
+		"member:csharp": "#09A1ED", // Object method.
 		"macro": "#09A1ED",
 		"namespace": "#565869",
 		"struct": "#13BBB7",
@@ -767,10 +774,17 @@
 		//
 		//
 		"variable": "#565869",
+		"local:csharp": "#565869", // Local variable.
 		"parameter": "#6e82a6",
 		"property": "#a8759a", // Object members.
+		"field:csharp": "#a8759a", // Object members.
+		"property:csharp": { // Csharp properties.
+			"foreground": "#a8759a",
+			"fontStyle": "bold"
+		},
 		"selfKeyword": "#F767BB",
 		"*.constant": "#2DAE58",
+		"variable.static:csharp": "#2DAE58", // Constants
 		//
 		//
 		"string": "#CF9C00", // `"string"`
@@ -778,6 +792,11 @@
 		"character": "#FF5C57", // `'b'`
 		"number": "#FF5C57",
 		"comment": "#ADB1C2",
+		"xmlDocCommentName:csharp": "#565869",
+		"xmlDocCommentDelimiter:csharp": "#565869",
+		"xmlDocCommentAttributeName:csharp": "#FF5C57",
+		"xmlDocCommentAttributeQuotes:csharp": "#CF9C00",
+		"xmlDocCommentAttributeValue:csharp": "#CF9C00",
 		//
 		//
 		"attribute": "#FF5C57", // The #[]!() symbols in an attribute.
@@ -912,7 +931,11 @@
 				// powershell
 				"keyword.control.powershell",
 				"storage.type.powershell",
-				"meta.function.powershell"
+				"meta.function.powershell",
+				// csharp
+				"storage.modifier.cs",
+				"keyword.cs",
+				"keyword.other.this.cs"
 			],
 			"settings": {
 				"foreground": "#F767BB"
@@ -924,7 +947,9 @@
 				"entity.name.type.primitive",
 				"entity.name.type.primitive.rust",
 				"entity.name.type.numeric.rust",
-				"variable.language.self.rust"
+				"variable.language.self.rust",
+				// csharp
+				"keyword.type.cs"
 			],
 			"settings": {
 				"foreground": "#F767BB"
@@ -962,7 +987,9 @@
 				"keyword.other.special-method",
 				"keyword.other.common.function",
 				// powershell
-				"support.function.powershell"
+				"support.function.powershell",
+				// csharp
+				"entity.name.function.cs"
 			],
 			"settings": {
 				"foreground": "#09A1ED"
@@ -1024,7 +1051,9 @@
 				"basicTypes.nim",
 				"meta.class.stanza.dune",
 				"storage.type.cs",
-				"entity.name.type.declaration.rust"
+				"entity.name.type.declaration.rust",
+				// csharp
+				"storage.type.cs"
 			],
 			"settings": {
 				"foreground": "#13BBB7"
@@ -1037,7 +1066,10 @@
 				"entity.name.type.option.rust",
 				"entity.name.type.result.rust",
 				"constant.other.haskell",
-				"variable.other.enummember.cpp"
+				"variable.other.enummember.cpp",
+				// csharp
+				"constant.language.boolean.true.cs",
+				"constant.language.boolean.false.cs"
 			],
 			"settings": {
 				"foreground": "#2DAE58"
@@ -1068,7 +1100,9 @@
 				"meta.function-call.java",
 				"storage.modifier.import.java",
 				//
-				"variable.other.object"
+				"variable.other.object",
+				// csharp
+				"entity.name.variable.local.cs"
 			],
 			"settings": {
 				"foreground": "#565869"
@@ -1080,8 +1114,10 @@
 				"variable.parameter",
 				"keyword.other.self.rust",
 				"meta.parens.block.c",
-				"variable.css"
+				"variable.css",
 				// "meta.function.definition.parameters",
+				// csharp
+				"entity.name.variable.parameter.cs"
 			],
 			"settings": {
 				"foreground": "#6e82a6"
@@ -1091,7 +1127,9 @@
 			"name": "Members",
 			"scope": [
 				// powershell
-				"variable.other.member.powershell"
+				"variable.other.member.powershell",
+				// csharp
+				"variable.other.object.property.cs"
 			],
 			"settings": {
 				"foreground": "#a8759a"
@@ -1101,7 +1139,7 @@
 			"name": "Constants",
 			"scope": [
 				"constant.other.caps.rust",
-				/// powershell
+				// powershell
 				"constant.language.powershell"
 			],
 			"settings": {
@@ -1121,7 +1159,9 @@
 				"meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js",
 				// powershell
 				"string.quoted.double.powershell",
-				"string.quoted.single.powershell"
+				"string.quoted.single.powershell",
+				// csharp
+				"string.quoted.double.cs"
 			],
 			"settings": {
 				"foreground": "#CF9C00"
@@ -1132,7 +1172,9 @@
 			"scope": [
 				"constant.character.escape",
 				// powershell
-				"constant.character.escape.powershell"
+				"constant.character.escape.powershell",
+				// csharp
+				"constant.character.escape.cs"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1141,6 +1183,8 @@
 		{
 			"name": "Character literals",
 			"scope": [
+				// csharp
+				"string.quoted.single.cs"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1155,7 +1199,11 @@
 				// powershell
 				"constant.numeric.integer.powershell",
 				"constant.numeric.hex.powershell",
-				"constant.numeric.octal.powershell"
+				"constant.numeric.octal.powershell",
+				// csharp
+				"constant.numeric.binary.cs",
+				"constant.numeric.decimal.cs",
+				"constant.numeric.hex.cs"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1167,7 +1215,9 @@
 				"comment",
 				"punctuation.definition.comment",
 				// powershell
-				"comment.line.powershell"
+				"comment.line.powershell",
+				// csharp
+				"comment.block.documentation.cs"
 			],
 			"settings": {
 				"foreground": "#ADB1C2"
