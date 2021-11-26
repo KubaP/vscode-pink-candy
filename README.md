@@ -149,7 +149,7 @@ In this example, we had to both modify the semantic and textmate scopes. The sem
 ## Contributing
 I have tested this theme on languages I am proficient in, and I hope that you will find the syntax highlighting in these languages pleasing. However for many languages, I am not aware of their intricacies and I may not have the right sense for how the syntax should look.
 
-If something looks off in a language you're using, feel free to open an [Issue](https://github.com/KubaP/vscode-colour-theme/issues) so that we can improve it for everyone.
+If something looks off in a language you're using, feel free to open an [Issue](https://github.com/KubaP/vscode-pink-candy/issues) so that we can improve it for everyone.
 
 ## License
 This project is licensed under the **GPLv3** license - see [LICENSE](./LICENSE) for details.
