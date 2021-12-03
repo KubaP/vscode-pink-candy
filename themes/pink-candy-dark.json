@@ -529,7 +529,7 @@
         //
         // DEBUG TOOLBAR & PANEL [x]
         "debugToolBar.background": "#22252A",
-        "debugToolBar.border": "#CECECE",
+        "debugToolBar.border": "#22252A",
         "debugIcon.breakpointForeground": "#FF1277", // The dot in the gutter.
         "debugIcon.breakpointDisabledForeground": "#636d83", // Disable dot.
         //"debugIcon.breakpointUnverifiedForeground": "", // ???
