@@ -903,11 +903,12 @@
         },
         //
         // ATTRIBUTES
-        "parenthesis.attribute": "#ff6b66",
-        "macro.attribute": "#ff6b66", // `#[derive()]`
-        "builtinAttribute": "#ff6b66", // `#[inline]`, `#[cfg]`, etc.
-        "generic.attribute": "#ff6b66" // Inside the attribute, e.g. `clippy::something` or `debug_assertions`.
-        //"macro.attribute.library": "#d177f5", // `Debug`, `Clone` derives specifically.
+        "attributeBracket": "#ff6b66", // `#[]`
+        "parenthesis.attribute": "#ff6b66", // `cfg(...)`
+        "derive.attribute": "#ff6b66", // `derive(Debug)`
+        "builtinAttribute": "#ff6b66", // `inline`, `cfg`, etc.
+        "attribute.attribute": "#ff6b66", // `derive` or `clippy::something`.
+        "generic.attribute": "#ff6b66" // Inside the attribute, e.g. `cfg(debug_assertions)`.
     },
     "tokenColors": [
         // BASICS
