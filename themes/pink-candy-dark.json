@@ -632,8 +632,8 @@
         "statusBar.noFolderBackground": "#E5E5E5",
         //"statusBar.noFolderBorder": "",
         // When debugging
-        //"statusBar.debuggingBackground": "",
-        //"statusBar.debuggingForeground": "",
+        "statusBar.debuggingForeground": "#fff",
+        "statusBar.debuggingBackground": "#31a155",
         //"statusBar.debuggingBorder": "",
         //
         //
