@@ -971,7 +971,8 @@
 				"punctuation.definition.tag.end.html"
 			],
 			"settings": {
-				"foreground": "#777777"
+				"foreground": "#777777",
+				"fontStyle": ""
 			}
 		},
 		//
@@ -990,7 +991,10 @@
 				// powershell
 				"support.function.powershell",
 				// csharp
-				"entity.name.function.cs"
+				"entity.name.function.cs",
+				// css
+				"support.function.misc.css",
+				"support.function.misc.scss"
 			],
 			"settings": {
 				"foreground": "#09A1ED"
@@ -1103,7 +1107,11 @@
 				//
 				"variable.other.object",
 				// csharp
-				"entity.name.variable.local.cs"
+				"entity.name.variable.local.cs",
+				// css
+				"variable.css",
+				"variable.argument.css",
+				"variable.scss"
 			],
 			"settings": {
 				"foreground": "#565869"
@@ -1153,16 +1161,28 @@
 		{
 			"name": "String & character",
 			"scope": [
-				"string",
-				"punctuation.definition.string",
+				//"string",
+				//"punctuation.definition.string",
 				"constant.other.symbol",
 				"constant.other.key",
 				"meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js",
+				// rust
+				"punctuation.definition.string.rust",
+				"string.quoted.double.rust",
 				// powershell
+				"punctuation.definition.string.begin.powershell",
+				"punctuation.definition.string.end.powershell",
 				"string.quoted.double.powershell",
 				"string.quoted.single.powershell",
 				// csharp
-				"string.quoted.double.cs"
+				"punctuation.definition.string.begin.cs",
+				"punctuation.definition.string.end.cs",
+				"string.quoted.double.cs",
+				// css
+				"string.quoted.double.css",
+				"string.quoted.double.scss",
+				"string.quoted.single.css",
+				"string.quoted.single.scss"
 			],
 			"settings": {
 				"foreground": "#CF9C00"
@@ -1185,6 +1205,8 @@
 			"name": "Character literals",
 			"scope": [
 				// csharp
+				"punctuation.definition.char.begin.cs",
+				"punctuation.definition.char.end.cs",
 				"string.quoted.single.cs"
 			],
 			"settings": {
@@ -1204,7 +1226,9 @@
 				// csharp
 				"constant.numeric.binary.cs",
 				"constant.numeric.decimal.cs",
-				"constant.numeric.hex.cs"
+				"constant.numeric.hex.cs",
+				// css
+				"constant.numeric.css"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1319,6 +1343,192 @@
 				"foreground": "#565869"
 			}
 		},
+		//
+        // HTML
+        //
+        {
+            "name": "HTML - Tags",
+            "scope": [
+                "entity.name.tag.html"
+            ],
+            "settings": {
+                "foreground": "#F767BB"
+            }
+        },
+        {
+            "name": "HTML - Attributes",
+            "scope": [
+                "entity.other.attribute-name.html"
+            ],
+            "settings": {
+                "foreground": "#13BBB7",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "name": "HTML - ID Value",
+            "scope": [
+                "meta.attribute.id.html"
+            ],
+            "settings": {
+                "foreground": "#FF5C57",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "name": "HTML - Class Value",
+            "scope": [
+                "meta.attribute.class.html"
+            ],
+            "settings": {
+                "foreground": "#2DAE58"
+            }
+        },
+        {
+            "name": "HTML - Meta Value",
+            "scope": [
+                "meta.attribute"
+            ],
+            "settings": {
+                "foreground": "#CF9C00"
+            }
+        },
+        {
+            "name": "HTML - Links",
+            "scope": [
+                "meta.attribute.href.html",
+                "meta.attribute.src.html",
+                "meta.attribute.unrecognized.xmlns.html"
+            ],
+            "settings": {
+                "foreground": "#c75af3"
+            }
+        },
+        {
+            "name": "HTML - Embedded CSS",
+            "scope": [
+                "meta.embedded.line.css"
+            ],
+            "settings": {
+                "foreground": "#8cba10"
+            }
+        },
+        //
+        // CSS
+        //
+        {
+            "name": "CSS - Tags",
+            "scope": [
+                "entity.name.tag.css"
+            ],
+            "settings": {
+                "foreground": "#F767BB"
+            }
+        },
+        {
+            "name": "CSS - Properties",
+            "scope": [
+                "support.type.property-name.css",
+                "meta.property-name.css",
+                "meta.property-name.scss"
+            ],
+            "settings": {
+                "foreground": "#a8759a"
+            }
+        },
+        {
+            "name": "CSS - Property Values",
+            "scope": [
+                "support.constant.property-value.css"
+            ],
+            "settings": {
+                "foreground": "#13BBB7"
+            }
+        },
+        {
+            "name": "CSS - ID Selector",
+            "scope": [
+                "entity.other.attribute-name.id.css"
+            ],
+            "settings": {
+                "foreground": "#FF5C57",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "name": "CSS - Class Selector",
+            "scope": [
+                "entity.other.attribute-name.class.css"
+            ],
+            "settings": {
+                "foreground": "#2DAE58"
+            }
+        },
+        {
+            "name": "CSS - Pseudoclass Selector",
+            "scope": [
+                "support.constant.font-name.css"
+            ],
+            "settings": {
+                "foreground": "#CF9C00"
+            }
+        },
+        {
+            "name": "CSS - Font Names",
+            "scope": [
+                "entity.other.attribute-name.pseudo-class.css",
+                "entity.other.attribute-name.pseudo-element.css"
+            ],
+            "settings": {
+                "foreground": "#8cba10"
+            }
+        },
+        {
+            "name": "CSS - Units",
+            "scope": [
+                "keyword.other.unit.rem.css",
+                "keyword.other.unit.em.css",
+                "keyword.other.unit.ex.css",
+                "keyword.other.unit.ch.css",
+                "keyword.other.unit.vw.css",
+                "keyword.other.unit.vh.css",
+                "keyword.other.unit.vmin.css",
+                "keyword.other.unit.vmax.css",
+                "keyword.other.unit.percentage.css",
+                "keyword.other.unit.mm.css",
+                "keyword.other.unit.in.css",
+                "keyword.other.unit.px.css",
+                "keyword.other.unit.pt.css",
+                "keyword.other.unit.pc.css",
+                "keyword.other.unit.deg.css"
+            ],
+            "settings": {
+                "foreground": "#FF5C57"
+            }
+        },
+        //
+        // SCSS
+        //
+        {
+            "name": "SCSS - Symbols",
+            "scope": [
+                "punctuation.definition.keyword.scss", // @
+                "keyword.control.at-rule.include.scss", // @
+                "entity.name.tag.reference.scss" // &
+            ],
+            "settings": {
+                "foreground": "#F767BB"
+            }
+        },
+        {
+            "name": "SCSS - Constants",
+            "scope": [
+                "constant.other.scss" // {x}n
+            ],
+            "settings": {
+                "foreground": "#FF5C57"
+            }
+        },
 		//
 		// MARKDOWN
 		//

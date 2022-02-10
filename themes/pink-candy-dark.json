@@ -971,7 +971,8 @@
                 "punctuation.definition.tag.end.html"
             ],
             "settings": {
-                "foreground": "#828da0"
+                "foreground": "#828da0",
+                "fontStyle": ""
             }
         },
         //
@@ -990,7 +991,10 @@
                 // powershell
                 "support.function.powershell",
                 // csharp
-                "entity.name.function.cs"
+                "entity.name.function.cs",
+                // css
+                "support.function.misc.css",
+                "support.function.misc.scss"
             ],
             "settings": {
                 "foreground": "#10b1fe"
@@ -1103,7 +1107,11 @@
                 //
                 "variable.other.object",
                 // csharp
-                "entity.name.variable.local.cs"
+                "entity.name.variable.local.cs",
+                // css
+                "variable.css",
+                "variable.argument.css",
+                "variable.scss"
             ],
             "settings": {
                 "foreground": "#b9bfca"
@@ -1153,16 +1161,28 @@
         {
             "name": "Strings",
             "scope": [
-                "string",
-                "punctuation.definition.string",
+                //"string",
+                //"punctuation.definition.string",
                 "constant.other.symbol",
                 "constant.other.key",
                 "meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js",
+                // rust
+                "punctuation.definition.string.rust",
+                "string.quoted.double.rust",
                 // powershell
+                "punctuation.definition.string.begin.powershell",
+                "punctuation.definition.string.end.powershell",
                 "string.quoted.double.powershell",
                 "string.quoted.single.powershell",
                 // csharp
-                "string.quoted.double.cs"
+                "punctuation.definition.string.begin.cs",
+                "punctuation.definition.string.end.cs",
+                "string.quoted.double.cs",
+                // css
+                "string.quoted.double.css",
+                "string.quoted.double.scss",
+                "string.quoted.single.css",
+                "string.quoted.single.scss"
             ],
             "settings": {
                 "foreground": "#f9c859"
@@ -1185,6 +1205,8 @@
             "name": "Character literals",
             "scope": [
                 // csharp
+                "punctuation.definition.char.begin.cs",
+                "punctuation.definition.char.end.cs",
                 "string.quoted.single.cs"
             ],
             "settings": {
@@ -1204,7 +1226,9 @@
                 // csharp
                 "constant.numeric.binary.cs",
                 "constant.numeric.decimal.cs",
-                "constant.numeric.hex.cs"
+                "constant.numeric.hex.cs",
+                // css
+                "constant.numeric.css"
             ],
             "settings": {
                 "foreground": "#ff6b66"
@@ -1317,6 +1341,192 @@
             "scope": "keyword.operator.documentation.powershell",
             "settings": {
                 "foreground": "#b9bfca"
+            }
+        },
+        //
+        // HTML
+        //
+        {
+            "name": "HTML - Tags",
+            "scope": [
+                "entity.name.tag.html"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "HTML - Attributes",
+            "scope": [
+                "entity.other.attribute-name.html"
+            ],
+            "settings": {
+                "foreground": "#15c9c5",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "name": "HTML - ID Value",
+            "scope": [
+                "meta.attribute.id.html"
+            ],
+            "settings": {
+                "foreground": "#ff6b66",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "name": "HTML - Class Value",
+            "scope": [
+                "meta.attribute.class.html"
+            ],
+            "settings": {
+                "foreground": "#3fc56b"
+            }
+        },
+        {
+            "name": "HTML - Meta Value",
+            "scope": [
+                "meta.attribute"
+            ],
+            "settings": {
+                "foreground": "#f9c859"
+            }
+        },
+        {
+            "name": "HTML - Links",
+            "scope": [
+                "meta.attribute.href.html",
+                "meta.attribute.src.html",
+                "meta.attribute.unrecognized.xmlns.html"
+            ],
+            "settings": {
+                "foreground": "#d177f5"
+            }
+        },
+        {
+            "name": "HTML - Embedded CSS",
+            "scope": [
+                "meta.embedded.line.css"
+            ],
+            "settings": {
+                "foreground": "#9acc12"
+            }
+        },
+        //
+        // CSS
+        //
+        {
+            "name": "CSS - Tags",
+            "scope": [
+                "entity.name.tag.css"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "CSS - Properties",
+            "scope": [
+                "support.type.property-name.css",
+                "meta.property-name.css",
+                "meta.property-name.scss"
+            ],
+            "settings": {
+                "foreground": "#b58e95"
+            }
+        },
+        {
+            "name": "CSS - Property Values",
+            "scope": [
+                "support.constant.property-value.css"
+            ],
+            "settings": {
+                "foreground": "#15c9c5"
+            }
+        },
+        {
+            "name": "CSS - ID Selector",
+            "scope": [
+                "entity.other.attribute-name.id.css"
+            ],
+            "settings": {
+                "foreground": "#ff6b66",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "name": "CSS - Class Selector",
+            "scope": [
+                "entity.other.attribute-name.class.css"
+            ],
+            "settings": {
+                "foreground": "#3fc56b"
+            }
+        },
+        {
+            "name": "CSS - Pseudoclass Selector",
+            "scope": [
+                "support.constant.font-name.css"
+            ],
+            "settings": {
+                "foreground": "#f9c859"
+            }
+        },
+        {
+            "name": "CSS - Font Names",
+            "scope": [
+                "entity.other.attribute-name.pseudo-class.css",
+                "entity.other.attribute-name.pseudo-element.css"
+            ],
+            "settings": {
+                "foreground": "#9acc12"
+            }
+        },
+        {
+            "name": "CSS - Units",
+            "scope": [
+                "keyword.other.unit.rem.css",
+                "keyword.other.unit.em.css",
+                "keyword.other.unit.ex.css",
+                "keyword.other.unit.ch.css",
+                "keyword.other.unit.vw.css",
+                "keyword.other.unit.vh.css",
+                "keyword.other.unit.vmin.css",
+                "keyword.other.unit.vmax.css",
+                "keyword.other.unit.percentage.css",
+                "keyword.other.unit.mm.css",
+                "keyword.other.unit.in.css",
+                "keyword.other.unit.px.css",
+                "keyword.other.unit.pt.css",
+                "keyword.other.unit.pc.css",
+                "keyword.other.unit.deg.css"
+            ],
+            "settings": {
+                "foreground": "#ff6b66"
+            }
+        },
+        //
+        // SCSS
+        //
+        {
+            "name": "SCSS - Symbols",
+            "scope": [
+                "punctuation.definition.keyword.scss", // @
+                "keyword.control.at-rule.include.scss", // @
+                "entity.name.tag.reference.scss" // &
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "SCSS - Constants",
+            "scope": [
+                "constant.other.scss" // {x}n
+            ],
+            "settings": {
+                "foreground": "#ff6b66"
             }
         },
         //
