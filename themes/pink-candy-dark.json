@@ -760,17 +760,17 @@
         "member:csharp": "#10b1fe", // Object method.
         "macro": "#10b1fe",
         "namespace": "#abb2bf",
-        "struct": "#15c9c5",
-        "class": "#15c9c5",
-        "enum": "#15c9c5",
-        "union": "#15c9c5",
-        "typeAlias": "#15c9c5",
-        "enumMember": "#3fc56b",
-        "boolean": "#3fc56b",
+        "struct": "#3fc56b",
+        "class": "#3fc56b",
+        "enum": "#3fc56b",
+        "union": "#3fc56b",
+        "typeAlias": "#3fc56b",
+        "enumMember": "#15c9c5",
+        "boolean": "#15c9c5",
         //
         //
         "interface": "#d177f5", // Rust: `MyTrait`
-        "typeParameter": "#15c9c5", // Generic type annotation, e.g. `T`
+        "typeParameter": "#3fc56b", // Generic type annotation, e.g. `T`
         //
         //
         "variable": "#b9bfca",
@@ -783,8 +783,8 @@
             "fontStyle": "bold"
         },
         "selfKeyword": "#f85eb4",
-        "*.constant": "#3fc56b",
-        "variable.static:csharp": "#3fc56b", // Constants
+        "*.constant": "#15c9c5",
+        "variable.static:csharp": "#15c9c5", // Constants
         //
         //
         "string": "#f9c859", // `"string"`
@@ -807,7 +807,7 @@
         // RUST
         "operator.controlFlow": "#f85eb4", // Rust: `?`
         "label": "#9acc12", // Rust: `'outer: while`
-        "lifetime": "#9acc12", // Rust: `'a`
+        "lifetime": "#d177f5", // Rust: `'a`
         //
         // REFERENCE
         "variable.reference": {
@@ -1061,7 +1061,7 @@
                 "storage.type.cs"
             ],
             "settings": {
-                "foreground": "#15c9c5"
+                "foreground": "#3fc56b"
             }
         },
         {
@@ -1077,7 +1077,7 @@
                 "constant.language.boolean.false.cs"
             ],
             "settings": {
-                "foreground": "#3fc56b"
+                "foreground": "#15c9c5"
             }
         },
         //
@@ -1152,7 +1152,7 @@
                 "constant.language.powershell"
             ],
             "settings": {
-                "foreground": "#3fc56b"
+                "foreground": "#15c9c5"
             }
         },
         //
@@ -1308,7 +1308,7 @@
                 "storage.modifier.lifetime.rust"
             ],
             "settings": {
-                "foreground": "#9acc12"
+                "foreground": "#d177f5"
             }
         },
         //

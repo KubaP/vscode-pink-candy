@@ -760,17 +760,17 @@
 		"member:csharp": "#09A1ED", // Object method.
 		"macro": "#09A1ED",
 		"namespace": "#565869",
-		"struct": "#13BBB7",
-		"class": "#13BBB7",
-		"enum": "#13BBB7",
-		"union": "#13BBB7",
-		"typeAlias": "#13BBB7",
-		"enumMember": "#2DAE58",
-		"boolean": "#2DAE58",
+		"struct": "#2DAE58",
+		"class": "#2DAE58",
+		"enum": "#2DAE58",
+		"union": "#2DAE58",
+		"typeAlias": "#2DAE58",
+		"enumMember": "#13BBB7",
+		"boolean": "#13BBB7",
 		//
 		//
-		"interface": "#c75af3", // Rust: `MyTrait`
-		"typeParameter": "#13BBB7", // Generic type annotation, e.g. `T`
+		"interface": "#cd6bf4", // Rust: `MyTrait`
+		"typeParameter": "#2DAE58", // Generic type annotation, e.g. `T`
 		//
 		//
 		"variable": "#565869",
@@ -783,8 +783,8 @@
 			"fontStyle": "bold"
 		},
 		"selfKeyword": "#F767BB",
-		"*.constant": "#2DAE58",
-		"variable.static:csharp": "#2DAE58", // Constants
+		"*.constant": "#13BBB7",
+		"variable.static:csharp": "#13BBB7", // Constants
 		//
 		//
 		"string": "#CF9C00", // `"string"`
@@ -807,7 +807,7 @@
 		// RUST
 		"operator.controlFlow": "#F767BB", // Rust: `?`
 		"label": "#8cba10", // Rust: `'outer: while`
-		"lifetime": "#8cba10", // Rust: `'a`
+		"lifetime": "#cd6bf4", // Rust: `'a`
 		//
 		// REFERENCE
 		"variable.reference": {
@@ -1061,7 +1061,7 @@
 				"storage.type.cs"
 			],
 			"settings": {
-				"foreground": "#13BBB7"
+				"foreground": "#2DAE58"
 			}
 		},
 		{
@@ -1077,7 +1077,7 @@
 				"constant.language.boolean.false.cs"
 			],
 			"settings": {
-				"foreground": "#2DAE58"
+				"foreground": "#13BBB7"
 			}
 		},
 		//
@@ -1152,7 +1152,7 @@
 				"constant.language.powershell"
 			],
 			"settings": {
-				"foreground": "#2DAE58"
+				"foreground": "#13BBB7"
 			}
 		},
 		//
@@ -1308,7 +1308,7 @@
 				"storage.modifier.lifetime.rust"
 			],
 			"settings": {
-				"foreground": "#8cba10"
+				"foreground": "#cd6bf4"
 			}
 		},
 		//
