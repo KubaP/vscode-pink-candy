@@ -762,6 +762,10 @@
 		"namespace": "#565869",
 		"struct": "#2DAE58",
 		"class": "#2DAE58",
+		"class.static:csharp": { // Static class.
+			"foreground": "#2DAE58",
+			"fontStyle": "underline"
+		},
 		"enum": "#2DAE58",
 		"union": "#2DAE58",
 		"typeAlias": "#2DAE58",
@@ -778,6 +782,10 @@
 		"parameter": "#6e82a6",
 		"property": "#a8759a", // Object members.
 		"field:csharp": "#a8759a", // Object members.
+		"field.static:csharp": { // Static object members.
+			"foreground": "#a8759a",
+			"fontStyle": "underline"
+		},
 		"property:csharp": { // Csharp properties.
 			"foreground": "#a8759a",
 			"fontStyle": "bold"
@@ -788,10 +796,14 @@
 		//
 		//
 		"string": "#CF9C00", // `"string"`
+		"stringVerbatim:csharp": "#CF9C00",
 		"escapeSequence": "#FF5C57", // `\n`
 		"character": "#FF5C57", // `'b'`
 		"number": "#FF5C57",
 		"comment": "#ADB1C2",
+		//
+		//
+		"xmlDocCommentText": "#ADB1C2",
 		"xmlDocCommentName:csharp": "#565869",
 		"xmlDocCommentDelimiter:csharp": "#565869",
 		"xmlDocCommentAttributeName:csharp": "#FF5C57",
@@ -935,7 +947,6 @@
 				"meta.function.powershell",
 				// csharp
 				"storage.modifier.cs",
-				"keyword.cs",
 				"keyword.other.this.cs"
 			],
 			"settings": {
@@ -1058,7 +1069,10 @@
 				"storage.type.cs",
 				"entity.name.type.declaration.rust",
 				// csharp
-				"storage.type.cs"
+				"storage.type.cs",
+				"entity.name.type.class.cs",
+				"entity.name.type.struct.cs",
+				"entity.name.type.enum.cs"
 			],
 			"settings": {
 				"foreground": "#2DAE58"
@@ -1073,6 +1087,7 @@
 				"constant.other.haskell",
 				"variable.other.enummember.cpp",
 				// csharp
+				"entity.name.variable.enum-member.cs",
 				"constant.language.boolean.true.cs",
 				"constant.language.boolean.false.cs"
 			],
@@ -1090,6 +1105,15 @@
 			],
 			"settings": {
 				"foreground": "#c75af3"
+			}
+		},
+		{
+			"name": "Type Parameters",
+			"scope": [
+				"entity.name.type.type-parameter.cs"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
 			}
 		},
 		//
@@ -1309,6 +1333,28 @@
 			],
 			"settings": {
 				"foreground": "#cd6bf4"
+			}
+		},
+		//
+		// CSHARP
+		//
+		{
+			"name": "Csharp - Doc Tag",
+			"scope": [
+				"entity.name.tag.cs",
+				"punctuation.definition.tag.cs"
+			],
+			"settings": {
+				"foreground": "#565869"
+			}
+		},
+		{
+			"name": "Csharp - Doc Tag Attribute",
+			"scope": [
+				"entity.other.attribute-name.cs"
+			],
+			"settings": {
+				"foreground": "#FF5C57"
 			}
 		},
 		//
