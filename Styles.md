@@ -3,25 +3,35 @@
 View this document inside of a text editor with hex colour highlighting support, otherwise you won't be able to see the colours in each sub-heading. For vscode, the [colorize](https://marketplace.visualstudio.com/items?itemName=kamikillerto.vscode-colorize) extension is a good one.
 
 - `- s:` represent semantic scopes.
-- `- tm:` represent textmate scopes.
+- `- tm:` represent 'TextMate' scopes.
 
 ## General
 
 ### Keywords #F767BB #f85eb4
 - s: "keyword"
-- s: "newOperator" `new`
+- s: "newOperator" - `new`
+- tm: "keyword"
+#### rust
+- tm: "storage.modifier" `mut`
+- tm: "storage.type.rust" `enum` and `struct` declarations, `let`
+- tm: "variable.language.self.rust" `self` 
 #### csharp
 - s: "plainKeyword", "controlKeyword"
-- tm: "storage.modifier.cs" `public`, `static`, etc.
-- tm: "keyword.*.cs" (Lots of specific differentiations)
+- tm: "keyword"
+- tm: "storage.modifier.cs" - `public`, `static`, `override` etc.
 
 ### Built-in Type #F767BB #f85eb4
 - s: "builtinType", "type"
+#### rust
+- tm: "entity.name.type.numeric.rust" - All number types like `u32` etc.
+- tm: "entity.name.type.primitive.rust" - `char`, `str`, `bool`
 #### csharp
-- tm: "keyword.type.cs" `void`, `string`, etc.
+- s: "plainKeyword"
+- tm: "keyword.type.cs"
 
 ### Punctuation #777777 #828da0
 - s: "punctuation"
+- tm: "punctuation"
 
 ### Operators #777777 #828da0
 - s: "operator"
@@ -29,6 +39,9 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "logical"
 - s: "comparison"
 - s: "bitwise"
+#### csharp
+- s: "operator"
+- tm: "keyword.operator"
 
 
 
@@ -36,7 +49,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "function"
 #### csharp
 - s: "member.static"
-- tm: "entity.name.function.cs"
+- tm: "entity.name.function.cs" ⚠ Cannot differentiate static methods from object methods.
 
 ### Method #09A1ED #10b1fe
 - s: "method"
@@ -46,26 +59,39 @@ View this document inside of a text editor with hex colour highlighting support,
 
 ### Namespace #565869 #abb2bf
 - s: "namespace"
+#### csharp
+- s: "namespace"
+- tm: "entity.name.type.namespace.cs" - ⚠ (Only for the using/namespace statements) Cannot differentiate namespaces, in function bodies, from other local variables.
 
-### Custom Type #13BBB7 #15c9c5
+### Custom Type #2DAE58 #3fc56b
 - s: "struct", "class", "enum", "union", "typeAlias"
 #### csharp
-- tm: "storage.type.cs" `class`
+- s: "class"
+- s: "struct"
+- s: "enum"
+- tm: "storage.type.cs" - Actual typename references
+- tm: "entity.name.type.class.cs" - Class declaration
+- tm: "entity.name.type.struct.cs" - Struct declaration
+- tm: "entity.name.type.enum.cs" - Enum declaration
 
-### Enum Member #2DAE58 #3fc56b
+### Enum Member #13BBB7 #15c9c5
 ℹ Includes boolean `true/false`.
 - s: "enumMember", "boolean"
 #### csharp
-- tm: "constant.language.boolean.false.cs"
+- s: "enumMember"
+- tm: "entity.name.variable.enum-member.cs" - Enum variant declarations
 - tm: "constant.language.boolean.true.cs"
+- tm: "constant.language.boolean.false.cs"
 
 
 
-### Interface #c75af3 #d177f5
+### Interface/Inheritance #cd6bf4 #d177f5
 - s: "interface"
 
-### Type Parameters #13BBB7 #15c9c5
+### Type Parameters #2DAE58 #3fc56b
+#### csharp
 - s: "typeParameter"
+- tm: "entity.name.type.type-parameter.cs"
 
 
 
@@ -73,25 +99,27 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "variable"
 #### csharp
 - s: "local"
-- tm: "entity.name.variable.local.cs"
+- tm: "entity.name.variable.local.cs" - Only for declarations, not later uses
 
 ### Parameters #6e82a6 #97bccd
 - s: "parameter"
 #### csharp
-- tm: "entity.name.variable.parameter.cs"
+- s: "parameter"
+- tm: "entity.name.variable.parameter.cs" - Only for declarations in function header, not uses
 
 ### Object members #a8759a #b58e95
 - s: "property"
 #### csharp
 - s: "field"
-- tm: "variable.other.object.property.cs"
+- tm: "variable.other.object.property.cs" - ⚠ Incorrectly highlights objects in namespaces
 
 ### Self/This #F767BB #f85eb4
 - s: "selfKeyword"
 #### csharp
-- tm: "keyword.other.this.cs" `this`
+- s: "plainKeyword"
+- tm: "keyword.other.this.cs"
 
-### Constants #2DAE58 #3fc56b
+### Constants #13BBB7 #15c9c5
 - s: "*.constant"
 #### csharp
 - s: "variable.static"
@@ -101,26 +129,31 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Strings #CF9C00 #f9c859
 - s: "string"
 #### csharp
+- s: "string"
 - tm: "string.quoted.double.cs"
+- tm: "punctuation.definition.string.begin.cs"
+- tm: "punctuation.definition.string.end.cs"
 
 ### Raw Strings
 #### csharp
 - s: "stringVerbatim" `@"..."`
-- tm: "string.quoted.double.cs"
 
 ### Escape characters #FF5C57 #ff6b66
 - s: "escapeSequence"
 #### csharp
-- tm: "constant.character.escape.cs" `\n`
+- tm: "constant.character.escape.cs"
 
 ### Character Literals #FF5C57 #ff6b66
 - s: "character"
 #### csharp
-- tm: "string.quoted.single.cs" `'b'`
+- tm: "string.quoted.single.cs"
+- tm: "punctuation.definition.char.begin.cs"
+- tm: "punctuation.definition.char.end.cs"
 
 ### Number Literals #FF5C57 #ff6b66
 - s: "number"
 #### csharp
+- s: "number"
 - tm: "constant.numeric.decimal.cs"
 - tm: "constant.numeric.binary.cs"
 - tm: "constant.numeric.hex.cs"
@@ -128,6 +161,7 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Comments #ADB1C2 #636d83
 - s: "comment"
 #### csharp
+- s: "comment"
 - s: "comment.documentation.cs"
 - tm: "comment.block.documentation.cs"
 
@@ -190,15 +224,24 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Static Function #09A1ED  #10b1fe (underlined)
 - s: "member.static"
 
+### Static Classes #2DAE58 #3fc56b (underlined)
+- s: "class.static"
+
+### Static Members #a8759a #b58e95 (underlined)
+- s: "field.static"
+
 ### Properties #a8759a #b58e95 (bold)
 - s: "property"
 
 ### Doc Tag #565869 #b9bfca
 - s: "xmlDocCommentName" `<summary> ...`
 - s: "xmlDocCommentDelimiter" `</para>`
+- tm: "entity.name.tag.cs" `summary`
+- tm: "punctuation.definition.tag.cs" `<`, `/>`
 
-### Doc Tag Attribute #FF5C57 #ff6b66
-- s: "xmlDocCommentAttributeName" `<... type= ...`
+### Doc Tag Attribute #FF5C57 #ff6b66 `<... type= ...`
+- s: "xmlDocCommentAttributeName"
+- tm: "entity.other.attribute-name.cs"
 
 ### Doc Tag Attribute Value #CF9C00 #f9c859
 - s: "xmlDocCommentAttributeQuotes" `="...."`
@@ -210,14 +253,15 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Limitations
 - No way to differentiate base classes from inherited classes.
 - No way to colour booleans since they get overridden by the semantic "plainKeyword" token.
+- No way to colour character strings.
 - No support for attributes.
 - No support for "unresolved" symbols.
 #### Textmate limitations
-- No support for enums/enum members.
+- No support for enum members.
 - No support for constants.
+- No support for static functions, classes or fields.
 - No distinction between fields and properties.
-- No distinction between types and type parameters.
-- No distinction between classes and interfaces.
+- No distinction between classes and inherited classes.
 
 
 
