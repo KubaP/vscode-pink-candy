@@ -736,10 +736,10 @@
 	"semanticTokenColors": {
 		//
 		"keyword": "#F767BB",
+		"type": "#F767BB",
+		"builtinType": "#F767BB",
 		"plainKeyword:csharp": "#F767BB",
 		"controlKeyword:csharp": "#F767BB",
-		"builtinType": "#F767BB",
-		"type": "#F767BB",
 		//
 		//
 		"punctuation": "#777777",
@@ -803,6 +803,12 @@
 		"comment": "#ADB1C2",
 		//
 		//
+		"attribute": "#FF5C57", // The #[]!() symbols in an attribute.
+		"unresolvedReference": {
+			"foreground": "#FF1277"
+		},
+		//
+		// CSHARP
 		"xmlDocCommentText": "#ADB1C2",
 		"xmlDocCommentName:csharp": "#565869",
 		"xmlDocCommentDelimiter:csharp": "#565869",
@@ -810,16 +816,10 @@
 		"xmlDocCommentAttributeQuotes:csharp": "#CF9C00",
 		"xmlDocCommentAttributeValue:csharp": "#CF9C00",
 		//
-		//
-		"attribute": "#FF5C57", // The #[]!() symbols in an attribute.
-		"unresolvedReference": {
-			"foreground": "#FF1277"
-		},
-		//
 		// RUST
-		"operator.controlFlow": "#F767BB", // Rust: `?`
-		"label": "#8cba10", // Rust: `'outer: while`
-		"lifetime": "#cd6bf4", // Rust: `'a`
+		"operator.controlFlow": "#F767BB",
+		"label": "#8cba10",
+		"lifetime": "#cd6bf4",
 		//
 		// REFERENCE
 		"variable.reference": {
@@ -933,14 +933,16 @@
 				"storage.modifier",
 				"punctuation.definition.directive.c",
 				"punctuation.definition.directive.cpp",
-				"storage.type.impl.rust",
 				"keyword.type.go",
 				"storage.class.d",
-				"variable.language.super.rust",
 				"markup.deleted.git_gutter",
 				"entity.name.tag.css",
 				"punctuation.definition.keyword.css",
 				"entity.name.tag.wildcard.css",
+				// rust
+				"storage.modifier.mut.rust",
+				"storage.modifier.type.rust",
+				"variable.language.self.rust",
 				// powershell
 				"keyword.control.powershell",
 				"storage.type.powershell",
@@ -956,10 +958,9 @@
 		{
 			"name": "Built-in Types",
 			"scope": [
-				"entity.name.type.primitive",
+				// rust
 				"entity.name.type.primitive.rust",
 				"entity.name.type.numeric.rust",
-				"variable.language.self.rust",
 				// csharp
 				"keyword.type.cs"
 			],
@@ -999,6 +1000,8 @@
 				"support.function",
 				"keyword.other.special-method",
 				"keyword.other.common.function",
+				// rust
+				"entity.name.function.rust",
 				// powershell
 				"support.function.powershell",
 				// csharp
@@ -1050,8 +1053,6 @@
 				"storage.type.built-in.cpp",
 				"storage.type.built-in.primitive.cpp",
 				"entity.name.class.kotlin",
-				"entity.name.type.rust",
-				"entity.name.type.struct.rust",
 				"storage.type.go",
 				"storage.type.boolean.go",
 				"storage.type.byte.go",
@@ -1067,6 +1068,11 @@
 				"basicTypes.nim",
 				"meta.class.stanza.dune",
 				"storage.type.cs",
+				// rust
+				"entity.name.type.rust",
+				"entity.name.type.struct.rust",
+				"entity.name.type.enum.rust",
+				"entity.name.type.union.rust",
 				"entity.name.type.declaration.rust",
 				// csharp
 				"storage.type.cs",
@@ -1081,11 +1087,13 @@
 		{
 			"name": "Enum variant, Sum Types, etc",
 			"scope": [
+				"constant.other.haskell",
+				"variable.other.enummember.cpp",
+				// rust
 				"support.enum.core.rust",
 				"entity.name.type.option.rust",
 				"entity.name.type.result.rust",
-				"constant.other.haskell",
-				"variable.other.enummember.cpp",
+				"constant.language.bool.rust",
 				// csharp
 				"entity.name.variable.enum-member.cs",
 				"constant.language.boolean.true.cs",
@@ -1101,6 +1109,7 @@
 		{
 			"name": "Interfaces",
 			"scope": [
+				// rust
 				"entity.name.type.trait.rust"
 			],
 			"settings": {
@@ -1110,6 +1119,7 @@
 		{
 			"name": "Type Parameters",
 			"scope": [
+				// rust
 				"entity.name.type.type-parameter.cs"
 			],
 			"settings": {
@@ -1130,6 +1140,8 @@
 				"storage.modifier.import.java",
 				//
 				"variable.other.object",
+				// rust
+				"variable.other.rust",
 				// csharp
 				"entity.name.variable.local.cs",
 				// css
@@ -1171,6 +1183,7 @@
 		{
 			"name": "Constants",
 			"scope": [
+				// rust
 				"constant.other.caps.rust",
 				// powershell
 				"constant.language.powershell"
@@ -1216,6 +1229,8 @@
 			"name": "Escape characters",
 			"scope": [
 				"constant.character.escape",
+				// rust
+				"constant.character.escape.rust",
 				// powershell
 				"constant.character.escape.powershell",
 				// csharp
@@ -1228,6 +1243,9 @@
 		{
 			"name": "Character literals",
 			"scope": [
+				// rust
+				"punctuation.definition.char.rust",
+				"string.quoted.single.char.rust",
 				// csharp
 				"punctuation.definition.char.begin.cs",
 				"punctuation.definition.char.end.cs",
@@ -1241,7 +1259,11 @@
 			"name": "Number literals",
 			"scope": [
 				"constant.numeric",
+				// rust
 				"constant.numeric.decimal.rust",
+				"constant.numeric.bin.rust",
+				"constant.numeric.hex.rust",
+				"constant.numeric.oct.rust",
 				"punctuation.separator.dot.decimal.rust",
 				// powershell
 				"constant.numeric.integer.powershell",
@@ -1278,10 +1300,11 @@
 		{
 			"name": "Attributes",
 			"scope": [
+				// rust
+				"meta.attribute.rust",
 				"punctuation.definition.attribute.rust",
 				"punctuation.brackets.attribute.rust",
 				"keyword.operator.attribute.inner.rust",
-				"meta.attribute.rust",
 				// powershell
 				"support.function.attribute.powershell",
 				"variable.parameter.attribute.powershell"
@@ -1390,191 +1413,191 @@
 			}
 		},
 		//
-        // HTML
-        //
-        {
-            "name": "HTML - Tags",
-            "scope": [
-                "entity.name.tag.html"
-            ],
-            "settings": {
-                "foreground": "#F767BB"
-            }
-        },
-        {
-            "name": "HTML - Attributes",
-            "scope": [
-                "entity.other.attribute-name.html"
-            ],
-            "settings": {
-                "foreground": "#13BBB7",
-                "fontStyle": "italic"
-            }
-        },
-        {
-            "name": "HTML - ID Value",
-            "scope": [
-                "meta.attribute.id.html"
-            ],
-            "settings": {
-                "foreground": "#FF5C57",
-                "fontStyle": "bold"
-            }
-        },
-        {
-            "name": "HTML - Class Value",
-            "scope": [
-                "meta.attribute.class.html"
-            ],
-            "settings": {
-                "foreground": "#2DAE58"
-            }
-        },
-        {
-            "name": "HTML - Meta Value",
-            "scope": [
-                "meta.attribute"
-            ],
-            "settings": {
-                "foreground": "#CF9C00"
-            }
-        },
-        {
-            "name": "HTML - Links",
-            "scope": [
-                "meta.attribute.href.html",
-                "meta.attribute.src.html",
-                "meta.attribute.unrecognized.xmlns.html"
-            ],
-            "settings": {
-                "foreground": "#c75af3"
-            }
-        },
-        {
-            "name": "HTML - Embedded CSS",
-            "scope": [
-                "meta.embedded.line.css"
-            ],
-            "settings": {
-                "foreground": "#8cba10"
-            }
-        },
-        //
-        // CSS
-        //
-        {
-            "name": "CSS - Tags",
-            "scope": [
-                "entity.name.tag.css"
-            ],
-            "settings": {
-                "foreground": "#F767BB"
-            }
-        },
-        {
-            "name": "CSS - Properties",
-            "scope": [
-                "support.type.property-name.css",
-                "meta.property-name.css",
-                "meta.property-name.scss"
-            ],
-            "settings": {
-                "foreground": "#a8759a"
-            }
-        },
-        {
-            "name": "CSS - Property Values",
-            "scope": [
-                "support.constant.property-value.css"
-            ],
-            "settings": {
-                "foreground": "#13BBB7"
-            }
-        },
-        {
-            "name": "CSS - ID Selector",
-            "scope": [
-                "entity.other.attribute-name.id.css"
-            ],
-            "settings": {
-                "foreground": "#FF5C57",
-                "fontStyle": "bold"
-            }
-        },
-        {
-            "name": "CSS - Class Selector",
-            "scope": [
-                "entity.other.attribute-name.class.css"
-            ],
-            "settings": {
-                "foreground": "#2DAE58"
-            }
-        },
-        {
-            "name": "CSS - Pseudoclass Selector",
-            "scope": [
-                "support.constant.font-name.css"
-            ],
-            "settings": {
-                "foreground": "#CF9C00"
-            }
-        },
-        {
-            "name": "CSS - Font Names",
-            "scope": [
-                "entity.other.attribute-name.pseudo-class.css",
-                "entity.other.attribute-name.pseudo-element.css"
-            ],
-            "settings": {
-                "foreground": "#8cba10"
-            }
-        },
-        {
-            "name": "CSS - Units",
-            "scope": [
-                "keyword.other.unit.rem.css",
-                "keyword.other.unit.em.css",
-                "keyword.other.unit.ex.css",
-                "keyword.other.unit.ch.css",
-                "keyword.other.unit.vw.css",
-                "keyword.other.unit.vh.css",
-                "keyword.other.unit.vmin.css",
-                "keyword.other.unit.vmax.css",
-                "keyword.other.unit.percentage.css",
-                "keyword.other.unit.mm.css",
-                "keyword.other.unit.in.css",
-                "keyword.other.unit.px.css",
-                "keyword.other.unit.pt.css",
-                "keyword.other.unit.pc.css",
-                "keyword.other.unit.deg.css"
-            ],
-            "settings": {
-                "foreground": "#FF5C57"
-            }
-        },
-        //
-        // SCSS
-        //
-        {
-            "name": "SCSS - Symbols",
-            "scope": [
-                "punctuation.definition.keyword.scss", // @
-                "keyword.control.at-rule.include.scss", // @
-                "entity.name.tag.reference.scss" // &
-            ],
-            "settings": {
-                "foreground": "#F767BB"
-            }
-        },
-        {
-            "name": "SCSS - Constants",
-            "scope": [
-                "constant.other.scss" // {x}n
-            ],
-            "settings": {
-                "foreground": "#FF5C57"
-            }
-        },
+		// HTML
+		//
+		{
+			"name": "HTML - Tags",
+			"scope": [
+				"entity.name.tag.html"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "HTML - Attributes",
+			"scope": [
+				"entity.other.attribute-name.html"
+			],
+			"settings": {
+				"foreground": "#13BBB7",
+				"fontStyle": "italic"
+			}
+		},
+		{
+			"name": "HTML - ID Value",
+			"scope": [
+				"meta.attribute.id.html"
+			],
+			"settings": {
+				"foreground": "#FF5C57",
+				"fontStyle": "bold"
+			}
+		},
+		{
+			"name": "HTML - Class Value",
+			"scope": [
+				"meta.attribute.class.html"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
+			}
+		},
+		{
+			"name": "HTML - Meta Value",
+			"scope": [
+				"meta.attribute"
+			],
+			"settings": {
+				"foreground": "#CF9C00"
+			}
+		},
+		{
+			"name": "HTML - Links",
+			"scope": [
+				"meta.attribute.href.html",
+				"meta.attribute.src.html",
+				"meta.attribute.unrecognized.xmlns.html"
+			],
+			"settings": {
+				"foreground": "#c75af3"
+			}
+		},
+		{
+			"name": "HTML - Embedded CSS",
+			"scope": [
+				"meta.embedded.line.css"
+			],
+			"settings": {
+				"foreground": "#8cba10"
+			}
+		},
+		//
+		// CSS
+		//
+		{
+			"name": "CSS - Tags",
+			"scope": [
+				"entity.name.tag.css"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "CSS - Properties",
+			"scope": [
+				"support.type.property-name.css",
+				"meta.property-name.css",
+				"meta.property-name.scss"
+			],
+			"settings": {
+				"foreground": "#a8759a"
+			}
+		},
+		{
+			"name": "CSS - Property Values",
+			"scope": [
+				"support.constant.property-value.css"
+			],
+			"settings": {
+				"foreground": "#13BBB7"
+			}
+		},
+		{
+			"name": "CSS - ID Selector",
+			"scope": [
+				"entity.other.attribute-name.id.css"
+			],
+			"settings": {
+				"foreground": "#FF5C57",
+				"fontStyle": "bold"
+			}
+		},
+		{
+			"name": "CSS - Class Selector",
+			"scope": [
+				"entity.other.attribute-name.class.css"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
+			}
+		},
+		{
+			"name": "CSS - Pseudoclass Selector",
+			"scope": [
+				"support.constant.font-name.css"
+			],
+			"settings": {
+				"foreground": "#CF9C00"
+			}
+		},
+		{
+			"name": "CSS - Font Names",
+			"scope": [
+				"entity.other.attribute-name.pseudo-class.css",
+				"entity.other.attribute-name.pseudo-element.css"
+			],
+			"settings": {
+				"foreground": "#8cba10"
+			}
+		},
+		{
+			"name": "CSS - Units",
+			"scope": [
+				"keyword.other.unit.rem.css",
+				"keyword.other.unit.em.css",
+				"keyword.other.unit.ex.css",
+				"keyword.other.unit.ch.css",
+				"keyword.other.unit.vw.css",
+				"keyword.other.unit.vh.css",
+				"keyword.other.unit.vmin.css",
+				"keyword.other.unit.vmax.css",
+				"keyword.other.unit.percentage.css",
+				"keyword.other.unit.mm.css",
+				"keyword.other.unit.in.css",
+				"keyword.other.unit.px.css",
+				"keyword.other.unit.pt.css",
+				"keyword.other.unit.pc.css",
+				"keyword.other.unit.deg.css"
+			],
+			"settings": {
+				"foreground": "#FF5C57"
+			}
+		},
+		//
+		// SCSS
+		//
+		{
+			"name": "SCSS - Symbols",
+			"scope": [
+				"punctuation.definition.keyword.scss", // @
+				"keyword.control.at-rule.include.scss", // @
+				"entity.name.tag.reference.scss" // &
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "SCSS - Constants",
+			"scope": [
+				"constant.other.scss" // {x}n
+			],
+			"settings": {
+				"foreground": "#FF5C57"
+			}
+		},
 		//
 		// MARKDOWN
 		//
