@@ -443,3 +443,28 @@ Markdown only supports textmate highlighting; it has no semantic highlighting.
 #### Link #565869 #abb2bf (underline)
 - "markup.underline.link"
 - "constant.other.reference.link.markdown"
+
+
+
+## JSON
+JSON only supports textmate highlighting; it has no semantic highlighting.
+
+### Keys #F767BB #f85eb4
+- "support.type.property-name.json"
+
+### String Values #CF9C00 #f9c859
+- "string.quoted.double.json"
+
+### String Values #FF5C57 #ff6b66
+- "constant.numeric.json"
+
+### Constant Values #13BBB7 #15c9c5
+- "constant.language.json"
+
+### Comments #ADB1C2 #636d83
+- "comment"
+- "comment.line.double-slash.js"
+- "comment.block.json"
+
+### Punctuation #777777 #828da0
+- "punctuation"

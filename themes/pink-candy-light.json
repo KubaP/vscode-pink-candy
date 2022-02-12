@@ -1612,20 +1612,11 @@
 		},
 		{
 			// The `#` symbol in titles.
-			"name": "Markdown - Heading Character",
+			"name": "Markdown - Headings",
 			"scope": [
 				"markdown.heading",
 				"markup.heading | markup.heading entity.name",
-				"markup.heading.markdown punctuation.definition.heading.markdown"
-			],
-			"settings": {
-				"foreground": "#F767BB"
-			}
-		},
-		{
-			// The actual text in a title.
-			"name": "Markdown - Heading Text",
-			"scope": [
+				"markup.heading.markdown punctuation.definition.heading.markdown",
 				"entity.name.section.markdown"
 			],
 			"settings": {
@@ -1756,6 +1747,49 @@
 			"settings": {
 				"foreground": "#565869",
 				"fontStyle": "underline"
+			}
+		},
+		//
+		// JSON
+		//
+		{
+			"name": "JSON - Key",
+			"scope": "support.type.property-name.json",
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "JSON - String Value",
+			"scope": "string.quoted.double.json",
+			"settings": {
+				"foreground": "#CF9C00"
+			}
+		},
+		{
+			"name": "JSON - Number Value",
+			"scope": "constant.numeric.json",
+			"settings": {
+				"foreground": "#FF5C57"
+			}
+		},
+		{
+			"name": "JSON - Constant Value",
+			"scope": "constant.language.json",
+			"settings": {
+				"foreground": "#13BBB7"
+			}
+		},
+		{
+			"name": "JSON - Lighten Quotation Marks [DISABLED]",
+			"scope": [
+				"punctuation.support.type.property-name.begin.json",
+				"punctuation.support.type.property-name.end.json",
+				"punctuation.definition.string.begin.json",
+				"punctuation.definition.string.end.json"
+			],
+			"settings": {
+				//"foreground": "#ADB1C2"
 			}
 		}
 	]
