@@ -1432,9 +1432,10 @@
 			}
 		},
 		{
-			"name": "HTML - ID Value",
+			"name": "HTML - IDs",
 			"scope": [
-				"meta.attribute.id.html"
+				"meta.attribute.id.html",
+				"entity.other.attribute-name.id.css"
 			],
 			"settings": {
 				"foreground": "#FF5C57",
@@ -1442,9 +1443,10 @@
 			}
 		},
 		{
-			"name": "HTML - Class Value",
+			"name": "HTML - Classes",
 			"scope": [
-				"meta.attribute.class.html"
+				"meta.attribute.class.html",
+				"entity.other.attribute-name.class.css"
 			],
 			"settings": {
 				"foreground": "#2DAE58"
@@ -1496,7 +1498,8 @@
 			"scope": [
 				"support.type.property-name.css",
 				"meta.property-name.css",
-				"meta.property-name.scss"
+				"meta.property-name.scss",
+				"support.type.property-name.media.css"
 			],
 			"settings": {
 				"foreground": "#a8759a"
@@ -1512,26 +1515,7 @@
 			}
 		},
 		{
-			"name": "CSS - ID Selector",
-			"scope": [
-				"entity.other.attribute-name.id.css"
-			],
-			"settings": {
-				"foreground": "#FF5C57",
-				"fontStyle": "bold"
-			}
-		},
-		{
-			"name": "CSS - Class Selector",
-			"scope": [
-				"entity.other.attribute-name.class.css"
-			],
-			"settings": {
-				"foreground": "#2DAE58"
-			}
-		},
-		{
-			"name": "CSS - Pseudoclass Selector",
+            "name": "CSS - Fontname Selector",
 			"scope": [
 				"support.constant.font-name.css"
 			],
@@ -1540,7 +1524,7 @@
 			}
 		},
 		{
-			"name": "CSS - Font Names",
+            "name": "CSS - Pseudoclass Selector",
 			"scope": [
 				"entity.other.attribute-name.pseudo-class.css",
 				"entity.other.attribute-name.pseudo-element.css"
@@ -1566,7 +1550,8 @@
 				"keyword.other.unit.px.css",
 				"keyword.other.unit.pt.css",
 				"keyword.other.unit.pc.css",
-				"keyword.other.unit.deg.css"
+				"keyword.other.unit.deg.css",
+				"constant.other.scss" // {x}n
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1578,21 +1563,13 @@
 		{
 			"name": "SCSS - Symbols",
 			"scope": [
-				"punctuation.definition.keyword.scss", // @
-				"keyword.control.at-rule.include.scss", // @
-				"entity.name.tag.reference.scss" // &
+				"punctuation.definition.keyword.scss",
+				"keyword.control.at-rule.include.scss",
+				"entity.name.tag.reference.scss",
+				"entity.name.tag.wildcard.scss"
 			],
 			"settings": {
 				"foreground": "#F767BB"
-			}
-		},
-		{
-			"name": "SCSS - Constants",
-			"scope": [
-				"constant.other.scss" // {x}n
-			],
-			"settings": {
-				"foreground": "#FF5C57"
 			}
 		},
 		//

@@ -397,6 +397,97 @@ Comment Keywords #565869 #b9bfca
 
 
 
+## HTML/Css/Scss
+HTML/Css/Scss only support textmate highlighting.
+
+### Tags # #f85eb4
+- "entity.name.tag.html"
+- "entity.name.tag.css"
+
+### Classes # #3fc56b
+- "meta.attribute.class.html"
+- "entity.other.attribute-name.class.css"
+
+### IDs # #ff6b66 (bold)
+- "meta.attribute.id.html"
+- "entity.other.attribute-name.id.css"
+
+
+
+### Attributes (HTML) # #15c9c5 (italics)
+- "entity.other.attribute-name.html"
+
+### Attribute Values (HTML) # #f9c859
+- "string.quoted.double.html"
+
+### Attribute Value Urls (HTML) # #d177f5
+- "meta.attribute.href.html"
+- "meta.attribute.src.html"
+- "meta.attribute.unrecognized.xmlns.html"
+
+### Attribute Value Inline Styles (HTML) # #9acc12
+- "meta.embedded.line.css"
+
+
+
+### Properties (CSS) # #b58e95
+- "support.type.property-name.css"
+- "meta.property-name.css"
+- "meta.property-name.scss"
+- "support.type.property-name.media.css"
+
+### Property Value Strings (CSS) # #f9c859
+- "string.quoted.double.css"
+- "string.quoted.double.scss"
+- "string.quoted.single.css"
+- "string.quoted.single.scss"
+- "support.constant.font-name.css"
+
+### Property Value Numbers (CSS) # #ff6b66
+- "constant.numeric.css"
+- "keyword.other.unit.rem.css"
+- "keyword.other.unit.em.css"
+- "keyword.other.unit.ex.css"
+- "keyword.other.unit.ch.css"
+- "keyword.other.unit.vw.css"
+- "keyword.other.unit.vh.css"
+- "keyword.other.unit.vmin.css"
+- "keyword.other.unit.vmax.css"
+- "keyword.other.unit.percentage.css"
+- "keyword.other.unit.mm.css"
+- "keyword.other.unit.in.css"
+- "keyword.other.unit.px.css"
+- "keyword.other.unit.pt.css"
+- "keyword.other.unit.pc.css"
+- "keyword.other.unit.deg.css"
+- "constant.other.scss"
+
+### Property Value Constants/Keys (CSS) # #15c9c5
+- "support.constant.property-value.css"
+
+### Pseudoclass Selectors (CSS) # #9acc12
+- "entity.other.attribute-name.pseudo-class.css"
+- "entity.other.attribute-name.pseudo-element.css"
+
+### Variables (CSS) # #b9bfca
+- "variable.css"
+- "variable.argument.css"
+- "variable.scss"
+
+### Functions (CSS) # #10b1fe
+- "support.function.misc.css"
+- "support.function.misc.scss"
+
+
+
+### Special Symbols (SCSS) # #f85eb4
+- "entity.name.tag.reference.scss" - `&`
+- "punctuation.definition.keyword.scss" - `@`
+- "keyword.control.at-rule.include.scss" - `@`
+- "entity.name.tag.wildcard.scss" - `*`
+
+
+
 ## Markdown
 Markdown only supports textmate highlighting; it has no semantic highlighting.
 

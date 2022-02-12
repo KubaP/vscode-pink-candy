@@ -4,7 +4,7 @@ A vivid colour scheme with a pink accent, with both light and dark variants. Inc
 ### Table of Contents
 1. [Overview](#overview)
 2. [Language Specific Features](#language-specifics)
-3. [Overriding Styles (Customising)](#overriding-styles)
+3. [Overriding Styles](#overriding-styles)
 4. [Contributing](#contributing)
 5. [License](#license)
 
@@ -13,6 +13,7 @@ This theme supports `semantic` highlighting, so it should work with any langauge
 - Rust
 - C#
 - Powershell
+- HTML/Css/Scss
 - Markdown
 - Json
 
@@ -39,6 +40,14 @@ This theme, unlike many others, takes advantage of semantic scopes that each lan
 - Variables are distinctly coloured.
 - Parameter declarations (attributes) are distinctly coloured.
 - Object members are distinctly coloured.
+
+### HTML/Css/Scss
+- IDs, Classes, and other attribute values have different colours.
+- Attribute keys are italicised.
+- Inline css styles have a unique colour.
+- Urls are uniquely coloured.
+- Units have the same colour as number literals.
+- Scss-specific characters are properly coloured.
 
 ## Overriding Styles
 See [Overriding Styles](./Overriding_Styles.md) for the guide.
