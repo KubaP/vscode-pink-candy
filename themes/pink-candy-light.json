@@ -1183,9 +1183,7 @@
 			"name": "Constants",
 			"scope": [
 				// rust
-				"constant.other.caps.rust",
-				// powershell
-				"constant.language.powershell"
+				"constant.other.caps.rust"
 			],
 			"settings": {
 				"foreground": "#13BBB7"
@@ -1203,17 +1201,17 @@
 				"constant.other.key",
 				"meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js",
 				// rust
-				"punctuation.definition.string.rust",
 				"string.quoted.double.rust",
+				"punctuation.definition.string.rust",
 				// csharp
+				"string.quoted.double.cs",
 				"punctuation.definition.string.begin.cs",
 				"punctuation.definition.string.end.cs",
-				"string.quoted.double.cs",
 				// powershell
-				"punctuation.definition.string.begin.powershell",
-				"punctuation.definition.string.end.powershell",
 				"string.quoted.double.powershell",
 				"string.quoted.single.powershell",
+				"punctuation.definition.string.begin.powershell",
+				"punctuation.definition.string.end.powershell",
 				// css
 				"string.quoted.double.css",
 				"string.quoted.double.scss",
@@ -1388,7 +1386,8 @@
 				"variable.other.readwrite.powershell",
 				"punctuation.definition.variable.powershell",
 				"storage.modifier.scope.powershell",
-				"support.variable.automatic.powershell"
+				"support.variable.automatic.powershell",
+				"constant.language.powershell"
 			],
 			"settings": {
 				"foreground": "#2DAE58"

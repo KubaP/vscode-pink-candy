@@ -343,11 +343,11 @@ Keywords #F767BB #f85eb4
 - "keyword.operator.comparison.powershell" `-eq`, `-gt`, etc.
 - "keyword.operator.logical.powershell" `-not`
 
-Operator/Punctuation #777777 #828da0
-- "keyword.operator"
-
 Classes/Built-in types #F767BB #f85eb4
 - "storage.type.powershell" `char`, `string`, `System.Collections.Generic.List`, etc.
+
+Operator/Punctuation #777777 #828da0
+- "keyword.operator"
 
 Cmdlet/Functions #09A1ED #10b1fe
 - "support.function.powershell" `Get-Item`, etc.
@@ -361,20 +361,22 @@ Variables #2DAE58 #3fc56b
 Members/Methods #a8759a #b58e95
 - "variable.other.member.powershell" `.something`
 
-Number Constants #FF5C57 #ff6b66
-- "constant.numeric.integer.powershell"
-- "constant.numeric.hex.powershell"
-- "constant.numeric.octal.powershell"
-
-Constants #2DAE58 #3fc56b
+Constants/Booleans #2DAE58 #3fc56b
 - "constant.language.powershell" `true`, `false`
 
 Strings #CF9C00 #f9c859
 - "string.quoted.double.powershell" `"..."`
 - "string.quoted.single.powershell" `'...'`
+- "punctuation.definition.string.begin.powershell"
+- "punctuation.definition.string.end.powershell"
 
 Escape characters #FF5C57 #ff6b66
 - "constant.character.escape.powershell" `` `a``
+
+Number Literals #FF5C57 #ff6b66
+- "constant.numeric.integer.powershell"
+- "constant.numeric.hex.powershell"
+- "constant.numeric.octal.powershell"
 
 Attributes #FF5C57 #ff6b66
 - "support.function.attribute.powershell" `[Parameter ...]`
@@ -387,7 +389,8 @@ Comment Keywords #565869 #b9bfca
 - "keyword.operator.documentation.powershell" `.SYNOPSIS ...`
 
 ### Limitations
--` No way to differentiate between function declaration and type/class, hence why types are in pink rather than cyan.
+- No way to differentiate between function declaration and type/class, hence why types are in pink rather than green.
+- No way to colour booleans.
 - No support for differentiation between built-in types and classes.
 - No support for parameters, e.g. `-Path`.
 - No support for pipe `|`.
