@@ -8,21 +8,29 @@ View this document inside of a text editor with hex colour highlighting support,
 ## General
 
 ### Keywords #F767BB #f85eb4
-- s: "keyword"
 - s: "newOperator" - `new`
-- tm: "keyword"
 #### rust
-- tm: "storage.modifier" `mut`
-- tm: "storage.type.rust" `enum` and `struct` declarations, `let`
-- tm: "variable.language.self.rust" `self` 
+- s: "keyword"
+- tm: "keyword"
+- tm: "storage.modifier" - `mut` keyword
+- tm: "storage.type.rust" - `enum` and `struct` declarations, `let` keyword
 #### csharp
 - s: "plainKeyword", "controlKeyword"
 - tm: "keyword"
 - tm: "storage.modifier.cs" - `public`, `static`, `override` etc.
 
-### Built-in Type #F767BB #f85eb4
-- s: "builtinType", "type"
+### Self/This #F767BB #f85eb4
 #### rust
+- s: "selfKeyword"
+- tm: "variable.language.self.rust"
+#### csharp
+- s: "plainKeyword"
+- tm: "keyword.other.this.cs"
+
+### Built-in Type #F767BB #f85eb4
+- s: "type"
+#### rust
+- s: "builtinType"
 - tm: "entity.name.type.numeric.rust" - All number types like `u32` etc.
 - tm: "entity.name.type.primitive.rust" - `char`, `str`, `bool`
 #### csharp
@@ -34,11 +42,13 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "punctuation"
 
 ### Operators #777777 #828da0
+### rust
 - s: "operator"
 - s: "arithmetic"
-- s: "logical"
 - s: "comparison"
+- s: "logical"
 - s: "bitwise"
+- tm: "keyword.operator"
 #### csharp
 - s: "operator"
 - tm: "keyword.operator"
@@ -46,25 +56,40 @@ View this document inside of a text editor with hex colour highlighting support,
 
 
 ### Function #09A1ED #10b1fe
+#### rust
 - s: "function"
+- tm: "entity.name.function.rust" ⚠ Cannot differentiate between functions and enum tuple variants. Cannot differentiate static functions from object methods.
 #### csharp
 - s: "member.static"
 - tm: "entity.name.function.cs" ⚠ Cannot differentiate static methods from object methods.
 
 ### Method #09A1ED #10b1fe
+#### rust
 - s: "method"
+- tm: "entity.name.function.rust"
 #### csharp
 - s: "member"
 - tm: "entity.name.function.cs"
 
 ### Namespace #565869 #abb2bf
+#### rust
 - s: "namespace"
+- tm: "entity.name.namespace.rust"
 #### csharp
 - s: "namespace"
 - tm: "entity.name.type.namespace.cs" - ⚠ (Only for the using/namespace statements) Cannot differentiate namespaces, in function bodies, from other local variables.
 
 ### Custom Type #2DAE58 #3fc56b
-- s: "struct", "class", "enum", "union", "typeAlias"
+#### rust
+- s: "struct"
+- s: "enum"
+- s: "union"
+- s: "typeAlias"
+- tm: "entity.name.type.rust" - Actual typename references
+- tm: "entity.name.type.struct.rust" - Struct declaration
+- tm: "entity.name.type.enum.rust" - Enum declaration
+- tm: "entity.name.type.union.rust" - Union declaration
+- tm: "entity.name.type.declaration.rust" - Type alias declaration
 #### csharp
 - s: "class"
 - s: "struct"
@@ -74,9 +99,14 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "entity.name.type.struct.cs" - Struct declaration
 - tm: "entity.name.type.enum.cs" - Enum declaration
 
-### Enum Member #13BBB7 #15c9c5
-ℹ Includes boolean `true/false`.
-- s: "enumMember", "boolean"
+### Enum Member #13BBB7 #15c9c5 ℹ Includes boolean `true/false`.
+#### rust
+- s: "enumMember"
+- s: "boolean"
+- tm: "constant.language.bool.rust"
+- tm: "support.enum.core.rust"
+- tm: "entity.name.type.option.rust"
+- tm: "entity.name.type.result.rust"
 #### csharp
 - s: "enumMember"
 - tm: "entity.name.variable.enum-member.cs" - Enum variant declarations
@@ -86,9 +116,13 @@ View this document inside of a text editor with hex colour highlighting support,
 
 
 ### Interface/Inheritance #cd6bf4 #d177f5
+#### rust
 - s: "interface"
+- tm: "entity.name.type.trait.rust" - ⚠ Trait declaration only
 
 ### Type Parameters #2DAE58 #3fc56b
+#### rust
+- s: "typeParameter"
 #### csharp
 - s: "typeParameter"
 - tm: "entity.name.type.type-parameter.cs"
@@ -96,38 +130,41 @@ View this document inside of a text editor with hex colour highlighting support,
 
 
 ### Variables #565869 #b9bfca
+#### rust
 - s: "variable"
+- tm: "variable.other.rust" - ⚠ Cannot differentiate between variables and parameters/members
 #### csharp
 - s: "local"
 - tm: "entity.name.variable.local.cs" - Only for declarations, not later uses
 
 ### Parameters #6e82a6 #97bccd
+#### rust
 - s: "parameter"
 #### csharp
 - s: "parameter"
 - tm: "entity.name.variable.parameter.cs" - Only for declarations in function header, not uses
 
 ### Object members #a8759a #b58e95
+#### rust
 - s: "property"
 #### csharp
 - s: "field"
 - tm: "variable.other.object.property.cs" - ⚠ Incorrectly highlights objects in namespaces
 
-### Self/This #F767BB #f85eb4
-- s: "selfKeyword"
-#### csharp
-- s: "plainKeyword"
-- tm: "keyword.other.this.cs"
-
 ### Constants #13BBB7 #15c9c5
+#### rust
 - s: "*.constant"
+- tm: "constant.other.caps.rust"
 #### csharp
 - s: "variable.static"
 
 
 
 ### Strings #CF9C00 #f9c859
+#### rust
 - s: "string"
+- tm: "string.quoted.double.rust"
+- tm: "punctuation.definition.string.rust"
 #### csharp
 - s: "string"
 - tm: "string.quoted.double.cs"
@@ -139,19 +176,30 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "stringVerbatim" `@"..."`
 
 ### Escape characters #FF5C57 #ff6b66
+#### rust
 - s: "escapeSequence"
+- tm: "constant.character.escape.rust"
 #### csharp
 - tm: "constant.character.escape.cs"
 
 ### Character Literals #FF5C57 #ff6b66
+#### rust
 - s: "character"
+- tm: "string.quoted.single.char.rust"
+- tm: "punctuation.definition.char.rust"
 #### csharp
 - tm: "string.quoted.single.cs"
 - tm: "punctuation.definition.char.begin.cs"
 - tm: "punctuation.definition.char.end.cs"
 
 ### Number Literals #FF5C57 #ff6b66
+#### rust
 - s: "number"
+- tm: "constant.numeric.decimal.rust"
+- tm: "punctuation.separator.dot.decimal.rust",
+- tm: "constant.numeric.bin.rust"
+- tm: "constant.numeric.hex.rust"
+- tm: "constant.numeric.oct.rust"
 #### csharp
 - s: "number"
 - tm: "constant.numeric.decimal.cs"
@@ -159,7 +207,9 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "constant.numeric.hex.cs"
 
 ### Comments #ADB1C2 #636d83
+#### rust
 - s: "comment"
+- tm: "comment"
 #### csharp
 - s: "comment"
 - s: "comment.documentation.cs"
@@ -168,14 +218,19 @@ View this document inside of a text editor with hex colour highlighting support,
 
 
 ### Attributes #FF5C57 #ff6b66
-- s: "attribute"
 #### rust
+- s: "attribute"
 - s: "parenthesis.attribute" `()`
 - s: "macro.attribute" `#[derive()]`
 - s: "builtinAttribute" `#[inline]`, `#[cfg]`, etc.
 - s: "generic.attribute" `clippy::something`, `debug_assertions`, etc.
+- tm: "meta.attribute.rust"
+- tm: "punctuation.definition.attribute.rust"
+- tm: "punctuation.brackets.attribute.rust"
+- tm: "keyword.operator.attribute.inner.rust"
 
 ### Unresolved Symbol #FF1277 #ff2884
+#### rust
 - "unresolvedReference"
 
 
@@ -205,10 +260,10 @@ View this document inside of a text editor with hex colour highlighting support,
 
 ### Try operator `?` #F767BB #f85eb4
 - s: "operator.controlFlow" 
-- tm: "keyword.operator.mics.question-mark.rust"
+- tm: "keyword.operator.misc.question-mark.rust"
 - tm: "keyword.operator.question.rust"
 
-### Lifetimes `'a` #8cba10 #9acc12
+### Lifetimes `'a` #cd6bf4 #d177f5
 - s: "lifetime"
 - tm: "punctuation.definition.lifetime.rust"
 - tm: "entity.name.type.lifetime.rust"
@@ -216,6 +271,19 @@ View this document inside of a text editor with hex colour highlighting support,
 
 ### Labels `'outer: while ...` #8cba10 #9acc12
 - s: "label"
+
+### Unsafe #FF5C57 #ff6b66 (above effects plus underline)
+- s: "*.unsafe"
+- s: "keyword.unsafe" - `unsafe` Bold underline
+
+### Textmate limitations
+- No way to colour enum variants (empty enum variants appear like types and tuple enum variants appear like functions).
+- No way to colour trait constrains in generics.
+- No way to colour labels.
+- No support for distinguishing mutability, referencing, etc.
+- Only partial support for attributes.
+- No support for object members or function parameters.
+- No support for any unsafe highlighting.
 
 
 
@@ -267,7 +335,7 @@ View this document inside of a text editor with hex colour highlighting support,
 
 ## Powershell
 The official powershell language extension does not support semantic highlighting, but even within the traditional
-scope-based highlighting, it lacks a number of scopes which makes the results look a bit primitive in places.
+'Textmate' highlighting, it lacks a number of scopes which makes the results look a bit primitive and basic in places.
 
 Keywords #F767BB #f85eb4
 - "keyword.control.powershell" `if`, `foreach`, `param`, `return`, etc.

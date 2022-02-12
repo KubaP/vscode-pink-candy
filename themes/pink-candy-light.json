@@ -738,6 +738,8 @@
 		"keyword": "#F767BB",
 		"type": "#F767BB",
 		"builtinType": "#F767BB",
+		"selfKeyword": "#F767BB",
+		"newOperator": "#F767BB",
 		"plainKeyword:csharp": "#F767BB",
 		"controlKeyword:csharp": "#F767BB",
 		//
@@ -748,7 +750,6 @@
 		"logical": "#777777",
 		"comparison": "#777777", // `==`, `!=`, `===`
 		"bitwise": "#777777",
-		"newOperator": "#F767BB",
 		//
 		//
 		"function": "#09A1ED", // Static function.
@@ -790,7 +791,6 @@
 			"foreground": "#a8759a",
 			"fontStyle": "bold"
 		},
-		"selfKeyword": "#F767BB",
 		"*.constant": "#13BBB7",
 		"variable.static:csharp": "#13BBB7", // Constants
 		//
@@ -943,13 +943,13 @@
 				"storage.modifier.mut.rust",
 				"storage.modifier.type.rust",
 				"variable.language.self.rust",
+				// csharp
+				"storage.modifier.cs",
+				"keyword.other.this.cs",
 				// powershell
 				"keyword.control.powershell",
 				"storage.type.powershell",
-				"meta.function.powershell",
-				// csharp
-				"storage.modifier.cs",
-				"keyword.other.this.cs"
+				"meta.function.powershell"
 			],
 			"settings": {
 				"foreground": "#F767BB"
@@ -1002,10 +1002,10 @@
 				"keyword.other.common.function",
 				// rust
 				"entity.name.function.rust",
-				// powershell
-				"support.function.powershell",
 				// csharp
 				"entity.name.function.cs",
+				// powershell
+				"support.function.powershell",
 				// css
 				"support.function.misc.css",
 				"support.function.misc.scss"
@@ -1138,7 +1138,6 @@
 				"string constant.other.placeholder",
 				"meta.function-call.java",
 				"storage.modifier.import.java",
-				//
 				"variable.other.object",
 				// rust
 				"variable.other.rust",
@@ -1171,10 +1170,10 @@
 		{
 			"name": "Members",
 			"scope": [
-				// powershell
-				"variable.other.member.powershell",
 				// csharp
-				"variable.other.object.property.cs"
+				"variable.other.object.property.cs",
+				// powershell
+				"variable.other.member.powershell"
 			],
 			"settings": {
 				"foreground": "#a8759a"
@@ -1206,15 +1205,15 @@
 				// rust
 				"punctuation.definition.string.rust",
 				"string.quoted.double.rust",
+				// csharp
+				"punctuation.definition.string.begin.cs",
+				"punctuation.definition.string.end.cs",
+				"string.quoted.double.cs",
 				// powershell
 				"punctuation.definition.string.begin.powershell",
 				"punctuation.definition.string.end.powershell",
 				"string.quoted.double.powershell",
 				"string.quoted.single.powershell",
-				// csharp
-				"punctuation.definition.string.begin.cs",
-				"punctuation.definition.string.end.cs",
-				"string.quoted.double.cs",
 				// css
 				"string.quoted.double.css",
 				"string.quoted.double.scss",
@@ -1231,10 +1230,10 @@
 				"constant.character.escape",
 				// rust
 				"constant.character.escape.rust",
-				// powershell
-				"constant.character.escape.powershell",
 				// csharp
-				"constant.character.escape.cs"
+				"constant.character.escape.cs",
+				// powershell
+				"constant.character.escape.powershell"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1265,14 +1264,14 @@
 				"constant.numeric.hex.rust",
 				"constant.numeric.oct.rust",
 				"punctuation.separator.dot.decimal.rust",
-				// powershell
-				"constant.numeric.integer.powershell",
-				"constant.numeric.hex.powershell",
-				"constant.numeric.octal.powershell",
 				// csharp
 				"constant.numeric.binary.cs",
 				"constant.numeric.decimal.cs",
 				"constant.numeric.hex.cs",
+				// powershell
+				"constant.numeric.integer.powershell",
+				"constant.numeric.hex.powershell",
+				"constant.numeric.octal.powershell",
 				// css
 				"constant.numeric.css"
 			],
@@ -1285,10 +1284,10 @@
 			"scope": [
 				"comment",
 				"punctuation.definition.comment",
-				// powershell
-				"comment.line.powershell",
 				// csharp
-				"comment.block.documentation.cs"
+				"comment.block.documentation.cs",
+				// powershell
+				"comment.line.powershell"
 			],
 			"settings": {
 				"foreground": "#ADB1C2"
