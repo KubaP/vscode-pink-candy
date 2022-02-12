@@ -736,10 +736,12 @@
     "semanticTokenColors": {
         //
         "keyword": "#f85eb4",
+        "type": "#f85eb4",
+        "builtinType": "#f85eb4",
+        "selfKeyword": "#f85eb4",
+        "newOperator": "#f85eb4",
         "plainKeyword:csharp": "#f85eb4",
         "controlKeyword:csharp": "#f85eb4",
-        "builtinType": "#f85eb4",
-        "type": "#f85eb4",
         //
         //
         "punctuation": "#828da0",
@@ -748,7 +750,6 @@
         "logical": "#828da0",
         "comparison": "#828da0", // `==`, `!=`, `===`
         "bitwise": "#828da0",
-        "newOperator": "#f85eb4",
         //
         //
         "function": "#10b1fe", // Static function.
@@ -762,6 +763,10 @@
         "namespace": "#abb2bf",
         "struct": "#3fc56b",
         "class": "#3fc56b",
+        "class.static:csharp": { // Static class.
+            "foreground": "#3fc56b",
+            "fontStyle": "underline"
+        },
         "enum": "#3fc56b",
         "union": "#3fc56b",
         "typeAlias": "#3fc56b",
@@ -778,31 +783,38 @@
         "parameter": "#97bccd",
         "property": "#b58e95", // Object members.
         "field:csharp": "#b58e95", // Object members.
+        "field.static:csharp": { // Static object members.
+            "foreground": "#b58e95",
+            "fontStyle": "underline"
+        },
         "property:csharp": { // Csharp properties.
             "foreground": "#b58e95",
             "fontStyle": "bold"
         },
-        "selfKeyword": "#f85eb4",
         "*.constant": "#15c9c5",
         "variable.static:csharp": "#15c9c5", // Constants
         //
         //
         "string": "#f9c859", // `"string"`
+        "stringVerbatim:csharp": "#f9c859",
         "escapeSequence": "#ff6b66", // `\n`
         "character": "#ff6b66", // `'b'`
         "number": "#ff6b66", // Number literals.
         "comment": "#636d83",
-        "xmlDocCommentName:csharp": "#b9bfca",
-        "xmlDocCommentDelimiter:csharp": "#b9bfca",
-        "xmlDocCommentAttributeName:csharp": "#ff6b66",
-        "xmlDocCommentAttributeQuotes:csharp": "#f9c859",
-        "xmlDocCommentAttributeValue:csharp": "#f9c859",
         //
         //
         "attribute": "#ff6b66", // The #[]!() symbols in an attribute.
         "unresolvedReference": {
             "foreground": "#ff2884"
         },
+        //
+        // CSHARP
+        "xmlDocCommentText": "#636d83",
+        "xmlDocCommentName:csharp": "#b9bfca",
+        "xmlDocCommentDelimiter:csharp": "#b9bfca",
+        "xmlDocCommentAttributeName:csharp": "#ff6b66",
+        "xmlDocCommentAttributeQuotes:csharp": "#f9c859",
+        "xmlDocCommentAttributeValue:csharp": "#f9c859",
         //
         // RUST
         "operator.controlFlow": "#f85eb4", // Rust: `?`
@@ -913,7 +925,6 @@
     "tokenColors": [
         // BASICS
         {
-            // Keywords such as `let`, `var`, `for`, `while`, `class` etc.
             "name": "Keywords",
             "scope": [
                 "keyword",
@@ -921,22 +932,23 @@
                 "storage.modifier",
                 "punctuation.definition.directive.c",
                 "punctuation.definition.directive.cpp",
-                "storage.type.impl.rust",
                 "keyword.type.go",
                 "storage.class.d",
-                "variable.language.super.rust",
                 "markup.deleted.git_gutter",
                 "entity.name.tag.css",
                 "punctuation.definition.keyword.css",
                 "entity.name.tag.wildcard.css",
+                // rust
+                "storage.modifier.mut.rust",
+                "storage.modifier.type.rust",
+                "variable.language.self.rust",
+                // csharp
+                "storage.modifier.cs",
+                "keyword.other.this.cs",
                 // powershell
                 "keyword.control.powershell",
                 "storage.type.powershell",
-                "meta.function.powershell",
-                // csharp
-                "storage.modifier.cs",
-                "keyword.cs",
-                "keyword.other.this.cs"
+                "meta.function.powershell"
             ],
             "settings": {
                 "foreground": "#f85eb4"
@@ -945,10 +957,9 @@
         {
             "name": "Built-in Types",
             "scope": [
-                "entity.name.type.primitive",
-                "entity.name.type.primitive.rust",
+                // rust
                 "entity.name.type.numeric.rust",
-                "variable.language.self.rust",
+                "entity.name.type.primitive.rust",
                 // csharp
                 "keyword.type.cs"
             ],
@@ -988,10 +999,12 @@
                 "support.function",
                 "keyword.other.special-method",
                 "keyword.other.common.function",
-                // powershell
-                "support.function.powershell",
+                // rust
+                "entity.name.function.rust",
                 // csharp
                 "entity.name.function.cs",
+                // powershell
+                "support.function.powershell",
                 // css
                 "support.function.misc.css",
                 "support.function.misc.scss"
@@ -1039,8 +1052,6 @@
                 "storage.type.built-in.cpp",
                 "storage.type.built-in.primitive.cpp",
                 "entity.name.class.kotlin",
-                "entity.name.type.rust",
-                "entity.name.type.struct.rust",
                 "storage.type.go",
                 "storage.type.boolean.go",
                 "storage.type.byte.go",
@@ -1056,9 +1067,17 @@
                 "basicTypes.nim",
                 "meta.class.stanza.dune",
                 "storage.type.cs",
+                // rust
+                "entity.name.type.rust",
+                "entity.name.type.struct.rust",
+                "entity.name.type.enum.rust",
+                "entity.name.type.union.rust",
                 "entity.name.type.declaration.rust",
                 // csharp
-                "storage.type.cs"
+                "storage.type.cs",
+                "entity.name.type.class.cs",
+                "entity.name.type.struct.cs",
+                "entity.name.type.enum.cs"
             ],
             "settings": {
                 "foreground": "#3fc56b"
@@ -1067,12 +1086,15 @@
         {
             "name": "Enum variants, Sum Types, etc",
             "scope": [
+                "constant.other.haskell",
+                "variable.other.enummember.cpp",
+                // rust
                 "support.enum.core.rust",
                 "entity.name.type.option.rust",
                 "entity.name.type.result.rust",
-                "constant.other.haskell",
-                "variable.other.enummember.cpp",
+                "constant.language.bool.rust",
                 // csharp
+                "entity.name.variable.enum-member.cs",
                 "constant.language.boolean.true.cs",
                 "constant.language.boolean.false.cs"
             ],
@@ -1084,12 +1106,23 @@
         //
         //
         {
-            "name": "Interface",
+            "name": "Interfaces",
             "scope": [
+                // rust
                 "entity.name.type.trait.rust"
             ],
             "settings": {
                 "foreground": "#d177f5"
+            }
+        },
+        {
+            "name": "Type Parameters",
+            "scope": [
+                // rust
+                "entity.name.type.type-parameter.cs"
+            ],
+            "settings": {
+                "foreground": "#3fc56b"
             }
         },
         //
@@ -1104,8 +1137,9 @@
                 "string constant.other.placeholder",
                 "meta.function-call.java",
                 "storage.modifier.import.java",
-                //
                 "variable.other.object",
+                // rust
+                "variable.other.rust",
                 // csharp
                 "entity.name.variable.local.cs",
                 // css
@@ -1135,10 +1169,10 @@
         {
             "name": "Members",
             "scope": [
-                // powershell
-                "variable.other.member.powershell",
                 // csharp
-                "variable.other.object.property.cs"
+                "variable.other.object.property.cs",
+                // powershell
+                "variable.other.member.powershell"
             ],
             "settings": {
                 "foreground": "#b58e95"
@@ -1147,9 +1181,8 @@
         {
             "name": "Constants",
             "scope": [
-                "constant.other.caps.rust",
-                // powershell
-                "constant.language.powershell"
+                // rust
+                "constant.other.caps.rust"
             ],
             "settings": {
                 "foreground": "#15c9c5"
@@ -1159,7 +1192,7 @@
         //
         //
         {
-            "name": "Strings",
+            "name": "String & character",
             "scope": [
                 //"string",
                 //"punctuation.definition.string",
@@ -1167,17 +1200,17 @@
                 "constant.other.key",
                 "meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js",
                 // rust
-                "punctuation.definition.string.rust",
                 "string.quoted.double.rust",
-                // powershell
-                "punctuation.definition.string.begin.powershell",
-                "punctuation.definition.string.end.powershell",
-                "string.quoted.double.powershell",
-                "string.quoted.single.powershell",
+                "punctuation.definition.string.rust",
                 // csharp
+                "string.quoted.double.cs",
                 "punctuation.definition.string.begin.cs",
                 "punctuation.definition.string.end.cs",
-                "string.quoted.double.cs",
+                // powershell
+                "string.quoted.double.powershell",
+                "string.quoted.single.powershell",
+                "punctuation.definition.string.begin.powershell",
+                "punctuation.definition.string.end.powershell",
                 // css
                 "string.quoted.double.css",
                 "string.quoted.double.scss",
@@ -1192,10 +1225,12 @@
             "name": "Escape characters",
             "scope": [
                 "constant.character.escape",
-                // powershell
-                "constant.character.escape.powershell",
+                // rust
+                "constant.character.escape.rust",
                 // csharp
-                "constant.character.escape.cs"
+                "constant.character.escape.cs",
+                // powershell
+                "constant.character.escape.powershell"
             ],
             "settings": {
                 "foreground": "#ff6b66"
@@ -1204,6 +1239,9 @@
         {
             "name": "Character literals",
             "scope": [
+                // rust
+                "punctuation.definition.char.rust",
+                "string.quoted.single.char.rust",
                 // csharp
                 "punctuation.definition.char.begin.cs",
                 "punctuation.definition.char.end.cs",
@@ -1217,16 +1255,20 @@
             "name": "Number literals",
             "scope": [
                 "constant.numeric",
+                // rust
                 "constant.numeric.decimal.rust",
+                "constant.numeric.bin.rust",
+                "constant.numeric.hex.rust",
+                "constant.numeric.oct.rust",
                 "punctuation.separator.dot.decimal.rust",
-                // powershell
-                "constant.numeric.integer.powershell",
-                "constant.numeric.hex.powershell",
-                "constant.numeric.octal.powershell",
                 // csharp
                 "constant.numeric.binary.cs",
                 "constant.numeric.decimal.cs",
                 "constant.numeric.hex.cs",
+                // powershell
+                "constant.numeric.integer.powershell",
+                "constant.numeric.hex.powershell",
+                "constant.numeric.octal.powershell",
                 // css
                 "constant.numeric.css"
             ],
@@ -1239,10 +1281,10 @@
             "scope": [
                 "comment",
                 "punctuation.definition.comment",
-                // powershell
-                "comment.line.powershell",
                 // csharp
-                "comment.block.documentation.cs"
+                "comment.block.documentation.cs",
+                // powershell
+                "comment.line.powershell"
             ],
             "settings": {
                 "foreground": "#636d83"
@@ -1254,10 +1296,11 @@
         {
             "name": "Attributes",
             "scope": [
+                // rust
+                "meta.attribute.rust",
                 "punctuation.definition.attribute.rust",
                 "punctuation.brackets.attribute.rust",
                 "keyword.operator.attribute.inner.rust",
-                "meta.attribute.rust",
                 // powershell
                 "support.function.attribute.powershell",
                 "variable.parameter.attribute.powershell"
@@ -1312,6 +1355,28 @@
             }
         },
         //
+        // CSHARP
+        //
+        {
+            "name": "Csharp - Doc Tag",
+            "scope": [
+                "entity.name.tag.cs",
+                "punctuation.definition.tag.cs"
+            ],
+            "settings": {
+                "foreground": "#b9bfca"
+            }
+        },
+        {
+            "name": "Csharp - Doc Tag Attribute",
+            "scope": [
+                "entity.other.attribute-name.cs"
+            ],
+            "settings": {
+                "foreground": "#ff6b66"
+            }
+        },
+        //
         // POWERSHELL
         //
         {
@@ -1320,7 +1385,8 @@
                 "variable.other.readwrite.powershell",
                 "punctuation.definition.variable.powershell",
                 "storage.modifier.scope.powershell",
-                "support.variable.automatic.powershell"
+                "support.variable.automatic.powershell",
+                "constant.language.powershell"
             ],
             "settings": {
                 "foreground": "#3fc56b"
@@ -1545,20 +1611,11 @@
         },
         {
             // The `#` symbol in titles.
-            "name": "Markdown - Heading Character",
+            "name": "Markdown - Headings",
             "scope": [
                 "markdown.heading",
                 "markup.heading | markup.heading entity.name",
-                "markup.heading.markdown punctuation.definition.heading.markdown"
-            ],
-            "settings": {
-                "foreground": "#f85eb4"
-            }
-        },
-        {
-            // The actual text in a title.
-            "name": "Markdown - Heading Text",
-            "scope": [
+                "markup.heading.markdown punctuation.definition.heading.markdown",
                 "entity.name.section.markdown"
             ],
             "settings": {
@@ -1689,6 +1746,49 @@
             "settings": {
                 "foreground": "#abb2bf",
                 "fontStyle": "underline"
+            }
+        },
+        //
+        // JSON
+        //
+        {
+            "name": "JSON - Key",
+            "scope": "support.type.property-name.json",
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "JSON - String Value",
+            "scope": "string.quoted.double.json",
+            "settings": {
+                "foreground": "#f9c859"
+            }
+        },
+        {
+            "name": "JSON - Number Value",
+            "scope": "constant.numeric.json",
+            "settings": {
+                "foreground": "#ff6b66"
+            }
+        },
+        {
+            "name": "JSON - Constant Value",
+            "scope": "constant.language.json",
+            "settings": {
+                "foreground": "#15c9c5"
+            }
+        },
+        {
+            "name": "JSON - Lighten Quotation Marks [DISABLED]",
+            "scope": [
+                "punctuation.support.type.property-name.begin.json",
+                "punctuation.support.type.property-name.end.json",
+                "punctuation.definition.string.begin.json",
+                "punctuation.definition.string.end.json"
+            ],
+            "settings": {
+                //"foreground": "#636d83"
             }
         }
     ]

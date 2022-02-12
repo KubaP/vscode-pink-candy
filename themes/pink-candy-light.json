@@ -925,7 +925,6 @@
 	"tokenColors": [
 		// BASICS
 		{
-			// Keywords such as `let`, `var`, `for`, `while`, `class` etc.
 			"name": "Keywords",
 			"scope": [
 				"keyword",
@@ -1032,7 +1031,7 @@
 			}
 		},
 		{
-			"name": "Class, Support",
+			"name": "Classes, Enum types",
 			"scope": [
 				"support.type",
 				"support.class",
