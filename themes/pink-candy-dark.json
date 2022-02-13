@@ -817,9 +817,10 @@
         "xmlDocCommentAttributeValue:csharp": "#f9c859",
         //
         // RUST
-        "operator.controlFlow": "#f85eb4", // Rust: `?`
-        "label": "#9acc12", // Rust: `'outer: while`
-        "lifetime": "#d177f5", // Rust: `'a`
+        "operator.controlFlow": "#f85eb4",
+        "label": "#9acc12",
+        "lifetime": "#d177f5",
+        "formatSpecifier": "#d177f5",
         //
         // REFERENCE
         "variable.reference": {
@@ -1349,6 +1350,16 @@
                 "punctuation.definition.lifetime.rust",
                 "entity.name.type.lifetime.rust",
                 "storage.modifier.lifetime.rust"
+            ],
+            "settings": {
+                "foreground": "#d177f5"
+            }
+        },
+        {
+            "name": "Format Specifier",
+            "scope": [
+                "meta.interpolation.rust",
+                "punctuation.definition.interpolation.rust"
             ],
             "settings": {
                 "foreground": "#d177f5"

@@ -820,6 +820,7 @@
 		"operator.controlFlow": "#F767BB",
 		"label": "#8cba10",
 		"lifetime": "#cd6bf4",
+		"formatSpecifier": "#cd6bf4",
 		//
 		// REFERENCE
 		"variable.reference": {
@@ -1349,6 +1350,16 @@
 				"punctuation.definition.lifetime.rust",
 				"entity.name.type.lifetime.rust",
 				"storage.modifier.lifetime.rust"
+			],
+			"settings": {
+				"foreground": "#cd6bf4"
+			}
+		},
+		{
+			"name": "Format Specifier",
+			"scope": [
+				"meta.interpolation.rust",
+				"punctuation.definition.interpolation.rust"
 			],
 			"settings": {
 				"foreground": "#cd6bf4"

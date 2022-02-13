@@ -272,6 +272,11 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Labels `'outer: while ...` #8cba10 #9acc12
 - s: "label"
 
+### Format Specifier `{x:?}` #cd6bf4 #d177f5
+- s: "formatSpecifier"
+- tm: "meta.interpolation.rust"
+- tm: "punctuation.definition.interpolation.rust
+
 ### Unsafe #FF5C57 #ff6b66 (above effects plus underline)
 - s: "*.unsafe"
 - s: "keyword.unsafe" - `unsafe` Bold underline

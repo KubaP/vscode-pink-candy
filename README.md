@@ -29,6 +29,7 @@ This theme, unlike many others, takes advantage of semantic scopes that each lan
 - Attributes are distinctly coloured.
 - Lifetimes are distinctly coloured.
 - The try `?` operator is coloured like a keyword.
+- Format specifiers (e.g. `{x:?}`) are distinctly coloured.
 
 ### C#
 - Static functions are underlined.
