@@ -59,4 +59,4 @@ I have tested this theme on languages I am proficient in, and I hope that you wi
 If something looks off in a language you're using, feel free to open an [Issue](https://github.com/KubaP/vscode-pink-candy/issues) so that we can improve it for everyone.
 
 ## License
-This project is licensed under the **GPLv3** license - see [LICENSE](./LICENSE) for details.
+This project is licensed under the **MIT** license - see [LICENSE](./LICENSE) for details.
