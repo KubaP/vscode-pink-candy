@@ -1526,7 +1526,7 @@
 			}
 		},
 		{
-            "name": "CSS - Fontname Selector",
+			"name": "CSS - Fontname Selector",
 			"scope": [
 				"support.constant.font-name.css"
 			],
@@ -1535,7 +1535,7 @@
 			}
 		},
 		{
-            "name": "CSS - Pseudoclass Selector",
+			"name": "CSS - Pseudoclass Selector",
 			"scope": [
 				"entity.other.attribute-name.pseudo-class.css",
 				"entity.other.attribute-name.pseudo-element.css"
