@@ -949,7 +949,10 @@
 				// powershell
 				"keyword.control.powershell",
 				"storage.type.powershell",
-				"meta.function.powershell"
+				"meta.function.powershell",
+				// js
+				"variable.language.this.js",
+				"keyword.operator.new.js"
 			],
 			"settings": {
 				"foreground": "#F767BB"
@@ -962,7 +965,9 @@
 				"entity.name.type.primitive.rust",
 				"entity.name.type.numeric.rust",
 				// csharp
-				"keyword.type.cs"
+				"keyword.type.cs",
+				// js
+				"support.type.primitive.js"
 			],
 			"settings": {
 				"foreground": "#F767BB"
@@ -1006,6 +1011,8 @@
 				"entity.name.function.cs",
 				// powershell
 				"support.function.powershell",
+				// js
+				"entity.name.function.js",
 				// css
 				"support.function.misc.css",
 				"support.function.misc.scss"
@@ -1078,7 +1085,10 @@
 				"storage.type.cs",
 				"entity.name.type.class.cs",
 				"entity.name.type.struct.cs",
-				"entity.name.type.enum.cs"
+				"entity.name.type.enum.cs",
+				// js
+				"entity.name.type.class.js",
+				"support.class.builtin.js"
 			],
 			"settings": {
 				"foreground": "#2DAE58"
@@ -1097,7 +1107,10 @@
 				// csharp
 				"entity.name.variable.enum-member.cs",
 				"constant.language.boolean.true.cs",
-				"constant.language.boolean.false.cs"
+				"constant.language.boolean.false.cs",
+				// js
+				"constant.language.boolean.true.js",
+				"constant.language.boolean.false.js"
 			],
 			"settings": {
 				"foreground": "#13BBB7"
@@ -1143,6 +1156,9 @@
 				"variable.other.rust",
 				// csharp
 				"entity.name.variable.local.cs",
+				// js
+				"variable.other.readwrite.js",
+				"variable.other.constant.js",
 				// css
 				"variable.css",
 				"variable.argument.css",
@@ -1161,7 +1177,9 @@
 				"variable.css",
 				// "meta.function.definition.parameters",
 				// csharp
-				"entity.name.variable.parameter.cs"
+				"entity.name.variable.parameter.cs",
+				// js
+				"variable.parameter.js"
 			],
 			"settings": {
 				"foreground": "#6e82a6"
@@ -1173,7 +1191,9 @@
 				// csharp
 				"variable.other.object.property.cs",
 				// powershell
-				"variable.other.member.powershell"
+				"variable.other.member.powershell",
+				// js
+				"variable.other.property.js"
 			],
 			"settings": {
 				"foreground": "#a8759a"
@@ -1212,6 +1232,14 @@
 				"string.quoted.single.powershell",
 				"punctuation.definition.string.begin.powershell",
 				"punctuation.definition.string.end.powershell",
+				// js
+				"string.quoted.single.js",
+				"string.quoted.double.js",
+				"string.template.js",
+				"punctuation.definition.string.begin.js",
+				"punctuation.definition.string.end.js",
+				"punctuation.definition.string.template.begin.js",
+				"punctuation.definition.string.template.end.js",
 				// css
 				"string.quoted.double.css",
 				"string.quoted.double.scss",
@@ -1231,7 +1259,9 @@
 				// csharp
 				"constant.character.escape.cs",
 				// powershell
-				"constant.character.escape.powershell"
+				"constant.character.escape.powershell",
+				// js
+				"constant.character.escape.js"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1270,6 +1300,11 @@
 				"constant.numeric.integer.powershell",
 				"constant.numeric.hex.powershell",
 				"constant.numeric.octal.powershell",
+				// js
+				"constant.numeric.binary.js",
+				"constant.numeric.decimal.js",
+				"constant.numeric.hex.js",
+				"constant.numeric.octal.js",
 				// css
 				"constant.numeric.css"
 			],
@@ -1285,7 +1320,10 @@
 				// csharp
 				"comment.block.documentation.cs",
 				// powershell
-				"comment.line.powershell"
+				"comment.line.powershell",
+				// js
+				"comment.block.documentation.js",
+				"comment.line.double-slash.js"
 			],
 			"settings": {
 				"foreground": "#ADB1C2"
@@ -1418,6 +1456,43 @@
 			"scope": "keyword.operator.documentation.powershell",
 			"settings": {
 				"foreground": "#565869"
+			}
+		},
+		//
+		// JS
+		//
+		{
+			"name": "JS - String Interpolation",
+			"scope": [
+				"punctuation.definition.template-expression.begin.js",
+				"punctuation.definition.template-expression.end.js"
+			],
+			"settings": {
+				"foreground": "#c75af3"
+			}
+		},
+		{
+			"name": "JS - Regexp Group",
+			"scope": [
+				"punctuation.definition.group.regexp",
+				"punctuation.definition.group.no-capture.regexp"
+			],
+			"settings": {
+				"foreground": "#565869"
+			}
+		},
+		{
+			"name": "JS - Regexp Characters",
+			"scope": [
+				"constant.other.character-class.regexp",
+				"keyword.operator.quantifier.regexp",
+				"keyword.control.anchor.regexp",
+				"punctuation.definition.look-ahead.regexp",
+				"meta.assertion.look-ahead.regexp",
+				"meta.group.assertion.regexp"
+			],
+			"settings": {
+				"foreground": "#c75af3"
 			}
 		},
 		//
