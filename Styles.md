@@ -18,6 +18,9 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "plainKeyword", "controlKeyword"
 - tm: "keyword"
 - tm: "storage.modifier.cs" - `public`, `static`, `override` etc.
+#### js
+- tm: "keyword"
+- tm: "keyword.operator.new.js"
 
 ### Self/This #F767BB #f85eb4
 #### rust
@@ -26,6 +29,8 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "plainKeyword"
 - tm: "keyword.other.this.cs"
+#### js
+- tm: "variable.language.this.js"
 
 ### Built-in Type #F767BB #f85eb4
 - s: "type"
@@ -36,6 +41,8 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "plainKeyword"
 - tm: "keyword.type.cs"
+#### js
+- tm: "support.type.primitive.js"
 
 ### Punctuation #777777 #828da0
 - s: "punctuation"
@@ -52,7 +59,8 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "operator"
 - tm: "keyword.operator"
-
+#### js
+- tm: "keyword.operator"
 
 
 ### Function #09A1ED #10b1fe
@@ -62,6 +70,9 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "member.static"
 - tm: "entity.name.function.cs" ⚠ Cannot differentiate static methods from object methods.
+#### js
+- s: "function"
+- tm: "entity.name.function.js"
 
 ### Method #09A1ED #10b1fe
 #### rust
@@ -70,6 +81,7 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "member"
 - tm: "entity.name.function.cs"
+
 
 ### Namespace #565869 #abb2bf
 #### rust
@@ -98,6 +110,10 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "entity.name.type.class.cs" - Class declaration
 - tm: "entity.name.type.struct.cs" - Struct declaration
 - tm: "entity.name.type.enum.cs" - Enum declaration
+#### js
+- s: "class"
+- tm: "entity.name.type.class.js" - Class declaration (⚠ Cannot differentiate between classes and functions outside of the class declaration).
+- tm: "support.class.builtin.js" - Classes from the std lib
 
 ### Enum Member #13BBB7 #15c9c5 ℹ Includes boolean `true/false`.
 #### rust
@@ -112,7 +128,9 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "entity.name.variable.enum-member.cs" - Enum variant declarations
 - tm: "constant.language.boolean.true.cs"
 - tm: "constant.language.boolean.false.cs"
-
+#### js
+- tm: "constant.language.boolean.true.js"
+- tm: "constant.language.boolean.false.js"
 
 
 ### Interface/Inheritance #cd6bf4 #d177f5
@@ -136,6 +154,10 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "local"
 - tm: "entity.name.variable.local.cs" - Only for declarations, not later uses
+#### js
+- s: "variable"
+- tm: "variable.other.readwrite.js"
+- tm: "variable.other.constant.js
 
 ### Parameters #6e82a6 #97bccd
 #### rust
@@ -143,6 +165,9 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "parameter"
 - tm: "entity.name.variable.parameter.cs" - Only for declarations in function header, not uses
+#### js
+- s: "parameter"
+- tm: "variable.parameter.js" - ⚠ Only highlights within the function definition.
 
 ### Object members #a8759a #b58e95
 #### rust
@@ -150,6 +175,9 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "field"
 - tm: "variable.other.object.property.cs" - ⚠ Incorrectly highlights objects in namespaces
+#### js
+- s: "property" - ⚠ Only applies to static values inside a class.
+- tm: "variable.other.property.js"
 
 ### Constants #13BBB7 #15c9c5
 #### rust
@@ -170,6 +198,14 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "string.quoted.double.cs"
 - tm: "punctuation.definition.string.begin.cs"
 - tm: "punctuation.definition.string.end.cs"
+#### js
+- tm: "string.quoted.single.js"
+- tm: "string.quoted.double.js"
+- tm: "string.template.js"
+- tm: "punctuation.definition.string.begin.js"
+- tm: "punctuation.definition.string.end.js"
+- tm: "punctuation.definition.string.template.begin.js"
+- tm: "punctuation.definition.string.template.end.js"
 
 ### Raw Strings
 #### csharp
@@ -181,6 +217,8 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "constant.character.escape.rust"
 #### csharp
 - tm: "constant.character.escape.cs"
+#### js
+- tm: "constant.character.escape.js"
 
 ### Character Literals #FF5C57 #ff6b66
 #### rust
@@ -205,6 +243,11 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "constant.numeric.decimal.cs"
 - tm: "constant.numeric.binary.cs"
 - tm: "constant.numeric.hex.cs"
+#### js
+- tm: "constant.numeric.decimal.js"
+- tm: "constant.numeric.binary.js"
+- tm: "constant.numeric.hex.js"
+- tm: "constant.numeric.octal.js"
 
 ### Comments #ADB1C2 #636d83
 #### rust
@@ -214,6 +257,9 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "comment"
 - s: "comment.documentation.cs"
 - tm: "comment.block.documentation.cs"
+#### js
+- tm: "comment.block.documentation.js"
+- tm: "comment.line.double-slash.js"
 
 
 
@@ -490,6 +536,31 @@ HTML/Css/Scss only support textmate highlighting.
 - "punctuation.definition.keyword.scss" - `@`
 - "keyword.control.at-rule.include.scss" - `@`
 - "entity.name.tag.wildcard.scss" - `*`
+
+
+## Javascript
+
+### String Interpolation `${var}` #cd6bf4 #d177f5
+- tm: "punctuation.definition.template-expression.begin.js"
+- tm: "punctuation.definition.template-expression.end.js"
+
+### Regexp #cd6bf4 #d177f5 (Likely incomplete)
+- tm: "constant.other.character-class.regexp"
+- tm: "keyword.operator.quantifier.regexp"
+- tm: "keyword.control.anchor.regexp"
+- tm: "punctuation.definition.look-ahead.regexp"
+- tm: "meta.assertion.look-ahead.regexp"
+- tm: "meta.group.assertion.regexp"
+#### Brackets #565869 #b9bfca
+- tm: "punctuation.definition.group.regexp"
+- tm: "punctuation.definition.group.no-capture.regexp"
+
+### Limitations
+- Distinction between methods and functions only applies within classes; outside, a method is treated the same as a function.
+- Distinction between constants is pointless since constants are used differently in javascript compared to most languages, i.e. declaring a value or function as `const` is very common.
+#### Textmate limitations
+- No way to differentiate between class constructor calls and function calls.
+- No support for parameter highlighting inside of the function body.
 
 
 

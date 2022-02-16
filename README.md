@@ -14,6 +14,7 @@ This theme supports *'Semantic'* highlighting, so it should work with any langau
 - C#
 - Powershell
 - HTML/Css/Scss
+- Javascript
 - Markdown
 - Json
 
@@ -49,6 +50,11 @@ This theme, unlike many others, takes full advantage of semantic scopes that eac
 - Urls are uniquely coloured.
 - Units have the same colour as number literals.
 - Scss-specific characters are correctly coloured.
+
+### Javascript
+- String interpolation symbols are distinctly coloured.
+- Regex expressions are distinctly coloured.
+- Static properties have a unique colour.
 
 ## Overriding Styles
 See [Overriding Styles](./Overriding_Styles.md) for a guide on how to override specific styles to your liking.
