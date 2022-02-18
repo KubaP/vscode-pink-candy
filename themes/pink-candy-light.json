@@ -1757,7 +1757,7 @@
 				"markup.quote markup.bold string"
 			],
 			"settings": {
-				"foreground": "#13BBB7",
+				"foreground": "#09A1ED",
 				"fontStyle": "italic bold"
 			}
 		},
@@ -1768,7 +1768,7 @@
 				"markup.quote.markdown"
 			],
 			"settings": {
-				"foreground": "#c75af3",
+				"foreground": "#13BBB7",
 				"fontStyle": "italic"
 			}
 		},
@@ -1845,7 +1845,7 @@
 				"constant.other.reference.link.markdown"
 			],
 			"settings": {
-				"foreground": "#565869",
+				"foreground": "#c75af3",
 				"fontStyle": "underline"
 			}
 		},

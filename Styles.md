@@ -600,7 +600,7 @@ Markdown only supports textmate highlighting; it has no semantic highlighting.
 - "markup.italic"
 - "punctuation.definition.italic.markdown" `* ... *`
 
-### Quote #c75af3 #d177f5
+### Quote #13BBB7 #15c9c5
 - "markup.quote.markdown"
 - "punctuation.definition.quote.begin.markdown" `> ...`
 
@@ -622,7 +622,7 @@ Markdown only supports textmate highlighting; it has no semantic highlighting.
 - "string.other.link.description.title.markdown"
 - "punctuation.definition.string.begin.markdown" `[](... "...")`
 - "punctuation.definition.string.end.markdown" `[](... "...")`
-#### Link #565869 #abb2bf (underline)
+#### Link #cd6bf4 #d177f5 (underline)
 - "markup.underline.link"
 - "constant.other.reference.link.markdown"
 
