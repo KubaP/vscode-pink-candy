@@ -952,7 +952,9 @@
 				"meta.function.powershell",
 				// js
 				"variable.language.this.js",
-				"keyword.operator.new.js"
+				"keyword.operator.new.js",
+				"constant.language.null.js",
+				"constant.language.undefined.js"
 			],
 			"settings": {
 				"foreground": "#F767BB"
@@ -1088,7 +1090,8 @@
 				"entity.name.type.enum.cs",
 				// js
 				"entity.name.type.class.js",
-				"support.class.builtin.js"
+				"support.class.builtin.js",
+                "support.class.component.js"
 			],
 			"settings": {
 				"foreground": "#2DAE58"
@@ -1319,6 +1322,7 @@
 				"punctuation.definition.comment",
 				// csharp
 				"comment.block.documentation.cs",
+                "comment.line.double-slash.cs",
 				// powershell
 				"comment.line.powershell",
 				// js
@@ -1425,6 +1429,16 @@
 				"foreground": "#FF5C57"
 			}
 		},
+		{
+			"name": "Csharp - String Interpolation",
+			"scope": [
+				"punctuation.definition.interpolation.begin.cs",
+				"punctuation.definition.interpolation.end.cs"
+			],
+			"settings": {
+				"foreground": "#cd6bf4"
+			}
+		},
 		//
 		// POWERSHELL
 		//
@@ -1493,6 +1507,30 @@
 			],
 			"settings": {
 				"foreground": "#c75af3"
+			}
+		},
+		//
+		// JSX REACT
+		//
+		{
+			"name": "JSX - Embedded Code",
+			"scope": [
+				"punctuation.section.embedded.begin.js",
+				"punctuation.section.embedded.end.js"
+			],
+			"settings": {
+				"foreground": "#FF5C57",
+				"fontStyle": "bold"
+			}
+		},
+		{
+			"name": "JSX - Attributes",
+			"scope": [
+				"entity.other.attribute-name.js"
+			],
+			"settings": {
+				"foreground": "#c75af3",
+				"fontStyle": "italic"
 			}
 		},
 		//
