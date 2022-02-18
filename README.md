@@ -14,7 +14,7 @@ This theme supports *'Semantic'* highlighting, so it should work with any langau
 - C#
 - Powershell
 - HTML/Css/Scss
-- Javascript
+- Javascript (inc. JSX)
 - Markdown
 - Json
 
@@ -55,6 +55,9 @@ This theme, unlike many others, takes full advantage of semantic scopes that eac
 - String interpolation symbols are distinctly coloured.
 - Regex expressions are distinctly coloured.
 - Static properties have a unique colour.
+#### JSX (React)
+- Element attributes have a unique colour.
+- Embedded code delimiters `{...}` are distinctly coloured and emboldened.
 
 ## Overriding Styles
 See [Overriding Styles](./Overriding_Styles.md) for a guide on how to override specific styles to your liking.

@@ -21,6 +21,8 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - tm: "keyword"
 - tm: "keyword.operator.new.js"
+- tm: "constant.language.null.js"
+- tm: "constant.language.undefined.js"
 
 ### Self/This #F767BB #f85eb4
 #### rust
@@ -114,6 +116,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "class"
 - tm: "entity.name.type.class.js" - Class declaration (⚠ Cannot differentiate between classes and functions outside of the class declaration).
 - tm: "support.class.builtin.js" - Classes from the std lib
+- tm: "support.class.component.js" - React "classes" (types)
 
 ### Enum Member #13BBB7 #15c9c5 ℹ Includes boolean `true/false`.
 #### rust
@@ -352,6 +355,10 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Properties #a8759a #b58e95 (bold)
 - s: "property"
 
+### String Interpolation #cd6bf4 #d177f5 ⚠ Only in texmate
+- tm: "punctuation.definition.interpolation.begin.cs"
+- tm: "punctuation.definition.interpolation.end.cs"
+
 ### Doc Tag #565869 #b9bfca
 - s: "xmlDocCommentName" `<summary> ...`
 - s: "xmlDocCommentDelimiter" `</para>`
@@ -375,6 +382,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - No way to colour character strings.
 - No support for attributes.
 - No support for "unresolved" symbols.
+- No way to colour string interpolation characters.
 #### Textmate limitations
 - No support for enum members.
 - No support for constants.
@@ -555,8 +563,15 @@ HTML/Css/Scss only support textmate highlighting.
 - tm: "punctuation.definition.group.regexp"
 - tm: "punctuation.definition.group.no-capture.regexp"
 
+#### JSX Embedded Code #FF5C57 #ff6b66
+- tm: "punctuation.section.embedded.begin.js"
+- tm: "punctuation.section.embedded.end.js"
+
+#### JSX Attributes #cd6bf4 #d177f5 (italics)
+- tm: "entity.other.attribute-name.js"
+
 ### Limitations
-- Distinction between methods and functions only applies within classes; outside, a method is treated the same as a function.
+- Distinction between methods and functions only applies within classes; outside, a method is treated the same as a function, so there is no highlighting difference.
 - Distinction between constants is pointless since constants are used differently in javascript compared to most languages, i.e. declaring a value or function as `const` is very common.
 #### Textmate limitations
 - No way to differentiate between class constructor calls and function calls.
