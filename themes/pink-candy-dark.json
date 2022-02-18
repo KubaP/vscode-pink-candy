@@ -1519,7 +1519,8 @@
                 "punctuation.section.embedded.end.js"
             ],
             "settings": {
-                "foreground": "#ff6b66"
+                "foreground": "#ff6b66",
+                "fontStyle": "bold"
             }
         },
         {
@@ -1844,7 +1845,7 @@
                 "constant.other.reference.link.markdown"
             ],
             "settings": {
-                "foreground": "#abb2bf",
+                "foreground": "#d177f5",
                 "fontStyle": "underline"
             }
         },

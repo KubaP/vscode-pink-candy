@@ -1091,7 +1091,7 @@
 				// js
 				"entity.name.type.class.js",
 				"support.class.builtin.js",
-                "support.class.component.js"
+				"support.class.component.js"
 			],
 			"settings": {
 				"foreground": "#2DAE58"
@@ -1322,7 +1322,7 @@
 				"punctuation.definition.comment",
 				// csharp
 				"comment.block.documentation.cs",
-                "comment.line.double-slash.cs",
+				"comment.line.double-slash.cs",
 				// powershell
 				"comment.line.powershell",
 				// js
