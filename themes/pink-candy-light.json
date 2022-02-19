@@ -1111,6 +1111,9 @@
 				"entity.name.variable.enum-member.cs",
 				"constant.language.boolean.true.cs",
 				"constant.language.boolean.false.cs",
+				// powershell,
+				"constant.language.powershell",
+				"constant.language.powershell punctuation.definition.variable.powershell",
 				// js
 				"constant.language.boolean.true.js",
 				"constant.language.boolean.false.js"
@@ -1443,16 +1446,34 @@
 		// POWERSHELL
 		//
 		{
-			"name": "Powershell Special Variables",
+			"name": "Powershell Variables",
 			"scope": [
 				"variable.other.readwrite.powershell",
 				"punctuation.definition.variable.powershell",
-				"storage.modifier.scope.powershell",
-				"support.variable.automatic.powershell",
-				"constant.language.powershell"
+				"storage.modifier.scope.powershell"
 			],
 			"settings": {
 				"foreground": "#2DAE58"
+			}
+		},
+		{
+			"name": "Powershell Variable Scopes",
+			"scope": [
+				"storage.modifier.scope.powershell"
+			],
+			"settings": {
+				"foreground": "#2DAE58",
+				"fontStyle": "underline"
+			}
+		},
+		{
+			"name": "Powershell $_ Variable",
+			"scope": [
+				"support.variable.automatic.powershell",
+				"support.variable.automatic.powershell punctuation.definition.variable.powershell"
+			],
+			"settings": {
+				"foreground": "#c75af3"
 			}
 		},
 		{
@@ -1470,6 +1491,16 @@
 			"scope": "keyword.operator.documentation.powershell",
 			"settings": {
 				"foreground": "#565869"
+			}
+		},
+		{
+			"name": "Powershell String Interpolation",
+			"scope": [
+				"punctuation.section.embedded.substatement.begin.powershell",
+				"punctuation.section.embedded.substatement.end.powershell"
+			],
+			"settings": {
+				"foreground": "#c75af3"
 			}
 		},
 		//

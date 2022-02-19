@@ -413,15 +413,21 @@ Cmdlet/Functions #09A1ED #10b1fe
 
 Variables #2DAE58 #3fc56b
 - "variable.other.readwrite.powershell" `$variableName`
-- "punctuation.definition.variable.powershell" `$...`
-- "support.variable.automatic.powershell" `$_`
-- "storage.modifier.scope.powershell" `global`, `script`, etc.
+- "punctuation.definition.variable.powershell" The `$` beforehand
+
+Variable Scopes #2DAE58 #3fc56b (underlined)
+- "storage.modifier.scope.powershell" `global:`, `script:`, etc.
+
+Special Variable #cd6bf4 #d177f5
+- "support.variable.automatic.powershell" The `$_` in loops for example
+- "support.variable.automatic.powershell punctuation.definition.variable.powershell" The `$` beforehand
 
 Members/Methods #a8759a #b58e95
 - "variable.other.member.powershell" `.something`
 
-Constants/Booleans #2DAE58 #3fc56b
-- "constant.language.powershell" `true`, `false`
+Constants/Booleans #13BBB7 #15c9c5
+- "constant.language.powershell" `true`, `false`, `null`, etc.
+- "constant.language.powershell punctuation.definition.variable.powershell" The `$` beforehand
 
 Strings #CF9C00 #f9c859
 - "string.quoted.double.powershell" `"..."`
@@ -431,6 +437,10 @@ Strings #CF9C00 #f9c859
 
 Escape characters #FF5C57 #ff6b66
 - "constant.character.escape.powershell" `` `a``
+
+String Interpolation `$(...)` #cd6bf4 #d177f5
+- "punctuation.section.embedded.substatement.begin.powershell"
+- "punctuation.section.embedded.substatement.end.powershell"
 
 Number Literals #FF5C57 #ff6b66
 - "constant.numeric.integer.powershell"
