@@ -35,6 +35,7 @@ This theme, unlike many others, takes full advantage of semantic scopes that eac
 ### C#
 - Static functions, classes and fields are underlined.
 - Properties are emboldened.
+- String interpolation delimiters are distinctly coloured.
 - Xml doc comments are syntax highlighted inside.
 
 ### Powershell
@@ -42,6 +43,7 @@ This theme, unlike many others, takes full advantage of semantic scopes that eac
 - Variables are distinctly coloured.
 - Parameter declarations (attributes) are distinctly coloured.
 - Object members are distinctly coloured.
+- String interpolation delimiters are distinctly coloured.
 
 ### HTML/Css/Scss
 - IDs, Classes, and other attribute values have different colours.
@@ -52,7 +54,7 @@ This theme, unlike many others, takes full advantage of semantic scopes that eac
 - Scss-specific characters are correctly coloured.
 
 ### Javascript
-- String interpolation symbols are distinctly coloured.
+- String interpolation delimiters are distinctly coloured.
 - Regex expressions are distinctly coloured.
 - Static properties have a unique colour.
 #### JSX (React)

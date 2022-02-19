@@ -212,7 +212,7 @@ View this document inside of a text editor with hex colour highlighting support,
 
 ### Raw Strings
 #### csharp
-- s: "stringVerbatim" `@"..."`
+- s: "stringVerbatim" - `@"..."`
 
 ### Escape characters #FF5C57 #ff6b66
 #### rust
@@ -222,6 +222,18 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "constant.character.escape.cs"
 #### js
 - tm: "constant.character.escape.js"
+
+### String Interpolation #cd6bf4 #d177f5
+#### rust
+- s: "formatSpecifier"
+- tm: "meta.interpolation.rust"
+- tm: "punctuation.definition.interpolation.rust
+#### csharp
+- tm: "punctuation.definition.interpolation.begin.cs"
+- tm: "punctuation.definition.interpolation.end.cs"
+#### js
+- tm: "punctuation.definition.template-expression.begin.js"
+- tm: "punctuation.definition.template-expression.end.js"
 
 ### Character Literals #FF5C57 #ff6b66
 #### rust
@@ -269,10 +281,10 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Attributes #FF5C57 #ff6b66
 #### rust
 - s: "attribute"
-- s: "parenthesis.attribute" `()`
-- s: "macro.attribute" `#[derive()]`
-- s: "builtinAttribute" `#[inline]`, `#[cfg]`, etc.
-- s: "generic.attribute" `clippy::something`, `debug_assertions`, etc.
+- s: "parenthesis.attribute" - `()`
+- s: "macro.attribute" - `#[derive()]`
+- s: "builtinAttribute" - `#[inline]`, `#[cfg]`, etc.
+- s: "generic.attribute" - `clippy::something`, `debug_assertions`, etc.
 - tm: "meta.attribute.rust"
 - tm: "punctuation.definition.attribute.rust"
 - tm: "punctuation.brackets.attribute.rust"
@@ -286,7 +298,7 @@ View this document inside of a text editor with hex colour highlighting support,
 
 ## Rust
 
-### References (italic)
+### References (italicised)
 - s: "*.reference"
   - "variable.reference" - Reference to a variable.
   - "method.reference" - Method which takes `&self`.
@@ -300,7 +312,7 @@ View this document inside of a text editor with hex colour highlighting support,
   - "parameter.mutable" - Parameter of type `mut T`.
   - "selfKeyword.mutable" - `mut self`.
 
-### Mutable References (bold italic)
+### Mutable References (bold italicised)
 - s: "*.mutable.reference"
   - "variable.mutable.reference" - Mutable reference to a variable.
   - "method.mutable.reference" - Method which takes `&mut self`.
@@ -321,12 +333,7 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Labels `'outer: while ...` #8cba10 #9acc12
 - s: "label"
 
-### Format Specifier `{x:?}` #cd6bf4 #d177f5
-- s: "formatSpecifier"
-- tm: "meta.interpolation.rust"
-- tm: "punctuation.definition.interpolation.rust
-
-### Unsafe #FF5C57 #ff6b66 (above effects plus underline)
+### Unsafe #FF5C57 #ff6b66 (above effects + underlined)
 - s: "*.unsafe"
 - s: "keyword.unsafe" - `unsafe` Bold underline
 
@@ -355,23 +362,19 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Properties #a8759a #b58e95 (bold)
 - s: "property"
 
-### String Interpolation #cd6bf4 #d177f5 ⚠ Only in texmate
-- tm: "punctuation.definition.interpolation.begin.cs"
-- tm: "punctuation.definition.interpolation.end.cs"
-
 ### Doc Tag #565869 #b9bfca
-- s: "xmlDocCommentName" `<summary> ...`
-- s: "xmlDocCommentDelimiter" `</para>`
-- tm: "entity.name.tag.cs" `summary`
-- tm: "punctuation.definition.tag.cs" `<`, `/>`
+- s: "xmlDocCommentName" - `<summary> ...`
+- s: "xmlDocCommentDelimiter" - `</para>`
+- tm: "entity.name.tag.cs" - `summary`
+- tm: "punctuation.definition.tag.cs" - `<`, `/>`
 
-### Doc Tag Attribute #FF5C57 #ff6b66 `<... type= ...`
+### Doc Tag Attribute #FF5C57 #ff6b66 - `<... type= ...`
 - s: "xmlDocCommentAttributeName"
 - tm: "entity.other.attribute-name.cs"
 
 ### Doc Tag Attribute Value #CF9C00 #f9c859
-- s: "xmlDocCommentAttributeQuotes" `="...."`
-- s: "xmlDocCommentAttributeValue" `...="..."`
+- s: "xmlDocCommentAttributeQuotes" - `="...."`
+- s: "xmlDocCommentAttributeValue" - `...="..."`
 
 ### Doc Text #ADB1C2 #636d83
 - s: "xmlDocCommentText"
@@ -382,7 +385,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - No way to colour character strings.
 - No support for attributes.
 - No support for "unresolved" symbols.
-- No way to colour string interpolation characters.
+- No way to colour string interpolation delimiters.
 #### Textmate limitations
 - No support for enum members.
 - No support for constants.
@@ -397,46 +400,46 @@ The official powershell language extension does not support semantic highlightin
 'Textmate' highlighting, it lacks a number of scopes which makes the results look a bit primitive and basic in places.
 
 Keywords #F767BB #f85eb4
-- "keyword.control.powershell" `if`, `foreach`, `param`, `return`, etc.
-- "storage.type.powershell" `function ... {}`
-- "keyword.operator.comparison.powershell" `-eq`, `-gt`, etc.
-- "keyword.operator.logical.powershell" `-not`
+- "keyword.control.powershell" - `if`, `foreach`, `param`, `return`, etc.
+- "storage.type.powershell" - `function ... {}`
+- "keyword.operator.comparison.powershell" - `-eq`, `-gt`, etc.
+- "keyword.operator.logical.powershell" - `-not`
 
 Classes/Built-in types #F767BB #f85eb4
-- "storage.type.powershell" `char`, `string`, `System.Collections.Generic.List`, etc.
+- "storage.type.powershell" - `char`, `string`, `System.Collections.Generic.List`, etc.
 
 Operator/Punctuation #777777 #828da0
 - "keyword.operator"
 
 Cmdlet/Functions #09A1ED #10b1fe
-- "support.function.powershell" `Get-Item`, etc.
+- "support.function.powershell" - `Get-Item`, etc.
 
 Variables #2DAE58 #3fc56b
-- "variable.other.readwrite.powershell" `$variableName`
-- "punctuation.definition.variable.powershell" The `$` beforehand
+- "variable.other.readwrite.powershell" - `$variableName`
+- "punctuation.definition.variable.powershell" - The `$` beforehand
 
 Variable Scopes #2DAE58 #3fc56b (underlined)
-- "storage.modifier.scope.powershell" `global:`, `script:`, etc.
+- "storage.modifier.scope.powershell" - `global:`, `script:`, etc.
 
 Special Variable #cd6bf4 #d177f5
-- "support.variable.automatic.powershell" The `$_` in loops for example
-- "support.variable.automatic.powershell punctuation.definition.variable.powershell" The `$` beforehand
+- "support.variable.automatic.powershell" - The `$_` in loops for example
+- "support.variable.automatic.powershell punctuation.definition.variable.powershell" - The `$` beforehand
 
 Members/Methods #a8759a #b58e95
-- "variable.other.member.powershell" `.something`
+- "variable.other.member.powershell" - `.something`
 
 Constants/Booleans #13BBB7 #15c9c5
-- "constant.language.powershell" `true`, `false`, `null`, etc.
-- "constant.language.powershell punctuation.definition.variable.powershell" The `$` beforehand
+- "constant.language.powershell" - `true`, `false`, `null`, etc.
+- "constant.language.powershell punctuation.definition.variable.powershell" - The `$` beforehand
 
 Strings #CF9C00 #f9c859
-- "string.quoted.double.powershell" `"..."`
-- "string.quoted.single.powershell" `'...'`
+- "string.quoted.double.powershell"
+- "string.quoted.single.powershell"
 - "punctuation.definition.string.begin.powershell"
 - "punctuation.definition.string.end.powershell"
 
 Escape characters #FF5C57 #ff6b66
-- "constant.character.escape.powershell" `` `a``
+- "constant.character.escape.powershell" - `` `a``
 
 String Interpolation `$(...)` #cd6bf4 #d177f5
 - "punctuation.section.embedded.substatement.begin.powershell"
@@ -448,14 +451,14 @@ Number Literals #FF5C57 #ff6b66
 - "constant.numeric.octal.powershell"
 
 Attributes #FF5C57 #ff6b66
-- "support.function.attribute.powershell" `[Parameter ...]`
-- "variable.parameter.attribute.powershell" `[... Position ...]`
+- "support.function.attribute.powershell" - `[Parameter ...]`
+- "variable.parameter.attribute.powershell" - `[... Position ...]`
 
 Comments #ADB1C2 #636d83
-- "comment.line.powershell" `# ...`
+- "comment.line.powershell" - `# ...`
 
 Comment Keywords #565869 #b9bfca
-- "keyword.operator.documentation.powershell" `.SYNOPSIS ...`
+- "keyword.operator.documentation.powershell" - `.SYNOPSIS ...`
 
 ### Limitations
 - No way to differentiate between function declaration and type/class, hence why types are in pink rather than green.
@@ -483,7 +486,7 @@ HTML/Css/Scss only support textmate highlighting.
 
 
 
-### Attributes (HTML) # #15c9c5 (italics)
+### Attributes (HTML) # #15c9c5 (italicised)
 - "entity.other.attribute-name.html"
 
 ### Attribute Values (HTML) # #f9c859
@@ -558,10 +561,6 @@ HTML/Css/Scss only support textmate highlighting.
 
 ## Javascript
 
-### String Interpolation `${var}` #cd6bf4 #d177f5
-- tm: "punctuation.definition.template-expression.begin.js"
-- tm: "punctuation.definition.template-expression.end.js"
-
 ### Regexp #cd6bf4 #d177f5 (Likely incomplete)
 - tm: "constant.other.character-class.regexp"
 - tm: "keyword.operator.quantifier.regexp"
@@ -573,11 +572,11 @@ HTML/Css/Scss only support textmate highlighting.
 - tm: "punctuation.definition.group.regexp"
 - tm: "punctuation.definition.group.no-capture.regexp"
 
-#### JSX Embedded Code #FF5C57 #ff6b66
+#### JSX Embedded Code #FF5C57 #ff6b66 (bold)
 - tm: "punctuation.section.embedded.begin.js"
 - tm: "punctuation.section.embedded.end.js"
 
-#### JSX Attributes #cd6bf4 #d177f5 (italics)
+#### JSX Attributes #cd6bf4 #d177f5 (italicised)
 - tm: "entity.other.attribute-name.js"
 
 ### Limitations
@@ -597,42 +596,43 @@ Markdown only supports textmate highlighting; it has no semantic highlighting.
 - "punctuation.definition.list_item.markdown"
 
 ### Titles #F767BB #f85eb4
-- "entity.name.section.markdown" `... Heading title`
+- "entity.name.section.markdown" - `# Heading title`
 - "markdown.heading"
 - "markup.heading.markdown"
-- "punctuation.definition.heading.markdown" `## ...`
+- "punctuation.definition.heading.markdown" - `## ...`
 
 ### Bold #FF5C57 #ff6b66 (bold)
 - "markup.bold"
-- "punctuation.definition.bold.markdown" `** ... **`
+- "punctuation.definition.bold.markdown" - `** ... **`
 
 ### Italic #09A1ED #10b1fe
 - "markup.italic"
-- "punctuation.definition.italic.markdown" `* ... *`
+- "punctuation.definition.italic.markdown" - `* ... *`
 
 ### Quote #13BBB7 #15c9c5
 - "markup.quote.markdown"
-- "punctuation.definition.quote.begin.markdown" `> ...`
+- "punctuation.definition.quote.begin.markdown" - `> ...`
 
 ### Inline Code #565869 #abb2bf
 - "markup.inline.raw.string.markdown"
-- "punctuation.definition.raw.markdown" `` `...` ``
+- "punctuation.definition.raw.markdown" - `` `...` ``
 
 ### Fenced Codeblock #565869 #abb2bf
 - "markup.fenced_code.block.markdown"
-#### Language identifier #F767BB #f85eb4
-- "fenced_code.block.language.markdown" ```` ```rust ````
+#### Language Identifier #F767BB #f85eb4
+- "fenced_code.block.language.markdown" - ```` ```rust ````
 
 ### List #565869 #abb2bf
-- "punctuation.definition.list.begin.markdown" `- ...`, `1. ...`, `* ...`
+- "punctuation.definition.list.begin.markdown" - `- ...`, `1. ...`, `* ...`
 
-### Url description #2DAE58 #3fc56b
+### Url Description #2DAE58 #3fc56b
 - "string.other.link.title.markdown"
 - "string.other.link.description.markdown"
 - "string.other.link.description.title.markdown"
-- "punctuation.definition.string.begin.markdown" `[](... "...")`
-- "punctuation.definition.string.end.markdown" `[](... "...")`
-#### Link #cd6bf4 #d177f5 (underline)
+- "punctuation.definition.string.begin.markdown" - `[](... "...")`
+- "punctuation.definition.string.end.markdown" - `[](... "...")`
+
+### Url Link #cd6bf4 #d177f5 (underlined)
 - "markup.underline.link"
 - "constant.other.reference.link.markdown"
 
