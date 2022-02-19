@@ -791,8 +791,13 @@
             "foreground": "#b58e95",
             "fontStyle": "bold"
         },
+        "property.static:csharp": { // Csharp static properties.
+            "foreground": "#b58e95",
+            "fontStyle": "bold underline"
+        },
         "*.constant": "#15c9c5",
         "variable.static:csharp": "#15c9c5", // Constants
+        "variable.readonly:csharp": "#15c9c5", // Constants
         //
         //
         "string": "#f9c859", // `"string"`
@@ -809,9 +814,9 @@
         },
         //
         // CSHARP
-        "xmlDocCommentText": "#636d83",
-        "xmlDocCommentName:csharp": "#b9bfca",
-        "xmlDocCommentDelimiter:csharp": "#b9bfca",
+        "xmlDocCommentText": "#b9bfca",
+        "xmlDocCommentName:csharp": "#636d83",
+        "xmlDocCommentDelimiter:csharp": "#636d83",
         "xmlDocCommentAttributeName:csharp": "#ff6b66",
         "xmlDocCommentAttributeQuotes:csharp": "#f9c859",
         "xmlDocCommentAttributeValue:csharp": "#f9c859",
@@ -1162,6 +1167,7 @@
                 "variable.other.rust",
                 // csharp
                 "entity.name.variable.local.cs",
+                "variable.other.readwrite.cs",
                 // js
                 "variable.other.readwrite.js",
                 "variable.other.constant.js",
@@ -1196,6 +1202,7 @@
             "scope": [
                 // csharp
                 "variable.other.object.property.cs",
+                "variable.other.object.property.cs",
                 // powershell
                 "variable.other.member.powershell",
                 // js
@@ -1209,7 +1216,9 @@
             "name": "Constants",
             "scope": [
                 // rust
-                "constant.other.caps.rust"
+                "constant.other.caps.rust",
+                // csharp
+                "constant.language.null.cs"
             ],
             "settings": {
                 "foreground": "#15c9c5"
@@ -1324,7 +1333,7 @@
                 "comment",
                 "punctuation.definition.comment",
                 // csharp
-                "comment.block.documentation.cs",
+                "comment.block.cs",
                 "comment.line.double-slash.cs",
                 // powershell
                 "comment.line.powershell",
@@ -1417,7 +1426,8 @@
             "name": "Csharp - Doc Tag",
             "scope": [
                 "entity.name.tag.cs",
-                "punctuation.definition.tag.cs"
+                "comment.block.documentation.cs punctuation.definition.tag.cs",
+                "comment.block.documentation.cs punctuation.separator.equals.cs"
             ],
             "settings": {
                 "foreground": "#b9bfca"
@@ -1430,6 +1440,15 @@
             ],
             "settings": {
                 "foreground": "#ff6b66"
+            }
+        },
+        {
+            "name": "Csharp - Doc Text",
+            "scope": [
+                "comment.block.documentation.cs"
+            ],
+            "settings": {
+                "foreground": "#b9bfca"
             }
         },
         {

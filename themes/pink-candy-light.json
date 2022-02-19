@@ -791,8 +791,13 @@
 			"foreground": "#a8759a",
 			"fontStyle": "bold"
 		},
+		"property.static:csharp": { // Cssharp static properties.
+			"foreground": "#a8759a",
+			"fontStyle": "bold underline"
+		},
 		"*.constant": "#13BBB7",
 		"variable.static:csharp": "#13BBB7", // Constants
+		"variable.readonly:csharp": "#13BBB7", // Constants
 		//
 		//
 		"string": "#CF9C00", // `"string"`
@@ -809,9 +814,9 @@
 		},
 		//
 		// CSHARP
-		"xmlDocCommentText": "#ADB1C2",
-		"xmlDocCommentName:csharp": "#565869",
-		"xmlDocCommentDelimiter:csharp": "#565869",
+		"xmlDocCommentText": "#565869",
+		"xmlDocCommentName:csharp": "#ADB1C2",
+		"xmlDocCommentDelimiter:csharp": "#ADB1C2",
 		"xmlDocCommentAttributeName:csharp": "#FF5C57",
 		"xmlDocCommentAttributeQuotes:csharp": "#CF9C00",
 		"xmlDocCommentAttributeValue:csharp": "#CF9C00",
@@ -1162,6 +1167,7 @@
 				"variable.other.rust",
 				// csharp
 				"entity.name.variable.local.cs",
+				"variable.other.readwrite.cs",
 				// js
 				"variable.other.readwrite.js",
 				"variable.other.constant.js",
@@ -1195,6 +1201,7 @@
 			"name": "Members",
 			"scope": [
 				// csharp
+				"entity.name.variable.field.cs",
 				"variable.other.object.property.cs",
 				// powershell
 				"variable.other.member.powershell",
@@ -1209,7 +1216,9 @@
 			"name": "Constants",
 			"scope": [
 				// rust
-				"constant.other.caps.rust"
+				"constant.other.caps.rust",
+				// csharp
+				"constant.language.null.cs"
 			],
 			"settings": {
 				"foreground": "#13BBB7"
@@ -1324,7 +1333,7 @@
 				"comment",
 				"punctuation.definition.comment",
 				// csharp
-				"comment.block.documentation.cs",
+				"comment.block.cs",
 				"comment.line.double-slash.cs",
 				// powershell
 				"comment.line.powershell",
@@ -1417,10 +1426,11 @@
 			"name": "Csharp - Doc Tag",
 			"scope": [
 				"entity.name.tag.cs",
-				"punctuation.definition.tag.cs"
+				"comment.block.documentation.cs punctuation.definition.tag.cs",
+				"comment.block.documentation.cs punctuation.separator.equals.cs"
 			],
 			"settings": {
-				"foreground": "#565869"
+				"foreground": "#ADB1C2"
 			}
 		},
 		{
@@ -1430,6 +1440,15 @@
 			],
 			"settings": {
 				"foreground": "#FF5C57"
+			}
+		},
+		{
+			"name": "Csharp - Doc Text",
+			"scope": [
+				"comment.block.documentation.cs"
+			],
+			"settings": {
+				"foreground": "#565869"
 			}
 		},
 		{

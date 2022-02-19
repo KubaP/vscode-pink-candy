@@ -15,7 +15,8 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "storage.modifier" - `mut` keyword
 - tm: "storage.type.rust" - `enum` and `struct` declarations, `let` keyword
 #### csharp
-- s: "plainKeyword", "controlKeyword"
+- s: "plainKeyword"
+- s: "controlKeyword"
 - tm: "keyword"
 - tm: "storage.modifier.cs" - `public`, `static`, `override` etc.
 #### js
@@ -128,7 +129,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "entity.name.type.result.rust"
 #### csharp
 - s: "enumMember"
-- tm: "entity.name.variable.enum-member.cs" - Enum variant declarations
+- tm: "entity.name.variable.enum-member.cs" - Enum variant declarations only.
 - tm: "constant.language.boolean.true.cs"
 - tm: "constant.language.boolean.false.cs"
 #### js
@@ -146,7 +147,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "typeParameter"
 #### csharp
 - s: "typeParameter"
-- tm: "entity.name.type.type-parameter.cs"
+- tm: "entity.name.type.type-parameter.cs" - In object declaration only.
 
 
 
@@ -157,6 +158,7 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "local"
 - tm: "entity.name.variable.local.cs" - Only for declarations, not later uses
+- tm: "variable.other.readwrite.cs" - For later uses.
 #### js
 - s: "variable"
 - tm: "variable.other.readwrite.js"
@@ -177,7 +179,8 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "property"
 #### csharp
 - s: "field"
-- tm: "variable.other.object.property.cs" - ⚠ Incorrectly highlights objects in namespaces
+- tm: "entity.name.variable.field.cs" - Only for declarations within class.
+- tm: "variable.other.object.property.cs" - ⚠ Incorrectly highlights static objects in namespace paths.
 #### js
 - s: "property" - ⚠ Only applies to static values inside a class.
 - tm: "variable.other.property.js"
@@ -187,7 +190,9 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "*.constant"
 - tm: "constant.other.caps.rust"
 #### csharp
-- s: "variable.static"
+- s: "variable.static" - Declarations of `const`.
+- s: "variable.readonly" - Later uses of the variable.
+- tm: "constant.language.null.cs"
 
 
 
@@ -271,7 +276,8 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "comment"
 - s: "comment.documentation.cs"
-- tm: "comment.block.documentation.cs"
+- tm: "comment.line.double-slash.cs"
+- tm: "comment.block.cs"
 #### js
 - tm: "comment.block.documentation.js"
 - tm: "comment.line.double-slash.js"
@@ -292,8 +298,9 @@ View this document inside of a text editor with hex colour highlighting support,
 
 ### Unresolved Symbol #FF1277 #ff2884
 #### rust
-- "unresolvedReference"
-
+- s: "unresolvedReference"
+#### csharp
+- tm: "invalid.illegal"
 
 
 ## Rust
@@ -350,7 +357,7 @@ View this document inside of a text editor with hex colour highlighting support,
 
 ## C Sharp
 
-### Static Function #09A1ED  #10b1fe (underlined)
+### Static Functions #09A1ED  #10b1fe (underlined)
 - s: "member.static"
 
 ### Static Classes #2DAE58 #3fc56b (underlined)
@@ -362,11 +369,15 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Properties #a8759a #b58e95 (bold)
 - s: "property"
 
-### Doc Tag #565869 #b9bfca
+### Properties #a8759a #b58e95 (bold underlined)
+- s: "property.static"
+
+### Doc Tag #ADB1C2 #636d83
 - s: "xmlDocCommentName" - `<summary> ...`
 - s: "xmlDocCommentDelimiter" - `</para>`
 - tm: "entity.name.tag.cs" - `summary`
-- tm: "punctuation.definition.tag.cs" - `<`, `/>`
+- tm: "comment.block.documentation.cs punctuation.definition.tag.cs" - `<`, `/>`
+- tm: "comment.block.documentation.cs punctuation.separator.equals.cs" - `..=..`
 
 ### Doc Tag Attribute #FF5C57 #ff6b66 - `<... type= ...`
 - s: "xmlDocCommentAttributeName"
@@ -376,20 +387,23 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "xmlDocCommentAttributeQuotes" - `="...."`
 - s: "xmlDocCommentAttributeValue" - `...="..."`
 
-### Doc Text #ADB1C2 #636d83
+### Doc Text #565869 #b9bfca
 - s: "xmlDocCommentText"
+- tm: "comment.block.documentation.cs"
 
 ### Limitations
 - No way to differentiate base classes from inherited classes.
 - No way to colour booleans since they get overridden by the semantic "plainKeyword" token.
-- No way to colour character strings.
+- No distinction between character strings `''` and proper strings `""`.
 - No support for attributes.
 - No support for "unresolved" symbols.
 - No way to colour string interpolation delimiters.
 #### Textmate limitations
 - No support for enum members.
 - No support for constants.
-- No support for static functions, classes or fields.
+- No support for static functions or classes.
+- Syntax highlighting can get confused between object fields and namespace paths.
+- No distinction between parameters and local variables inside of function bodies.
 - No distinction between fields and properties.
 - No distinction between classes and inherited classes.
 
