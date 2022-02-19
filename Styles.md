@@ -514,6 +514,10 @@ HTML/Css/Scss only support textmate highlighting.
 ### Attribute Value Inline Styles (HTML) # #9acc12
 - "meta.embedded.line.css"
 
+### String Quote Marks (HTML) #777777 #828da0
+- "punctuation.definition.string.begin.html"
+- "punctuation.definition.string.end.html"
+
 
 
 ### Properties (CSS) # #b58e95
@@ -650,6 +654,9 @@ Markdown only supports textmate highlighting; it has no semantic highlighting.
 - "markup.underline.link"
 - "constant.other.reference.link.markdown"
 
+### String Quote Marks #777777 #828da0
+- "punctuation.definition.string.markdown"
+
 
 
 ## JSON
@@ -674,3 +681,9 @@ JSON only supports textmate highlighting; it has no semantic highlighting.
 
 ### Punctuation #777777 #828da0
 - "punctuation"
+
+### String Quote Marks #777777 #828da0
+- "punctuation.definition.string.begin.json"
+- "punctuation.definition.string.end.json"
+- "punctuation.support.type.property-name.begin.json"
+- "punctuation.support.type.property-name.end.json"
