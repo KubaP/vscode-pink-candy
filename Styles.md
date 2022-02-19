@@ -50,6 +50,9 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Punctuation #777777 #828da0
 - s: "punctuation"
 - tm: "punctuation"
+#### jsx
+- tm: "meta.brace.round.js"
+- tm: "meta.brace.square.js"
 
 ### Operators #777777 #828da0
 ### rust
@@ -86,13 +89,16 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "entity.name.function.cs"
 
 
-### Namespace #565869 #abb2bf
+### Namespace #565869 #b9bfca
 #### rust
 - s: "namespace"
 - tm: "entity.name.namespace.rust"
 #### csharp
 - s: "namespace"
 - tm: "entity.name.type.namespace.cs" - ⚠ (Only for the using/namespace statements) Cannot differentiate namespaces, in function bodies, from other local variables.
+#### js
+- s: "namespace" - Only in code, not in imports header.
+
 
 ### Custom Type #2DAE58 #3fc56b
 #### rust
@@ -193,6 +199,9 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "variable.static" - Declarations of `const`.
 - s: "variable.readonly" - Later uses of the variable.
 - tm: "constant.language.null.cs"
+#### js
+- s: "variable.readonly"
+- tm: "variable.other.constant.js
 
 
 

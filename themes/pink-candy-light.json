@@ -798,6 +798,7 @@
 		"*.constant": "#13BBB7",
 		"variable.static:csharp": "#13BBB7", // Constants
 		"variable.readonly:csharp": "#13BBB7", // Constants
+		"variable.readonly:javascript": "#13BBB7", // Constants
 		//
 		//
 		"string": "#CF9C00", // `"string"`
@@ -993,6 +994,9 @@
 				"punctuation.definition.tag.html",
 				"punctuation.definition.tag.begin.html",
 				"punctuation.definition.tag.end.html",
+				// jsx
+				"meta.brace.round.js",
+				"meta.brace.square.js",
 				// html
 				"punctuation.definition.string.begin.html",
 				"punctuation.definition.string.end.html",
@@ -1228,7 +1232,9 @@
 				// rust
 				"constant.other.caps.rust",
 				// csharp
-				"constant.language.null.cs"
+				"constant.language.null.cs",
+				// js
+				"variable.other.constant.js"
 			],
 			"settings": {
 				"foreground": "#13BBB7"

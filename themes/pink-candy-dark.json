@@ -760,7 +760,7 @@
         "method": "#10b1fe", // Object method.
         "member:csharp": "#10b1fe", // Object method.
         "macro": "#10b1fe",
-        "namespace": "#abb2bf",
+        "namespace": "#b9bfca",
         "struct": "#3fc56b",
         "class": "#3fc56b",
         "class.static:csharp": { // Static class.
@@ -798,6 +798,7 @@
         "*.constant": "#15c9c5",
         "variable.static:csharp": "#15c9c5", // Constants
         "variable.readonly:csharp": "#15c9c5", // Constants
+        "variable.readonly:javascript": "#15c9c5", // Constants
         //
         //
         "string": "#f9c859", // `"string"`
@@ -993,6 +994,9 @@
                 "punctuation.definition.tag.html",
                 "punctuation.definition.tag.begin.html",
                 "punctuation.definition.tag.end.html",
+                // jsx
+                "meta.brace.round.js",
+                "meta.brace.square.js",
                 // html
                 "punctuation.definition.string.begin.html",
                 "punctuation.definition.string.end.html",
@@ -1228,7 +1232,9 @@
                 // rust
                 "constant.other.caps.rust",
                 // csharp
-                "constant.language.null.cs"
+                "constant.language.null.cs",
+                // js
+                "variable.other.constant.js"
             ],
             "settings": {
                 "foreground": "#15c9c5"
