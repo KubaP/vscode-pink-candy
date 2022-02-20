@@ -495,32 +495,32 @@ Comment Keywords #565869 #b9bfca
 ## HTML/Css/Scss
 HTML/Css/Scss only support textmate highlighting.
 
-### Tags # #f85eb4
+### Tags #F767BB #f85eb4
 - "entity.name.tag.html"
 - "entity.name.tag.css"
 
-### Classes # #3fc56b
+### Classes #2DAE58 #3fc56b
 - "meta.attribute.class.html"
 - "entity.other.attribute-name.class.css"
 
-### IDs # #ff6b66 (bold)
+### IDs #FF5C57 #ff6b66 (bold)
 - "meta.attribute.id.html"
 - "entity.other.attribute-name.id.css"
 
 
 
-### Attributes (HTML) # #15c9c5 (italicised)
+### Attributes (HTML) #13BBB7 #15c9c5 (italicised)
 - "entity.other.attribute-name.html"
 
-### Attribute Values (HTML) # #f9c859
+### Attribute Values (HTML) #CF9C00 #f9c859
 - "string.quoted.double.html"
 
-### Attribute Value Urls (HTML) # #d177f5
+### Attribute Value Urls (HTML) #cd6bf4 #d177f5
 - "meta.attribute.href.html"
 - "meta.attribute.src.html"
 - "meta.attribute.unrecognized.xmlns.html"
 
-### Attribute Value Inline Styles (HTML) # #9acc12
+### Attribute Value Inline Styles (HTML) #8cba10 #9acc12
 - "meta.embedded.line.css"
 
 ### String Quote Marks (HTML) #777777 #828da0
@@ -529,20 +529,20 @@ HTML/Css/Scss only support textmate highlighting.
 
 
 
-### Properties (CSS) # #b58e95
+### Properties (CSS) #a8759a #b58e95
 - "support.type.property-name.css"
 - "meta.property-name.css"
 - "meta.property-name.scss"
 - "support.type.property-name.media.css"
 
-### Property Value Strings (CSS) # #f9c859
+### Property Value Strings (CSS) #CF9C00 #f9c859
 - "string.quoted.double.css"
 - "string.quoted.double.scss"
 - "string.quoted.single.css"
 - "string.quoted.single.scss"
 - "support.constant.font-name.css"
 
-### Property Value Numbers (CSS) # #ff6b66
+### Property Value Numbers (CSS) #FF5C57 #ff6b66
 - "constant.numeric.css"
 - "keyword.other.unit.rem.css"
 - "keyword.other.unit.em.css"
@@ -561,25 +561,31 @@ HTML/Css/Scss only support textmate highlighting.
 - "keyword.other.unit.deg.css"
 - "constant.other.scss"
 
-### Property Value Constants/Keys (CSS) # #15c9c5
+### Property Value Constants/Keys (CSS) #13BBB7 #15c9c5
 - "support.constant.property-value.css"
 
-### Pseudoclass Selectors (CSS) # #9acc12
+### Pseudoclass Selectors (CSS) #8cba10 #9acc12
 - "entity.other.attribute-name.pseudo-class.css"
 - "entity.other.attribute-name.pseudo-element.css"
 
-### Variables (CSS) # #b9bfca
+### Variables (CSS) #565869 #b9bfca
 - "variable.css"
 - "variable.argument.css"
 - "variable.scss"
 
-### Functions (CSS) # #10b1fe
+### Functions (CSS) #09A1ED #10b1fe
 - "support.function.misc.css"
 - "support.function.misc.scss"
 
+### Logical Operators (CSS) #F767BB #f85eb4
+- "keyword.operator.logical.and.media.css"
+- "keyword.operator.logical.not.media.css"
+- "keyword.operator.logical.only.media.css"
 
+### Media Query Types (CSS) #cd6bf4 #d177f5
+- "support.constant.media.css"
 
-### Special Symbols (SCSS) # #f85eb4
+### Special Symbols (SCSS) #F767BB #f85eb4
 - "entity.name.tag.reference.scss" - `&`
 - "punctuation.definition.keyword.scss" - `@`
 - "keyword.control.at-rule.include.scss" - `@`

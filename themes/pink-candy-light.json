@@ -1747,6 +1747,26 @@
 				"foreground": "#FF5C57"
 			}
 		},
+		{
+			"name": "CSS - Logical Operators",
+			"scope": [
+				"keyword.operator.logical.and.media.css",
+				"keyword.operator.logical.not.media.css",
+				"keyword.operator.logical.only.media.css"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "CSS - Media Query Types",
+			"scope": [
+				"support.constant.media.css"
+			],
+			"settings": {
+				"foreground": "#c75af3"
+			}
+		},
 		//
 		// SCSS
 		//
