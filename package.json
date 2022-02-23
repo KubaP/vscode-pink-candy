@@ -1,13 +1,39 @@
 {
     "name": "theme-pink-candy",
     "displayName": "Pink Candy Theme",
-    "description": "A vivid colour scheme with a pink accent, with both light and dark variants.",
-    "version": "0.0.1",
+    "description": "A vivid colour scheme with a pink accent, in both light and dark variants.",
+    "version": "1.0.0",
+    "publisher": "kuba-p",
+    "author": {
+        "name": "kuba_p"
+    },
+    "license": "MIT",
+    "icon": "icon.png",
+    "homepage": "https://github.com/KubaP/vscode-pink-candy/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/KubaP/vscode-pink-candy"
+    },
+    "bugs": {
+        "url": "https://github.com/KubaP/vscode-pink-candy/issues"
+    },
+    "galleryBanner": {
+        "color": "#FF1277",
+        "theme": "dark"
+    },
+    "markdown": "github",
     "engines": {
-        "vscode": "^1.61.0"
+        "vscode": "^1.60.0"
     },
     "categories": [
         "Themes"
+    ],
+    "keywords": [
+        "theme",
+        "highlighting",
+        "colour scheme",
+        "light",
+        "dark"
     ],
     "contributes": {
         "themes": [
