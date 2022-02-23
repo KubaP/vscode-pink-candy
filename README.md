@@ -1,19 +1,40 @@
-# Pink Candy
-A vivid colour scheme with a pink accent, in both light and dark variants. Includes editor/syntax highlighting as well as full IDE/workbench theming.
+![Pink Candy Banner](./img/banner.png#gh-light-mode-only)
+![Pink Candy Banner](./img/banner_dark.png#gh-dark-mode-only)
+
+<br>
+<p align="center">
+A vivid colour scheme with a pink accent, in both light and dark variants. Includes editor/syntax highlighting as well as full IDE and workbench theming.
+</p>
+<br>
 
 ### Table of Contents
-1. [Overview](#overview)
-2. [Language Specific Styles](#language-specific-styles)
-3. [Overriding Styles](#overriding-styles)
-4. [Contributing](#contributing)
-5. [License](#license)
+1. [Screenshots](#screenshots)
+2. [Overview](#overview)
+3. [Language Specific Styles](#language-specific-styles)
+4. [Overriding Styles](#overriding-styles)
+5. [Contributing](#contributing)
+6. [License](#license)
+
+## Screenshots
+
+![Example 1](./img/example_1.png)
+> Editing a markdown file.
+
+![Example 2](./img/example_2.png)
+> Debugging an application.
+
+![Example 3](./img/example_3.png)
+> Configuring some settings.
+
+![Example 4](./img/example_4.png)
+> Viewing a git diff.
 
 ## Overview
-This theme supports *'Semantic'* highlighting, so it should work with any langauge extension. More specifically however, this theme has been tweaked and tested on:
+This theme supports *'Semantic'* highlighting, so it should work well with any langauge extension. More specifically however, this theme has been tweaked and tested on:
 - Rust
 - C#
 - Powershell
-- HTML/Css/Scss
+- HTML/CSS/SCSS
 - Javascript (inc. JSX)
 - Markdown
 - Json
@@ -45,13 +66,13 @@ This theme, unlike many others, takes full advantage of semantic scopes that eac
 - Object members are distinctly coloured.
 - String interpolation delimiters are distinctly coloured.
 
-### HTML/Css/Scss
+### HTML/CSS/SCSS
 - IDs, Classes, and other attribute values have different colours.
 - Attribute keys are italicised.
-- Inline css styles have a unique colour.
+- Inline CSS styles have a unique colour.
 - Urls are uniquely coloured.
 - Units have the same colour as number literals.
-- Scss-specific characters are correctly coloured.
+- SCSS-specific characters are correctly coloured.
 
 ### Javascript
 - String interpolation delimiters are distinctly coloured.
