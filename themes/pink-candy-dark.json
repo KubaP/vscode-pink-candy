@@ -960,7 +960,8 @@
                 "variable.language.this.js",
                 "keyword.operator.new.js",
                 "constant.language.null.js",
-                "constant.language.undefined.js"
+                "constant.language.undefined.js",
+                "keyword.operator.ternary.js"
             ],
             "settings": {
                 "foreground": "#f85eb4"

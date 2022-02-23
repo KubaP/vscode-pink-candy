@@ -22,6 +22,7 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - tm: "keyword"
 - tm: "keyword.operator.new.js"
+- tm: "keyword.operator.ternary.js"
 - tm: "constant.language.null.js"
 - tm: "constant.language.undefined.js"
 
