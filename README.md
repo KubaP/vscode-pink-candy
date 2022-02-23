@@ -45,6 +45,7 @@ This theme supports *'Semantic'* highlighting, so it should work well with any l
 This theme, unlike many others, takes full advantage of semantic scopes that each language extension provides. This allows the theme to suit its appearance to the specific language and highlight/underline/embolden syntax that otherwise would not stand out in other themes.
 
 ### Rust
+See highlighting examples [here](./Highlighting_Examples.md#rust).
 - References, and functions that take references, are italicised.
 - Mutability, and functions which mutate, are emboldened.
 - Unsafe functions use a different bright colour and are underlined.
@@ -54,12 +55,14 @@ This theme, unlike many others, takes full advantage of semantic scopes that eac
 - Format specifiers (e.g. `{x:?}`) are distinctly coloured.
 
 ### C#
+See highlighting examples [here](./Highlighting_Examples.md#c#).
 - Static functions, classes and fields are underlined.
 - Properties are emboldened.
 - String interpolation delimiters are distinctly coloured.
 - Xml doc comments are syntax highlighted inside.
 
 ### Powershell
+See highlighting examples [here](./Highlighting_Examples.md#powershell).
 - Comparison and logical operators, like `-eq` and `-not`, are coloured like a keyword.
 - Variables are distinctly coloured.
 - Parameter declarations (attributes) are distinctly coloured.
@@ -67,6 +70,7 @@ This theme, unlike many others, takes full advantage of semantic scopes that eac
 - String interpolation delimiters are distinctly coloured.
 
 ### HTML/CSS/SCSS
+See highlighting examples [here](./Highlighting_Examples.md#html/css/scss).
 - IDs, Classes, and other attribute values have different colours.
 - Attribute keys are italicised.
 - Inline CSS styles have a unique colour.
@@ -75,10 +79,12 @@ This theme, unlike many others, takes full advantage of semantic scopes that eac
 - SCSS-specific characters are correctly coloured.
 
 ### Javascript
+See highlighting examples [here](./Highlighting_Examples.md#javascript).
 - String interpolation delimiters are distinctly coloured.
 - Regex expressions are distinctly coloured.
 - Static properties have a unique colour.
 #### JSX (React)
+See highlighting examples [here](./Highlighting_Examples.md#jsx).
 - Element attributes have a unique colour.
 - Embedded code delimiters `{...}` are distinctly coloured and emboldened.
 
