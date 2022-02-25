@@ -2,7 +2,7 @@
     "name": "theme-pink-candy",
     "displayName": "Pink Candy Theme",
     "description": "A vivid colour scheme with a pink accent, in both light and dark variants.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "kuba-p",
     "author": {
         "name": "kuba_p"
@@ -18,7 +18,7 @@
         "url": "https://github.com/KubaP/vscode-pink-candy/issues"
     },
     "galleryBanner": {
-        "color": "#FF1277",
+        "color": "#2F3A43",
         "theme": "dark"
     },
     "markdown": "github",

@@ -70,13 +70,13 @@ Copy-Item -Path ".\img\example_4.png" -Destination "$script:PUBLISH_DIR\img" -Fo
 #	Replace all relative paths with absolute paths.
 Write-Header "Fixing README" "Blue"
 $readme = Get-Content -Path "$script:PUBLISH_DIR\README.md"
-$readme[0] = "![Pink Candy Banner]($($script:GITHUB_URL)img/banner_dark.png)"
+$readme[0] = "![Pink Candy Banner](./img/banner_dark.png)"
 $readme[1] = ""
-for ($i = 0; $i -lt $readme.Count; $i++) {
+<# for ($i = 0; $i -lt $readme.Count; $i++) {
 	if ($readme[$i] -match "]\(\.\/") {
 		$readme[$i] = $readme[$i] -replace "\.\/", $script:GITHUB_URL
 	}
-}
+} #>
 Out-File -FilePath "$script:PUBLISH_DIR\README.md" -InputObject $readme -Verbose
 #[System.IO.File]::WriteAllText("$script:PUBLISH_DIR\README.md", $readme, [System.Text.Encoding]::UTF8)
 
