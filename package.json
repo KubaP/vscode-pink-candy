@@ -51,7 +51,7 @@
     },
     "scripts": {
         "package": "vsce package",
-        "deploy": "vsce publish",
+        "deploy": "vsce publish -p",
         "postDeploy": "node -e \"const version = require('./package.json').version; console.log(`##vso[task.setvariable variable=version;isOutput=true]${version}`);\""
     },
     "devDependencies": {
