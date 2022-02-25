@@ -48,5 +48,13 @@
                 "path": "./themes/pink-candy-dark.json"
             }
         ]
+    },
+    "scripts": {
+        "package": "vsce package",
+        "deploy": "vsce publish",
+        "postDeploy": "node -e \"const version = require('./package.json').version; console.log(`##vso[task.setvariable variable=version;isOutput=true]${version}`);\""
+    },
+    "devDependencies": {
+        "vsce": "^2.6.7"
     }
 }
