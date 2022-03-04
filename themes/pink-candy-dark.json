@@ -411,7 +411,7 @@
         "input.foreground": "#abb2bf",
         "input.background": "#22252A",
         "input.placeholderForeground": "#4d5665",
-        "inputOption.activeBackground": "#3E303E", // TODO
+        "inputOption.activeBackground": "#3E303E",
         //"inputOption.activeForeground": "#",
         //"inputOption.activeBorder": "",
         "inputValidation.infoForeground": "#018acc",
@@ -640,36 +640,36 @@
         //
         // SYMBOLS [x]
         "symbolIcon.arrayForeground": "#abb2bf",
-        "symbolIcon.booleanForeground": "#3fc56b",
-        "symbolIcon.classForeground": "#15c9c5",
+        "symbolIcon.booleanForeground": "#15c9c5",
+        "symbolIcon.classForeground": "#3fc56b",
         "symbolIcon.colorForeground": "#abb2bf",
-        "symbolIcon.constantForeground": "#3fc56b",
-        "symbolIcon.enumeratorForeground": "#15c9c5",
-        "symbolIcon.enumeratorMemberForeground": "#3fc56b",
+        "symbolIcon.constantForeground": "#15c9c5",
+        "symbolIcon.enumeratorForeground": "#3fc56b",
+        "symbolIcon.enumeratorMemberForeground": "#15c9c5",
         "symbolIcon.eventForeground": "#abb2bf",
         "symbolIcon.fieldForeground": "#b58e95",
         "symbolIcon.fileForeground": "#abb2bf",
         "symbolIcon.folderForeground": "#abb2bf",
         "symbolIcon.functionForeground": "#10b1fe",
         "symbolIcon.interfaceForeground": "#d177f5",
-        "symbolIcon.keyForeground": "#abb2bf",
+        "symbolIcon.keyForeground": "#f85eb4",
         "symbolIcon.keywordForeground": "#f85eb4",
         "symbolIcon.methodForeground": "#10b1fe",
         "symbolIcon.moduleForeground": "#abb2bf",
         "symbolIcon.namespaceForeground": "#abb2bf",
-        "symbolIcon.nullForeground": "#ff2884",
+        "symbolIcon.nullForeground": "#f85eb4",
         "symbolIcon.numberForeground": "#ff6b66",
-        "symbolIcon.objectForeground": "#13BBB7",
+        "symbolIcon.objectForeground": "#3fc56b",
         "symbolIcon.operatorForeground": "#828da0",
         "symbolIcon.packageForeground": "#abb2bf",
         "symbolIcon.propertyForeground": "#b58e95",
         "symbolIcon.referenceForeground": "#f85eb4",
         "symbolIcon.snippetForeground": "#f85eb4",
         "symbolIcon.stringForeground": "#f9c859",
-        "symbolIcon.structForeground": "#15c9c5",
+        "symbolIcon.structForeground": "#3fc56b",
         "symbolIcon.textForeground": "#abb2bf",
-        "symbolIcon.typeParameterForeground": "#15c9c5",
-        "symbolIcon.unitForeground": "#f85eb4",
+        "symbolIcon.typeParameterForeground": "#3fc56b",
+        "symbolIcon.unitForeground": "#ff6b66",
         "symbolIcon.variableForeground": "#abb2bf",
         //
         // TESTING COLOURS [x]
@@ -730,7 +730,74 @@
         "gitDecoration.stageDeletedResourceForeground": "#636d83",
         "gitDecoration.ignoredResourceForeground": "#636d83",
         "gitDecoration.conflictingResourceForeground": "#FF1277",
-        "gitDecoration.submoduleResourceForeground": "#636d83"
+        "gitDecoration.submoduleResourceForeground": "#636d83",
+        // 
+        // GIT GRAPH [x]
+        "git-graph.graph.colours": [
+            "#f85eb4",
+            "#10b1fe",
+            "#3fc56b",
+            "#f9c859",
+            "#ff6b66",
+            "#d177f5",
+            "#b58e95",
+            "#97bccd",
+            "#00d9cc",
+            "#9acc12"
+        ],
+        //
+        // _TODO TREE [x]
+        "todo-tree.highlights.customHighlight": {
+            "TODO": {
+                "foreground": "#282c34",
+                "background": "#abb2bf",
+                "icon": "checklist",
+                "iconColour": "#abb2bf",
+                "gutterIcon": true
+            },
+            "FIXME": {
+                "foreground": "#282c34",
+                "background": "#ff6b66",
+                "icon": "tools",
+                "iconColour": "#ff6b66",
+                "gutterIcon": true
+            },
+            "BUG": {
+                "foreground": "#ffffff",
+                "background": "#ff1277",
+                "icon": "alert",
+                "iconColour": "#ff1278",
+                "gutterIcon": true
+            },
+            "HACK": {
+                "foreground": "#282c34",
+                "background": "#f9c859",
+                "icon": "flame",
+                "iconColour": "#f9c859",
+                "gutterIcon": true
+            },
+            "MAYBE": {
+                "foreground": "#282c34",
+                "background": "#00d9cc",
+                "icon": "info",
+                "iconColour": "#00d9cc",
+                "gutterIcon": true
+            },
+            "[ ]": {
+                "foreground": "#282c34",
+                "background": "#abb2bf",
+                "icon": "checklist",
+                "iconColour": "#abb2bf",
+                "gutterIcon": true
+            },
+            "[x]": {
+                "foreground": "#3fc56b",
+                "background": "#282c34",
+                "icon": "checklist",
+                "iconColour": "#3fc56b",
+                "gutterIcon": true
+            }
+        }
     },
     "semanticHighlighting": true,
     "semanticTokenColors": {
@@ -1934,6 +2001,23 @@
             "settings": {
                 "foreground": "#d177f5",
                 "fontStyle": "underline"
+            }
+        },
+        {
+            "name": "Markup - Maths",
+            "scope": "punctuation.definition.math.begin.markdown",
+            "settings": {
+                "foreground": "#9acc12"
+            }
+        },
+        {
+            "name": "Markup - Maths constants/functions",
+            "scope": [
+                "constant.character.math.tex",
+                "constant.character.math.tex punctuation.definition.math.tex"
+            ],
+            "settings": {
+                "foreground": "#15c9c5"
             }
         },
         //

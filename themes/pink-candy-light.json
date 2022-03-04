@@ -640,35 +640,35 @@
 		//
 		// SYMBOLS [x]
 		"symbolIcon.arrayForeground": "#565869",
-		"symbolIcon.booleanForeground": "#2DAE58",
-		"symbolIcon.classForeground": "#13BBB7",
+		"symbolIcon.booleanForeground": "#13BBB7",
+		"symbolIcon.classForeground": "#2DAE58",
 		"symbolIcon.colorForeground": "#565869",
-		"symbolIcon.constantForeground": "#2DAE58",
-		"symbolIcon.enumeratorForeground": "#13BBB7",
-		"symbolIcon.enumeratorMemberForeground": "#2DAE58",
+		"symbolIcon.constantForeground": "#13BBB7",
+		"symbolIcon.enumeratorForeground": "#2DAE58",
+		"symbolIcon.enumeratorMemberForeground": "#13BBB7",
 		"symbolIcon.eventForeground": "#565869",
 		"symbolIcon.fieldForeground": "#a8759a",
 		"symbolIcon.fileForeground": "#565869",
 		"symbolIcon.folderForeground": "#565869",
 		"symbolIcon.functionForeground": "#09A1ED",
 		"symbolIcon.interfaceForeground": "#c75af3",
-		"symbolIcon.keyForeground": "#FF5C57",
+		"symbolIcon.keyForeground": "#F767BB",
 		"symbolIcon.keywordForeground": "#F767BB",
 		"symbolIcon.methodForeground": "#09A1ED",
 		"symbolIcon.moduleForeground": "#565869",
 		"symbolIcon.namespaceForeground": "#565869",
-		"symbolIcon.nullForeground": "#FF1277",
+		"symbolIcon.nullForeground": "#F767BB",
 		"symbolIcon.numberForeground": "#FF5C57",
-		"symbolIcon.objectForeground": "#13BBB7",
+		"symbolIcon.objectForeground": "#2DAE58",
 		"symbolIcon.operatorForeground": "#777777",
 		"symbolIcon.packageForeground": "#565869",
 		"symbolIcon.propertyForeground": "#a8759a",
 		"symbolIcon.referenceForeground": "#F767BB",
 		"symbolIcon.snippetForeground": "#F767BB",
 		"symbolIcon.stringForeground": "#CF9C00",
-		"symbolIcon.structForeground": "#13BBB7",
+		"symbolIcon.structForeground": "#2DAE58",
 		"symbolIcon.textForeground": "#565869",
-		"symbolIcon.typeParameterForeground": "#13BBB7",
+		"symbolIcon.typeParameterForeground": "#2DAE58",
 		"symbolIcon.unitForeground": "#F767BB",
 		"symbolIcon.variableForeground": "#565869",
 		//
@@ -730,7 +730,74 @@
 		"gitDecoration.stageDeletedResourceForeground": "#ADB1C2",
 		"gitDecoration.ignoredResourceForeground": "#ADB1C2",
 		"gitDecoration.conflictingResourceForeground": "#FF1277",
-		"gitDecoration.submoduleResourceForeground": "#ADB1C2"
+		"gitDecoration.submoduleResourceForeground": "#ADB1C2",
+		//
+		// GIT GRAPH [x]
+		"git-graph.graph.colours": [
+			"#F767BB",
+			"#09A1ED",
+			"#2DAE58",
+			"#CF9C00",
+			"#FF5C57",
+			"#cd6bf4",
+			"#a8759a",
+			"#6e82a6",
+			"#13BBB7",
+			"#8cba10"
+		],
+		//
+		// _TODO TREE [x]
+		"todo-tree.highlights.customHighlight": {
+			"TODO": {
+				"foreground": "#fafbfc",
+				"background": "#565869",
+				"icon": "checklist",
+				"iconColour": "#565869",
+				"gutterIcon": true
+			},
+			"FIXME": {
+				"foreground": "#fafbfc",
+				"background": "#FF5C57",
+				"icon": "tools",
+				"iconColour": "#FF5C57",
+				"gutterIcon": true
+			},
+			"BUG": {
+				"foreground": "#ffffff",
+				"background": "#ff1277",
+				"icon": "alert",
+				"iconColour": "#ff1278",
+				"gutterIcon": true
+			},
+			"HACK": {
+				"foreground": "#fafbfc",
+				"background": "#CF9C00",
+				"icon": "flame",
+				"iconColour": "#CF9C00",
+				"gutterIcon": true
+			},
+			"MAYBE": {
+				"foreground": "#fafbfc",
+				"background": "#13BBB7",
+				"icon": "info",
+				"iconColour": "#13BBB7",
+				"gutterIcon": true
+			},
+			"[ ]": {
+				"foreground": "#fafbfc",
+				"background": "#565869",
+				"icon": "checklist",
+				"iconColour": "#565869",
+				"gutterIcon": true
+			},
+			"[x]": {
+				"foreground": "#2DAE58",
+				"background": "#fafbfc",
+				"icon": "checklist",
+				"iconColour": "#2DAE58",
+				"gutterIcon": true
+			}
+		}
 	},
 	"semanticHighlighting": true,
 	"semanticTokenColors": {
@@ -808,7 +875,7 @@
 		"number": "#FF5C57",
 		"comment": "#ADB1C2",
 		//
-		//
+		// 
 		"attribute": "#FF5C57", // The #[]!() symbols in an attribute.
 		"unresolvedReference": {
 			"foreground": "#FF1277"
@@ -961,7 +1028,7 @@
 				"keyword.operator.new.js",
 				"constant.language.null.js",
 				"constant.language.undefined.js",
-                "keyword.operator.ternary.js"
+				"keyword.operator.ternary.js"
 			],
 			"settings": {
 				"foreground": "#F767BB"
@@ -1934,6 +2001,23 @@
 			"settings": {
 				"foreground": "#c75af3",
 				"fontStyle": "underline"
+			}
+		},
+		{
+			"name": "Markup - Maths",
+			"scope": "punctuation.definition.math.begin.markdown",
+			"settings": {
+				"foreground": "#8cba10"
+			}
+		},
+		{
+			"name": "Markup - Maths constants/functions",
+			"scope": [
+				"constant.character.math.tex",
+				"constant.character.math.tex punctuation.definition.math.tex"
+			],
+			"settings": {
+				"foreground": "#13BBB7"
 			}
 		},
 		//

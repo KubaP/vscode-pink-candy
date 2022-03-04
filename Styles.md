@@ -2,8 +2,8 @@
 
 View this document inside of a text editor with hex colour highlighting support, otherwise you won't be able to see the colours in each sub-heading. For vscode, the [colorize](https://marketplace.visualstudio.com/items?itemName=kamikillerto.vscode-colorize) extension is a good one.
 
-- `- s:` represent semantic scopes.
-- `- tm:` represent 'TextMate' scopes.
+- `- s:` represent *Semantic Highlighting* scopes.
+- `- tm:` represent *TextMate* scopes.
 
 ## General
 
@@ -672,6 +672,13 @@ Markdown only supports textmate highlighting; it has no semantic highlighting.
 
 ### String Quote Marks #777777 #828da0
 - "punctuation.definition.string.markdown"
+
+### Math Delimiters #8cba10 #9acc12
+- "punctuation.definition.math.begin.markdown"
+
+### Math Constants/Functions #13BBB7 #15c9c5
+- "constant.character.math.tex",
+- "constant.character.math.tex punctuation.definition.math.tex"
 
 
 
