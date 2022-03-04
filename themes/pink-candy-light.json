@@ -1936,6 +1936,23 @@
 				"fontStyle": "underline"
 			}
 		},
+		{
+			"name": "Markup - Maths",
+			"scope": "punctuation.definition.math.begin.markdown",
+			"settings": {
+				"foreground": "#8cba10"
+			}
+		},
+		{
+			"name": "Markup - Maths constants/functions",
+			"scope": [
+				"constant.character.math.tex",
+				"constant.character.math.tex punctuation.definition.math.tex"
+			],
+			"settings": {
+				"foreground": "#13BBB7"
+			}
+		},
 		//
 		// JSON
 		//
