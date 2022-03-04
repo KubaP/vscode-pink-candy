@@ -30,7 +30,7 @@ A vivid colour scheme with a pink accent, in both light and dark variants. Inclu
 > Viewing a git diff.
 
 ## Overview
-This theme supports *'Semantic'* highlighting, so it should work well with any langauge extension. More specifically however, this theme has been tweaked and tested on:
+This theme supports both *'Semantic'* and *'Textmate'* highlighting, so it should work well with any langauge extension. More specifically however, this theme has been hand-tweaked and tested on:
 - Rust
 - C#
 - Powershell
@@ -41,6 +41,11 @@ This theme supports *'Semantic'* highlighting, so it should work well with any l
 
 ℹ More languages coming in the future.
 
+This theme also supports styling for these extensions:
+- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) - colours for all lenses.
+- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph) - lots of colours for branches.
+- [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) - supports `TODO`, `BUG`, `FIXME`, `HACK`, `MAYBE`, `[ ]` and `[x]` tags.
+
 ## Language Specific Styles
 This theme, unlike many others, takes full advantage of semantic scopes that each language extension provides. This allows the theme to suit its appearance to the specific language and highlight/underline/embolden syntax that otherwise would not stand out in other themes.
 
@@ -50,7 +55,7 @@ See highlighting examples [here](./Highlighting_Examples.md#rust).
 - Mutability, and functions which mutate, are emboldened.
 - Unsafe functions use a different bright colour and are underlined.
 - Attributes are distinctly coloured.
-- Lifetimes are distinctly coloured.
+- Lifetimes are coloured like traits.
 - The try `?` operator is coloured like a keyword.
 - Format specifiers (e.g. `{x:?}`) are distinctly coloured.
 
@@ -87,6 +92,9 @@ See highlighting examples [here](./Highlighting_Examples.md#javascript).
 See highlighting examples [here](./Highlighting_Examples.md#jsx).
 - Element attributes have a unique colour.
 - Embedded code delimiters `{...}` are distinctly coloured and emboldened.
+
+### Miscellaneous
+Markdown highlighting examples are [here](./Highlighting_Examples.md#markdown). Json highlighting examples are [here](./Highlighting_Examples.md#json).
 
 ## Overriding Styles
 See [Overriding Styles](./Overriding_Styles.md) for a guide on how to override specific styles to your liking.

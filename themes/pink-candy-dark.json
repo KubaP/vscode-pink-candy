@@ -411,7 +411,7 @@
         "input.foreground": "#abb2bf",
         "input.background": "#22252A",
         "input.placeholderForeground": "#4d5665",
-        "inputOption.activeBackground": "#3E303E", // TODO
+        "inputOption.activeBackground": "#3E303E",
         //"inputOption.activeForeground": "#",
         //"inputOption.activeBorder": "",
         "inputValidation.infoForeground": "#018acc",
