@@ -730,7 +730,74 @@
         "gitDecoration.stageDeletedResourceForeground": "#636d83",
         "gitDecoration.ignoredResourceForeground": "#636d83",
         "gitDecoration.conflictingResourceForeground": "#FF1277",
-        "gitDecoration.submoduleResourceForeground": "#636d83"
+        "gitDecoration.submoduleResourceForeground": "#636d83",
+        // 
+        // GIT GRAPH [x]
+        "git-graph.graph.colours": [
+            "#f85eb4",
+            "#10b1fe",
+            "#3fc56b",
+            "#f9c859",
+            "#ff6b66",
+            "#d177f5",
+            "#b58e95",
+            "#97bccd",
+            "#00d9cc",
+            "#9acc12"
+        ],
+        //
+        // _TODO TREE [x]
+        "todo-tree.highlights.customHighlight": {
+            "TODO": {
+                "foreground": "#282c34",
+                "background": "#abb2bf",
+                "icon": "checklist",
+                "iconColour": "#abb2bf",
+                "gutterIcon": true
+            },
+            "FIXME": {
+                "foreground": "#282c34",
+                "background": "#ff6b66",
+                "icon": "tools",
+                "iconColour": "#ff6b66",
+                "gutterIcon": true
+            },
+            "BUG": {
+                "foreground": "#ffffff",
+                "background": "#ff1277",
+                "icon": "alert",
+                "iconColour": "#ff1278",
+                "gutterIcon": true
+            },
+            "HACK": {
+                "foreground": "#282c34",
+                "background": "#f9c859",
+                "icon": "flame",
+                "iconColour": "#f9c859",
+                "gutterIcon": true
+            },
+            "MAYBE": {
+                "foreground": "#282c34",
+                "background": "#00d9cc",
+                "icon": "info",
+                "iconColour": "#00d9cc",
+                "gutterIcon": true
+            },
+            "[ ]": {
+                "foreground": "#282c34",
+                "background": "#abb2bf",
+                "icon": "checklist",
+                "iconColour": "#abb2bf",
+                "gutterIcon": true
+            },
+            "[x]": {
+                "foreground": "#3fc56b",
+                "background": "#282c34",
+                "icon": "checklist",
+                "iconColour": "#3fc56b",
+                "gutterIcon": true
+            }
+        }
     },
     "semanticHighlighting": true,
     "semanticTokenColors": {
