@@ -42,9 +42,9 @@ This theme supports both *'Semantic'* and *'Textmate'* highlighting, so it shoul
 ℹ More languages coming in the future.
 
 This theme also supports styling for these extensions:
-- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) - colours for all lenses.
-- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph) - lots of colours for branches.
-- [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) - supports `TODO`, `BUG`, `FIXME`, `HACK`, `MAYBE`, `[ ]` and `[x]` tags.
+- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph) - see [note](#Extensions).
+- [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) - see [note](#Extensions).
 
 ## Language Specific Styles
 This theme, unlike many others, takes full advantage of semantic scopes that each language extension provides. This allows the theme to suit its appearance to the specific language and highlight/underline/embolden syntax that otherwise would not stand out in other themes.
@@ -98,6 +98,9 @@ Markdown highlighting examples are [here](./Highlighting_Examples.md#markdown). 
 
 ## Overriding Styles
 See [Overriding Styles](./Overriding_Styles.md) for a guide on how to override specific styles to your liking.
+
+## Extensions
+The *Git Graph* and *Todo Tree* extensions do not provide themable colours. As of the time of this writing, if you want these extensions to fit in with this theme, go to [Extensions](./Extensions.md) and follow the instructions. I am in the process of creating a pull request to add themable colour support to the *Git Graph* extension, so hopefully in the future this workaround will not be necessary.
 
 ## Contributing
 I have tested this theme on languages I am proficient in, and I hope that you will find the syntax highlighting in these languages pleasing. However for many languages, I am not aware of their intricacies and I may not have the right sense for how the syntax should look.
