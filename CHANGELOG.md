@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 - 2022-03-10
+### Added
+- Syntax highlighting for XML; support for common xml features, including namespaces.
+- Syntax highlighting for YAML.
+- Syntax highlighting for TOML.
+- Syntax highlighting for `.ini` files.
+
 ## 1.1.0 - 2022-03-04
 ### Added
 - Syntax highlighting for Markdown Maths features, such as the `$$` delimiters and `\div` functions.
