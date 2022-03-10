@@ -1068,6 +1068,9 @@
 				// html
 				"punctuation.definition.string.begin.html",
 				"punctuation.definition.string.end.html",
+				// xml
+				"punctuation.definition.string.begin.xml",
+				"punctuation.definition.string.end.xml",
 				// markdown
 				"punctuation.definition.string.markdown",
 				// json
@@ -1203,7 +1206,11 @@
 				"constant.language.powershell punctuation.definition.variable.powershell",
 				// js
 				"constant.language.boolean.true.js",
-				"constant.language.boolean.false.js"
+				"constant.language.boolean.false.js",
+				// yaml
+				"constant.language.boolean.yaml",
+				// toml
+				"constant.language.boolean.toml"
 			],
 			"settings": {
 				"foreground": "#13BBB7"
@@ -1302,7 +1309,9 @@
 				// csharp
 				"constant.language.null.cs",
 				// js
-				"variable.other.constant.js"
+				"variable.other.constant.js",
+				// json
+				"constant.language.json"
 			],
 			"settings": {
 				"foreground": "#13BBB7"
@@ -1343,7 +1352,26 @@
 				"string.quoted.double.css",
 				"string.quoted.double.scss",
 				"string.quoted.single.css",
-				"string.quoted.single.scss"
+				"string.quoted.single.scss",
+				// xml
+				"string.quoted.single.xml",
+				"string.quoted.double.xml",
+				// json
+				"string.quoted.double.json",
+				// yaml
+				"string.unquoted.plain.out.yaml",
+				"string.unquoted.block.yaml",
+				"punctuation.definition.string.begin.yaml",
+				"punctuation.definition.string.end.yaml",
+				"string.quoted.single.yaml",
+				"string.quoted.double.yaml",
+				// toml
+				"string.quoted.single.basic.line.toml",
+				// ini
+				"string.quoted.single.ini",
+				"string.quoted.double.ini",
+				"punctuation.definition.string.begin.ini",
+				"punctuation.definition.string.end.ini"
 			],
 			"settings": {
 				"foreground": "#CF9C00"
@@ -1360,7 +1388,14 @@
 				// powershell
 				"constant.character.escape.powershell",
 				// js
-				"constant.character.escape.js"
+				"constant.character.escape.js",
+				// xml
+				"punctuation.definition.constant.xml",
+				"constant.character.entity.xml",
+				// yaml
+				"constant.character.escape.yaml",
+				// toml
+				"constant.character.escape.toml"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1405,7 +1440,17 @@
 				"constant.numeric.hex.js",
 				"constant.numeric.octal.js",
 				// css
-				"constant.numeric.css"
+				"constant.numeric.css",
+				// json
+				"constant.numeric.json",
+				// yaml
+				"constant.numeric.integer.yaml",
+				"constant.numeric.float.yaml",
+				// toml
+				"constant.numeric.integer.toml",
+				"constant.numeric.float.toml",
+				"constant.numeric.hex.toml",
+				"constant.numeric.oct.toml"
 			],
 			"settings": {
 				"foreground": "#FF5C57"
@@ -1423,7 +1468,24 @@
 				"comment.line.powershell",
 				// js
 				"comment.block.documentation.js",
-				"comment.line.double-slash.js"
+				"comment.line.double-slash.js",
+				// xml
+				"comment.block.xml",
+				"punctuation.definition.comment.xml",
+				// json
+				"comment",
+				"comment.line.double-slash.js",
+				"comment.block.json",
+				// yaml
+				"punctuation.definition.comment.yaml",
+				"comment.line.number-sign.yaml",
+				// toml
+				"punctuation.definition.comment.toml",
+				"comment.line.number-sign.toml",
+				// ini
+				"punctuation.definition.comment.ini",
+				"comment.line.semicolon.ini",
+				"comment.line.number-sign.ini"
 			],
 			"settings": {
 				"foreground": "#ADB1C2"
@@ -1851,6 +1913,65 @@
 			}
 		},
 		//
+		// XML
+		//
+		{
+			"name": "XML - Tags",
+			"scope": [
+				"entity.name.tag.xml",
+				"entity.name.tag.localname.xml"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "XML - Attributes",
+			"scope": [
+				"entity.other.attribute-name.xml",
+				"entity.other.attribute-name.localname.xml"
+			],
+			"settings": {
+				"foreground": "#13BBB7",
+				"fontStyle": "italic"
+			}
+		},
+		{
+			"name": "XML - Tag Namespace",
+			"scope": [
+				"entity.name.tag.namespace.xml"
+			],
+			"settings": {
+				"foreground": "#8cba10"
+			}
+		},
+		{
+			"name": "XML - Attribute Namespace",
+			"scope": [
+				"entity.other.attribute-name.namespace.xml"
+			],
+			"settings": {
+				"foreground": "#8cba10",
+				"fontStyle": "italic"
+			}
+		},
+		{
+			"name": "XML - Attribute Namespace :",
+			"scope": [
+				"entity.other.attribute-name.xml punctuation.separator.namespace.xml"
+			],
+			"settings": {
+				"fontStyle": "italic"
+			}
+		},
+		{
+			"name": "XML - Doctype",
+			"scope": "variable.language.documentroot.xml",
+			"settings": {
+				"foreground": "#cd6bf4"
+			}
+		},
+		//
 		// MARKDOWN
 		//
 		{
@@ -2031,27 +2152,6 @@
 			}
 		},
 		{
-			"name": "JSON - String Value",
-			"scope": "string.quoted.double.json",
-			"settings": {
-				"foreground": "#CF9C00"
-			}
-		},
-		{
-			"name": "JSON - Number Value",
-			"scope": "constant.numeric.json",
-			"settings": {
-				"foreground": "#FF5C57"
-			}
-		},
-		{
-			"name": "JSON - Constant Value",
-			"scope": "constant.language.json",
-			"settings": {
-				"foreground": "#13BBB7"
-			}
-		},
-		{
 			"name": "JSON - Lighten Quotation Marks [DISABLED]",
 			"scope": [
 				"punctuation.support.type.property-name.begin.json",
@@ -2061,6 +2161,116 @@
 			],
 			"settings": {
 				//"foreground": "#ADB1C2"
+			}
+		},
+		//
+		// YAML
+		//
+		{
+			"name": "YAML - Keys",
+			"scope": [
+				"entity.name.tag.yaml"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "YAML - Timestamp Values",
+			"scope": [
+				"constant.other.timestamp.yaml"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
+			}
+		},
+		{
+			"name": "YAML - Null Values",
+			"scope": [
+				"constant.language.null.yaml"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "YAML - Types",
+			"scope": [
+				"storage.type.tag-handle.yaml"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "YAML - Anchors",
+			"scope": [
+				"entity.name.type.anchor.yaml",
+				"punctuation.definition.anchor.yaml",
+				"variable.other.alias.yaml",
+				"keyword.control.flow.alias.yaml punctuation.definition.alias.yaml"
+			],
+			"settings": {
+				"foreground": "#8cba10"
+			}
+		},
+		//
+		// TOML
+		//
+		{
+			"name": "TOML - Keys",
+			"scope": [
+				"variable.key.toml"
+			],
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "TOML - Timestamp Values",
+			"scope": [
+				"constant.other.time.date.toml",
+				"constant.other.time.time.toml",
+				"constant.other.time.datetime.local.toml",
+				"constant.other.time.datetime.offset.toml"
+			],
+			"settings": {
+				"foreground": "#2DAE58"
+			}
+		},
+		{
+			"name": "TOML - Tables",
+			"scope": [
+				"variable.key.table.toml"
+			],
+			"settings": {
+				"foreground": "#8cba10"
+			}
+		},
+		{
+			"name": "TOML - Array Tables",
+			"scope": [
+				"variable.key.array.table.toml"
+			],
+			"settings": {
+				"foreground": "#cd6bf4"
+			}
+		},
+		//
+		// INI
+		//
+		{
+			"name": "INI - Keys",
+			"scope": "keyword.other.definition.ini",
+			"settings": {
+				"foreground": "#F767BB"
+			}
+		},
+		{
+			"name": "INI - Headings",
+			"scope": "entity.name.section.group-title.ini",
+			"settings": {
+				"foreground": "#8cba10"
 			}
 		}
 	]

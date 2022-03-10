@@ -622,6 +622,42 @@ HTML/Css/Scss only support textmate highlighting.
 
 
 
+## XML
+XML only supports textmate highlighting; it has no semantic highlighting.
+
+### Tags #F767BB #f85eb4
+- "entity.name.tag.xml" - Global xml tags?
+- "entity.name.tag.localname.xml" - Normal xml tags
+
+### Attributes #13BBB7 #15c9c5 (italicised)
+- "entity.other.attribute-name.html"
+- "entity.other.attribute-name.localname.html"
+
+### String Values #CF9C00 #f9c859
+- "string.quoted.double.xml"
+- "string.quoted.single.xml"
+
+### Doctype #cd6bf4 #d177f5
+- "variable.language.documentroot.xml"
+
+### Namespaces #8cba10 #9acc12
+- "entity.name.tag.namespace.xml" - Tags
+- "entity.other.attribute-name.namespace.xml" - Attributes (italicised)
+
+### Escape Characters #FF5C57 #ff6b66
+- "punctuation.definition.constant.xml" - `&...`
+- "constant.character.entity.xml"
+
+### Comments #ADB1C2 #636d83
+- "comment.block.xml"
+- "punctuation.definition.comment.xml"
+
+### String Quote Marks #777777 #828da0
+- "punctuation.definition.string.begin.xml"
+- "punctuation.definition.string.end.xml"
+
+
+
 ## Markdown
 Markdown only supports textmate highlighting; it has no semantic highlighting.
 
@@ -702,11 +738,114 @@ JSON only supports textmate highlighting; it has no semantic highlighting.
 - "comment.line.double-slash.js"
 - "comment.block.json"
 
-### Punctuation #777777 #828da0
-- "punctuation"
-
 ### String Quote Marks #777777 #828da0
 - "punctuation.definition.string.begin.json"
 - "punctuation.definition.string.end.json"
 - "punctuation.support.type.property-name.begin.json"
 - "punctuation.support.type.property-name.end.json"
+
+
+
+## YAML
+YAML only supports textmate highlighting; it has no semantic highlighting.
+
+### Keys #F767BB #f85eb4
+- "entity.name.tag.yaml"
+
+### String Values #CF9C00 #f9c859
+- "string.unquoted.plain.out.yaml"
+- "string.unquoted.block.yaml"
+- "punctuation.definition.string.begin.yaml"
+- "punctuation.definition.string.end.yaml"
+- "string.quoted.single.yaml"
+- "string.quoted.double.yaml"
+
+### Number Values #FF5C57 #ff6b66
+- "constant.numeric.integer.yaml"
+- "constant.numeric.float.yaml"
+
+### Boolean Values #13BBB7 #15c9c5
+- "constant.language.boolean.yaml"
+
+### Timestamp Values #2DAE58 #3fc56b
+- "constant.other.timestamp.yaml"
+
+### Null Values #F767BB #f85eb4
+- "constant.language.null.yaml"
+
+### Types #F767BB #f85eb4
+- "storage.type.tag-handle.yaml"
+
+### Anchors #8cba10 #9acc12
+- "entity.name.type.anchor.yaml"
+- "punctuation.definition.anchor.yaml"
+- "variable.other.alias.yaml"
+- "keyword.control.flow.alias.yaml punctuation.definition.alias.yaml"
+
+### Escape Characters #FF5C57 #ff6b66
+- "constant.character.escape.yaml"
+
+### Comments #ADB1C2 #636d83
+- "punctuation.definition.comment.yaml"
+- "comment.line.number-sign.yaml"
+
+
+
+## TOML
+TOML only supports textmate highlighting; it has no semantic highlighting.
+
+### Keys #F767BB #f85eb4
+- "variable.key.toml"
+
+### String Values #CF9C00 #f9c859
+- "string.quoted.single.basic.line.toml"
+
+### Number Values #FF5C57 #ff6b66
+- "constant.numeric.integer.toml"
+- "constant.numeric.float.toml"
+- "constant.numeric.hex.toml"
+- "constant.numeric.oct.toml"
+
+### Boolean Values #13BBB7 #15c9c5
+- "constant.language.boolean.toml"
+
+### Timestamp Values #2DAE58 #3fc56b
+- "constant.other.time.date.toml"
+- "constant.other.time.time.toml"
+- "constant.other.time.datetime.local.toml"
+- "constant.other.time.datetime.offset.toml"
+
+### Tables #cd6bf4 #d177f5
+- "variable.key.table.toml"
+
+### Array Tables #8cba10 #9acc12
+- "variable.key.array.table.toml"
+
+### Escape Characters #FF5C57 #ff6b66
+- "constant.character.escape.toml"
+
+### Comments #ADB1C2 #636d83
+- "punctuation.definition.comment.toml"
+- "comment.line.number-sign.toml"
+
+
+
+## INI
+INI only supports textmate highlighting; it has no semantic highlighting.
+
+### Keys #F767BB #f85eb4
+- "keyword.other.definition.ini"
+
+### Headings #cd6bf4 #d177f5
+- "entity.name.section.group-title.ini"
+
+### String Values #CF9C00 #f9c859
+- "string.quoted.single.ini"
+- "string.quoted.double.ini"
+- "punctuation.definition.string.begin.ini"
+- "punctuation.definition.string.end.ini"
+
+### Comments #ADB1C2 #636d83
+- "punctuation.definition.comment.ini"
+- "comment.line.semicolon.ini"
+- "comment.line.number-sign.ini"

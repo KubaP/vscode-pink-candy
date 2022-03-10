@@ -8,8 +8,7 @@ Screenshots of syntax highlighting in a selection of languages, with light and d
 4. [HTML/CSS/SCSS](#html/css/scss)
 5. [Javascript](#javascript)
    1. [JSX](#jsx)
-6. [Markdown](#markdown)
-7. [Json](#json)
+6. [Markup Formats](#markup-formats)
 
 ## Rust
 Using the [Rust Analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension with semantic highlighting enabled.
@@ -59,12 +58,21 @@ Using the built-in Javascript language extension with semantic highlighting enab
 
 ![JSX 1](./img/examples/jsx_1.png)
 
-## Markdown
-Using the built-in Markdown language extension along with the [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) extension.
+## Markup Formats
+![Markdown](./img/examples/markdown_1.png)
+> Using the built-in Markdown language extension along with the [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) extension.
 
-![Markdown 1](./img/examples/markdown_1.png)
+![XML](./img/examples/xml_1.png)
+> Using the built-in XML language extension.
 
-## Json
-Using the built-in Json language extension.
+![Json](./img/examples/json_1.png)
+> Using the built-in Json language extension.
 
-![Json 1](./img/examples/json_1.png)
+![Yaml](./img/examples/yaml_1.png)
+> Using the built-in Yaml language extension.
+
+![Toml](./img/examples/toml_1.png)
+> Using the [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) extension.
+
+![INI](./img/examples/ini_1.png)
+> Using the built-in .ini language extension.
