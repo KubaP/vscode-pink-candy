@@ -36,6 +36,7 @@ This theme supports both *'Semantic'* and *'Textmate'* highlighting, so it shoul
 - Powershell
 - HTML/CSS/SCSS
 - Javascript (inc. JSX)
+- XML
 - Markdown
 - Json
 
@@ -94,7 +95,7 @@ See highlighting examples [here](./Highlighting_Examples.md#jsx).
 - Embedded code delimiters `{...}` are distinctly coloured and emboldened.
 
 ### Miscellaneous
-Markdown highlighting examples are [here](./Highlighting_Examples.md#markdown). Json highlighting examples are [here](./Highlighting_Examples.md#json).
+XML highlighting examples are [here](./Highlighting_Examples.md#xml). Markdown highlighting examples are [here](./Highlighting_Examples.md#markdown). Json highlighting examples are [here](./Highlighting_Examples.md#json).
 
 ## Overriding Styles
 See [Overriding Styles](./Overriding_Styles.md) for a guide on how to override specific styles to your liking.

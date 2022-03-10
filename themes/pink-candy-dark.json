@@ -1068,6 +1068,9 @@
                 // html
                 "punctuation.definition.string.begin.html",
                 "punctuation.definition.string.end.html",
+                // xml
+                "punctuation.definition.string.begin.xml",
+                "punctuation.definition.string.end.xml",
                 // markdown
                 "punctuation.definition.string.markdown",
                 // json
@@ -1360,7 +1363,10 @@
                 // powershell
                 "constant.character.escape.powershell",
                 // js
-                "constant.character.escape.js"
+                "constant.character.escape.js",
+                // xml
+                "punctuation.definition.constant.xml",
+                "constant.character.entity.xml"
             ],
             "settings": {
                 "foreground": "#ff6b66"
@@ -1848,6 +1854,65 @@
             ],
             "settings": {
                 "foreground": "#f85eb4"
+            }
+        },
+        //
+        // XML
+        //
+        {
+            "name": "XML - Tags",
+            "scope": [
+                "entity.name.tag.xml",
+                "entity.name.tag.localname.xml"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "XML - Attributes",
+            "scope": [
+                "entity.other.attribute-name.xml",
+                "entity.other.attribute-name.localname.xml"
+            ],
+            "settings": {
+                "foreground": "#15c9c5",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "name": "XML - Tag Namespace",
+            "scope": [
+                "entity.name.tag.namespace.xml"
+            ],
+            "settings": {
+                "foreground": "#9acc12"
+            }
+        },
+        {
+            "name": "XML - Attribute Namespace",
+            "scope": [
+                "entity.other.attribute-name.namespace.xml"
+            ],
+            "settings": {
+                "foreground": "#9acc12",
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "name": "XML - Attribute Namespace :",
+            "scope": [
+                "entity.other.attribute-name.xml punctuation.separator.namespace.xml"
+            ],
+            "settings": {
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "name": "XML - Doctype",
+            "scope": "variable.language.documentroot.xml",
+            "settings": {
+                "foreground": "#d177f5"
             }
         },
         //

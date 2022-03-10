@@ -622,6 +622,36 @@ HTML/Css/Scss only support textmate highlighting.
 
 
 
+## XML
+XML only supports textmate highlighting; it has no semantic highlighting.
+
+### Tags #F767BB #f85eb4
+- "entity.name.tag.xml" - Global xml tags?
+- "entity.name.tag.localname.xml" - Normal xml tags
+
+### Attributes #13BBB7 #15c9c5 (italicised)
+- "entity.other.attribute-name.html"
+- "entity.other.attribute-name.localname.html"
+
+### Escape Characters #FF5C57 #ff6b66
+- "punctuation.definition.constant.xml" - `&...`
+- "constant.character.entity.xml"
+
+### Doctype #cd6bf4 #d177f5
+- "variable.language.documentroot.xml"
+
+### Tag Namespace #8cba10 #9acc12
+- "entity.name.tag.namespace.xml"
+
+### Attribute Namespace #8cba10 #9acc12 (italicised)
+- "entity.other.attribute-name.namespace.xml"
+
+### String Quote Marks (HTML) #777777 #828da0
+- "punctuation.definition.string.begin.xml"
+- "punctuation.definition.string.end.xml"
+
+
+
 ## Markdown
 Markdown only supports textmate highlighting; it has no semantic highlighting.
 
