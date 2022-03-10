@@ -1346,7 +1346,19 @@
                 "string.quoted.double.css",
                 "string.quoted.double.scss",
                 "string.quoted.single.css",
-                "string.quoted.single.scss"
+                "string.quoted.single.scss",
+                // yaml
+                "string.unquoted.plain.out.yaml",
+                "string.unquoted.block.yaml",
+                "punctuation.definition.string.begin.yaml",
+                "punctuation.definition.string.end.yaml",
+                "string.quoted.single.yaml",
+                "string.quoted.double.yaml",
+                // ini
+                "string.quoted.single.ini",
+                "string.quoted.double.ini",
+                "punctuation.definition.string.begin.ini",
+                "punctuation.definition.string.end.ini"
             ],
             "settings": {
                 "foreground": "#f9c859"
@@ -1366,7 +1378,9 @@
                 "constant.character.escape.js",
                 // xml
                 "punctuation.definition.constant.xml",
-                "constant.character.entity.xml"
+                "constant.character.entity.xml",
+                // yaml
+                "constant.character.escape.yaml"
             ],
             "settings": {
                 "foreground": "#ff6b66"
@@ -1429,7 +1443,14 @@
                 "comment.line.powershell",
                 // js
                 "comment.block.documentation.js",
-                "comment.line.double-slash.js"
+                "comment.line.double-slash.js",
+                // yaml
+                "punctuation.definition.comment.yaml",
+                "comment.line.number-sign.yaml",
+                // ini
+                "punctuation.definition.comment.ini",
+                "comment.line.semicolon.ini",
+                "comment.line.number-sign.ini"
             ],
             "settings": {
                 "foreground": "#636d83"
@@ -2126,6 +2147,175 @@
             ],
             "settings": {
                 //"foreground": "#636d83"
+            }
+        },
+        //
+        // YAML
+        //
+        {
+            "name": "YAML - Keys",
+            "scope": [
+                "entity.name.tag.yaml"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "YAML - String Values",
+            "scope": [
+                "string.unquoted.plain.out.yaml",
+                "string.unquoted.block.yaml",
+                "punctuation.definition.string.begin.yaml",
+                "punctuation.definition.string.end.yaml",
+                "string.quoted.single.yaml",
+                "string.quoted.double.yaml"
+            ],
+            "settings": {
+                "foreground": "#f9c859"
+            }
+        },
+        {
+            "name": "YAML - Number Values",
+            "scope": [
+                "constant.numeric.integer.yaml",
+                "constant.numeric.float.yaml"
+            ],
+            "settings": {
+                "foreground": "#ff6b66"
+            }
+        },
+        {
+            "name": "YAML - Boolean Values",
+            "scope": [
+                "constant.language.boolean.yaml"
+            ],
+            "settings": {
+                "foreground": "#15c9c5"
+            }
+        },
+        {
+            "name": "YAML - Timestamp Values",
+            "scope": [
+                "constant.other.timestamp.yaml"
+            ],
+            "settings": {
+                "foreground": "#3fc56b"
+            }
+        },
+        {
+            "name": "YAML - Null Values",
+            "scope": [
+                "constant.language.null.yaml"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "YAML - Types",
+            "scope": [
+                "storage.type.tag-handle.yaml"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "YAML - Anchors",
+            "scope": [
+                "entity.name.type.anchor.yaml",
+                "punctuation.definition.anchor.yaml",
+                "variable.other.alias.yaml",
+                "keyword.control.flow.alias.yaml punctuation.definition.alias.yaml"
+            ],
+            "settings": {
+                "foreground": "#9acc12"
+            }
+        },
+        //
+        // TOML
+        //
+        {
+            "name": "TOML - Keys",
+            "scope": [
+                "variable.key.toml"
+            ],
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "TOML - String Values",
+            "scope": [
+                "string.quoted.single.basic.line.toml"
+            ],
+            "settings": {
+                "foreground": "#f9c859"
+            }
+        },
+        {
+            "name": "TOML - Number Values",
+            "scope": [
+                "constant.numeric.integer.toml",
+                "constant.numeric.float.toml",
+                "constant.numeric.hex.toml",
+                "constant.numeric.oct.toml"
+            ],
+            "settings": {
+                "foreground": "#ff6b66"
+            }
+        },
+        {
+            "name": "TOML - Boolean Values",
+            "scope": [
+                "constant.language.boolean.toml"
+            ],
+            "settings": {
+                "foreground": "#15c9c5"
+            }
+        },
+        {
+            "name": "TOML - Timestamp Values",
+            "scope": [
+                "constant.other.time.date.toml",
+                "constant.other.time.time.toml",
+                "constant.other.time.datetime.local.toml",
+                "constant.other.time.datetime.offset.toml"
+            ],
+            "settings": {
+                "foreground": "#3fc56b"
+            }
+        },
+        {
+            "name": "TOML - Tables",
+            "scope": ["variable.key.table.toml"],
+            "settings": {
+                "foreground": "#9acc12"
+            }
+        },
+        {
+            "name": "TOML - Array Tables",
+            "scope": ["variable.key.array.table.toml"],
+            "settings": {
+                "foreground": "#d177f5"
+            }
+        },
+        //
+        // INI
+        //
+        {
+            "name": "INI - Keys",
+            "scope": "keyword.other.definition.ini",
+            "settings": {
+                "foreground": "#f85eb4"
+            }
+        },
+        {
+            "name": "INI - Headings",
+            "scope": "entity.name.section.group-title.ini",
+            "settings": {
+                "foreground": "#9acc12"
             }
         }
     ]
