@@ -633,9 +633,9 @@ XML only supports textmate highlighting; it has no semantic highlighting.
 - "entity.other.attribute-name.html"
 - "entity.other.attribute-name.localname.html"
 
-### Escape Characters #FF5C57 #ff6b66
-- "punctuation.definition.constant.xml" - `&...`
-- "constant.character.entity.xml"
+### String Values #CF9C00 #f9c859
+- "string.quoted.double.xml"
+- "string.quoted.single.xml"
 
 ### Doctype #cd6bf4 #d177f5
 - "variable.language.documentroot.xml"
@@ -644,13 +644,17 @@ XML only supports textmate highlighting; it has no semantic highlighting.
 - "entity.name.tag.namespace.xml" - Tags
 - "entity.other.attribute-name.namespace.xml" - Attributes (italicised)
 
-### String Quote Marks (HTML) #777777 #828da0
-- "punctuation.definition.string.begin.xml"
-- "punctuation.definition.string.end.xml"
+### Escape Characters #FF5C57 #ff6b66
+- "punctuation.definition.constant.xml" - `&...`
+- "constant.character.entity.xml"
 
 ### Comments #ADB1C2 #636d83
 - "comment.block.xml"
 - "punctuation.definition.comment.xml"
+
+### String Quote Marks #777777 #828da0
+- "punctuation.definition.string.begin.xml"
+- "punctuation.definition.string.end.xml"
 
 
 
