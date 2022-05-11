@@ -23,7 +23,7 @@
     },
     "markdown": "github",
     "engines": {
-        "vscode": "^1.60.0"
+        "vscode": "^1.67.0"
     },
     "categories": [
         "Themes"
@@ -35,6 +35,7 @@
         "light",
         "dark"
     ],
+    "main": "./out/extension.js",
     "contributes": {
         "themes": [
             {
@@ -50,11 +51,22 @@
         ]
     },
     "scripts": {
+        "build": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
         "package": "vsce package",
-        "deploy": "vsce publish -p",
-        "postDeploy": "node -e \"const version = require('./package.json').version; console.log(`##vso[task.setvariable variable=version;isOutput=true]${version}`);\""
+        "vscode:prepublish": "npm run build",
+        "publish": "vsce publish -p",
+        "postPublish": "node -e \"const version = require('./package.json').version; console.log(`##vso[task.setvariable variable=version;isOutput=true]${version}`);\""
     },
     "devDependencies": {
-        "vsce": "=2.7.0"
+        "vsce": "=2.7.0",
+        "@types/vscode": "^1.67.0",
+        "@types/glob": "^7.1.4",
+        "@types/mocha": "^9.0.0",
+        "@types/node": "14.x",
+        "glob": "^7.1.7",
+        "mocha": "^9.1.1",
+        "typescript": "^4.4.3",
+        "@vscode/test-electron": "^1.6.2"
     }
 }

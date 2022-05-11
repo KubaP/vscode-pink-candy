@@ -1,5 +1,8 @@
 # The build directory.
 publish/
 
+# Build directory.
+out/
+
 # Npm packages.
 node_modules/
