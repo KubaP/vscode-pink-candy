@@ -35,6 +35,9 @@
         "light",
         "dark"
     ],
+    "activationEvents": [
+        "*"
+    ],
     "main": "./out/extension.js",
     "contributes": {
         "themes": [
