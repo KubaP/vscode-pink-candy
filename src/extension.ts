@@ -31,7 +31,7 @@ export function deactivate() { }
 function createTheme() {
 	const jsonPath = path.join(__dirname, "..", "themes", "test.json");
 
-	const theme = generateTheme(lightColors, "TEST", "light");
+	const theme = generateTheme(lightColors, lightSyntax, "TEST", "light");
 
 	return new Promise((resolve, reject) => {
 		fs.writeFile(jsonPath, JSON.stringify(theme, undefined, 4), (err) => {
@@ -319,7 +319,92 @@ const lightColors = {
 	}
 };
 
-function generateTheme(color: any, name: string, type: string) {
+const lightSyntax = {
+	keyword: "#F767BB",
+	fn: "#09A1ED",
+	type: "#2DAE58",
+	variant: "#13BBB7",
+	constant: "#13BBB7",
+	var: "#565869",
+
+	punctuation: "#777777",
+	parameter: "#6E82A6",
+	member: "#A8759A",
+
+	string: "#CF9C00",
+	char: "#FF5C57",
+	number: "#FF5C57",
+	format: "#C75AF3",
+	comment: "#ADB1C2",
+
+	interface: "#C75AF3",
+	attribute: "#FF5C57",
+
+	unresolved: "#FF1277",
+
+	rustLabel: "#8CBA10",
+	rustUnsafe: "#FF5C57",
+	rustKeyword: "#F871C0",
+	rustFn: "#1DAEf6",
+	rustVar: "#6C6E83",
+	rustParam: "#7B8dAE",
+
+	jsRegex: "#565869",
+	reactEmbedded: "#FF5C57",
+	reactAttribute: "#C75AF3",
+
+	psVar: "#2DAE58",
+	psSpecialVar: "#C75AF3",
+	psOperator: "#F767BB",
+	psCommentKeyword: "#565869",
+
+	htmlTag: "#F767BB",
+	htmlAttribute: "#13BBB7",
+	htmlId: "#FF5C57",
+	htmlClass: "#2DAE58",
+	htmlLink: "#C75AF3",
+	htmlMeta: "#CF9C00",
+	htmlEmbeddedCss: "#8CBA10",
+
+	cssProperty: "#A8759A",
+	cssValue: "#13BBB7",
+	cssFontname: "#CF9C00",
+	cssPseudoclass: "#8CBA10",
+	cssMedia: "#C75AF3",
+
+	xmlNamespace: "#8CBA10",
+	xmlDoctype: "#C75AF3",
+
+	mdText: "#ADB1C2",
+	mdHeading: "#F767BB",
+	mdBold: "#FF5C57",
+	mdItalic: "#09A1ED",
+	mdQuote: "#13BBB7",
+	mdLang: "#F767BB",
+	mdCode: "#565869",
+	mdSeparator: "#565869",
+	mdList: "#565869",
+	mdUrlName: "#2DAE58",
+	mdUrl: "#C75AF3",
+	mdMaths: "#8CBA10",
+	mdMathsConst: "#13BBB7",
+
+	jsonKey: "#F767BB",
+
+	yamlKey: "#F767BB",
+	yamlTimestamp: "#2DAE58",
+	yamlAnchor: "#8CBA10",
+
+	tomlKey: "#F767BB",
+	tomlTimestamp: "#2DAE58",
+	tomlTable: "#8CBA10",
+	tomlArray: "#C75AF3",
+
+	iniKey: "#F767BB",
+	iniHeading: "#8CBA10",
+}
+
+function generateTheme(color: any, syntax: any, name: string, type: string) {
 	return {
 		name: name,
 		type: type,
@@ -1077,6 +1162,1481 @@ function generateTheme(color: any, name: string, type: string) {
 					"gutterIcon": true
 				}
 			}
-		}
+		},
+		semanticHighlighting: true,
+		semanticTokenColors: {
+			//
+			"keyword": syntax.keyword,
+			"type": syntax.keyword,
+			"builtinType": syntax.keyword,
+			"selfKeyword": syntax.keyword,
+			"newOperator": syntax.keyword,
+			"plainKeyword:csharp": syntax.keyword,
+			"controlKeyword:csharp": syntax.keyword,
+			//
+			//
+			"punctuation": syntax.punctuation,
+			"operator": syntax.punctuation,
+			"arithmetic": syntax.punctuation, // `+`, `-`, `*`, `/`
+			"logical": syntax.punctuation,
+			"comparison": syntax.punctuation, // `==`, `!=`, `===`
+			"bitwise": syntax.punctuation,
+			//
+			//
+			"function": syntax.fn, // Static function.
+			"member.static:csharp": { // Static function.
+				"foreground": syntax.fn,
+				"fontStyle": "underline"
+			},
+			"method": syntax.fn, // Object method.
+			"member:csharp": syntax.fn, // Object method.
+			"macro": syntax.fn,
+			"namespace": syntax.var,
+			"struct": syntax.type,
+			"class": syntax.type,
+			"class.static:csharp": { // Static class.
+				"foreground": syntax.type,
+				"fontStyle": "underline"
+			},
+			"enum": syntax.type,
+			"union": syntax.type,
+			"typeAlias": syntax.type,
+			"enumMember": syntax.variant,
+			"boolean": syntax.variant,
+			//
+			//
+			"interface": syntax.interface, // Rust: `MyTrait`
+			"typeParameter": syntax.type, // Generic type annotation, e.g. `T`
+			//
+			//
+			"variable": syntax.var,
+			"local:csharp": syntax.var, // Local variable.
+			"parameter": syntax.parameter,
+			"property": syntax.member, // Object members.
+			"field:csharp": syntax.member, // Object members.
+			"field.static:csharp": { // Static object members.
+				"foreground": syntax.member,
+				"fontStyle": "underline"
+			},
+			"property:csharp": { // Csharp properties.
+				"foreground": syntax.member,
+				"fontStyle": "bold"
+			},
+			"property.static:csharp": { // Cssharp static properties.
+				"foreground": syntax.member,
+				"fontStyle": "bold underline"
+			},
+			"*.constant": syntax.constant,
+			"variable.static:csharp": syntax.constant, // Constants
+			"variable.readonly:csharp": syntax.constant, // Constants
+			"variable.readonly:javascript": syntax.constant, // Constants
+			//
+			//
+			"string": syntax.string, // `"string"`
+			"stringVerbatim:csharp": syntax.string,
+			"escapeSequence": syntax.char, // `\n`
+			"character": syntax.char, // `'b'`
+			"number": syntax.number,
+			"comment": syntax.comment,
+			//
+			// 
+			"attribute": syntax.attribute, // The #[]!() symbols in an attribute.
+			"unresolvedReference": {
+				"foreground": syntax.unresolved
+			},
+			//
+			// CSHARP
+			"xmlDocCommentText": syntax.var,
+			"xmlDocCommentName:csharp": syntax.comment,
+			"xmlDocCommentDelimiter:csharp": syntax.comment,
+			"xmlDocCommentAttributeName:csharp": syntax.char,
+			"xmlDocCommentAttributeQuotes:csharp": syntax.string,
+			"xmlDocCommentAttributeValue:csharp": syntax.string,
+			//
+			// RUST
+			"operator.controlFlow": syntax.keyword,
+			"label": syntax.rustLabel,
+			"lifetime": syntax.interface,
+			"formatSpecifier": syntax.format,
+			//
+			// REFERENCE
+			"variable.reference": {
+				"fontStyle": "italic"
+			},
+			"method.reference": {
+				"fontStyle": "italic"
+			},
+			"function.reference": {
+				"fontStyle": "italic"
+			},
+			"parameter.reference": {
+				"fontStyle": "italic"
+			},
+			"selfKeyword.reference": {
+				"fontStyle": "italic"
+			},
+			//
+			// MUTABLE
+			"variable.mutable": {
+				"foreground": syntax.rustVar,
+				"fontStyle": "bold"
+			},
+			"method.mutable": {
+				"foreground": syntax.rustFn,
+				"fontStyle": "bold"
+			},
+			"function.mutable": {
+				"foreground": syntax.rustFn,
+				"fontStyle": "bold"
+			},
+			"parameter.mutable": {
+				"foreground": syntax.rustParam,
+				"fontStyle": "bold"
+			},
+			"selfKeyword.mutable": {
+				"foreground": syntax.rustKeyword,
+				"fontStyle": "bold"
+			},
+			//
+			// MUTABLE REFERENCE
+			"variable.mutable.reference": {
+				"foreground": syntax.rustVar,
+				"fontStyle": "italic bold"
+			},
+			"method.mutable.reference": {
+				"foreground": syntax.rustFn,
+				"fontStyle": "italic bold"
+			},
+			"function.mutable.reference": {
+				"foreground": syntax.rustFn,
+				"fontStyle": "italic bold"
+			},
+			"parameter.mutable.reference": {
+				"foreground": syntax.rustParam,
+				"fontStyle": "italic bold"
+			},
+			"selfKeyword.mutable.reference": {
+				"foreground": syntax.rustKeyword,
+				"fontStyle": "italic bold"
+			},
+			// Unset the underline effect, since something like `+=` would otherwise be underlined.
+			"arithmetic.mutable": {
+				"fontStyle": ""
+			},
+			// Also unset.
+			"bitwise.mutable": {
+				"fontStyle": ""
+			},
+			//
+			// UNSAFE
+			"*.unsafe": syntax.rustUnsafe,
+			"keyword.unsafe": {
+				"fontStyle": "bold underline"
+			},
+			"function.unsafe": {
+				"fontStyle": "underline"
+			},
+			"function.mutable.unsafe": {
+				"fontStyle": "bold underline"
+			},
+			"function.mutable.reference.unsafe": {
+				"fontStyle": "bold underline italic"
+			},
+			"method.unsafe": {
+				"fontStyle": "underline"
+			},
+			"method.mutable.unsafe": {
+				"fontStyle": "bold underline"
+			},
+			"method.mutable.reference.unsafe": {
+				"fontStyle": "bold underline italic"
+			},
+			//
+			// ATTRIBUTES
+			"attributeBracket": syntax.attribute, // `#[]`
+			"parenthesis.attribute": syntax.attribute, // `cfg(...)`
+			"derive.attribute": syntax.attribute, // `derive(Debug)`
+			"builtinAttribute": syntax.attribute, // `inline`, `cfg`, etc.
+			"attribute.attribute": syntax.attribute, // `derive` or `clippy::something`.
+			"generic.attribute": syntax.attribute, // Inside the attribute, e.g. `cfg(debug_assertions)`.
+		},
+		tokenColors: [
+			// BASICS
+			{
+				"name": "Keywords",
+				"scope": [
+					"keyword",
+					"storage.type",
+					"storage.modifier",
+					"punctuation.definition.directive.c",
+					"punctuation.definition.directive.cpp",
+					"keyword.type.go",
+					"storage.class.d",
+					"markup.deleted.git_gutter",
+					"entity.name.tag.css",
+					"punctuation.definition.keyword.css",
+					"entity.name.tag.wildcard.css",
+					// rust
+					"storage.modifier.mut.rust",
+					"storage.modifier.type.rust",
+					"variable.language.self.rust",
+					// csharp
+					"storage.modifier.cs",
+					"keyword.other.this.cs",
+					// powershell
+					"keyword.control.powershell",
+					"storage.type.powershell",
+					"meta.function.powershell",
+					// js
+					"variable.language.this.js",
+					"keyword.operator.new.js",
+					"constant.language.null.js",
+					"constant.language.undefined.js",
+					"keyword.operator.ternary.js"
+				],
+				"settings": {
+					"foreground": syntax.keyword
+				}
+			},
+			{
+				"name": "Built-in Types",
+				"scope": [
+					// rust
+					"entity.name.type.primitive.rust",
+					"entity.name.type.numeric.rust",
+					// csharp
+					"keyword.type.cs",
+					// js
+					"support.type.primitive.js"
+				],
+				"settings": {
+					"foreground": syntax.keyword
+				}
+			},
+			{
+				"name": "Punctuation & Operators",
+				"scope": [
+					"punctuation",
+					"keyword.operator",
+					"keyword.operator.sigil.rust",
+					"keyword.operator.access.dot.rust",
+					"keyword.operator.key-value.rust",
+					"keyword.operator.attribute.inner.rust",
+					"punctuation.definition.tag",
+					"punctuation.definition.tag.html",
+					"punctuation.definition.tag.begin.html",
+					"punctuation.definition.tag.end.html",
+					// jsx
+					"meta.brace.round.js",
+					"meta.brace.square.js",
+					// html
+					"punctuation.definition.string.begin.html",
+					"punctuation.definition.string.end.html",
+					// xml
+					"punctuation.definition.string.begin.xml",
+					"punctuation.definition.string.end.xml",
+					// markdown
+					"punctuation.definition.string.markdown",
+					// json
+					"punctuation.support.type.property-name.begin.json",
+					"punctuation.support.type.property-name.end.json",
+					"punctuation.definition.string.begin.json",
+					"punctuation.definition.string.end.json"
+				],
+				"settings": {
+					"foreground": syntax.punctuation,
+					"fontStyle": ""
+				}
+			},
+			//
+			//
+			//
+			{
+				// Free-standing functions and object methods.
+				"name": "Function and Methods",
+				"scope": [
+					"entity.name.function",
+					"meta.function-call",
+					"variable.function",
+					"support.function",
+					"keyword.other.special-method",
+					"keyword.other.common.function",
+					// rust
+					"entity.name.function.rust",
+					// csharp
+					"entity.name.function.cs",
+					// powershell
+					"support.function.powershell",
+					// js
+					"entity.name.function.js",
+					// css
+					"support.function.misc.css",
+					"support.function.misc.scss"
+				],
+				"settings": {
+					"foreground": syntax.fn
+				}
+			},
+			{
+				// Macros and other fancy functions.
+				"name": "Special functions, Hygienic Macros, etc",
+				"scope": [
+					"support.function.macro.rust",
+					"support.function.macro.builtin.rust",
+					"support.function.macro.core.rust",
+					"entity.name.type.macro.rust",
+					"entity.name.function.macro.rust",
+					"entity.name.function.macro.rules.rust",
+					"support.function.macro.julia",
+					"support.function.builtin.zig"
+				],
+				"settings": {
+					"foreground": syntax.fn
+				}
+			},
+			{
+				"name": "Classes, Enum types",
+				"scope": [
+					"support.type",
+					"support.class",
+					"support.other.namespace.use.php",
+					"meta.use.php",
+					"support.other.namespace.php",
+					"markup.changed.git_gutter",
+					"support.type.sys-types",
+					"entity.other.attribute-name.table.toml",
+					"variable.key.table.toml",
+					"storage.type.haskell",
+					"storage.type.java",
+					"storage.type.primitive.java",
+					"storage.type.object.array.java",
+					"storage.type.c",
+					"storage.type.built-in.c",
+					"meta.function.definition.parameters.c",
+					"storage.type.built-in.cpp",
+					"storage.type.built-in.primitive.cpp",
+					"entity.name.class.kotlin",
+					"storage.type.go",
+					"storage.type.boolean.go",
+					"storage.type.byte.go",
+					"storage.type.error.go",
+					"storage.type.numeric.go",
+					"storage.type.rune.go",
+					"storage.type.string.go",
+					"storage.type.uintptr.go",
+					"storage.type.concrete.nim",
+					"storage.type.basic-type.d",
+					"storage.type.d",
+					"support.type.python",
+					"basicTypes.nim",
+					"meta.class.stanza.dune",
+					"storage.type.cs",
+					// rust
+					"entity.name.type.rust",
+					"entity.name.type.struct.rust",
+					"entity.name.type.enum.rust",
+					"entity.name.type.union.rust",
+					"entity.name.type.declaration.rust",
+					// csharp
+					"storage.type.cs",
+					"entity.name.type.class.cs",
+					"entity.name.type.struct.cs",
+					"entity.name.type.enum.cs",
+					// js
+					"entity.name.type.class.js",
+					"support.class.builtin.js",
+					"support.class.component.js"
+				],
+				"settings": {
+					"foreground": syntax.type
+				}
+			},
+			{
+				"name": "Enum variant, Sum Types, etc",
+				"scope": [
+					"constant.other.haskell",
+					"variable.other.enummember.cpp",
+					// rust
+					"support.enum.core.rust",
+					"entity.name.type.option.rust",
+					"entity.name.type.result.rust",
+					"constant.language.bool.rust",
+					// csharp
+					"entity.name.variable.enum-member.cs",
+					"constant.language.boolean.true.cs",
+					"constant.language.boolean.false.cs",
+					// powershell,
+					"constant.language.powershell",
+					"constant.language.powershell punctuation.definition.variable.powershell",
+					// js
+					"constant.language.boolean.true.js",
+					"constant.language.boolean.false.js",
+					// yaml
+					"constant.language.boolean.yaml",
+					// toml
+					"constant.language.boolean.toml"
+				],
+				"settings": {
+					"foreground": syntax.variant
+				}
+			},
+			//
+			//
+			//
+			{
+				"name": "Interfaces",
+				"scope": [
+					// rust
+					"entity.name.type.trait.rust"
+				],
+				"settings": {
+					"foreground": syntax.interface
+				}
+			},
+			{
+				"name": "Type Parameters",
+				"scope": [
+					// rust
+					"entity.name.type.type-parameter.cs"
+				],
+				"settings": {
+					"foreground": syntax.type
+				}
+			},
+			//
+			//
+			//
+			{
+				// Variable declarations and uses.
+				"name": "Variables",
+				"scope": [
+					"variable",
+					"meta.function-call.arguments",
+					"string constant.other.placeholder",
+					"meta.function-call.java",
+					"storage.modifier.import.java",
+					"variable.other.object",
+					// rust
+					"variable.other.rust",
+					// csharp
+					"entity.name.variable.local.cs",
+					"variable.other.readwrite.cs",
+					// js
+					"variable.other.readwrite.js",
+					"variable.other.constant.js",
+					// css
+					"variable.css",
+					"variable.argument.css",
+					"variable.scss"
+				],
+				"settings": {
+					"foreground": syntax.var
+				}
+			},
+			{
+				"name": "Parameters",
+				"scope": [
+					"variable.parameter",
+					"keyword.other.self.rust",
+					"meta.parens.block.c",
+					"variable.css",
+					// "meta.function.definition.parameters",
+					// csharp
+					"entity.name.variable.parameter.cs",
+					// js
+					"variable.parameter.js"
+				],
+				"settings": {
+					"foreground": syntax.parameter
+				}
+			},
+			{
+				"name": "Members",
+				"scope": [
+					// csharp
+					"entity.name.variable.field.cs",
+					"variable.other.object.property.cs",
+					// powershell
+					"variable.other.member.powershell",
+					// js
+					"variable.other.property.js"
+				],
+				"settings": {
+					"foreground": syntax.member
+				}
+			},
+			{
+				"name": "Constants",
+				"scope": [
+					// rust
+					"constant.other.caps.rust",
+					// csharp
+					"constant.language.null.cs",
+					// js
+					"variable.other.constant.js",
+					// json
+					"constant.language.json"
+				],
+				"settings": {
+					"foreground": syntax.constant
+				}
+			},
+			//
+			//
+			//
+			{
+				"name": "String & character",
+				"scope": [
+					"string",
+					"punctuation.definition.string",
+					"constant.other.symbol",
+					"constant.other.key",
+					"meta.group.braces.curly constant.other.object.key.js string.unquoted.label.js",
+					// rust
+					"string.quoted.double.rust",
+					"punctuation.definition.string.rust",
+					// csharp
+					"string.quoted.double.cs",
+					"punctuation.definition.string.begin.cs",
+					"punctuation.definition.string.end.cs",
+					// powershell
+					"string.quoted.double.powershell",
+					"string.quoted.single.powershell",
+					"punctuation.definition.string.begin.powershell",
+					"punctuation.definition.string.end.powershell",
+					// js
+					"string.quoted.single.js",
+					"string.quoted.double.js",
+					"string.template.js",
+					"punctuation.definition.string.begin.js",
+					"punctuation.definition.string.end.js",
+					"punctuation.definition.string.template.begin.js",
+					"punctuation.definition.string.template.end.js",
+					// css
+					"string.quoted.double.css",
+					"string.quoted.double.scss",
+					"string.quoted.single.css",
+					"string.quoted.single.scss",
+					// xml
+					"string.quoted.single.xml",
+					"string.quoted.double.xml",
+					// json
+					"string.quoted.double.json",
+					// yaml
+					"string.unquoted.plain.out.yaml",
+					"string.unquoted.block.yaml",
+					"punctuation.definition.string.begin.yaml",
+					"punctuation.definition.string.end.yaml",
+					"string.quoted.single.yaml",
+					"string.quoted.double.yaml",
+					// toml
+					"string.quoted.single.basic.line.toml",
+					// ini
+					"string.quoted.single.ini",
+					"string.quoted.double.ini",
+					"punctuation.definition.string.begin.ini",
+					"punctuation.definition.string.end.ini"
+				],
+				"settings": {
+					"foreground": syntax.string
+				}
+			},
+			{
+				"name": "Escape characters",
+				"scope": [
+					"constant.character.escape",
+					// rust
+					"constant.character.escape.rust",
+					// csharp
+					"constant.character.escape.cs",
+					// powershell
+					"constant.character.escape.powershell",
+					// js
+					"constant.character.escape.js",
+					// xml
+					"punctuation.definition.constant.xml",
+					"constant.character.entity.xml",
+					// yaml
+					"constant.character.escape.yaml",
+					// toml
+					"constant.character.escape.toml"
+				],
+				"settings": {
+					"foreground": syntax.char
+				}
+			},
+			{
+				"name": "Character literals",
+				"scope": [
+					// rust
+					"punctuation.definition.char.rust",
+					"string.quoted.single.char.rust",
+					// csharp
+					"punctuation.definition.char.begin.cs",
+					"punctuation.definition.char.end.cs",
+					"string.quoted.single.cs"
+				],
+				"settings": {
+					"foreground": syntax.char
+				}
+			},
+			{
+				"name": "Number literals",
+				"scope": [
+					"constant.numeric",
+					// rust
+					"constant.numeric.decimal.rust",
+					"constant.numeric.bin.rust",
+					"constant.numeric.hex.rust",
+					"constant.numeric.oct.rust",
+					"punctuation.separator.dot.decimal.rust",
+					// csharp
+					"constant.numeric.binary.cs",
+					"constant.numeric.decimal.cs",
+					"constant.numeric.hex.cs",
+					// powershell
+					"constant.numeric.integer.powershell",
+					"constant.numeric.hex.powershell",
+					"constant.numeric.octal.powershell",
+					// js
+					"constant.numeric.binary.js",
+					"constant.numeric.decimal.js",
+					"constant.numeric.hex.js",
+					"constant.numeric.octal.js",
+					// css
+					"constant.numeric.css",
+					// json
+					"constant.numeric.json",
+					// yaml
+					"constant.numeric.integer.yaml",
+					"constant.numeric.float.yaml",
+					// toml
+					"constant.numeric.integer.toml",
+					"constant.numeric.float.toml",
+					"constant.numeric.hex.toml",
+					"constant.numeric.oct.toml"
+				],
+				"settings": {
+					"foreground": syntax.number
+				}
+			},
+			{
+				"name": "Comment",
+				"scope": [
+					"comment",
+					"punctuation.definition.comment",
+					// csharp
+					"comment.block.cs",
+					"comment.line.double-slash.cs",
+					// powershell
+					"comment.line.powershell",
+					// js
+					"comment.block.documentation.js",
+					"comment.line.double-slash.js",
+					// xml
+					"comment.block.xml",
+					"punctuation.definition.comment.xml",
+					// json
+					"comment",
+					"comment.line.double-slash.js",
+					"comment.block.json",
+					// yaml
+					"punctuation.definition.comment.yaml",
+					"comment.line.number-sign.yaml",
+					// toml
+					"punctuation.definition.comment.toml",
+					"comment.line.number-sign.toml",
+					// ini
+					"punctuation.definition.comment.ini",
+					"comment.line.semicolon.ini",
+					"comment.line.number-sign.ini"
+				],
+				"settings": {
+					"foreground": syntax.comment
+				}
+			},
+			//
+			//
+			//
+			{
+				"name": "Attributes",
+				"scope": [
+					// rust
+					"meta.attribute.rust",
+					"punctuation.definition.attribute.rust",
+					"punctuation.brackets.attribute.rust",
+					"keyword.operator.attribute.inner.rust",
+					// powershell
+					"support.function.attribute.powershell",
+					"variable.parameter.attribute.powershell"
+				],
+				"settings": {
+					"foreground": syntax.attribute
+				}
+			},
+			{
+				"name": "Unresolved Symbol",
+				"scope": [
+					"invalid",
+					"invalid.illegal"
+				],
+				"settings": {
+					"foreground": syntax.unresolved
+				}
+			},
+			{
+				"name": "URL",
+				"scope": [
+					"*url*",
+					"*link*",
+					"*uri*"
+				],
+				"settings": {
+					"fontStyle": "underline"
+				}
+			},
+			//
+			// RUST
+			//
+			{
+				"name": "? Operator",
+				"scope": [
+					"keyword.operator.misc.question-mark.rust",
+					"keyword.operator.question.rust"
+				],
+				"settings": {
+					"foreground": syntax.keyword
+				}
+			},
+			{
+				"name": "Lifetimes",
+				"scope": [
+					"punctuation.definition.lifetime.rust",
+					"entity.name.type.lifetime.rust",
+					"storage.modifier.lifetime.rust"
+				],
+				"settings": {
+					"foreground": syntax.interface
+				}
+			},
+			{
+				"name": "Format Specifier",
+				"scope": [
+					"meta.interpolation.rust",
+					"punctuation.definition.interpolation.rust"
+				],
+				"settings": {
+					"foreground": syntax.format
+				}
+			},
+			//
+			// CSHARP
+			//
+			{
+				"name": "Csharp - Doc Tag",
+				"scope": [
+					"entity.name.tag.cs",
+					"comment.block.documentation.cs punctuation.definition.tag.cs",
+					"comment.block.documentation.cs punctuation.separator.equals.cs"
+				],
+				"settings": {
+					"foreground": syntax.comment
+				}
+			},
+			{
+				"name": "Csharp - Doc Tag Attribute",
+				"scope": [
+					"entity.other.attribute-name.cs"
+				],
+				"settings": {
+					"foreground": syntax.char
+				}
+			},
+			{
+				"name": "Csharp - Doc Text",
+				"scope": [
+					"comment.block.documentation.cs"
+				],
+				"settings": {
+					"foreground": syntax.var
+				}
+			},
+			{
+				"name": "Csharp - String Interpolation",
+				"scope": [
+					"punctuation.definition.interpolation.begin.cs",
+					"punctuation.definition.interpolation.end.cs"
+				],
+				"settings": {
+					"foreground": syntax.interface
+				}
+			},
+			//
+			// POWERSHELL
+			//
+			{
+				"name": "Powershell Variables",
+				"scope": [
+					"variable.other.readwrite.powershell",
+					"punctuation.definition.variable.powershell",
+					"storage.modifier.scope.powershell"
+				],
+				"settings": {
+					"foreground": syntax.psVar
+				}
+			},
+			{
+				"name": "Powershell Variable Scopes",
+				"scope": [
+					"storage.modifier.scope.powershell"
+				],
+				"settings": {
+					"foreground": syntax.psVar,
+					"fontStyle": "underline"
+				}
+			},
+			{
+				"name": "Powershell $_ Variable",
+				"scope": [
+					"support.variable.automatic.powershell",
+					"support.variable.automatic.powershell punctuation.definition.variable.powershell"
+				],
+				"settings": {
+					"foreground": syntax.psSpecialVar
+				}
+			},
+			{
+				"name": "Powershell Operators",
+				"scope": [
+					"keyword.operator.comparison.powershell",
+					"keyword.operator.logical.powershell"
+				],
+				"settings": {
+					"foreground": syntax.psOperator
+				}
+			},
+			{
+				"name": "Powershell Comment Keywords",
+				"scope": "keyword.operator.documentation.powershell",
+				"settings": {
+					"foreground": syntax.psCommentKeyword
+				}
+			},
+			{
+				"name": "Powershell String Interpolation",
+				"scope": [
+					"punctuation.section.embedded.substatement.begin.powershell",
+					"punctuation.section.embedded.substatement.end.powershell"
+				],
+				"settings": {
+					"foreground": syntax.format
+				}
+			},
+			//
+			// JS
+			//
+			{
+				"name": "JS - String Interpolation",
+				"scope": [
+					"punctuation.definition.template-expression.begin.js",
+					"punctuation.definition.template-expression.end.js"
+				],
+				"settings": {
+					"foreground": syntax.format
+				}
+			},
+			{
+				"name": "JS - Regexp Group",
+				"scope": [
+					"punctuation.definition.group.regexp",
+					"punctuation.definition.group.no-capture.regexp"
+				],
+				"settings": {
+					"foreground": syntax.jsRegex
+				}
+			},
+			{
+				"name": "JS - Regexp Characters",
+				"scope": [
+					"constant.other.character-class.regexp",
+					"keyword.operator.quantifier.regexp",
+					"keyword.control.anchor.regexp",
+					"punctuation.definition.look-ahead.regexp",
+					"meta.assertion.look-ahead.regexp",
+					"meta.group.assertion.regexp"
+				],
+				"settings": {
+					"foreground": syntax.format
+				}
+			},
+			//
+			// JSX REACT
+			//
+			{
+				"name": "JSX - Embedded Code",
+				"scope": [
+					"punctuation.section.embedded.begin.js",
+					"punctuation.section.embedded.end.js"
+				],
+				"settings": {
+					"foreground": syntax.reactEmbedded,
+					"fontStyle": "bold"
+				}
+			},
+			{
+				"name": "JSX - Attributes",
+				"scope": [
+					"entity.other.attribute-name.js"
+				],
+				"settings": {
+					"foreground": syntax.reactAttribute,
+					"fontStyle": "italic"
+				}
+			},
+			//
+			// HTML
+			//
+			{
+				"name": "HTML - Tags",
+				"scope": [
+					"entity.name.tag.html"
+				],
+				"settings": {
+					"foreground": syntax.htmlTag
+				}
+			},
+			{
+				"name": "HTML - Attributes",
+				"scope": [
+					"entity.other.attribute-name.html"
+				],
+				"settings": {
+					"foreground": syntax.htmlAttribute,
+					"fontStyle": "italic"
+				}
+			},
+			{
+				"name": "HTML - IDs",
+				"scope": [
+					"meta.attribute.id.html string.quoted.double.html",
+					"entity.other.attribute-name.id.css"
+				],
+				"settings": {
+					"foreground": syntax.htmlId,
+					"fontStyle": "bold"
+				}
+			},
+			{
+				"name": "HTML - Classes",
+				"scope": [
+					"meta.attribute.class.html string.quoted.double.html",
+					"entity.other.attribute-name.class.css"
+				],
+				"settings": {
+					"foreground": syntax.htmlClass
+				}
+			},
+			{
+				"name": "HTML - Meta Value",
+				"scope": [
+					"meta.attribute"
+				],
+				"settings": {
+					"foreground": syntax.htmlMeta
+				}
+			},
+			{
+				"name": "HTML - Links",
+				"scope": [
+					"meta.attribute.href.html string.quoted.double.html",
+					"meta.attribute.src.html string.quoted.double.html",
+					"meta.attribute.unrecognized.xmlns.html string.quoted.double.html"
+				],
+				"settings": {
+					"foreground": syntax.htmlLink
+				}
+			},
+			{
+				"name": "HTML - Embedded CSS",
+				"scope": [
+					"meta.embedded.line.css"
+				],
+				"settings": {
+					"foreground": syntax.htmlEmbeddedCss
+				}
+			},
+			//
+			// CSS
+			//
+			{
+				"name": "CSS - Tags",
+				"scope": [
+					"entity.name.tag.css"
+				],
+				"settings": {
+					"foreground": syntax.htmlTag
+				}
+			},
+			{
+				"name": "CSS - Properties",
+				"scope": [
+					"support.type.property-name.css",
+					"meta.property-name.css",
+					"meta.property-name.scss",
+					"support.type.property-name.media.css"
+				],
+				"settings": {
+					"foreground": syntax.cssProperty
+				}
+			},
+			{
+				"name": "CSS - Property Values",
+				"scope": [
+					"support.constant.property-value.css"
+				],
+				"settings": {
+					"foreground": syntax.cssValue
+				}
+			},
+			{
+				"name": "CSS - Fontname Selector",
+				"scope": [
+					"support.constant.font-name.css"
+				],
+				"settings": {
+					"foreground": syntax.cssFontname
+				}
+			},
+			{
+				"name": "CSS - Pseudoclass Selector",
+				"scope": [
+					"entity.other.attribute-name.pseudo-class.css",
+					"entity.other.attribute-name.pseudo-element.css"
+				],
+				"settings": {
+					"foreground": syntax.cssPseudoclass
+				}
+			},
+			{
+				"name": "CSS - Units",
+				"scope": [
+					"keyword.other.unit.rem.css",
+					"keyword.other.unit.em.css",
+					"keyword.other.unit.ex.css",
+					"keyword.other.unit.ch.css",
+					"keyword.other.unit.vw.css",
+					"keyword.other.unit.vh.css",
+					"keyword.other.unit.vmin.css",
+					"keyword.other.unit.vmax.css",
+					"keyword.other.unit.percentage.css",
+					"keyword.other.unit.mm.css",
+					"keyword.other.unit.in.css",
+					"keyword.other.unit.px.css",
+					"keyword.other.unit.pt.css",
+					"keyword.other.unit.pc.css",
+					"keyword.other.unit.deg.css",
+					"constant.other.scss" // {x}n
+				],
+				"settings": {
+					"foreground": syntax.number
+				}
+			},
+			{
+				"name": "CSS - Logical Operators",
+				"scope": [
+					"keyword.operator.logical.and.media.css",
+					"keyword.operator.logical.not.media.css",
+					"keyword.operator.logical.only.media.css"
+				],
+				"settings": {
+					"foreground": syntax.keyword
+				}
+			},
+			{
+				"name": "CSS - Media Query Types",
+				"scope": [
+					"support.constant.media.css"
+				],
+				"settings": {
+					"foreground": syntax.cssMedia
+				}
+			},
+			//
+			// SCSS
+			//
+			{
+				"name": "SCSS - Symbols",
+				"scope": [
+					"punctuation.definition.keyword.scss",
+					"keyword.control.at-rule.include.scss",
+					"entity.name.tag.reference.scss",
+					"entity.name.tag.wildcard.scss"
+				],
+				"settings": {
+					"foreground": syntax.keyword
+				}
+			},
+			//
+			// XML
+			//
+			{
+				"name": "XML - Tags",
+				"scope": [
+					"entity.name.tag.xml",
+					"entity.name.tag.localname.xml"
+				],
+				"settings": {
+					"foreground": syntax.keyword
+				}
+			},
+			{
+				"name": "XML - Attributes",
+				"scope": [
+					"entity.other.attribute-name.xml",
+					"entity.other.attribute-name.localname.xml"
+				],
+				"settings": {
+					"foreground": syntax.htmlAttribute,
+					"fontStyle": "italic"
+				}
+			},
+			{
+				"name": "XML - Tag Namespace",
+				"scope": [
+					"entity.name.tag.namespace.xml"
+				],
+				"settings": {
+					"foreground": syntax.xmlNamespace
+				}
+			},
+			{
+				"name": "XML - Attribute Namespace",
+				"scope": [
+					"entity.other.attribute-name.namespace.xml"
+				],
+				"settings": {
+					"foreground": syntax.xmlNamespace,
+					"fontStyle": "italic"
+				}
+			},
+			{
+				"name": "XML - Attribute Namespace :",
+				"scope": [
+					"entity.other.attribute-name.xml punctuation.separator.namespace.xml"
+				],
+				"settings": {
+					"fontStyle": "italic"
+				}
+			},
+			{
+				"name": "XML - Doctype",
+				"scope": "variable.language.documentroot.xml",
+				"settings": {
+					"foreground": syntax.xmlDoctype
+				}
+			},
+			//
+			// MARKDOWN
+			//
+			{
+				// Normal undecorated text.
+				"name": "Markdown - Plain",
+				"scope": [
+					"text.html.markdown",
+					"punctuation.definition.list_item.markdown"
+				],
+				"settings": {
+					"foreground": syntax.mdText
+				}
+			},
+			{
+				// The `#` symbol in titles.
+				"name": "Markdown - Headings",
+				"scope": [
+					"markdown.heading",
+					"markup.heading | markup.heading entity.name",
+					"markup.heading.markdown punctuation.definition.heading.markdown",
+					"entity.name.section.markdown"
+				],
+				"settings": {
+					"foreground": syntax.mdHeading
+				}
+			},
+			{
+				"name": "Markup - Bold",
+				"scope": [
+					"punctuation.definition.bold.markdown",
+					"markup.bold",
+					"markup.bold string"
+				],
+				"settings": {
+					"fontStyle": "bold",
+					"foreground": syntax.mdBold
+				}
+			},
+			{
+				"name": "Markup - Italic",
+				"scope": [
+					"punctuation.definition.italic.markdown",
+					"markup.italic"
+				],
+				"settings": {
+					"fontStyle": "italic",
+					"foreground": syntax.mdItalic
+				}
+			},
+			{
+				"name": "Markup - Bold-Italic",
+				"scope": [
+					"markup.bold markup.italic",
+					"markup.italic markup.bold",
+					"markup.quote markup.bold",
+					"markup.bold markup.italic string",
+					"markup.italic markup.bold string",
+					"markup.quote markup.bold string"
+				],
+				"settings": {
+					"foreground": syntax.mdItalic,
+					"fontStyle": "italic bold"
+				}
+			},
+			{
+				"name": "Markdown - Quote",
+				"scope": [
+					"punctuation.definition.quote.begin.markdown",
+					"markup.quote.markdown"
+				],
+				"settings": {
+					"foreground": syntax.mdQuote,
+					"fontStyle": "italic"
+				}
+			},
+			{
+				// Inline code block text.
+				"name": "Markdown - Markup Raw Inline",
+				"scope": [
+					"punctuation.definition.raw.markdown",
+					"markup.inline.raw.string.markdown"
+				],
+				"settings": {
+					"foreground": syntax.mdCode
+				}
+			},
+			{
+				// Fenced code block text.
+				"name": "Markdown - Raw Block Fenced",
+				"scope": [
+					"markup.fenced_code.block.markdown"
+				],
+				"settings": {
+					"foreground": syntax.mdCode
+				}
+			},
+			{
+				// The language identifier in a fenced code block, e.g. ```rust
+				"name": "Markdown - Raw Block Language Identifier",
+				"scope": [
+					"fenced_code.block.language.markdown"
+				],
+				"settings": {
+					"foreground": syntax.mdLang
+				}
+			},
+			{
+				"name": "Markdown - Separator",
+				"scope": [
+					"meta.separator.markdown"
+				],
+				"settings": {
+					"foreground": syntax.mdSeparator,
+					"fontStyle": "bold"
+				}
+			},
+			{
+				// The `1.` or `-` or `*` symbols in a list entry.
+				"name": "Markdown - List",
+				"scope": [
+					"punctuation.definition.list.begin.markdown"
+				],
+				"settings": {
+					"foreground": syntax.mdList
+				}
+			},
+			{
+				// Text comment/description around a link, e.g. `[Go to this link](...)`, or `[](... "some website")`
+				"name": "Markup - Url String",
+				"scope": [
+					"punctuation.definition.string.begin.markdown",
+					"punctuation.definition.string.end.markdown",
+					"string.other.link.description.title.markdown",
+					"string.other.link.description.markdown",
+					"string.other.link.title.markdown"
+				],
+				"settings": {
+					"foreground": syntax.mdUrlName
+				}
+			},
+			{
+				// The url part of the link.
+				"name": "Markup - Url Underline",
+				"scope": [
+					"markup.underline.link",
+					"constant.other.reference.link.markdown"
+				],
+				"settings": {
+					"foreground": syntax.mdUrl,
+					"fontStyle": "underline"
+				}
+			},
+			{
+				"name": "Markup - Maths",
+				"scope": "punctuation.definition.math.begin.markdown",
+				"settings": {
+					"foreground": syntax.mdMaths
+				}
+			},
+			{
+				"name": "Markup - Maths constants/functions",
+				"scope": [
+					"constant.character.math.tex",
+					"constant.character.math.tex punctuation.definition.math.tex"
+				],
+				"settings": {
+					"foreground": syntax.mdMathsConst
+				}
+			},
+			//
+			// JSON
+			//
+			{
+				"name": "JSON - Key",
+				"scope": "support.type.property-name.json",
+				"settings": {
+					"foreground": syntax.jsonKey
+				}
+			},
+			{
+				"name": "JSON - Lighten Quotation Marks [DISABLED]",
+				"scope": [
+					"punctuation.support.type.property-name.begin.json",
+					"punctuation.support.type.property-name.end.json",
+					"punctuation.definition.string.begin.json",
+					"punctuation.definition.string.end.json"
+				],
+				"settings": {
+					//"foreground": "#ADB1C2"
+				}
+			},
+			//
+			// YAML
+			//
+			{
+				"name": "YAML - Keys",
+				"scope": [
+					"entity.name.tag.yaml"
+				],
+				"settings": {
+					"foreground": syntax.yamlKey
+				}
+			},
+			{
+				"name": "YAML - Timestamp Values",
+				"scope": [
+					"constant.other.timestamp.yaml"
+				],
+				"settings": {
+					"foreground": syntax.yamlTimestamp
+				}
+			},
+			{
+				"name": "YAML - Null Values",
+				"scope": [
+					"constant.language.null.yaml"
+				],
+				"settings": {
+					"foreground": syntax.keyword
+				}
+			},
+			{
+				"name": "YAML - Types",
+				"scope": [
+					"storage.type.tag-handle.yaml"
+				],
+				"settings": {
+					"foreground": syntax.keyword
+				}
+			},
+			{
+				"name": "YAML - Anchors",
+				"scope": [
+					"entity.name.type.anchor.yaml",
+					"punctuation.definition.anchor.yaml",
+					"variable.other.alias.yaml",
+					"keyword.control.flow.alias.yaml punctuation.definition.alias.yaml"
+				],
+				"settings": {
+					"foreground": syntax.yamlAnchor
+				}
+			},
+			//
+			// TOML
+			//
+			{
+				"name": "TOML - Keys",
+				"scope": [
+					"variable.key.toml"
+				],
+				"settings": {
+					"foreground": syntax.tomlKey
+				}
+			},
+			{
+				"name": "TOML - Timestamp Values",
+				"scope": [
+					"constant.other.time.date.toml",
+					"constant.other.time.time.toml",
+					"constant.other.time.datetime.local.toml",
+					"constant.other.time.datetime.offset.toml"
+				],
+				"settings": {
+					"foreground": syntax.tomlTimestamp
+				}
+			},
+			{
+				"name": "TOML - Tables",
+				"scope": [
+					"variable.key.table.toml"
+				],
+				"settings": {
+					"foreground": syntax.tomlTable
+				}
+			},
+			{
+				"name": "TOML - Array Tables",
+				"scope": [
+					"variable.key.array.table.toml"
+				],
+				"settings": {
+					"foreground": syntax.tomlArray
+				}
+			},
+			//
+			// INI
+			//
+			{
+				"name": "INI - Keys",
+				"scope": "keyword.other.definition.ini",
+				"settings": {
+					"foreground": syntax.iniKey
+				}
+			},
+			{
+				"name": "INI - Headings",
+				"scope": "entity.name.section.group-title.ini",
+				"settings": {
+					"foreground": syntax.iniHeading
+				}
+			}
+		]
 	}
 }
