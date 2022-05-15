@@ -54,6 +54,7 @@
         ]
     },
     "scripts": {
+        "buildTheme": "node ./build/theme.js",
         "build": "tsc -p ./",
         "watch": "tsc -watch -p ./",
         "package": "vsce package",
