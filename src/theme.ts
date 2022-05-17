@@ -123,8 +123,8 @@ const lightColors = {
         ignoredOrSubmodule: "#ADB1C2",
 
         // Diff viewer line backgrounds,
-        insertedBgA: "#11C6782A",
-        removedBgA: "#FF127720",
+        insertedBgA: "#11C6782A", // Entire modified line #d3f2e6 Added #b2ead3
+        removedBgA: "#FF127720", // Entire modified line #fbddea Removed #fcc2db
         diffDiagonal: "#ADB1C288",
 
         // Conflict viewer ruler decorations,
@@ -280,7 +280,7 @@ const lightColors = {
     },
 
     brackets: {
-        one: "#2dae58",
+        one: "#2DAE58",
         two: "#09A1ED",
         three: "#CF9C00",
         four: "#FF5C57",
@@ -504,8 +504,8 @@ const darkColors = {
         ignoredOrSubmodule: "#636D83",
 
         // Diff viewer line backgrounds,
-        insertedBgA: "#31A1552A",
-        removedBgA: "#FF127720",
+        insertedBgA: "#31A1552A", // Entire modified line #243a31 Added #264b37
+        removedBgA: "#FF127720", // Entire modified line #3f2234 Removed #58203c
         diffDiagonal: "#636D8388",
 
         // Conflict viewer ruler decorations,
