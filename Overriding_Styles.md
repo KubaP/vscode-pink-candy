@@ -14,6 +14,7 @@ These are the accepted font styles (make sure to get the exact spelling correct)
 - "bold underline"
 - "italic underline"
 - "italic bold underline"
+- "strikethrough"
 - "" (empty; this **clears** any styles)
 
 ## Semantic Overrides

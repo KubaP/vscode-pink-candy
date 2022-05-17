@@ -445,6 +445,9 @@ Variables #2DAE58 #3fc56b
 Variable Scopes #2DAE58 #3fc56b (underlined)
 - "storage.modifier.scope.powershell" - `global:`, `script:`, etc.
 
+Storage Scopes #2DAE58 #3fc56b (underlined)
+- "support.variable.drive.powershell" - `env:`, `Temp:`, etc.
+
 Special Variable #cd6bf4 #d177f5
 - "support.variable.automatic.powershell" - The `$_` in loops for example
 - "support.variable.automatic.powershell punctuation.definition.variable.powershell" - The `$` beforehand
@@ -455,6 +458,8 @@ Members/Methods #a8759a #b58e95
 Constants/Booleans #13BBB7 #15c9c5
 - "constant.language.powershell" - `true`, `false`, `null`, etc.
 - "constant.language.powershell punctuation.definition.variable.powershell" - The `$` beforehand
+- "support.constant.variable.powershell" - Things like `$Host`, etc.
+- "support.constant.variable.powershell punctuation.definition.variable.powershell" - The `$` beforehand
 
 Strings #CF9C00 #f9c859
 - "string.quoted.double.powershell"
@@ -661,7 +666,7 @@ XML only supports textmate highlighting; it has no semantic highlighting.
 ## Markdown
 Markdown only supports textmate highlighting; it has no semantic highlighting.
 
-### Text #ADB1C2 #636d83
+### Text #565869 #B9BFCA
 - "text.html.markdown"
 - "punctuation.definition.list_item.markdown"
 
@@ -679,20 +684,24 @@ Markdown only supports textmate highlighting; it has no semantic highlighting.
 - "markup.italic"
 - "punctuation.definition.italic.markdown" - `* ... *`
 
-### Quote #13BBB7 #15c9c5
+### Quote #CF9C00 #F9C859
 - "markup.quote.markdown"
 - "punctuation.definition.quote.begin.markdown" - `> ...`
 
-### Inline Code #565869 #abb2bf
+### Strikethrough #ADB1C2 #636D83
+- "markup.strikethrough.markdown"
+- "punctuation.definition.strikethrough.markdown"
+
+### Inline Code #565869 #B9BFCA (bold)
 - "markup.inline.raw.string.markdown"
 - "punctuation.definition.raw.markdown" - `` `...` ``
 
-### Fenced Codeblock #565869 #abb2bf
+### Fenced Codeblock #565869 #B9BFCA
 - "markup.fenced_code.block.markdown"
-#### Language Identifier #F767BB #f85eb4
+#### Language Identifier #565869 #B9BFCA (bold)
 - "fenced_code.block.language.markdown" - ```` ```rust ````
 
-### List #565869 #abb2bf
+### List #13BBB7 #15c9c5
 - "punctuation.definition.list.begin.markdown" - `- ...`, `1. ...`, `* ...`
 
 ### Url Description #2DAE58 #3fc56b
@@ -815,10 +824,10 @@ TOML only supports textmate highlighting; it has no semantic highlighting.
 - "constant.other.time.datetime.local.toml"
 - "constant.other.time.datetime.offset.toml"
 
-### Tables #cd6bf4 #d177f5
+### Tables #8cba10 #9acc12
 - "variable.key.table.toml"
 
-### Array Tables #8cba10 #9acc12
+### Array Tables #cd6bf4 #d177f5
 - "variable.key.array.table.toml"
 
 ### Escape Characters #FF5C57 #ff6b66
@@ -836,7 +845,7 @@ INI only supports textmate highlighting; it has no semantic highlighting.
 ### Keys #F767BB #f85eb4
 - "keyword.other.definition.ini"
 
-### Headings #cd6bf4 #d177f5
+### Headings #8cba10 #9acc12
 - "entity.name.section.group-title.ini"
 
 ### String Values #CF9C00 #f9c859
@@ -849,3 +858,22 @@ INI only supports textmate highlighting; it has no semantic highlighting.
 - "punctuation.definition.comment.ini"
 - "comment.line.semicolon.ini"
 - "comment.line.number-sign.ini"
+
+
+
+## Backus-Naur Form
+BNF only supports textmate highlighting; it has no semantic highlighting.
+
+### Symbols #2DAE58 #3fc56b
+- "entity.name.class.bnf"
+
+### Strings #CF9C00 #f9c859
+- "string.quoted.double.bnf"
+- "string.quoted.single.bnf"
+
+### Built-in #13BBB7 #15c9c5
+- "support.variable.bnf"
+
+### Comments #ADB1C2 #636d83
+- "comment.line.bnf"
+- "comment.block.bnf"
