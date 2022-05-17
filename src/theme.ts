@@ -787,6 +787,50 @@ const darkSyntax = {
 }
 
 function generateTheme(color: any, syntax: any, name: string, type: string) {
+
+    let errorLens;
+    if (type == "light") {
+        errorLens = {
+            "errorLens.infoForegroundLight": color.diag.info,
+            "errorLens.infoBackgroundLight": color.diag.infoBgA,
+            "errorLens.hintForegroundLight": color.diag.hint,
+            "errorLens.hintBackgroundLight": color.diag.hintBgA,
+            "errorLens.warningForegroundLight": color.diag.warning,
+            "errorLens.warningBackgroundLight": color.diag.warningBgA,
+            "errorLens.errorForegroundLight": color.diag.error,
+            "errorLens.errorBackgroundLight": color.diag.errorBgA,
+            "errorLens.statusBarIconWarningForeground": color.text.inverse,
+            "errorLens.statusBarIconErrorForeground": color.text.inverse,
+            "errorLens.statusBarInfoForeground": color.text.inverse,
+            "errorLens.statusBarHintForeground": color.text.inverse,
+            "errorLens.statusBarWarningForeground": color.text.inverse,
+            "errorLens.statusBarErrorForeground": color.text.inverse,
+            "errorLens.infoGutterIconColor": color.diag.info,
+            "errorLens.warningGutterIconColor": color.diag.warning,
+            "errorLens.errorGutterIconColor": color.diag.error,
+        };
+    } else {
+        errorLens = {
+            "errorLens.infoForeground": color.diag.info,
+            "errorLens.infoBackground": color.diag.infoBgA,
+            "errorLens.hintForeground": color.diag.hint,
+            "errorLens.hintBackground": color.diag.hintBgA,
+            "errorLens.warningForeground": color.diag.warning,
+            "errorLens.warningBackground": color.diag.warningBgA,
+            "errorLens.errorForeground": color.diag.error,
+            "errorLens.errorBackground": color.diag.errorBgA,
+            "errorLens.statusBarIconWarningForeground": color.text.inverse,
+            "errorLens.statusBarIconErrorForeground": color.text.inverse,
+            "errorLens.statusBarInfoForeground": color.text.inverse,
+            "errorLens.statusBarHintForeground": color.text.inverse,
+            "errorLens.statusBarWarningForeground": color.text.inverse,
+            "errorLens.statusBarErrorForeground": color.text.inverse,
+            "errorLens.infoGutterIconColor": color.diag.info,
+            "errorLens.warningGutterIconColor": color.diag.warning,
+            "errorLens.errorGutterIconColor": color.diag.error,
+        };
+    }
+
     return {
         name: name,
         type: type,
@@ -923,23 +967,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
             "problemsErrorIcon.foreground": color.diag.error,
             //
             // ERROR LENS [x]
-            "errorLens.infoForegroundLight": color.diag.info,
-            "errorLens.infoBackgroundLight": color.diag.infoBgA,
-            "errorLens.hintForegroundLight": color.diag.hint,
-            "errorLens.hintBackgroundLight": color.diag.hintBgA,
-            "errorLens.warningForegroundLight": color.diag.warning,
-            "errorLens.warningBackgroundLight": color.diag.warningBgA,
-            "errorLens.errorForegroundLight": color.diag.error,
-            "errorLens.errorBackgroundLight": color.diag.errorBgA,
-            "errorLens.statusBarIconWarningForeground": color.text.inverse,
-            "errorLens.statusBarIconErrorForeground": color.text.inverse,
-            "errorLens.statusBarInfoForeground": color.text.inverse,
-            "errorLens.statusBarHintForeground": color.text.inverse,
-            "errorLens.statusBarWarningForeground": color.text.inverse,
-            "errorLens.statusBarErrorForeground": color.text.inverse,
-            "errorLens.infoGutterIconColor": color.diag.info,
-            "errorLens.warningGutterIconColor": color.diag.warning,
-            "errorLens.errorGutterIconColor": color.diag.error,
+            ...errorLens,
             //
             // RULER [x]
             //"editorOverviewRuler.background": "",
@@ -1428,8 +1456,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
             //"testing.peekHeaderBackground": "",
             "testing.message.info.lineBackground": color.diag.infoBgA,
             "testing.message.info.decorationForeground": color.diag.info,
-            "testing.message.error.lineBackground": color.diag.error,
-            "testing.message.error.decorationForeground": color.diag.errorBgA,
+            "testing.message.error.lineBackground": color.diag.errorBgA,
+            "testing.message.error.decorationForeground": color.diag.error,
             //
             // CHART COLOURS [x]
             "charts.foreground": color.text.normal,
