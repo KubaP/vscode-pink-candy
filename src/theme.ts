@@ -2082,6 +2082,9 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
                     "constant.other.caps.rust",
                     // csharp
                     "constant.language.null.cs",
+                    // powershell
+                    "support.constant.variable.powershell",
+                    "support.constant.variable.powershell punctuation.definition.variable.powershell",
                     // js
                     "variable.other.constant.js",
                     // json
@@ -2402,9 +2405,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
                 }
             },
             {
-                "name": "Powershell Variable Scopes",
+                "name": "Powershell Variable/Storage Scopes",
                 "scope": [
-                    "storage.modifier.scope.powershell"
+                    "storage.modifier.scope.powershell",
+                    "support.variable.drive.powershell"
                 ],
                 "settings": {
                     "foreground": syntax.psVar,
