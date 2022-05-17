@@ -395,6 +395,9 @@ const lightSyntax = {
 
     iniKey: "#F767BB",
     iniHeading: "#8CBA10",
+
+    bnfSymbol: "#2DAE58",
+    bnfBuiltin: "#13BBB7",
 }
 
 const darkColors = {
@@ -778,6 +781,9 @@ const darkSyntax = {
 
     iniKey: "#F85EB4",
     iniHeading: "#9ACC12",
+
+    bnfSymbol: "#3FC56B",
+    bnfBuiltin: "#15C9C5",
 }
 
 function generateTheme(color: any, syntax: any, name: string, type: string) {
@@ -2111,7 +2117,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
                     "string.quoted.single.ini",
                     "string.quoted.double.ini",
                     "punctuation.definition.string.begin.ini",
-                    "punctuation.definition.string.end.ini"
+                    "punctuation.definition.string.end.ini",
+                    // bnf
+                    "string.quoted.double.bnf",
+                    "string.quoted.single.bnf"
                 ],
                 "settings": {
                     "foreground": syntax.string
@@ -2225,7 +2234,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
                     // ini
                     "punctuation.definition.comment.ini",
                     "comment.line.semicolon.ini",
-                    "comment.line.number-sign.ini"
+                    "comment.line.number-sign.ini",
+                    // bnf
+                    "comment.line.bnf",
+                    "comment.block.bnf"
                 ],
                 "settings": {
                     "foreground": syntax.comment
@@ -3025,6 +3037,23 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
                 "scope": "entity.name.section.group-title.ini",
                 "settings": {
                     "foreground": syntax.iniHeading
+                }
+            },
+            //
+            // BNF
+            //
+            {
+                "name": "BNF - Symbol",
+                "scope": "entity.name.class.bnf",
+                "settings": {
+                    "foreground": syntax.bnfSymbol
+                }
+            },
+            {
+                "name": "BNF - Builtin",
+                "scope": "support.variable.bnf",
+                "settings": {
+                    "foreground": syntax.bnfBuiltin
                 }
             }
         ]
