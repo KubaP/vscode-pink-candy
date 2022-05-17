@@ -171,18 +171,18 @@ const lightColors = {
         ansiBrightBlack: "#666", // 30;1m
         ansiWhite: "#FAFBFC", //37m (background)
         ansiBrightWhite: "#000", // (technicall 37;1m but vscode also applies this to just bold 1m)
-        ansiBlue: "#09A1ED",
-        ansiBrightBlue: "#41b9ff",
-        ansiCyan: "#13BBB7",
-        ansiBrightCyan: "#16dad6",
-        ansiGreen: "#2DAE58",
-        ansiBrightGreen: "#25da6a",
-        ansiYellow: "#CF9C00",
-        ansiBrightYellow: "#ffc104",
+        ansiBlue: "#0f7cd7",
+        ansiBrightBlue: "#09A1ED",
+        ansiCyan: "#1ea0aa",
+        ansiBrightCyan: "#13BBB7",
+        ansiGreen: "#1ea330",
+        ansiBrightGreen: "#30b95e",
+        ansiYellow: "#c07205",
+        ansiBrightYellow: "#CF9C00",
         ansiRed: "#ff0046",
-        ansiBrightRed: "#ff2e87",
-        ansiMagenta: "#c75af3",
-        ansiBrightMagenta: "#c010ef",
+        ansiBrightRed: "#ff3a70",
+        ansiMagenta: "#b016ee",
+        ansiBrightMagenta: "#c75af3",
     },
 
     ui: {
@@ -198,7 +198,7 @@ const lightColors = {
         dropdownBg: "#FAFBFC",
 
         // Checkbox, dropdown (+list), text input,
-        inputBg: "#FFFFFF",
+        inputBg: "#FAFBFC",
 
         // Editor groups, sidebar panes, panels, 
         primaryDropBg: "#FF12771A",
@@ -270,13 +270,13 @@ const lightColors = {
         prerelease: "#FF942F",
 
         // Chart colours,
-        chartLine: "#333333",
+        chartLine: "#565869",
         chartBlue: "#09A1ED",
         chartGreen: "#2DAE58",
         chartYellow: "#CF9C00",
-        chartOrange: "#f77708",
-        chartRed: "#ff0046",
-        chartPurple: "#c75af3",
+        chartOrange: "#FF5C57",
+        chartRed: "#FF1277",
+        chartPurple: "#C75AF3",
     },
 
     brackets: {
