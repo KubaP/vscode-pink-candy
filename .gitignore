@@ -4,5 +4,8 @@ publish/
 # Build directory.
 out/
 
+# Built theme files.
+themes/
+
 # Npm packages.
 node_modules/
