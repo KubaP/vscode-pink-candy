@@ -413,11 +413,10 @@ const darkColors = {
 
         // Status bar foreground, intellisense matching letters, intellisense selected foreground, button text,
         // list selected text, badge foreground, command bar selected foreground, menu selected text, banner text,
-        // 
         inverse: "#FFFFFF",
 
         // Peek view title, peek view filenames,
-        emphasised: "#000000", //FIXME
+        emphasised: "#FFFFFF",
 
         // Unnecessary text editor text,
         faded: "#000000C0",
@@ -445,10 +444,10 @@ const darkColors = {
 
         // Text editor & terminal highlight boxes, line background, search sidebar,
         // peek view match highlight boxes, list filter match highlight boxes,
-        matchBg: "#9CA320",
+        matchBg: "#4E522B",
         matchBgA: "#CCD00C3A",
-        matchBorder: "#31A115",
-        matchBorderA: "#31A15520",
+        matchBorder: "#31A155",
+        matchBorderA: "#31A1558A",
     },
 
     // Cursor, editor line number, breadcrumbs focus text/background, intellisense widget matching text,
@@ -463,8 +462,7 @@ const darkColors = {
     // Text editor, gutter, minimap, breadcrumbs, peek view text editor, empty editor group, panel, terminal,
     // active tab, hover tab, zen mode sides, activity bar, welcome page, tutorial page, notifications,
     // drag-and-drop prompt,
-    primaryBg: "#282C34",
-    //primaryBg: "#22252a",
+    primaryBg: "#22252a",
 
     diag: {
         // Ruler/minimap decorations, underline squiggles, error lens foregrounds, problem panel icons,
@@ -492,13 +490,13 @@ const darkColors = {
         testPassed: "#31A155",
         testQueued: "#018ACC",
         testFailed: "#FF1277",
-        testUnset: "#FF942F", // FIXME
+        testUnset: "#E17615",
         testSkipped: "#636D83",
     },
 
     git: {
         // File names, ruler/gutter/minimap decorations (where relevant),
-        addedOrStaged: "#31A115",
+        addedOrStaged: "#31A155",
         modified: "#018ACC",
         renamed: "#13BBB7",
         untracked: "#C75AF3",
@@ -506,23 +504,23 @@ const darkColors = {
         ignoredOrSubmodule: "#636D83",
 
         // Diff viewer line backgrounds,
-        insertedBgA: "#31A1152A",
+        insertedBgA: "#31A1552A",
         removedBgA: "#FF127720",
         diffDiagonal: "#636D8388",
 
         // Conflict viewer ruler decorations,
-        current: "#31A115",
+        current: "#31A155",
         incoming: "#018ACC",
         // Conflict viewer line backgrounds,
-        currentBgA: "#31A1152A",
-        currentHeaderBgA: "#31A1156A",
+        currentBgA: "#31A1552A",
+        currentHeaderBgA: "#31A1556A",
         incomingBgA: "#018ACC2A",
         incomingHeaderBgA: "#018ACC6A",
     },
 
     debug: {
         // Debug toolbar icons.
-        start: "#2FAF64",
+        start: "#31A155",
         pause: "#E17615",
         step: "#018ACC",
         stop: "#FF1277",
@@ -536,25 +534,25 @@ const darkColors = {
 
 
         // Console colors.
-        info: "#09A1ED",
-        warning: "#FF5C57",
-        error: "#FF2E87",
-        source: "#000000",
-        input: "#C75AF3",
+        info: "#10B1FE",
+        warning: "#FF6B66",
+        error: "#FF2884",
+        source: "#FFFFFF",
+        input: "#D177F5",
     },
 
     terminal: {
         // Command decoration icons,
         default: "#636D83",
-        success: "#2FAF64",
+        success: "#31A155",
         error: "#FF1277",
 
-        background: "#FAFBFC",
-        foreground: "#333333", // 0m (foreground)
-        ansiBlack: "#000", // 30m
+        background: "#22252a",
+        foreground: "#ABB2BF", // 0m (foreground)
+        ansiBlack: "#fff", // 30m
         ansiBrightBlack: "#666", // 30;1m
-        ansiWhite: "#FAFBFC", //37m (background)
-        ansiBrightWhite: "#000", // (technicall 37;1m but vscode also applies this to just bold 1m)
+        ansiWhite: "#22252a", //37m (background)
+        ansiBrightWhite: "#fff", // (technicall 37;1m but vscode also applies this to just bold 1m)
         ansiBlue: "#09A1ED",
         ansiBrightBlue: "#41b9ff",
         ansiCyan: "#13BBB7",
@@ -565,25 +563,24 @@ const darkColors = {
         ansiBrightYellow: "#ffc104",
         ansiRed: "#ff0046",
         ansiBrightRed: "#ff2e87",
-        ansiMagenta: "#c75af3",
-        ansiBrightMagenta: "#c010ef",
+        ansiMagenta: "#c010ef",
+        ansiBrightMagenta: "#c75af3",
     },
 
     ui: {
         // Widgets, find & replace pop-up, peek view list, inactive tab, tab header, sidebar,
         // panel section headers, debug toolbar (+border), notification centre header, command bar,
         // titlebar, drag prompt,
-        secondaryBg: "#22252A",
-        //secondaryBg: "#1D2024",
+        secondaryBg: "#1D2024",
 
         // Sidebar section headers, widget status bar,
-        tertiaryBg: "#1D2024",
+        tertiaryBg: "#141619",
 
         // Breadcrumbs, menus, any buttons which dropdown etc,
-        dropdownBg: "#22252A",
+        dropdownBg: "#22252a",
 
         // Checkbox, dropdown (+list), text input,
-        inputBg: "#22252A",
+        inputBg: "#22252a",
 
         // Editor groups, sidebar panes, panels, 
         primaryDropBg: "#FF4C981A",
@@ -591,15 +588,14 @@ const darkColors = {
         // Panel, panel section header, terminal, settings page, peek view, sidebar, text input, tab groups,
         // dropdown, checkbox, hover widgets, exception widget, ruler, drag prompt,
         border: "#3D434F",
-        //border: "#2f333c",
 
         // Command bar, notifications,
-        secondaryBorder: "#3D434F",
+        secondaryBorder: "#2f333c",
 
         // Menu separator
-        separator: "#7C869B",
+        separator: "#3D434F",
 
-        tabSeparator: "#999999",
+        tabSeparator: "#5a6374",
 
         // Input foreground,
         placeholderText: "#4D5665",
@@ -630,7 +626,7 @@ const darkColors = {
         scrollActiveBgA: "#FFFFFF2F",
 
         // Shadow whenever some scrollable element is scrolled, shadows around widgets,
-        shadow: "#0000002F",
+        shadow: "#0000005F",
 
         // Status bar during debugging,
         statusDebugBg: "#31A155",
@@ -652,26 +648,26 @@ const darkColors = {
         // Extension badge icons,
         star: "#FFC104",
         remote: "#09A1ED",
-        verified: "#11C678",
-        prerelease: "#FF942F",
+        verified: "#31A155",
+        prerelease: "#E17615",
 
         // Chart colours,
-        chartLine: "#333333",
-        chartBlue: "#09A1ED",
+        chartLine: "#B9BFCA",
+        chartBlue: "#10B1FE",
         chartGreen: "#3FC56B",
-        chartYellow: "#FFC104",
-        chartOrange: "#F77708",
-        chartRed: "#FF0046",
-        chartPurple: "#C75AF3",
+        chartYellow: "#F9C859",
+        chartOrange: "#FF6B66",
+        chartRed: "#FF2884",
+        chartPurple: "#D177F5",
     },
 
     brackets: {
-        one: "#2dae58",
-        two: "#09A1ED",
-        three: "#CF9C00",
-        four: "#FF5C57",
-        five: "#C75AF3",
-        six: "#A8759A",
+        one: "#3FC56B",
+        two: "#10B1FE",
+        three: "#F9C859",
+        four: "#FF6B66",
+        five: "#D177F5",
+        six: "#B58E95",
     },
 
     gitGraph: [
@@ -683,17 +679,17 @@ const darkColors = {
         "#D177F5",
         "#B58E95",
         "#97BCCD",
-        "#00d9cc", // #15C9C5
+        "#15C9C5",
         "#9ACC12"
     ],
 
     todo: {
-        todo: "#ABB2BF", // #B9BFCA
+        todo: "#B9BFCA",
         fixme: "#FF6B66",
-        bug: "#FF1277", // #FF2884
+        bug: "#FF2884",
         hack: "#F9C859",
-        maybe: "#00D9CC", // #15C9C5
-        unchecked: "#ABB2BF", // #B9BFCA
+        maybe: "#15C9C5",
+        unchecked: "#B9BFCA",
         checked: "#3FC56B",
     }
 }
@@ -706,7 +702,7 @@ const darkSyntax = {
     constant: "#15C9C5",
     var: "#B9BFCA",
 
-    punctuation: "#828da0",
+    punctuation: "#828DA0",
     parameter: "#97BCCD",
     member: "#B58E95",
 
