@@ -368,15 +368,15 @@ const lightSyntax = {
     xmlNamespace: "#8CBA10",
     xmlDoctype: "#C75AF3",
 
-    mdText: "#ADB1C2",
+    mdText: "#565869",
     mdHeading: "#F767BB",
     mdBold: "#FF5C57",
     mdItalic: "#09A1ED",
-    mdQuote: "#13BBB7",
-    mdLang: "#F767BB",
+    mdQuote: "#CF9C00",
+    mdStrikethrough: "#ADB1C2",
     mdCode: "#565869",
     mdSeparator: "#565869",
-    mdList: "#565869",
+    mdList: "#13BBB7",
     mdUrlName: "#2DAE58",
     mdUrl: "#C75AF3",
     mdMaths: "#8CBA10",
@@ -751,15 +751,15 @@ const darkSyntax = {
     xmlNamespace: "#9ACC12",
     xmlDoctype: "#D177F5",
 
-    mdText: "#636D83",
+    mdText: "#B9BFCA",
     mdHeading: "#F85EB4",
     mdBold: "#FF6B66",
     mdItalic: "#10B1FE",
-    mdQuote: "#15C9C5",
-    mdLang: "#F85EB4",
+    mdQuote: "#F9C859",
+    mdStrikethrough: "#636D83",
     mdCode: "#B9BFCA",
     mdSeparator: "#B9BFCA",
-    mdList: "#B9BFCA",
+    mdList: "#15C9C5",
     mdUrlName: "#3FC56B",
     mdUrl: "#D177F5",
     mdMaths: "#9ACC12",
@@ -2788,6 +2788,17 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
                 }
             },
             {
+                "name": "Markdown - Strikethrough",
+                "scope": [
+                    "markup.strikethrough.markdown",
+                    "punctuation.definition.strikethrough.markdown"
+                ],
+                "settings": {
+                    "foreground": syntax.mdStrikethrough,
+                    "fontStyle": "strikethrough"
+                }
+            },
+            {
                 // Inline code block text.
                 "name": "Markdown - Markup Raw Inline",
                 "scope": [
@@ -2795,7 +2806,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
                     "markup.inline.raw.string.markdown"
                 ],
                 "settings": {
-                    "foreground": syntax.mdCode
+                    "foreground": syntax.mdCode,
+                    "fontStyle": "bold"
                 }
             },
             {
@@ -2812,10 +2824,12 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
                 // The language identifier in a fenced code block, e.g. ```rust
                 "name": "Markdown - Raw Block Language Identifier",
                 "scope": [
-                    "fenced_code.block.language.markdown"
+                    "fenced_code.block.language.markdown",
+                    "markup.fenced_code.block.markdown punctuation.definition.markdown"
                 ],
                 "settings": {
-                    "foreground": syntax.mdLang
+                    "foreground": syntax.mdCode,
+                    "fontStyle": "bold"
                 }
             },
             {
