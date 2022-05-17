@@ -59,7 +59,7 @@ const lightColors = {
         secondarySelectionBgA: "#FF127710",
 
         // Tabstop box backgrounds,
-        tabstopBgA: "#FF12776A",
+        tabstopBgA: "#FF12771A",
 
         // Text editor & terminal highlight boxes, line background, search sidebar,
         // peek view match highlight boxes, list filter match highlight boxes,
@@ -125,7 +125,7 @@ const lightColors = {
         // Diff viewer line backgrounds,
         insertedBgA: "#11C6782A",
         removedBgA: "#FF127720",
-        diffDiagonal: "#ADB1C2AA",
+        diffDiagonal: "#ADB1C288",
 
         // Conflict viewer ruler decorations,
         current: "#11C678",
@@ -441,7 +441,7 @@ const darkColors = {
         secondarySelectionBgA: "#FF4C9810",
 
         // Tabstop box backgrounds,
-        tabstopBgA: "#FF4C986A",
+        tabstopBgA: "#FF4C981A",
 
         // Text editor & terminal highlight boxes, line background, search sidebar,
         // peek view match highlight boxes, list filter match highlight boxes,
@@ -508,7 +508,7 @@ const darkColors = {
         // Diff viewer line backgrounds,
         insertedBgA: "#31A1152A",
         removedBgA: "#FF127720",
-        diffDiagonal: "#636D83AA",
+        diffDiagonal: "#636D8388",
 
         // Conflict viewer ruler decorations,
         current: "#31A115",
