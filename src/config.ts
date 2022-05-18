@@ -4,8 +4,8 @@ import { info } from "./extension";
 /**
  * Valid inlay hint styles.
  */
-type Style = "noBackground" | "faintBackground" | "accent";
-function isValidStyle(str: string): str is Style {
+type InlayStyle = "noBackground" | "faintBackground" | "accent";
+function isValidStyle(str: string): str is InlayStyle {
     return str == "noBackground" || str == "faintBackground" || str == "accent";
 }
 
@@ -17,9 +17,9 @@ export class Config {
     italicComments: boolean;
     altCurrentLine: boolean;
     monochromeBracketGuides: boolean;
-    inlayStyle: Style;
+    inlayStyle: InlayStyle;
 
-    constructor(mutedMd: boolean, italicComments: boolean, altCurrentLine: boolean, monochromeBracketGuides: boolean, inlayStyle: Style) {
+    constructor(mutedMd: boolean, italicComments: boolean, altCurrentLine: boolean, monochromeBracketGuides: boolean, inlayStyle: InlayStyle) {
         this.mutedMd = mutedMd;
         this.italicComments = italicComments;
         this.altCurrentLine = altCurrentLine;
@@ -34,40 +34,40 @@ export class Config {
 export function getConfig(): Config {
     const config = vscode.workspace.getConfiguration("theme-pink-candy");
 
-    let mutedMd: boolean | undefined = config.get("mutedMarkdown");
+    let mutedMd: boolean | undefined = config.get("mutedMarkdownPlaintext");
     if (mutedMd === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.mutedMarkdown'");
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.mutedMarkdownPlaintext'");
         mutedMd = false;
     }
 
-    let italicComments: boolean | undefined = config.get("italicComments");
+    let italicComments: boolean | undefined = config.get("italicizedComments");
     if (italicComments === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.italicComments'")
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.italicizedComments'")
         italicComments = false;
     }
 
-    let altCurrentLine: boolean | undefined = config.get("altCurrentLine");
+    let altCurrentLine: boolean | undefined = config.get("alternateCurrentLineStyle");
     if (altCurrentLine === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.altCurrentLine'")
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.alternateCurrentLineStyle'")
         altCurrentLine = false;
     }
 
-    let monochromeBracketGuides: boolean | undefined = config.get("monochromeBracketGuides");
+    let monochromeBracketGuides: boolean | undefined = config.get("monochromeBracketPairGuides");
     if (monochromeBracketGuides === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.monochromeBracketGuides'")
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.monochromeBracketPairGuides'")
         monochromeBracketGuides = false;
     }
 
-    let inlayStyle: Style;
-    let inlayStyleRaw: string | undefined = config.get("inlayStyle");
+    let inlayStyle: InlayStyle;
+    let inlayStyleRaw: string | undefined = config.get("inlayHintStyle");
     if (inlayStyleRaw === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.inlayStyle'")
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.inlayHintStyle'")
         inlayStyleRaw = "noBackground";
     }
     if (isValidStyle(inlayStyleRaw)) {
         inlayStyle = inlayStyleRaw;
     } else {
-        info.appendLine(`ERROR: Invalid value '${inlayStyleRaw}' of 'theme-pink-candy.inlayStyle'`)
+        info.appendLine(`ERROR: Invalid value '${inlayStyleRaw}' of 'theme-pink-candy.inlayHintStyle'`)
         inlayStyle = "noBackground";
     }
 

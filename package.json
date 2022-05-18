@@ -59,11 +59,11 @@
             },
             {
                 "command": "theme-pink-candy.toggleItalicComments",
-                "title": "Pink Candy: Toggle italicised comments"
+                "title": "Pink Candy: Toggle italicized comments"
             },
             {
                 "command": "theme-pink-candy.toggleAltCurrentLine",
-                "title": "Pink Candy: Toggle alternate current-line style"
+                "title": "Pink Candy: Toggle the current-line appearance"
             },
             {
                 "command": "theme-pink-candy.toggleMonochromeBrackets",
@@ -71,45 +71,49 @@
             },
             {
                 "command": "theme-pink-candy.pickInlayStyle",
-                "title": "Pink Candy: Select the inlay hint style"
+                "title": "Pink Candy: Select the appearance of inlay hints"
+            },
+            {
+                "command": "theme-pink-candy.pickGlobalAccent",
+                "title": "Pink Candy: Select where the accent colours are used"
             }
         ],
         "configuration": {
-            "title": "Pink Candy Theme Configuration",
+            "title": "Pink Candy Theme",
             "properties": {
-                "theme-pink-candy.mutedMarkdown": {
+                "theme-pink-candy.mutedMarkdownPlaintext": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Controls whether markdown plaintext is styled in a muted colour."
+                    "description": "Controls whether markdown plaintext has a muted appearance."
                 },
-                "theme-pink-candy.italicComments": {
+                "theme-pink-candy.italicizedComments": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Controls whether comments are italicised."
+                    "description": "Controls whether comments are italicized."
                 },
-                "theme-pink-candy.altCurrentLine": {
+                "theme-pink-candy.alternateCurrentLineStyle": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Controls whether the current line uses an alternate style (outlined instead of filled in)."
+                    "description": "Controls whether the current line uses an alternate appearance (outlined instead of filled in)."
                 },
-                "theme-pink-candy.monochromeBracketGuides": {
+                "theme-pink-candy.monochromeBracketPairGuides": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Controls whether bracket pair guides are monochrome (foreground text colour)."
+                    "description": "Controls whether bracket pair guides are monochrome."
                 },
-                "theme-pink-candy.inlayStyle": {
+                "theme-pink-candy.inlayHintStyle": {
                     "type": "string",
                     "default": "noBackground",
-                    "description": "The inlay hints style.",
+                    "description": "Controls the appearance of inlay hints.",
                     "enum": [
                         "noBackground",
                         "faintBackground",
                         "accent"
                     ],
                     "enumDescriptions": [
-                        "No background (i.e. matches the text editor).",
-                        "Lightly shaded background.",
-                        "Accent colour for the foreground text and a shaded background."
+                        "No background behind the inlay hint; this is the 'default' option.",
+                        "A lightly shaded background behind the inlay hint for better contrast.",
+                        "An accent colour for the inlay hint text and a shaded background."
                     ]
                 }
             }
