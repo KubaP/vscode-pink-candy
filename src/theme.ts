@@ -175,24 +175,40 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 
     // Inlay hint style.
     let inlay;
-    if (config.altInlay) {
-        inlay = {
-            "editorInlayHint.foreground": color.text.decoration.altInlay,
-            "editorInlayHint.background": color.text.decoration.altInlayBgA,
-            "editorInlayHint.typeForeground": color.text.decoration.altInlay,
-            "editorInlayHint.typeBackground": color.text.decoration.altInlayBgA,
-            "editorInlayHint.parameterForeground": color.text.decoration.altInlay,
-            "editorInlayHint.parameterBackground": color.text.decoration.altInlayBgA,
-        };
-    } else {
-        inlay = {
-            "editorInlayHint.foreground": color.text.decoration.codelens,
-            "editorInlayHint.background": "#00000000",
-            "editorInlayHint.typeForeground": color.text.decoration.codelens,
-            "editorInlayHint.typeBackground": "#00000000",
-            "editorInlayHint.parameterForeground": color.text.decoration.codelens,
-            "editorInlayHint.parameterBackground": "#00000000",
-        };
+    switch (config.inlayStyle) {
+        case "noBackground": {
+            inlay = {
+                "editorInlayHint.foreground": color.text.decoration.codelens,
+                "editorInlayHint.background": "#00000000",
+                "editorInlayHint.typeForeground": color.text.decoration.codelens,
+                "editorInlayHint.typeBackground": "#00000000",
+                "editorInlayHint.parameterForeground": color.text.decoration.codelens,
+                "editorInlayHint.parameterBackground": "#00000000",
+            };
+            break;
+        }
+        case "faintBackground": {
+            inlay = {
+                "editorInlayHint.foreground": color.text.decoration.altInlay,
+                "editorInlayHint.background": color.text.decoration.altInlayBgA,
+                "editorInlayHint.typeForeground": color.text.decoration.altInlay,
+                "editorInlayHint.typeBackground": color.text.decoration.altInlayBgA,
+                "editorInlayHint.parameterForeground": color.text.decoration.altInlay,
+                "editorInlayHint.parameterBackground": color.text.decoration.altInlayBgA,
+            };
+            break;
+        }
+        case "accent": {
+            inlay = {
+                "editorInlayHint.foreground": color.text.decoration.altInlayAccent,
+                "editorInlayHint.background": color.text.decoration.altInlayAccentBgA,
+                "editorInlayHint.typeForeground": color.text.decoration.altInlayAccent,
+                "editorInlayHint.typeBackground": color.text.decoration.altInlayAccentBgA,
+                "editorInlayHint.parameterForeground": color.text.decoration.altInlayAccent,
+                "editorInlayHint.parameterBackground": color.text.decoration.altInlayAccentBgA,
+            };
+            break;
+        }
     }
 
     // Bracket guides styles.

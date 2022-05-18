@@ -27,8 +27,8 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(command.toggleMutedMdCmd);
 	context.subscriptions.push(command.toggleItalicCommentsCmd);
 	context.subscriptions.push(command.toggleAltCurrentLineCmd);
-	context.subscriptions.push(command.toggleAltInlayCmd);
 	context.subscriptions.push(command.toggleMonochromeBracketsCmd);
+	context.subscriptions.push(command.pickInlayStyleCmd);
 	vscode.workspace.onDidChangeConfiguration(onConfigChange)
 
 	const config = getConfig();

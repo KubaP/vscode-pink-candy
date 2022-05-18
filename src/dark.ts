@@ -28,8 +28,10 @@ export const darkColors = {
             codelens: "#9C9C9C",
 
             // Inlay hint ALTERNATE style.
-            altInlay: "ABB2BF",
+            altInlay: "#ABB2BF",
             altInlayBgA: "#FFFFFF10",
+            altInlayAccent: "#d34482",
+            altInlayAccentBgA: "#FF4C981A",
         },
 
         // Text editor current line, text editor folded line, hover over symbol background box,

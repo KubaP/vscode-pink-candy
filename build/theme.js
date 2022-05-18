@@ -5,8 +5,8 @@ const config = {
     mutedMd: false,
     italicComments: false,
     altCurrentLine: false,
-    altInlay: false,
     monochromeBracketGuides: false,
+    inlayStyle: "noBackground",
 }
 
 createThemes(config);

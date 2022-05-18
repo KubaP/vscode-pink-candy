@@ -66,12 +66,12 @@
                 "title": "Pink Candy: Toggle alternate current-line style"
             },
             {
-                "command": "theme-pink-candy.toggleAltInlay",
-                "title": "Pink Candy: Toggle alternate inlay hint style"
-            },
-            {
                 "command": "theme-pink-candy.toggleMonochromeBrackets",
                 "title": "Pink Candy: Toggle monochrome bracket pair guides"
+            },
+            {
+                "command": "theme-pink-candy.pickInlayStyle",
+                "title": "Pink Candy: Select the inlay hint style"
             }
         ],
         "configuration": {
@@ -92,15 +92,25 @@
                     "default": false,
                     "description": "Controls whether the current line uses an alternate style (outlined instead of filled in)."
                 },
-                "theme-pink-candy.altInlay": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Controls whether inlay hints use an alternate style (light-grey background instead of white)."
-                },
                 "theme-pink-candy.monochromeBracketGuides": {
                     "type": "boolean",
                     "default": false,
                     "description": "Controls whether bracket pair guides are monochrome (foreground text colour)."
+                },
+                "theme-pink-candy.inlayStyle": {
+                    "type": "string",
+                    "default": "noBackground",
+                    "description": "The inlay hints style.",
+                    "enum": [
+                        "noBackground",
+                        "faintBackground",
+                        "accent"
+                    ],
+                    "enumDescriptions": [
+                        "No background (i.e. matches the text editor).",
+                        "Lightly shaded background.",
+                        "Accent colour for the foreground text and a shaded background."
+                    ]
                 }
             }
         }

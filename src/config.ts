@@ -2,20 +2,28 @@ import * as vscode from "vscode";
 import { info } from "./extension";
 
 /**
+ * Valid inlay hint styles.
+ */
+type Style = "noBackground" | "faintBackground" | "accent";
+function isValidStyle(str: string): str is Style {
+    return str == "noBackground" || str == "faintBackground" || str == "accent";
+}
+
+/**
  * The configuration of the theme.
  */
 export class Config {
     mutedMd: boolean;
     italicComments: boolean;
     altCurrentLine: boolean;
-    altInlay: boolean;
     monochromeBracketGuides: boolean;
+    inlayStyle: Style;
 
-    constructor(mutedMd: boolean, italicComments: boolean, altCurrentLine: boolean, altInlay: boolean, monochromeBracketGuides: boolean) {
+    constructor(mutedMd: boolean, italicComments: boolean, altCurrentLine: boolean, monochromeBracketGuides: boolean, inlayStyle: Style) {
         this.mutedMd = mutedMd;
         this.italicComments = italicComments;
         this.altCurrentLine = altCurrentLine;
-        this.altInlay = altInlay;
+        this.inlayStyle = inlayStyle;
         this.monochromeBracketGuides = monochromeBracketGuides;
     }
 }
@@ -44,17 +52,24 @@ export function getConfig(): Config {
         altCurrentLine = false;
     }
 
-    let altInlay: boolean | undefined = config.get("altInlay");
-    if (altInlay === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.altInlay'")
-        altInlay = false;
-    }
-
     let monochromeBracketGuides: boolean | undefined = config.get("monochromeBracketGuides");
     if (monochromeBracketGuides === undefined) {
         info.appendLine("ERROR: Could not find value of 'theme-pink-candy.monochromeBracketGuides'")
         monochromeBracketGuides = false;
     }
 
-    return new Config(mutedMd, italicComments, altCurrentLine, altInlay, monochromeBracketGuides);
+    let inlayStyle: Style;
+    let inlayStyleRaw: string | undefined = config.get("inlayStyle");
+    if (inlayStyleRaw === undefined) {
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.inlayStyle'")
+        inlayStyleRaw = "noBackground";
+    }
+    if (isValidStyle(inlayStyleRaw)) {
+        inlayStyle = inlayStyleRaw;
+    } else {
+        info.appendLine(`ERROR: Invalid value '${inlayStyleRaw}' of 'theme-pink-candy.inlayStyle'`)
+        inlayStyle = "noBackground";
+    }
+
+    return new Config(mutedMd, italicComments, altCurrentLine, monochromeBracketGuides, inlayStyle);
 }

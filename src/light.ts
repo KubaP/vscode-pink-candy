@@ -32,6 +32,9 @@ export const lightColors = {
             // Inlay hint ALTERNATE style.
             altInlay: "#565869",
             altInlayBgA: "#0000000A",
+            // FIXME: Fill out colours
+            altInlayAccent: "#000",
+            altInlayAccentBgA: "#FF12771A",
         },
 
         // Text editor current line, text editor folded line, hover over symbol background box,
