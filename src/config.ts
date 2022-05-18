@@ -6,12 +6,14 @@ export class Config {
     italicComments: boolean;
     altCurrentLine: boolean;
     altInlay: boolean;
+    monochromeBracketGuides: boolean;
 
-    constructor(mutedMd: boolean, italicComments: boolean, altCurrentLine: boolean, altInlay: boolean) {
+    constructor(mutedMd: boolean, italicComments: boolean, altCurrentLine: boolean, altInlay: boolean, monochromeBracketGuides: boolean) {
         this.mutedMd = mutedMd;
         this.italicComments = italicComments;
         this.altCurrentLine = altCurrentLine;
         this.altInlay = altInlay;
+        this.monochromeBracketGuides = monochromeBracketGuides;
     }
 }
 
@@ -42,5 +44,11 @@ export function getConfig(): Config {
         altInlay = false;
     }
 
-    return new Config(mutedMd, italicComments, altCurrentLine, altInlay);
+    let monochromeBracketGuides: boolean | undefined = config.get("monochromeBracketGuides");
+    if (monochromeBracketGuides === undefined) {
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.monochromeBracketGuides'")
+        monochromeBracketGuides = false;
+    }
+
+    return new Config(mutedMd, italicComments, altCurrentLine, altInlay, monochromeBracketGuides);
 }

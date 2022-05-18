@@ -6,6 +6,7 @@ const config = {
     italicComments: false,
     altCurrentLine: false,
     altInlay: false,
+    monochromeBracketGuides: false,
 }
 
 createThemes(config);

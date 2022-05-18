@@ -195,6 +195,40 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
         };
     }
 
+    // Bracket guides styles.
+    let brackets;
+    if (config.monochromeBracketGuides) {
+        brackets = {
+            "editorBracketHighlight.foreground1": color.text.decoration.dark,
+            "editorBracketHighlight.foreground2": color.text.decoration.dark,
+            "editorBracketHighlight.foreground3": color.text.decoration.dark,
+            "editorBracketHighlight.foreground4": color.text.decoration.dark,
+            "editorBracketHighlight.foreground5": color.text.decoration.dark,
+            "editorBracketHighlight.foreground6": color.text.decoration.dark,
+            "editorBracketPairGuide.foreground1": color.text.decoration.dark,
+            "editorBracketPairGuide.foreground2": color.text.decoration.dark,
+            "editorBracketPairGuide.foreground3": color.text.decoration.dark,
+            "editorBracketPairGuide.foreground4": color.text.decoration.dark,
+            "editorBracketPairGuide.foreground5": color.text.decoration.dark,
+            "editorBracketPairGuide.foreground6": color.text.decoration.dark,
+        };
+    } else {
+        brackets = {
+            "editorBracketHighlight.foreground1": color.brackets.one,
+            "editorBracketHighlight.foreground2": color.brackets.two,
+            "editorBracketHighlight.foreground3": color.brackets.three,
+            "editorBracketHighlight.foreground4": color.brackets.four,
+            "editorBracketHighlight.foreground5": color.brackets.five,
+            "editorBracketHighlight.foreground6": color.brackets.six,
+            "editorBracketPairGuide.foreground1": color.brackets.one,
+            "editorBracketPairGuide.foreground2": color.brackets.two,
+            "editorBracketPairGuide.foreground3": color.brackets.three,
+            "editorBracketPairGuide.foreground4": color.brackets.four,
+            "editorBracketPairGuide.foreground5": color.brackets.five,
+            "editorBracketPairGuide.foreground6": color.brackets.six,
+        };
+    }
+
     // Markdown plaintest styles.
     let mdStyles = markdownStyles(syntax, config.mutedMd);
 
@@ -257,19 +291,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "editorBracketMatch.background": "#00000000", // Remove match background.
             //
             // Bracket pair colours
-            "editorBracketHighlight.foreground1": color.brackets.one,
-            "editorBracketHighlight.foreground2": color.brackets.two,
-            "editorBracketHighlight.foreground3": color.brackets.three,
-            "editorBracketHighlight.foreground4": color.brackets.four,
-            "editorBracketHighlight.foreground5": color.brackets.five,
-            "editorBracketHighlight.foreground6": color.brackets.six,
+            ...brackets,
             "editorBracketHighlight.unexpectedBracket.foreground": color.diag.error,
-            "editorBracketPairGuide.foreground1": color.brackets.one,
-            "editorBracketPairGuide.foreground2": color.brackets.two,
-            "editorBracketPairGuide.foreground3": color.brackets.three,
-            "editorBracketPairGuide.foreground4": color.brackets.four,
-            "editorBracketPairGuide.foreground5": color.brackets.five,
-            "editorBracketPairGuide.foreground6": color.brackets.six,
             //
             // Inlay hints
             ...inlay,

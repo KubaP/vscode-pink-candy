@@ -53,6 +53,19 @@ function toggleAltInlay() {
     config.update("altInlay", !toggle, true);
 }
 
+function toggleMonochromeBrackets() {
+    const config = vscode.workspace.getConfiguration("theme-pink-candy");
+
+    const toggle: boolean | undefined = config.get("monochromeBracketGuides");
+    if (toggle === undefined) {
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.monochromeBracketGuides'");
+        return;
+    }
+
+    // Toggle the boolean.
+    config.update("monochromeBracketGuides", !toggle, true);
+}
+
 const toggleMutedMdCmd = vscode.commands.registerCommand("theme-pink-candy.toggleMutedMarkdown", () => {
     toggleMutedMd();
 });
@@ -65,5 +78,8 @@ const toggleAltCurrentLineCmd = vscode.commands.registerCommand("theme-pink-cand
 const toggleAltInlayCmd = vscode.commands.registerCommand("theme-pink-candy.toggleAltInlay", () => {
     toggleAltInlay();
 });
+const toggleMonochromeBracketsCmd = vscode.commands.registerCommand("theme-pink-candy.toggleMonochromeBrackets", () => {
+    toggleMonochromeBrackets();
+});
 
-export { toggleMutedMdCmd, toggleItalicCommentsCmd, toggleAltCurrentLineCmd, toggleAltInlayCmd };
+export { toggleMutedMdCmd, toggleItalicCommentsCmd, toggleAltCurrentLineCmd, toggleAltInlayCmd, toggleMonochromeBracketsCmd };

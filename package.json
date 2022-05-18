@@ -68,6 +68,10 @@
             {
                 "command": "theme-pink-candy.toggleAltInlay",
                 "title": "Pink Candy: Toggle alternate inlay hint style"
+            },
+            {
+                "command": "theme-pink-candy.toggleMonochromeBrackets",
+                "title": "Pink Candy: Toggle monochrome bracket pair guides"
             }
         ],
         "configuration": {
@@ -92,6 +96,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Controls whether inlay hints use an alternate style (light-grey background instead of white)."
+                },
+                "theme-pink-candy.monochromeBracketGuides": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Controls whether bracket pair guides are monochrome (foreground text colour)."
                 }
             }
         }
