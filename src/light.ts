@@ -26,12 +26,17 @@ export const lightColors = {
             light: "#CECECE",
             // Current indentation guide, matching bracket border,
             dark: "#AAAAAA",
-            // Codelens
+            // Codelens, inlay hints
             codelens: "#747474",
+
+            // Inlay hint ALTERNATE style.
+            altInlay: "#565869",
+            altInlayBgA: "#0000000A",
         },
 
         // Text editor current line, text editor folded line, hover over symbol background box,
         currentLine: "#00000007",
+        // Text editor current line ALTERNATE style.
         currentLineBorder: "#00000010",
 
         // General selection box background, input option, text editor selection boxes, terminal selection,

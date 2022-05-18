@@ -40,6 +40,19 @@ function toggleAltCurrentLine() {
     config.update("altCurrentLine", !toggle, true);
 }
 
+function toggleAltInlay() {
+    const config = vscode.workspace.getConfiguration("theme-pink-candy");
+
+    const toggle: boolean | undefined = config.get("altInlay");
+    if (toggle === undefined) {
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.altInlay'");
+        return;
+    }
+
+    // Toggle the boolean.
+    config.update("altInlay", !toggle, true);
+}
+
 const toggleMutedMdCmd = vscode.commands.registerCommand("theme-pink-candy.toggleMutedMarkdown", () => {
     toggleMutedMd();
 });
@@ -49,5 +62,8 @@ const toggleItalicCommentsCmd = vscode.commands.registerCommand("theme-pink-cand
 const toggleAltCurrentLineCmd = vscode.commands.registerCommand("theme-pink-candy.toggleAltCurrentLine", () => {
     toggleAltCurrentLine();
 });
+const toggleAltInlayCmd = vscode.commands.registerCommand("theme-pink-candy.toggleAltInlay", () => {
+    toggleAltInlay();
+});
 
-export { toggleMutedMdCmd, toggleItalicCommentsCmd, toggleAltCurrentLineCmd };
+export { toggleMutedMdCmd, toggleItalicCommentsCmd, toggleAltCurrentLineCmd, toggleAltInlayCmd };

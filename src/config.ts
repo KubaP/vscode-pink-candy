@@ -5,11 +5,13 @@ export class Config {
     mutedMd: boolean;
     italicComments: boolean;
     altCurrentLine: boolean;
+    altInlay: boolean;
 
-    constructor(mutedMd: boolean, italicComments: boolean, altCurrentLine: boolean) {
+    constructor(mutedMd: boolean, italicComments: boolean, altCurrentLine: boolean, altInlay: boolean) {
         this.mutedMd = mutedMd;
         this.italicComments = italicComments;
         this.altCurrentLine = altCurrentLine;
+        this.altInlay = altInlay;
     }
 }
 
@@ -34,5 +36,11 @@ export function getConfig(): Config {
         altCurrentLine = false;
     }
 
-    return new Config(mutedMd, italicComments, altCurrentLine);
+    let altInlay: boolean | undefined = config.get("altInlay");
+    if (altInlay === undefined) {
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.altInlay'")
+        altInlay = false;
+    }
+
+    return new Config(mutedMd, italicComments, altCurrentLine, altInlay);
 }

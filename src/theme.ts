@@ -173,6 +173,28 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
         };
     }
 
+    // Inlay hint style.
+    let inlay;
+    if (config.altInlay) {
+        inlay = {
+            "editorInlayHint.foreground": color.text.decoration.altInlay,
+            "editorInlayHint.background": color.text.decoration.altInlayBgA,
+            "editorInlayHint.typeForeground": color.text.decoration.altInlay,
+            "editorInlayHint.typeBackground": color.text.decoration.altInlayBgA,
+            "editorInlayHint.parameterForeground": color.text.decoration.altInlay,
+            "editorInlayHint.parameterBackground": color.text.decoration.altInlayBgA,
+        };
+    } else {
+        inlay = {
+            "editorInlayHint.foreground": color.text.decoration.codelens,
+            "editorInlayHint.background": "#00000000",
+            "editorInlayHint.typeForeground": color.text.decoration.codelens,
+            "editorInlayHint.typeBackground": "#00000000",
+            "editorInlayHint.parameterForeground": color.text.decoration.codelens,
+            "editorInlayHint.parameterBackground": "#00000000",
+        };
+    }
+
     // Markdown plaintest styles.
     let mdStyles = markdownStyles(syntax, config.mutedMd);
 
@@ -250,20 +272,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "editorBracketPairGuide.foreground6": color.brackets.six,
             //
             // Inlay hints
-            "editorInlayHint.foreground": color.text.decoration.codelens,
-            "editorInlayHint.background": "#00000000",
-            "editorInlayHint.typeForeground": color.text.decoration.codelens,
-            "editorInlayHint.typeBackground": "#00000000",
-            "editorInlayHint.parameterForeground": color.text.decoration.codelens,
-            "editorInlayHint.parameterBackground": "#00000000",
-            "rust_analyzer.inlayHints.foreground": color.text.decoration.codelens,
-            "rust_analyzer.inlayHints.background": "#00000000",
-            "rust_analyzer.inlayHints.foreground.typeHints": color.text.decoration.codelens,
-            "rust_analyzer.inlayHints.background.typeHints": "#00000000",
-            "rust_analyzer.inlayHints.foreground.chainingHints": color.text.decoration.codelens,
-            "rust_analyzer.inlayHints.background.chainingHints": "#00000000",
-            "rust_analyzer.inlayHints.foreground.parameterHints": color.text.decoration.codelens,
-            "rust_analyzer.inlayHints.background.parameterHints": "#00000000",
+            ...inlay,
             "editorCodeLens.foreground": color.text.decoration.codelens,
             // Debug inlay hints
             //"editor.inlineValuesForeground": "",

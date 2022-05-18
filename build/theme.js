@@ -5,6 +5,7 @@ const config = {
     mutedMd: false,
     italicComments: false,
     altCurrentLine: false,
+    altInlay: false,
 }
 
 createThemes(config);

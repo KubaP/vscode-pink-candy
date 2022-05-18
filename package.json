@@ -64,6 +64,10 @@
             {
                 "command": "theme-pink-candy.toggleAltCurrentLine",
                 "title": "Pink Candy: Toggle alternate current-line style"
+            },
+            {
+                "command": "theme-pink-candy.toggleAltInlay",
+                "title": "Pink Candy: Toggle alternate inlay hint style"
             }
         ],
         "configuration": {
@@ -83,6 +87,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Controls whether the current line uses an alternate style (outlined instead of filled in)."
+                },
+                "theme-pink-candy.altInlay": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Controls whether inlay hints use an alternate style (light-grey background instead of white)."
                 }
             }
         }
