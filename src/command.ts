@@ -1,85 +1,36 @@
 import * as vscode from "vscode";
 import { info } from "./extension";
 
-function toggleMutedMd() {
+/**
+ * Toggles a configuration boolean option.
+ * @param name The boolean key.
+ */
+function toggleBoolean(name: string) {
     const config = vscode.workspace.getConfiguration("theme-pink-candy");
 
-    const toggle: boolean | undefined = config.get("mutedMarkdown");
+    const toggle: boolean | undefined = config.get(name);
     if (toggle === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.mutedMarkdown'");
+        info.appendLine(`ERROR: Could not find value of 'theme-pink-candy.${name}'`);
         return;
     }
 
-    // Toggle the boolean.
-    config.update("mutedMarkdown", !toggle, true);
-}
-
-function toggleItalicComments() {
-    const config = vscode.workspace.getConfiguration("theme-pink-candy");
-
-    const toggle: boolean | undefined = config.get("italicComments");
-    if (toggle === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.italicComments'");
-        return;
-    }
-
-    // Toggle the boolean.
-    config.update("italicComments", !toggle, true);
-}
-
-function toggleAltCurrentLine() {
-    const config = vscode.workspace.getConfiguration("theme-pink-candy");
-
-    const toggle: boolean | undefined = config.get("altCurrentLine");
-    if (toggle === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.altCurrentLine'");
-        return;
-    }
-
-    // Toggle the boolean.
-    config.update("altCurrentLine", !toggle, true);
-}
-
-function toggleAltInlay() {
-    const config = vscode.workspace.getConfiguration("theme-pink-candy");
-
-    const toggle: boolean | undefined = config.get("altInlay");
-    if (toggle === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.altInlay'");
-        return;
-    }
-
-    // Toggle the boolean.
-    config.update("altInlay", !toggle, true);
-}
-
-function toggleMonochromeBrackets() {
-    const config = vscode.workspace.getConfiguration("theme-pink-candy");
-
-    const toggle: boolean | undefined = config.get("monochromeBracketGuides");
-    if (toggle === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.monochromeBracketGuides'");
-        return;
-    }
-
-    // Toggle the boolean.
-    config.update("monochromeBracketGuides", !toggle, true);
+    config.update(name, !toggle, true);
 }
 
 const toggleMutedMdCmd = vscode.commands.registerCommand("theme-pink-candy.toggleMutedMarkdown", () => {
-    toggleMutedMd();
+    toggleBoolean("mutedMarkdown");
 });
 const toggleItalicCommentsCmd = vscode.commands.registerCommand("theme-pink-candy.toggleItalicComments", () => {
-    toggleItalicComments();
+    toggleBoolean("italicComments");
 });
 const toggleAltCurrentLineCmd = vscode.commands.registerCommand("theme-pink-candy.toggleAltCurrentLine", () => {
-    toggleAltCurrentLine();
+    toggleBoolean("altCurrentLine");
 });
 const toggleAltInlayCmd = vscode.commands.registerCommand("theme-pink-candy.toggleAltInlay", () => {
-    toggleAltInlay();
+    toggleBoolean("altInlay");
 });
 const toggleMonochromeBracketsCmd = vscode.commands.registerCommand("theme-pink-candy.toggleMonochromeBrackets", () => {
-    toggleMonochromeBrackets();
+    toggleBoolean("monochromeBracketGuides")
 });
 
 export { toggleMutedMdCmd, toggleItalicCommentsCmd, toggleAltCurrentLineCmd, toggleAltInlayCmd, toggleMonochromeBracketsCmd };

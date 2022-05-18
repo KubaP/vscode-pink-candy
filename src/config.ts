@@ -1,6 +1,9 @@
 import * as vscode from "vscode";
 import { info } from "./extension";
 
+/**
+ * The configuration of the theme.
+ */
 export class Config {
     mutedMd: boolean;
     italicComments: boolean;
@@ -17,6 +20,9 @@ export class Config {
     }
 }
 
+/**
+ * Returns the current configuration of the theme.
+ */
 export function getConfig(): Config {
     const config = vscode.workspace.getConfiguration("theme-pink-candy");
 
