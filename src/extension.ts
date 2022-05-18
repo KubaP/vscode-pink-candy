@@ -25,6 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(command.toggleMutedMdCmd);
+	context.subscriptions.push(command.toggleItalicCommentsCmd);
 	vscode.workspace.onDidChangeConfiguration(onConfigChange)
 
 	const config = getConfig();

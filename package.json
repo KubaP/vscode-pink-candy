@@ -56,6 +56,10 @@
             {
                 "command": "theme-pink-candy.toggleMutedMarkdown",
                 "title": "Pink Candy: Toggle muted markdown plaintext"
+            },
+            {
+                "command": "theme-pink-candy.toggleItalicComments",
+                "title": "Pink Candy: Toggle italicised comments"
             }
         ],
         "configuration": {
@@ -65,6 +69,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Controls whether markdown plaintext is styled in a muted colour."
+                },
+                "theme-pink-candy.italicComments": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Controls whether comments are italicised."
                 }
             }
         }

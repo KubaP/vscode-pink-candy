@@ -831,7 +831,100 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
         };
     }
 
-    let mdStyles = markdownStyles(syntax, config.mdToggle);
+    // Configure comment styles.
+    let commentSemanticStyles;
+    let commentStyles;
+    if (config.italicComments) {
+        commentSemanticStyles = {
+            "comment": {
+                "foreground": syntax.comment,
+                "fontStyle": "italic"
+            }
+        };
+        commentStyles = {
+            "name": "Comment",
+            "scope": [
+                "comment",
+                "punctuation.definition.comment",
+                // csharp
+                "comment.block.cs",
+                "comment.line.double-slash.cs",
+                // powershell
+                "comment.line.powershell",
+                // js
+                "comment.block.documentation.js",
+                "comment.line.double-slash.js",
+                // xml
+                "comment.block.xml",
+                "punctuation.definition.comment.xml",
+                // json
+                "comment",
+                "comment.line.double-slash.js",
+                "comment.block.json",
+                // yaml
+                "punctuation.definition.comment.yaml",
+                "comment.line.number-sign.yaml",
+                // toml
+                "punctuation.definition.comment.toml",
+                "comment.line.number-sign.toml",
+                // ini
+                "punctuation.definition.comment.ini",
+                "comment.line.semicolon.ini",
+                "comment.line.number-sign.ini",
+                // bnf
+                "comment.line.bnf",
+                "comment.block.bnf"
+            ],
+            "settings": {
+                "foreground": syntax.comment,
+                "fontStyle": "italic"
+            }
+        };
+    } else {
+        commentSemanticStyles = {
+            "comment": syntax.comment
+        };
+        commentStyles = {
+            "name": "Comment",
+            "scope": [
+                "comment",
+                "punctuation.definition.comment",
+                // csharp
+                "comment.block.cs",
+                "comment.line.double-slash.cs",
+                // powershell
+                "comment.line.powershell",
+                // js
+                "comment.block.documentation.js",
+                "comment.line.double-slash.js",
+                // xml
+                "comment.block.xml",
+                "punctuation.definition.comment.xml",
+                // json
+                "comment",
+                "comment.line.double-slash.js",
+                "comment.block.json",
+                // yaml
+                "punctuation.definition.comment.yaml",
+                "comment.line.number-sign.yaml",
+                // toml
+                "punctuation.definition.comment.toml",
+                "comment.line.number-sign.toml",
+                // ini
+                "punctuation.definition.comment.ini",
+                "comment.line.semicolon.ini",
+                "comment.line.number-sign.ini",
+                // bnf
+                "comment.line.bnf",
+                "comment.block.bnf"
+            ],
+            "settings": {
+                "foreground": syntax.comment
+            }
+        };
+    }
+
+    let mdStyles = markdownStyles(syntax, config.mutedMd);
 
     return {
         name: name,
@@ -1649,7 +1742,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "escapeSequence": syntax.char, // `\n`
             "character": syntax.char, // `'b'`
             "number": syntax.number,
-            "comment": syntax.comment,
+            ...commentSemanticStyles,
             //
             // 
             "attribute": syntax.attribute, // The #[]!() symbols in an attribute.
@@ -2238,44 +2331,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
                     "foreground": syntax.number
                 }
             },
-            {
-                "name": "Comment",
-                "scope": [
-                    "comment",
-                    "punctuation.definition.comment",
-                    // csharp
-                    "comment.block.cs",
-                    "comment.line.double-slash.cs",
-                    // powershell
-                    "comment.line.powershell",
-                    // js
-                    "comment.block.documentation.js",
-                    "comment.line.double-slash.js",
-                    // xml
-                    "comment.block.xml",
-                    "punctuation.definition.comment.xml",
-                    // json
-                    "comment",
-                    "comment.line.double-slash.js",
-                    "comment.block.json",
-                    // yaml
-                    "punctuation.definition.comment.yaml",
-                    "comment.line.number-sign.yaml",
-                    // toml
-                    "punctuation.definition.comment.toml",
-                    "comment.line.number-sign.toml",
-                    // ini
-                    "punctuation.definition.comment.ini",
-                    "comment.line.semicolon.ini",
-                    "comment.line.number-sign.ini",
-                    // bnf
-                    "comment.line.bnf",
-                    "comment.block.bnf"
-                ],
-                "settings": {
-                    "foreground": syntax.comment
-                }
-            },
+            commentStyles,
             //
             //
             //
