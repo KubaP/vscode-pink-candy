@@ -60,6 +60,10 @@
             {
                 "command": "theme-pink-candy.toggleItalicComments",
                 "title": "Pink Candy: Toggle italicised comments"
+            },
+            {
+                "command": "theme-pink-candy.toggleAltCurrentLine",
+                "title": "Pink Candy: Toggle alternate current-line style"
             }
         ],
         "configuration": {
@@ -74,6 +78,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Controls whether comments are italicised."
+                },
+                "theme-pink-candy.altCurrentLine": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Controls whether the current line uses an alternate style (outlined instead of filled in)."
                 }
             }
         }

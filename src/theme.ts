@@ -52,6 +52,7 @@ const lightColors = {
 
         // Text editor current line, text editor folded line, hover over symbol background box,
         currentLine: "#00000007",
+        currentLineBorder: "#00000010",
 
         // General selection box background, input option, text editor selection boxes, terminal selection,
         selectionBg: "#FBE3EE",
@@ -434,6 +435,7 @@ const darkColors = {
 
         // Text editor current line, text editor folded line, hover over symbol background box,
         currentLine: "#FFFFFF07",
+        currentLineBorder: "#FFFFFF10",
 
         // General selection box background, input option, text editor selection boxes, terminal selection,
         selectionBg: "#81577A",
@@ -924,6 +926,21 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
         };
     }
 
+    // Current line style.
+    let currentLine;
+    if (config.altCurrentLine) {
+        currentLine = {
+            "editor.lineHighlightBackground": "#00000000", // Current line background colour.
+            "editor.lineHighlightBorder": color.text.currentLineBorder, // Remove current line border.
+        };
+    } else {
+        currentLine = {
+            "editor.lineHighlightBackground": color.text.currentLine, // Current line background colour.
+            "editor.lineHighlightBorder": "#00000000", // Remove current line border.
+        };
+    }
+
+    // Markdown plaintest styles.
     let mdStyles = markdownStyles(syntax, config.mutedMd);
 
     return {
@@ -942,8 +959,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             // Cursor/line
             "editorCursor.foreground": color.primary,
             "editorCursor.background": color.text.inverse, // Colour of a character when using block cursor.
-            "editor.lineHighlightBackground": color.text.currentLine, // Current line background colour.
-            "editor.lineHighlightBorder": "#00000000", // Remove current line border.
+            ...currentLine,
             "editorLineNumber.foreground": color.text.muted, // Line number colour in the gutter.
             "editorLineNumber.activeForeground": color.primary, // Current line number colour in the gutter.
             "editor.foldBackground": color.text.currentLine, // Colour of a line containing a folded range.
