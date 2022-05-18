@@ -36,7 +36,7 @@
         "dark"
     ],
     "activationEvents": [
-        "*"
+        "onStartupFinished"
     ],
     "main": "./out/extension.js",
     "contributes": {
@@ -51,7 +51,23 @@
                 "uiTheme": "vs-dark",
                 "path": "./themes/pink-candy-dark.json"
             }
-        ]
+        ],
+        "commands": [
+            {
+                "command": "theme-pink-candy.toggleMutedMarkdown",
+                "title": "Pink Candy: Toggle muted markdown plaintext"
+            }
+        ],
+        "configuration": {
+            "title": "Pink Candy Theme Configuration",
+            "properties": {
+                "theme-pink-candy.mutedMarkdown": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Controls whether markdown plaintext is styled in a muted colour."
+                }
+            }
+        }
     },
     "scripts": {
         "buildTheme": "node ./build/theme.js",

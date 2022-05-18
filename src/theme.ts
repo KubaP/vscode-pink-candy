@@ -1,14 +1,15 @@
 import * as path from "path";
 import * as fs from "fs";
+import { Config } from "./config";
 
-export function createThemes() {
-    createTheme("TEST", "light", "test.json", lightColors, lightSyntax);
-    createTheme("TEST-DARK", "dark", "test-dark.json", darkColors, darkSyntax);
+export function createThemes(config: Config) {
+    createTheme("pink-candy-light", "light", "pink-candy-light.json", lightColors, lightSyntax, config);
+    createTheme("pink-candy-dark", "dark", "pink-candy-dark.json", darkColors, darkSyntax, config);
 }
 
-function createTheme(name: string, type: string, file: string, color: any, syntax: any) {
+function createTheme(name: string, type: string, file: string, color: any, syntax: any, config: Config) {
     const jsonPath = path.join(__dirname, "..", "themes", file);
-    const theme = generateTheme(color, syntax, name, type);
+    const theme = generateTheme(color, syntax, name, type, config);
 
     return new Promise((resolve, reject) => {
         fs.writeFile(jsonPath, JSON.stringify(theme, undefined, 4), (err) => {
@@ -369,6 +370,7 @@ const lightSyntax = {
     xmlDoctype: "#C75AF3",
 
     mdText: "#565869",
+    mdAltText: "#ADB1C2",
     mdHeading: "#F767BB",
     mdBold: "#FF5C57",
     mdItalic: "#09A1ED",
@@ -751,6 +753,7 @@ const darkSyntax = {
     xmlDoctype: "#D177F5",
 
     mdText: "#B9BFCA",
+    mdAltText: "#636D83",
     mdHeading: "#F85EB4",
     mdBold: "#FF6B66",
     mdItalic: "#10B1FE",
@@ -782,8 +785,9 @@ const darkSyntax = {
     bnfBuiltin: "#15C9C5",
 }
 
-function generateTheme(color: any, syntax: any, name: string, type: string) {
+function generateTheme(color: any, syntax: any, name: string, type: string, config: Config) {
 
+    // Output the appropriate error lens keys.
     let errorLens;
     if (type == "light") {
         errorLens = {
@@ -826,6 +830,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
             "errorLens.errorGutterIconColor": color.diag.error,
         };
     }
+
+    let mdStyles = markdownStyles(syntax, config.mdToggle);
 
     return {
         name: name,
@@ -2754,187 +2760,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
             //
             // MARKDOWN
             //
-            {
-                // Normal undecorated text.
-                "name": "Markdown - Plain",
-                "scope": [
-                    "text.html.markdown",
-                    "punctuation.definition.list_item.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdText
-                }
-            },
-            {
-                // The `#` symbol in titles.
-                "name": "Markdown - Headings",
-                "scope": [
-                    "markdown.heading",
-                    "markup.heading | markup.heading entity.name",
-                    "markup.heading.markdown punctuation.definition.heading.markdown",
-                    "entity.name.section.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdHeading
-                }
-            },
-            {
-                "name": "Markup - Bold",
-                "scope": [
-                    "punctuation.definition.bold.markdown",
-                    "markup.bold",
-                    "markup.bold string"
-                ],
-                "settings": {
-                    "fontStyle": "bold",
-                    "foreground": syntax.mdBold
-                }
-            },
-            {
-                "name": "Markup - Italic",
-                "scope": [
-                    "punctuation.definition.italic.markdown",
-                    "markup.italic"
-                ],
-                "settings": {
-                    "fontStyle": "italic",
-                    "foreground": syntax.mdItalic
-                }
-            },
-            {
-                "name": "Markup - Bold-Italic",
-                "scope": [
-                    "markup.bold markup.italic",
-                    "markup.italic markup.bold",
-                    "markup.quote markup.bold",
-                    "markup.bold markup.italic string",
-                    "markup.italic markup.bold string",
-                    "markup.quote markup.bold string"
-                ],
-                "settings": {
-                    "foreground": syntax.mdItalic,
-                    "fontStyle": "italic bold"
-                }
-            },
-            {
-                "name": "Markdown - Quote",
-                "scope": [
-                    "punctuation.definition.quote.begin.markdown",
-                    "markup.quote.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdQuote,
-                    "fontStyle": "italic"
-                }
-            },
-            {
-                "name": "Markdown - Strikethrough",
-                "scope": [
-                    "markup.strikethrough.markdown",
-                    "punctuation.definition.strikethrough.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdStrikethrough,
-                    "fontStyle": "strikethrough"
-                }
-            },
-            {
-                // Inline code block text.
-                "name": "Markdown - Markup Raw Inline",
-                "scope": [
-                    "punctuation.definition.raw.markdown",
-                    "markup.inline.raw.string.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdCode,
-                    "fontStyle": "bold"
-                }
-            },
-            {
-                // Fenced code block text.
-                "name": "Markdown - Raw Block Fenced",
-                "scope": [
-                    "markup.fenced_code.block.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdCode
-                }
-            },
-            {
-                // The language identifier in a fenced code block, e.g. ```rust
-                "name": "Markdown - Raw Block Language Identifier",
-                "scope": [
-                    "fenced_code.block.language.markdown",
-                    "markup.fenced_code.block.markdown punctuation.definition.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdCode,
-                    "fontStyle": "bold"
-                }
-            },
-            {
-                "name": "Markdown - Separator",
-                "scope": [
-                    "meta.separator.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdSeparator,
-                    "fontStyle": "bold"
-                }
-            },
-            {
-                // The `1.` or `-` or `*` symbols in a list entry.
-                "name": "Markdown - List",
-                "scope": [
-                    "punctuation.definition.list.begin.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdList
-                }
-            },
-            {
-                // Text comment/description around a link, e.g. `[Go to this link](...)`, or `[](... "some website")`
-                "name": "Markup - Url String",
-                "scope": [
-                    "punctuation.definition.string.begin.markdown",
-                    "punctuation.definition.string.end.markdown",
-                    "string.other.link.description.title.markdown",
-                    "string.other.link.description.markdown",
-                    "string.other.link.title.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdUrlName
-                }
-            },
-            {
-                // The url part of the link.
-                "name": "Markup - Url Underline",
-                "scope": [
-                    "markup.underline.link",
-                    "constant.other.reference.link.markdown"
-                ],
-                "settings": {
-                    "foreground": syntax.mdUrl,
-                    "fontStyle": "underline"
-                }
-            },
-            {
-                "name": "Markup - Maths",
-                "scope": "punctuation.definition.math.begin.markdown",
-                "settings": {
-                    "foreground": syntax.mdMaths
-                }
-            },
-            {
-                "name": "Markup - Maths constants/functions",
-                "scope": [
-                    "constant.character.math.tex",
-                    "constant.character.math.tex punctuation.definition.math.tex"
-                ],
-                "settings": {
-                    "foreground": syntax.mdMathsConst
-                }
-            },
+            ...mdStyles,
             //
             // JSON
             //
@@ -3086,4 +2912,239 @@ function generateTheme(color: any, syntax: any, name: string, type: string) {
             }
         ]
     }
+}
+
+function markdownStyles(syntax: any, alternate: boolean) {
+    let styles = [];
+    if (alternate) {
+        styles.push({
+            // Normal undecorated text.
+            "name": "Markdown - Plain",
+            "scope": [
+                "text.html.markdown",
+                "punctuation.definition.list_item.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdAltText
+            }
+        });
+        styles.push({
+            // Inline code block text.
+            "name": "Markdown - Markup Raw Inline",
+            "scope": [
+                "punctuation.definition.raw.markdown",
+                "markup.inline.raw.string.markdown",
+            ],
+            "settings": {
+                "foreground": syntax.mdCode
+            }
+        });
+        styles.push({
+            // Fenced code block text.
+            "name": "Markdown - Markup Raw Inline",
+            "scope": [
+                "markup.fenced_code.block.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdCode,
+            }
+        });
+        styles.push({
+            // The language identifier in a fenced code block, e.g. ```rust
+            "name": "Markdown - Raw Block Language Identifier",
+            "scope": [
+                "fenced_code.block.language.markdown",
+                "markup.fenced_code.block.markdown punctuation.definition.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdCode
+            }
+        });
+    } else {
+        styles.push({
+            // Normal undecorated text.
+            "name": "Markdown - Plain",
+            "scope": [
+                "text.html.markdown",
+                "punctuation.definition.list_item.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdText
+            }
+        });
+        styles.push({
+            // Inline code block text.
+            "name": "Markdown - Markup Raw Inline",
+            "scope": [
+                "punctuation.definition.raw.markdown",
+                "markup.inline.raw.string.markdown",
+            ],
+            "settings": {
+                "foreground": syntax.mdCode,
+                "fontStyle": "bold"
+            }
+        });
+        styles.push({
+            // Fenced code block text.
+            "name": "Markdown - Markup Raw Inline",
+            "scope": [
+                "markup.fenced_code.block.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdCode,
+            }
+        });
+        styles.push({
+            // The language identifier in a fenced code block, e.g. ```rust
+            "name": "Markdown - Raw Block Language Identifier",
+            "scope": [
+                "fenced_code.block.language.markdown",
+                "markup.fenced_code.block.markdown punctuation.definition.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdCode,
+                "fontStyle": "bold"
+            }
+        });
+    }
+
+    return [
+        ...styles,
+        {
+            // The `#` symbol in titles.
+            "name": "Markdown - Headings",
+            "scope": [
+                "markdown.heading",
+                "markup.heading | markup.heading entity.name",
+                "markup.heading.markdown punctuation.definition.heading.markdown",
+                "entity.name.section.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdHeading
+            }
+        },
+        {
+            "name": "Markup - Bold",
+            "scope": [
+                "punctuation.definition.bold.markdown",
+                "markup.bold",
+                "markup.bold string"
+            ],
+            "settings": {
+                "fontStyle": "bold",
+                "foreground": syntax.mdBold
+            }
+        },
+        {
+            "name": "Markup - Italic",
+            "scope": [
+                "punctuation.definition.italic.markdown",
+                "markup.italic"
+            ],
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": syntax.mdItalic
+            }
+        },
+        {
+            "name": "Markup - Bold-Italic",
+            "scope": [
+                "markup.bold markup.italic",
+                "markup.italic markup.bold",
+                "markup.quote markup.bold",
+                "markup.bold markup.italic string",
+                "markup.italic markup.bold string",
+                "markup.quote markup.bold string"
+            ],
+            "settings": {
+                "foreground": syntax.mdItalic,
+                "fontStyle": "italic bold"
+            }
+        },
+        {
+            "name": "Markdown - Quote",
+            "scope": [
+                "punctuation.definition.quote.begin.markdown",
+                "markup.quote.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdQuote,
+                "fontStyle": "italic"
+            }
+        },
+        {
+            "name": "Markdown - Strikethrough",
+            "scope": [
+                "markup.strikethrough.markdown",
+                "punctuation.definition.strikethrough.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdStrikethrough,
+                "fontStyle": "strikethrough"
+            }
+        },
+        {
+            "name": "Markdown - Separator",
+            "scope": [
+                "meta.separator.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdSeparator,
+                "fontStyle": "bold"
+            }
+        },
+        {
+            // The `1.` or `-` or `*` symbols in a list entry.
+            "name": "Markdown - List",
+            "scope": [
+                "punctuation.definition.list.begin.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdList
+            }
+        },
+        {
+            // Text comment/description around a link, e.g. `[Go to this link](...)`, or `[](... "some website")`
+            "name": "Markup - Url String",
+            "scope": [
+                "punctuation.definition.string.begin.markdown",
+                "punctuation.definition.string.end.markdown",
+                "string.other.link.description.title.markdown",
+                "string.other.link.description.markdown",
+                "string.other.link.title.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdUrlName
+            }
+        },
+        {
+            // The url part of the link.
+            "name": "Markup - Url Underline",
+            "scope": [
+                "markup.underline.link",
+                "constant.other.reference.link.markdown"
+            ],
+            "settings": {
+                "foreground": syntax.mdUrl,
+                "fontStyle": "underline"
+            }
+        },
+        {
+            "name": "Markup - Maths",
+            "scope": "punctuation.definition.math.begin.markdown",
+            "settings": {
+                "foreground": syntax.mdMaths
+            }
+        },
+        {
+            "name": "Markup - Maths constants/functions",
+            "scope": [
+                "constant.character.math.tex",
+                "constant.character.math.tex punctuation.definition.math.tex"
+            ],
+            "settings": {
+                "foreground": syntax.mdMathsConst
+            }
+        }
+    ]
 }

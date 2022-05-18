@@ -1,9 +1,10 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import * as path from "path";
-import * as fs from "fs";
+
 import { createThemes } from './theme';
+import * as command from './command';
+import { getConfig } from './config';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -23,7 +24,23 @@ export function activate(context: vscode.ExtensionContext) {
 	});
 
 	context.subscriptions.push(disposable);
-	createThemes();
+	context.subscriptions.push(command.toggleMutedMdCmd);
+	vscode.workspace.onDidChangeConfiguration(onConfigChange)
+
+	const config = getConfig();
+	createThemes(config);
+}
+
+export let info = vscode.window.createOutputChannel("Pink Candy INFO");
+
+function onConfigChange(e: vscode.ConfigurationChangeEvent) {
+	// Ignore configuration changes that aren't related to our theme.
+	if (!e.affectsConfiguration("theme-pink-candy")) {
+		return;
+	}
+
+	const config = getConfig();
+	createThemes(config);
 }
 
 // this method is called when your extension is deactivated
