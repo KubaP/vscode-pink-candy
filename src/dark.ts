@@ -30,6 +30,7 @@ export const darkColors = {
             // Inlay hint ALTERNATE style.
             altInlay: "#ABB2BF",
             altInlayBgA: "#FFFFFF10",
+            // FIXME: Tweak this
             altInlayAccent: "#d34482",
             altInlayAccentBgA: "#FF4C981A",
         },
@@ -73,6 +74,7 @@ export const darkColors = {
     diag: {
         // Ruler/minimap decorations, underline squiggles, error lens foregrounds, problem panel icons,
         // input validation foregrounds, notification icons, testing message foregrounds, peek view widget text,
+        // alternate status bar text,
         selection: "#81577A", // +(list selected background)
         match: "#9CA320",
         bracket: "#5A63755A", // bracket match
@@ -220,6 +222,11 @@ export const darkColors = {
         hoverBgA: "#0000001A",
         activeBgA: "#0000002A",
 
+        // Hover applied on the `primaryBg`.
+        // FIXME: Properly do-up hovers in the dark theme
+        primaryHoverBgA: "#e6e6e7",
+        secondaryHoverBgA: "#dadada",
+
         // Hover/selected list overlay,
         listHoverBgA: "#0000001A",
         listInactiveBgA: "#FF4C981A",
@@ -237,7 +244,7 @@ export const darkColors = {
         // Status bar during debugging,
         statusDebugBg: "#31A155",
         // Status bar when no folder is open,
-        statusEmptyBg: "#E5E5E5",
+        statusEmptyBg: "#E5E5E5", // FIXME: This probably isn't a good colour.
         // Hover/active button overlays,
         statusHoverBgA: "#0000002F",
         statusActiveBgA: "#0000004F",

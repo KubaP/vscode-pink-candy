@@ -7,6 +7,7 @@ const config = {
     altCurrentLine: false,
     monochromeBracketGuides: false,
     inlayStyle: "noBackground",
+    globalAccent: "default",
 }
 
 createThemes(config);

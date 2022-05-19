@@ -245,6 +245,181 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
         };
     }
 
+    // Global accent options.
+    let list;
+    let widgets;
+    let badges;
+    let menu;
+    let banner;
+    let statusBar;
+    let commandBar;
+    if (config.globalAccent == "minimal") {
+        statusBar = {
+            "statusBar.foreground": color.text.normal,
+            "statusBar.background": color.ui.secondaryBg,
+            "statusBarItem.hoverBackground": color.ui.hoverBgA,
+            "statusBarItem.activeBackground": color.ui.activeBgA,
+            "statusBarItem.compactHoverBackground": color.ui.hoverBgA,
+            "statusBarItem.errorBackground": color.text.normal,
+            "statusBarItem.errorForeground": color.diag.error,
+            "statusBarItem.warningForeground": color.text.normal,
+            "statusBarItem.warningBackground": color.diag.warning,
+            "statusBarItem.prominentForeground": color.text.normal,
+            "statusBarItem.prominentBackground": color.diag.info,
+            "statusBarItem.prominentHoverBackground": color.ui.hoverBgA,
+            // Remote icon.
+            "statusBarItem.remoteForeground": color.primary,
+            "statusBarItem.remoteBackground": color.ui.secondaryBg,
+        };
+        list = {
+            "list.hoverBackground": color.ui.listHoverBgA, // Background on individual entry on hover.
+            "list.activeSelectionBackground": color.ui.primaryHoverBgA,
+            "list.activeSelectionForeground": color.text.normal,
+            "list.activeSelectionIconForeground": color.text.normal, // Doesn't work?
+            "list.inactiveSelectionBackground": color.ui.listHoverBgA, // Colour of a selected item when the list is not actively selected.
+            "list.highlightForeground": color.primary, // E.g. matching text in the command palette.
+            "list.focusHighlightForeground": color.text.normal, // E.g. matching text in the currently selected entry in the command palette.
+        };
+        widgets = {
+            "editorSuggestWidget.foreground": color.text.normal, // All text.
+            "editorSuggestWidget.background": color.primaryBg,
+            "editorSuggestWidget.border": color.ui.border,
+            "editorSuggestWidget.highlightForeground": color.primary, // Matching letters in other entries.
+            "editorSuggestWidget.focusHighlightForeground": color.text.normal, // Matching letters in currently selected entry.
+            "editorSuggestWidget.selectedBackground": color.ui.primaryHoverBgA, // Background of selected entry.
+            "editorSuggestWidget.selectedForeground": color.text.normal, // Text in selected entry.
+            "editorSuggestWidget.selectedIconForeground": color.text.normal, // Icon in selected entry.
+            //
+            "peekViewResult.selectionForeground": color.text.normal, // Clicked entry.
+            "peekViewResult.selectionBackground": color.ui.primaryHoverBgA, // Clicked entry.
+        };
+        badges = {
+            "badge.foreground": color.primary,
+            "badge.background": color.primaryBg,
+            "activityBarBadge.foreground": color.primary,
+            "activityBarBadge.background": color.primaryBg,
+        };
+        banner = {
+            "banner.foreground": color.text.normal,
+            "banner.background": color.secondaryBg,
+            "banner.iconForeground": color.text.normal,
+        };
+        menu = {
+            "menu.foreground": color.text.normal,
+            "menu.background": color.ui.dropdownBg, // Background of a fly-out.
+            "menu.selectionForeground": color.text.normal,
+            "menu.selectionBackground": color.ui.primaryHoverBgA,
+            //"menu.selectionBorder": "",
+            "menu.separatorBackground": color.ui.separator,
+            "menubar.selectionForeground": color.text.normal,
+            "menubar.selectionBackground": color.ui.hoverBgA, // Background of hover/active menu bar item.
+            //"menubar.selectionBorder": "",
+        };
+        commandBar = {
+            "quickInput.foreground": color.text.normal, // All text.
+            "quickInput.background": color.primaryBg,
+            "quickInputTitle.background": color.primaryBg,
+            "quickInputList.focusBackground": color.ui.primaryHoverBgA,
+            "quickInputList.focusForeground": color.text.normal,
+            "quickInputList.focusIconForeground": color.text.normal,
+            "pickerGroup.border": color.ui.separator, // Border between groups within the drop down.
+            "pickerGroup.foreground": color.primary, // The little text seen sometimes, e.g. `other commands`.
+        };
+    } else {
+        list = {
+            "list.hoverBackground": color.ui.listHoverBgA, // Background on individual entry on hover.
+            "list.activeSelectionBackground": color.primary,
+            "list.activeSelectionForeground": color.text.inverse,
+            "list.activeSelectionIconForeground": color.text.inverse, // Doesn't work?
+            "list.inactiveSelectionBackground": color.ui.listInactiveBgA, // Colour of a selected item when the list is not actively selected.
+            "list.highlightForeground": color.text.normal, // E.g. matching text in the command palette.
+            "list.focusHighlightForeground": color.text.inverse, // E.g. matching text in the currently selected entry in the command palette.
+        };
+        widgets = {
+            "editorSuggestWidget.foreground": color.text.normal, // All text.
+            "editorSuggestWidget.background": color.primaryBg,
+            "editorSuggestWidget.border": color.ui.border,
+            "editorSuggestWidget.highlightForeground": color.primary, // Matching letters in other entries.
+            "editorSuggestWidget.focusHighlightForeground": color.text.inverse, // Matching letters in currently selected entry.
+            "editorSuggestWidget.selectedBackground": color.primary, // Background of selected entry.
+            "editorSuggestWidget.selectedForeground": color.text.inverse, // Text in selected entry.
+            "editorSuggestWidget.selectedIconForeground": color.text.inverse, // Icon in selected entry.
+            //
+            "peekViewResult.selectionForeground": color.text.emphasised, // Clicked entry.
+            "peekViewResult.selectionBackground": color.primary, // Clicked entry.
+        };
+        badges = {
+            "badge.foreground": color.text.inverse,
+            "badge.background": color.primary,
+            "activityBarBadge.foreground": color.text.inverse,
+            "activityBarBadge.background": color.primary,
+        };
+        banner = {
+            "banner.foreground": color.text.inverse,
+            "banner.background": color.primary,
+            "banner.iconForeground": color.text.inverse,
+        };
+        menu = {
+            "menu.foreground": color.text.normal,
+            "menu.background": color.ui.dropdownBg, // Background of a fly-out.
+            "menu.selectionForeground": color.text.inverse,
+            "menu.selectionBackground": color.primary,
+            //"menu.selectionBorder": "",
+            "menu.separatorBackground": color.ui.separator,
+            "menubar.selectionForeground": color.text.normal,
+            "menubar.selectionBackground": color.ui.hoverBgA, // Background of hover/active menu bar item.
+            //"menubar.selectionBorder": "",
+        };
+        commandBar = {
+            "quickInput.foreground": color.text.normal, // All text.
+            "quickInput.background": color.primaryBg,
+            "quickInputTitle.background": color.primaryBg,
+            "quickInputList.focusBackground": color.primary,
+            "quickInputList.focusForeground": color.text.inverse,
+            "quickInputList.focusIconForeground": color.text.inverse,
+            "pickerGroup.border": color.ui.separator, // Border between groups within the drop down.
+            "pickerGroup.foreground": color.primary, // The little text seen sometimes, e.g. `other commands`.
+        };
+
+        if (config.globalAccent == "disabledStatusBar") {
+            statusBar = {
+                "statusBar.foreground": color.text.normal,
+                "statusBar.background": color.ui.secondaryBg,
+                "statusBarItem.hoverBackground": color.ui.hoverBgA,
+                "statusBarItem.activeBackground": color.ui.activeBgA,
+                "statusBarItem.compactHoverBackground": color.ui.hoverBgA,
+                "statusBarItem.errorBackground": color.text.normal,
+                "statusBarItem.errorForeground": color.diag.error,
+                "statusBarItem.warningForeground": color.text.normal,
+                "statusBarItem.warningBackground": color.diag.warning,
+                "statusBarItem.prominentForeground": color.text.normal,
+                "statusBarItem.prominentBackground": color.diag.info,
+                "statusBarItem.prominentHoverBackground": color.ui.hoverBgA,
+                // Remote icon.
+                "statusBarItem.remoteForeground": color.primary,
+                "statusBarItem.remoteBackground": color.ui.secondaryBg,
+            };
+        } else {
+            statusBar = {
+                "statusBar.foreground": color.text.inverse,
+                "statusBar.background": color.primary,
+                "statusBarItem.hoverBackground": color.ui.statusHoverBgA,
+                "statusBarItem.activeBackground": color.ui.statusActiveBgA,
+                "statusBarItem.compactHoverBackground": color.ui.statusHoverBgA,
+                "statusBarItem.errorBackground": color.text.inverse,
+                "statusBarItem.errorForeground": color.primary,
+                "statusBarItem.warningForeground": color.text.inverse,
+                "statusBarItem.warningBackground": color.primary,
+                "statusBarItem.prominentForeground": color.text.inverse,
+                "statusBarItem.prominentBackground": color.primary,
+                "statusBarItem.prominentHoverBackground": color.ui.statusHoverBgA,
+                // Remote icon.
+                "statusBarItem.remoteForeground": color.text.inverse,
+                "statusBarItem.remoteBackground": color.ui.secondary,
+            };
+        }
+    }
+
     // Markdown plaintest styles.
     let mdStyles = markdownStyles(syntax, config.mutedMd);
 
@@ -414,17 +589,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "editorWidget.border": color.ui.border, // Horizontal line on the left of the widget.
             "editorWidget.resizeBorder": color.ui.border,
             // Intellisense widget
-            "editorSuggestWidget.foreground": color.text.normal, // All text.
-            "editorSuggestWidget.background": color.ui.secondaryBg,
-            "editorSuggestWidget.border": color.ui.border,
-            "editorSuggestWidget.highlightForeground": color.primary, // Matching letters in other entries.
-            "editorSuggestWidget.focusHighlightForeground": color.text.inverse, // Matching letters in currently selected entry.
-            "editorSuggestWidget.selectedBackground": color.primary, // Background of selected entry.
-            "editorSuggestWidget.selectedForeground": color.text.inverse, // Text in selected entry.
-            "editorSuggestWidget.selectedIconForeground": color.text.inverse, // Icon in selected entry.
+            ...widgets,
             // Hover/documentation widget
             "editorHoverWidget.foreground": color.text.normal,
-            "editorHoverWidget.background": color.ui.secondaryBg,
+            "editorHoverWidget.background": color.primaryBg,
             "editorHoverWidget.border": color.ui.border,
             "editorHoverWidget.highlightForeground": color.ui.secondary, // ???
             "editorHoverWidget.statusBarBackground": color.ui.tertiaryBg, // The bottom bar, e.g. `View problem, no fixes available`
@@ -447,8 +615,6 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "peekViewResult.background": color.ui.secondaryBg,
             "peekViewResult.fileForeground": color.text.emphasised, // File header text.
             "peekViewResult.lineForeground": color.text.normal, // Symbol text.
-            "peekViewResult.selectionForeground": color.text.emphasised, // Clicked entry.
-            "peekViewResult.selectionBackground": color.primary, // Clicked entry.
             "peekViewResult.matchHighlightBackground": color.text.matchBg, // Matching text in symbol.
             "peekView.border": color.diag.info,
             "peekViewTitle.background": color.diag.infoBg,
@@ -508,26 +674,20 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "dropdown.background": color.ui.inputBg, // Background of dropdown that's not open.
             "dropdown.listBackground": color.ui.inputBg, // Background of the list that opens.
             "dropdown.foreground": color.text.normal, // All text.
-            "dropdown.border": color.ui.border,
+            "dropdown.border": color.ui.border, // Border of the dropdown input itself, when not clicked.
             //
             // LISTS [x]
-            "list.activeSelectionBackground": color.primary,
-            "list.activeSelectionForeground": color.ui.inputBg,
-            "list.activeSelectionIconForeground": color.ui.inputBg, // Doesn't work?
+            ...list,
             //"list.focusOutline": "", // Outline of focused entry in list.
             "list.focusBackground": color.diag.selection, // Background colour of a focused list entry when searching & matching.
             "list.focusForeground": color.text.normal, // Text colour of a focused list entry when searching & matching.
-            "list.highlightForeground": color.text.normal, // E.g. matching text in the command palette.
-            "list.focusHighlightForeground": color.text.inverse, // E.g. matching text in the currently selected entry in the command palette.
             // Un-focused list
-            "list.inactiveSelectionBackground": color.ui.listInactiveBgA, // Colour of a selected item when the list is not actively selected.
             //"list.inactiveSelectionForeground": "",
             //"list.inactiveSelectionIconForeground": "",
             //"list.inactiveFocusOutline": "", //
             "list.inactiveFocusBackground": color.diag.selection, // ???
             // Other
             "list.dropBackground": color.ui.primaryDropBg,
-            "list.hoverBackground": color.ui.listHoverBgA, // Background on individual entry on hover.
             "list.errorForeground": color.diag.error, // Text colour when there's an error.
             "list.warningForeground": color.diag.warning, // Text colour when there's a warning.
             "list.deemphasizedForeground": color.text.muted,
@@ -569,8 +729,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "progressBar.background": color.primary,
             //
             // SMALL BADGES [x], e.g. # of changes in vcs panel, or # of problems
-            "badge.background": color.primary,
-            "badge.foreground": color.text.inverse,
+            ...badges,
             //
             //
             //
@@ -630,8 +789,6 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "activityBar.foreground": color.primary, // Icon selected/hover colour.
             "activityBar.inactiveForeground": color.ui.activityBarInactive, // Icon not-selected colour.
             //"activityBar.activeBackground": "", // Background of active icon.
-            "activityBarBadge.foreground": color.text.inverse,
-            "activityBarBadge.background": color.primary,
             "activityBar.activeBorder": color.primary, // Line next to active icon.
             //"activityBar.activeFocusBorder": "", // ???
             //
@@ -741,14 +898,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "notificationLink.foreground": color.ui.link, // ???
             //
             // DROP DOWN COMMAND BAR [x]
-            "quickInputTitle.background": color.ui.secondaryBg,
-            "quickInput.foreground": color.text.normal, // All text.
-            "quickInput.background": color.ui.secondaryBg,
-            "quickInputList.focusBackground": color.primary,
-            "quickInputList.focusForeground": color.text.inverse,
-            "quickInputList.focusIconForeground": color.text.inverse,
-            "pickerGroup.border": color.ui.secondaryBorder, // Border between groups within the drop down.
-            "pickerGroup.foreground": color.primary, // The little text seen sometimes, e.g. `other commands`.
+            ...commandBar,
             //
             //
             //
@@ -758,45 +908,22 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "titleBar.inactiveForeground": color.text.light,
             "titleBar.inactiveBackground": color.ui.secondaryBg,
             //"titleBar.border": "",
-            "menu.foreground": color.text.normal,
-            "menu.background": color.ui.dropdownBg, // Background of a fly-out.
-            "menu.selectionForeground": color.text.inverse,
-            "menu.selectionBackground": color.primary,
-            //"menu.selectionBorder": "",
-            "menu.separatorBackground": color.ui.separator,
-            "menubar.selectionForeground": color.text.normal,
-            "menubar.selectionBackground": color.ui.hoverBgA, // Background of hover/active menu bar item.
-            //"menubar.selectionBorder": "",
+            ...menu,
             //"window.activeBorder": "",
             //"window.inactiveBorder": "",
             "sash.hoverBorder": color.primary, // Dragable border to resize panes.
             //
             // BANNER [x]
-            "banner.foreground": color.text.inverse,
-            "banner.background": color.primary,
-            "banner.iconForeground": color.text.inverse,
+            ...banner,
             //
             // STATUS BAR [x]
-            "statusBar.foreground": color.text.inverse,
-            "statusBar.background": color.primary,
+            ...statusBar,
             //"statusBar.border": "",
-            "statusBarItem.hoverBackground": color.ui.statusHoverBgA,
-            "statusBarItem.activeBackground": color.ui.statusActiveBgA,
-            "statusBarItem.prominentForeground": color.text.inverse,
-            "statusBarItem.prominentBackground": color.primary,
-            "statusBarItem.prominentHoverBackground": color.ui.statusHoverBgA,
-            "statusBarItem.errorBackground": color.text.inverse,
-            "statusBarItem.errorForeground": color.primary,
-            "statusBarItem.warningForeground": color.text.inverse,
-            "statusBarItem.warningBackground": color.primary,
-            // Remote icon
-            "statusBarItem.remoteForeground": color.text.inverse,
-            "statusBarItem.remoteBackground": color.ui.secondary,
             // When no folder open.
             "statusBar.noFolderForeground": color.text.normal,
             "statusBar.noFolderBackground": color.ui.statusEmptyBg,
             //"statusBar.noFolderBorder": "",
-            // When debugging
+            // When debugging.
             "statusBar.debuggingForeground": color.text.inverse,
             "statusBar.debuggingBackground": color.ui.statusDebugBg,
             //"statusBar.debuggingBorder": "",

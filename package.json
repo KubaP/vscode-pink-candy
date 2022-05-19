@@ -115,6 +115,21 @@
                         "A lightly shaded background behind the inlay hint for better contrast.",
                         "An accent colour for the inlay hint text and a shaded background."
                     ]
+                },
+                "theme-pink-candy.globalAccent": {
+                    "type": "string",
+                    "default": "default",
+                    "description": "Controls where the accent colours are used.",
+                    "enum": [
+                        "default",
+                        "disabledStatusBar",
+                        "minimal"
+                    ],
+                    "markdownEnumDescriptions": [
+                        "The accent colours are used everywhere; this is the 'default' option.",
+                        "The accent colours are used everywhere *but* on the status bar.",
+                        "The accent colours are used only in a select few cases, such as buttons, links, important text, small decorations, etc."
+                    ]
                 }
             }
         }

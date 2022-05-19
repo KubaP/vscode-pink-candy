@@ -76,6 +76,65 @@ async function pickInlayStyle() {
     }
 }
 
+async function pickGlobalAccent() {
+    const config = vscode.workspace.getConfiguration("theme-pink-candy");
+
+    const option: string | undefined = config.get("globalAccent");
+    if (option === undefined) {
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.globalAccent'");
+        return;
+    }
+
+    // MAYBE: Replace this with the more advanced `window.createQuickPick` which allows setting the default
+    // selected entry for example.
+
+    // Note: The cases should match the configuration keys in `package.json`/`config.Accent`.
+    let placeHolder;
+    switch (option) {
+        case "default": placeHolder = "Currently selected: Default"; break;
+        case "disabledStatusBar": placeHolder = "Currently selected: Disabled for the status bar"; break;
+        case "minimal": placeHolder = "Currently selected: Minimal"; break;
+        default: placeHolder = "Currently selected: Invalid";
+    }
+
+    // Note: The keys should match the configuration keys in `package.json`/`config.Accent`.
+    const options = [
+        {
+            label: "Default",
+            detail: "The accent colours are used everywhere; this is the 'default' option.",
+            key: "default",
+        },
+        {
+            label: "Disabled for the status bar",
+            detail: "The accent colours are used everywhere _but_ on the status bar.",
+            key: "disabledStatusBar",
+        },
+        {
+            label: "Minimal",
+            detail: "The accent colours are used only in a select few cases, such as buttons, links, important text, small decorations, etc.",
+            key: "minimal",
+        }
+    ];
+
+    try {
+        const result = await vscode.window.showQuickPick(options, {
+            title: "Select where the accent colours are used",
+            canPickMany: false,
+            placeHolder,
+            onDidSelectItem: () => { }
+        });
+
+        if (result === undefined) {
+            // User quit the picker without selecting an option. Do nothing.
+            return;
+        }
+
+        config.update("globalAccent", result.key, true);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
 const toggleMutedMdCmd = vscode.commands.registerCommand("theme-pink-candy.toggleMutedMarkdown", () => {
     toggleBoolean("mutedMarkdownPlaintext");
 });
@@ -91,5 +150,8 @@ const toggleMonochromeBracketsCmd = vscode.commands.registerCommand("theme-pink-
 const pickInlayStyleCmd = vscode.commands.registerCommand("theme-pink-candy.pickInlayStyle", () => {
     pickInlayStyle();
 });
+const pickGlobalAccentCmd = vscode.commands.registerCommand("theme-pink-candy.pickGlobalAccent", () => {
+    pickGlobalAccent();
+})
 
-export { toggleMutedMdCmd, toggleItalicCommentsCmd, toggleAltCurrentLineCmd, toggleMonochromeBracketsCmd, pickInlayStyleCmd };
+export { toggleMutedMdCmd, toggleItalicCommentsCmd, toggleAltCurrentLineCmd, toggleMonochromeBracketsCmd, pickInlayStyleCmd, pickGlobalAccentCmd };

@@ -12,7 +12,6 @@ export const lightColors = {
 
         // Status bar foreground, intellisense matching letters, intellisense selected foreground, button text,
         // list selected text, badge foreground, command bar selected foreground, menu selected text, banner text,
-        // 
         inverse: "#FFFFFF",
 
         // Peek view title, peek view filenames,
@@ -76,6 +75,7 @@ export const lightColors = {
     diag: {
         // Ruler/minimap decorations, underline squiggles, error lens foregrounds, problem panel icons,
         // input validation foregrounds, notification icons, testing message foregrounds, peek view widget text,
+        // alternate status bar text,
         selection: "#FBCEE2", // +(list selected background)
         match: "#F0E657",
         bracket: "#7777775A", // bracket match
@@ -221,6 +221,10 @@ export const lightColors = {
         // Hover/active button overlays,
         hoverBgA: "#0000001A",
         activeBgA: "#0000002A",
+
+        // Hover applied on the `primaryBg`.
+        primaryHoverBgA: "#e6e6e7",
+        secondaryHoverBgA: "#dadada",
 
         // Hover/selected list overlay,
         listHoverBgA: "#0000001A",

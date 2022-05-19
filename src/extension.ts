@@ -29,6 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(command.toggleAltCurrentLineCmd);
 	context.subscriptions.push(command.toggleMonochromeBracketsCmd);
 	context.subscriptions.push(command.pickInlayStyleCmd);
+	context.subscriptions.push(command.pickGlobalAccentCmd);
 	vscode.workspace.onDidChangeConfiguration(onConfigChange)
 
 	const config = getConfig();

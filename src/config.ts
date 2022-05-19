@@ -10,6 +10,14 @@ function isValidStyle(str: string): str is InlayStyle {
 }
 
 /**
+ * Valid global accent options.
+ */
+type Accent = "default" | "disabledStatusBar" | "minimal";
+function isValidAccent(str: string): str is Accent {
+    return str == "default" || str == "disabledStatusBar" || str == "minimal";
+}
+
+/**
  * The configuration of the theme.
  */
 export class Config {
@@ -18,13 +26,15 @@ export class Config {
     altCurrentLine: boolean;
     monochromeBracketGuides: boolean;
     inlayStyle: InlayStyle;
+    globalAccent: Accent;
 
-    constructor(mutedMd: boolean, italicComments: boolean, altCurrentLine: boolean, monochromeBracketGuides: boolean, inlayStyle: InlayStyle) {
+    constructor(mutedMd: boolean, italicComments: boolean, altCurrentLine: boolean, monochromeBracketGuides: boolean, inlayStyle: InlayStyle, globalAccent: Accent) {
         this.mutedMd = mutedMd;
         this.italicComments = italicComments;
         this.altCurrentLine = altCurrentLine;
         this.inlayStyle = inlayStyle;
         this.monochromeBracketGuides = monochromeBracketGuides;
+        this.globalAccent = globalAccent;
     }
 }
 
@@ -71,5 +81,18 @@ export function getConfig(): Config {
         inlayStyle = "noBackground";
     }
 
-    return new Config(mutedMd, italicComments, altCurrentLine, monochromeBracketGuides, inlayStyle);
+    let globalAccent: Accent;
+    let globalAccentRaw: string | undefined = config.get("globalAccent");
+    if (globalAccentRaw === undefined) {
+        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.globalAccent'")
+        globalAccentRaw = "default";
+    }
+    if (isValidAccent(globalAccentRaw)) {
+        globalAccent = globalAccentRaw;
+    } else {
+        info.appendLine(`ERROR: Invalid value '${globalAccentRaw}' of 'theme-pink-candy.globalAccent'`)
+        globalAccent = "default";
+    }
+
+    return new Config(mutedMd, italicComments, altCurrentLine, monochromeBracketGuides, inlayStyle, globalAccent);
 }
