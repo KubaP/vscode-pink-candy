@@ -52,8 +52,13 @@ async function pickInlayStyle() {
         },
         {
             label: "Accent text",
-            detail: "An accent colour for the inlay hint text and a shaded background.",
+            detail: "An accent colour for the inlay hint text.",
             key: "accent",
+        },
+        {
+            label: "Accent text & faint background",
+            detail: "An accent colour for the inlay hint text and shaded background.",
+            key: "accentBackground",
         }
     ];
 

@@ -4,9 +4,9 @@ import { info } from "./extension";
 /**
  * Valid inlay hint styles.
  */
-type InlayStyle = "noBackground" | "faintBackground" | "accent";
+type InlayStyle = "noBackground" | "faintBackground" | "accent" | "accentBackground";
 function isValidStyle(str: string): str is InlayStyle {
-    return str == "noBackground" || str == "faintBackground" || str == "accent";
+    return str == "noBackground" || str == "faintBackground" || str == "accent" || str == "accentBackground";
 }
 
 /**

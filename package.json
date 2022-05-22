@@ -108,12 +108,14 @@
                     "enum": [
                         "noBackground",
                         "faintBackground",
-                        "accent"
+                        "accent",
+                        "accentBackground"
                     ],
                     "enumDescriptions": [
                         "No background behind the inlay hint; this is the 'default' option.",
                         "A lightly shaded background behind the inlay hint for better contrast.",
-                        "An accent colour for the inlay hint text and a shaded background."
+                        "An accent colour for the inlay hint text.",
+                        "An accent colour for the inlay hint text and shaded background."
                     ]
                 },
                 "theme-pink-candy.globalAccent": {

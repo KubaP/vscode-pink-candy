@@ -2,100 +2,141 @@ export const lightColors = {
     // Note: All non-alpha backgrounds are based on `primaryBg`.
 
     text: {
+        // Most ui text, text editor default text
         normal: "#565869",
 
-        // Text editor line numbers, suggestion ghost text, inactive tabs,
+        // Text editor line number, text editor suggestion ghost text, list deemphasized text, tab unfocused title,
+        // (??? x1)
         muted: "#ADB1C2",
 
-        // Breadcrumbs, general descriptions, unfocused titlebar,
+        // Breadcrumb text, general description text, titlebar unfocused text
         light: "#999999",
 
-        // Status bar foreground, intellisense matching letters, intellisense selected foreground, button text,
-        // list selected text, badge foreground, command bar selected foreground, menu selected text, banner text,
+        // Button text, extension button text, status bar when debugging text & icons
+        //
+        // DEFAULT: DISABLED_STATUS_BAR: Command bar & intellisense & list selected text & icon, badge text, banner
+        // text, menu selected text
+        //
+        // DEFAULT: Status bar text & icons
         inverse: "#FFFFFF",
 
-        // Peek view title, peek view filenames,
+        // Peek view selected text, peek view header text, peek view filename text, 
         emphasised: "#000000",
 
-        // Unnecessary text editor text,
+        // Text editor unnecessary text
         faded: "#000000C0",
 
         decoration: {
-            // Indentation guides, whitespace chars, rulers,
+            // Text editor whitespace chars, text editor indentation guides, text editor rulers
             light: "#CECECE",
-            // Current indentation guide, matching bracket border,
+
+            // Text editor matching bracket border, text editor corrent indentation guide
+            //
+            // MONO_GUIDES: Bracket match guides
             dark: "#AAAAAA",
-            // Codelens, inlay hints
+
+            // Codelens
+            //
+            // DEFAULT_INLAY: Inlay hint text
             codelens: "#747474",
 
-            // Inlay hint ALTERNATE style.
-            altInlay: "#565869",
-            altInlayBgA: "#0000000A",
-            // FIXME: Fill out colours
-            altInlayAccent: "#000",
-            altInlayAccentBgA: "#FF12771A",
+            // BCKG_INLAY: Inlay hint text
+            alt1Inlay: "#6c6e84",
+            // BCKG_INLAY: Inlay hint background
+            alt1InlayBgA: "#00000007",
+
+            // ACCENT_INLAY: Inlay hint text
+            alt2Inlay: "#fC9AC5", // FF12776A on primaryBg
+
+            // ACCENT_BCKG_INLAY: Inlay hint text
+            alt3Inlay: "#fC8CBD", // FF127767A on primaryBg
+            // ACCENT_BCKG_INLAY: Inlay hint background
+            alt3InlayBgA: "#FF127710",
         },
 
-        // Text editor current line, text editor folded line, hover over symbol background box,
-        currentLine: "#00000007",
-        // Text editor current line ALTERNATE style.
+        // Text editor folded line, text editor hover over symbol background box
+        //
+        // NORMAL_LINE: Text editor current line background
+        currentLineBgA: "#00000007",
+        // ALT_LINE: Text editor current line border
         currentLineBorder: "#00000010",
 
-        // General selection box background, input option, text editor selection boxes, terminal selection,
-        selectionBg: "#FBE3EE",
+        // Text editor selection background box, text editor matching text background box, text editor matching
+        // symbol background box, text editor selection boxes, general selection, input field, terminal selection,
+        selectionBg: "#FBE3EE", // FF12771A on primaryBg
         selectionBgA: "#FF12771A",
-        // Unfocused text editor selection boxes,
+        // Text editor unfocused selection background box, text editor find current range background box,
         secondarySelectionBgA: "#FF127710",
 
-        // Tabstop box backgrounds,
+        // Text editor tabstop background box
         tabstopBgA: "#FF12771A",
 
-        // Text editor & terminal highlight boxes, line background, search sidebar,
-        // peek view match highlight boxes, list filter match highlight boxes,
+        // Text editor & search sidebar find match background box, text editor match line background, peek view
+        // match background box, list filter widget background, list filter match background, terminal find match
+        // background box, (??? x1)
         matchBg: "#F7F9CB",
         matchBgA: "#EFF3283A",
+
+        // Text editor & search sidebar find match border, peek view match border, list filter match border,
+        // terminal find match border,
         matchBorder: "#11C678",
         matchBorderA: "#11C67820",
     },
 
-    // Cursor, editor line number, breadcrumbs focus text/background, intellisense widget matching text,
-    // intellisense widget selected background, peek view selected background, focused borders, button background,
-    // checkbox tick, list selected background, progress bar, badge background, focused tab indicator,
-    // activity bar drop border, activity bar active icon, modified setting indicator,  active panel indicator, 
-    // command bar selected background, menu selected background, border drag, banner background,
-    // status bar background, terminal cursor,
-    primary: "#FF1277",
-    primaryHover: "#DA005F",
+    accent: {
+        // Cursor, text editor current line number, text editor ctrl+click, breadcrumb focused/active text, link
+        // text, border of focused elements, button background, extension button background, checkbox tick,
+        // progress bar, tab focused indicator, activity bar hover/active icon, activity bar active border,
+        // settings modified indicator, panel active title, panel active indicator, border when draggable, command
+        // bar grouping text, intellisense widget matching text, (??? x1)
+        //
+        // DEFAULT: DISABLED_STATUS_BAR: List & command bar currently selected background, intellisense widget
+        // selected background, peek view widget selected background, badge background, banner background, menu
+        // selected background
+        //
+        // DEFAULT: status bar background
+        //
+        // DISABLED_STATUS_BAR: MINIMAL: status bar remote icon
+        //
+        // MINIMAL: list & command bar matching text, badge text
+        primary: "#FF1277",
+        primaryHover: "#DA005F",
 
-    // Text editor, gutter, minimap, breadcrumbs, peek view text editor, empty editor group, panel, terminal,
-    // active tab, hover tab, zen mode sides, activity bar, welcome page, tutorial page, notifications,
-    // drag-and-drop prompt,
-    primaryBg: "#FAFBFC",
+        // Button background, codeblock text, (??? x1)
+        //
+        // DEFAULT: status bar remote background
+        secondary: "#09A1ED",
+        secondaryHover: "#0784C2",
+    },
 
     diag: {
-        // Ruler/minimap decorations, underline squiggles, error lens foregrounds, problem panel icons,
-        // input validation foregrounds, notification icons, testing message foregrounds, peek view widget text,
-        // alternate status bar text,
-        selection: "#FBCEE2", // +(list selected background)
-        match: "#F0E657",
-        bracket: "#7777775A", // bracket match
-        hint: "#11C678",
-        info: "#00B7E4", // +(peek view)
-        warning: "#FF942F", // +(list warning foreground)
-        error: "#FF1277", // +(general error text foreground, bracket foreground mismatch, list error foreground, confusing unicode highlighting)
+        // Ruler markers, minimap markers, 
+        selection: "#FBCEE2", // +(list search match background, ??? x1)
+        match: "#F0E657", // +(marker for currently selected @SYMBOL)
+        bracket: "#7777775A",
 
-        // Error lens line backgrounds, testing message backgrounds, peek view backgrounds,
-        // input validation backgrounds,
+        // Error lens text, error lens gutter icons, peek view border, input validation text & border, testing
+        // message line text (info+error), text editor underline squiggles, problems panel icons, ruler markers,
+        // minimap markers, notification icons, 
+        //
+        // DISABLED_STATUS_BAR: MINIMAL: Status bar text & icons,
+        hint: "#11C678",
+        info: "#00B7E4", // +(general peek view, status bar prominent if applicable)
+        warning: "#FF942F", // +(list warning text)
+        error: "#FF1277", // +(general error text, bracket mismatch foreground, list error text, list invalid text, list no matches, confusing unicode highlighting border)
+
+        // Error lens line background, peek view header background, input validation background, testing message
+        // line background (info+error),
         hintBg: "#DCF5EB",
         hintBgA: "#11C67820",
-        infoBg: "#DAF3F9",
-        infoBgA: "#00B7E420",
+        infoBg: "#DAF3F9", // +(general peek view)
+        infoBgA: "#00B7E420", // +(general peek view)
         warningBg: "#FBEEE1",
         warningBgA: "#FF942F20",
         errorBg: "#FBE3EE",
-        errorBgA: "#FF12771A",
+        errorBgA: "#FF12771A", // +(confusing unicode highlighting)
 
-        // Testing icons,
+        // Test status icons
         testPassed: "#11C678",
         testQueued: "#00B7E4",
         testFailed: "#FF1277",
@@ -104,23 +145,22 @@ export const lightColors = {
     },
 
     git: {
-        // File names, ruler/gutter/minimap decorations (where relevant),
+        // Ruler markers, minimap markers, gutter markers, file names
         addedOrStaged: "#11C678",
         modified: "#00B7E4",
         renamed: "#13BBB7",
         untracked: "#C75AF3",
         removedOrConflicting: "#FF1277",
         ignoredOrSubmodule: "#ADB1C2",
-
-        // Diff viewer line backgrounds,
-        insertedBgA: "#11C6782A", // Entire modified line #d3f2e6 Added #b2ead3
-        removedBgA: "#FF127720", // Entire modified line #fbddea Removed #fcc2db
-        diffDiagonal: "#ADB1C288",
-
-        // Conflict viewer ruler decorations,
         current: "#11C678",
         incoming: "#00B7E4",
-        // Conflict viewer line backgrounds,
+
+        // Diff viewer line backgrounds
+        insertedBgA: "#11C6782A", // Entire modified line #d3f2e6 Specifically added #b2ead3
+        removedBgA: "#FF127720", // Entire modified line #fbddea Specifically removed #fcc2db
+        diffDiagonal: "#ADB1C288",
+
+        // Conflict viewer line backgrounds
         currentBgA: "#11C6782A",
         currentHeaderBgA: "#11C6786A",
         incomingBgA: "#09A1ED2A",
@@ -128,20 +168,20 @@ export const lightColors = {
     },
 
     debug: {
-        // Debug toolbar icons.
+        // Debug toolbar icons
         start: "#11C678",
         pause: "#FF942F",
         step: "#00B7E4",
         stop: "#FF1277",
 
-        // Gutter breakpoints.
+        // Gutter icons
         breakpoint: "#FF1277",
         breakpointDisabled: "#ADB1C2",
 
-        // Exception widget background.
+        // Exception widget background
         exceptionBg: "#F7F9CB",
 
-        // Console colors.
+        // Debug console text
         info: "#09A1ED",
         warning: "#FF5C57",
         error: "#FF2E87",
@@ -150,120 +190,122 @@ export const lightColors = {
     },
 
     terminal: {
-        // Command decoration icons,
+        // Command decoration icons
         default: "#ADB1C2",
         success: "#11C678",
         error: "#FF1277",
 
         background: "#FAFBFC",
         foreground: "#333333", // 0m (foreground)
-        ansiBlack: "#000", // 30m
-        ansiBrightBlack: "#666", // 30;1m
+        ansiBlack: "#000000", // 30m
+        ansiBrightBlack: "#666666", // 30;1m
         ansiWhite: "#FAFBFC", //37m (background)
-        ansiBrightWhite: "#000", // (technicall 37;1m but vscode also applies this to just bold 1m)
-        ansiBlue: "#0f7cd7",
+        ansiBrightWhite: "#000000", // (technicall 37;1m but vscode also applies this to just bold 1m, hence it's black)
+        ansiBlue: "#0F7CD7",
         ansiBrightBlue: "#09A1ED",
-        ansiCyan: "#1ea0aa",
+        ansiCyan: "#1EA0AA",
         ansiBrightCyan: "#13BBB7",
-        ansiGreen: "#1ea330",
-        ansiBrightGreen: "#30b95e",
-        ansiYellow: "#c07205",
+        ansiGreen: "#1EA330",
+        ansiBrightGreen: "#30B95E",
+        ansiYellow: "#C07205",
         ansiBrightYellow: "#CF9C00",
-        ansiRed: "#ff0046",
-        ansiBrightRed: "#ff3a70",
-        ansiMagenta: "#b016ee",
-        ansiBrightMagenta: "#c75af3",
+        ansiRed: "#FF0046",
+        ansiBrightRed: "#FF3A70",
+        ansiMagenta: "#B016EE",
+        ansiBrightMagenta: "#C75AF3",
     },
 
     ui: {
-        // Widgets, find & replace pop-up, peek view list, inactive tab, tab header, sidebar,
-        // panel section headers, debug toolbar (+border), notification centre header, command bar,
-        // titlebar, drag prompt,
+        // Intellisense widget, command bar, text editor, text editor block cursor char, text editor gutter, text
+        // editor minimap, breacrumbs, hover widget, peek view text editor, peek view text gutter, tab empty group,
+        // tab drop-into promp, tab active background, tab hover background, tab zen mode sides, activity bar
+        // background, welcome page background, panel background, notification background, 
+        // 
+        // MINIMAL: Badge background,
+        primaryBg: "#FAFBFC",
+
+        // Widgets, hover widget status bar, peek view list, tab row background, tab row empty background, tab
+        // inactive background, tab unfocused background, sidebar background, panel section header background,
+        // debug toolbar background & border, notification centre header, titlebar
+        //
+        // DISABLED_STATUS_BAR: MINIMAL: Status bar background, status bar remote icon background,
         secondaryBg: "#F3F3F3",
 
-        // Sidebar section headers, widget status bar,
+        // Sidebar section header background
         tertiaryBg: "#E5E5E5",
 
-        // Breadcrumbs, menus, any buttons which dropdown etc,
+        // Breadcrumb, menu, any button which dropdowns
         dropdownBg: "#FAFBFC",
 
-        // Checkbox, dropdown (+list), text input,
+        // Checkbox, dropdown (+list), input field,
         inputBg: "#FAFBFC",
 
-        // Editor groups, sidebar panes, panels, 
+        // Tab group, sidebar pane, panel section, terminal, list
         primaryDropBg: "#FF12771A",
 
-        // Panel, panel section header, terminal, settings page, peek view, sidebar, text input, tab groups,
-        // dropdown, checkbox, hover widgets, exception widget, ruler, drag prompt,
+        // All borders
         border: "#CECECE",
 
-        // Command bar, notifications,
-        secondaryBorder: "#D0D1D2",
-
-        // Menu separator
+        // Menu separator, command bar group separator
         separator: "#CECECE",
 
+        // Border between pinned and non-pinned tabs
         tabSeparator: "#999999",
 
-        // Input foreground,
+        // Input field foreground
         placeholderText: "#CECECE",
 
-        codeblock: "#09A1ED",
-
-        // Normal links, notification links, text editor ctrl+click symbol,
-        link: "#FF1277",
-        linkHover: "#DA005F",
-
-        // Button background, remote status button background,
-        secondary: "#09A1ED",
-        secondaryHover: "#0784C2",
-
-        // Hover/active button overlays,
+        // Menu, little buttons, lists
+        //
+        // DISABLED_STATUS_BAR: MINIMAL: Status bar button overlays,
         hoverBgA: "#0000001A",
         activeBgA: "#0000002A",
 
-        // Hover applied on the `primaryBg`.
-        primaryHoverBgA: "#e6e6e7",
-        secondaryHoverBgA: "#dadada",
-
-        // Hover/selected list overlay,
+        // List
+        //
+        // MINIMAL: List unfocused selected overlay
         listHoverBgA: "#0000001A",
+        // DEFAULT: DISABLED_STATUS_BAR: List unfocused selected overlay
         listInactiveBgA: "#FF12771A",
-        // Tree indent guide,
+
+        // List, intellisense widget, peek view result, menu bar, command bar
+        selectedBg: "#E6E6E7",
+
+        // Tree indent guide
         treeIndent: "#D0D1D2",
 
-        // Scrollbar/minimap handle overlays,
+        // Scrollbar/minimap handle overlays
         scrollBgA: "#00000010",
         scrollHoverBgA: "#0000001F",
         scrollActiveBgA: "#0000002F",
 
-        // Shadow whenever some scrollable element is scrolled, shadows around widgets,
+        // Shadow whenever some scrollable element is scrolled, shadows around open widgets
         shadow: "#0000002F",
 
-        // Status bar during debugging,
+        // Status bar during debugging background
         statusDebugBg: "#11C678",
-        // Status bar when no folder is open,
+        // Status bar when no folder is open background
         statusEmptyBg: "#E5E5E5",
-        // Hover/active button overlays,
+        // DEFAULT: Status bar hover/active button overlays
         statusHoverBgA: "#0000002F",
         statusActiveBgA: "#0000004F",
 
-        // Unfocused active tab indicator,
+        // Tab unfocused indicator
         unfocusedTab: "#FFA2CA",
 
-        // Inactive icons,
+        // Activity bar inactive icon
         activityBarInactive: "#BFC0C7",
 
-        // Code actions icon,
+        // Code actions icon
         lightBulb: "#FFC104",
 
-        // Extension badge icons,
+        // Extension badge icons
         star: "#FFC104",
         remote: "#09A1ED",
         verified: "#11C678",
         prerelease: "#FF942F",
 
-        // Chart colours,
+        // Chart colours
         chartLine: "#565869",
         chartBlue: "#09A1ED",
         chartGreen: "#2DAE58",

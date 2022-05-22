@@ -24,6 +24,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 
     // Output the appropriate error lens keys.
     let errorLens;
+    let errorLensStatusBar;
     if (type == "light") {
         errorLens = {
             "errorLens.infoForegroundLight": color.diag.info,
@@ -34,12 +35,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "errorLens.warningBackgroundLight": color.diag.warningBgA,
             "errorLens.errorForegroundLight": color.diag.error,
             "errorLens.errorBackgroundLight": color.diag.errorBgA,
-            "errorLens.statusBarIconWarningForeground": color.text.inverse,
-            "errorLens.statusBarIconErrorForeground": color.text.inverse,
-            "errorLens.statusBarInfoForeground": color.text.inverse,
-            "errorLens.statusBarHintForeground": color.text.inverse,
-            "errorLens.statusBarWarningForeground": color.text.inverse,
-            "errorLens.statusBarErrorForeground": color.text.inverse,
+            // Gutter icons.
             "errorLens.infoGutterIconColor": color.diag.info,
             "errorLens.warningGutterIconColor": color.diag.warning,
             "errorLens.errorGutterIconColor": color.diag.error,
@@ -54,15 +50,29 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "errorLens.warningBackground": color.diag.warningBgA,
             "errorLens.errorForeground": color.diag.error,
             "errorLens.errorBackground": color.diag.errorBgA,
-            "errorLens.statusBarIconWarningForeground": color.text.inverse,
-            "errorLens.statusBarIconErrorForeground": color.text.inverse,
-            "errorLens.statusBarInfoForeground": color.text.inverse,
-            "errorLens.statusBarHintForeground": color.text.inverse,
-            "errorLens.statusBarWarningForeground": color.text.inverse,
-            "errorLens.statusBarErrorForeground": color.text.inverse,
+            // Gutter icons.
             "errorLens.infoGutterIconColor": color.diag.info,
             "errorLens.warningGutterIconColor": color.diag.warning,
             "errorLens.errorGutterIconColor": color.diag.error,
+        };
+    }
+    if (config.globalAccent == "default") {
+        errorLensStatusBar = {
+            "errorLens.statusBarHintForeground": color.text.inverse,
+            "errorLens.statusBarInfoForeground": color.text.inverse,
+            "errorLens.statusBarWarningForeground": color.text.inverse,
+            "errorLens.statusBarIconWarningForeground": color.text.inverse,
+            "errorLens.statusBarErrorForeground": color.text.inverse,
+            "errorLens.statusBarIconErrorForeground": color.text.inverse,
+        };
+    } else {
+        errorLensStatusBar = {
+            "errorLens.statusBarHintForeground": color.diag.hint,
+            "errorLens.statusBarInfoForeground": color.diag.info,
+            "errorLens.statusBarWarningForeground": color.diag.warning,
+            "errorLens.statusBarIconWarningForeground": color.diag.warning,
+            "errorLens.statusBarErrorForeground": color.diag.error,
+            "errorLens.statusBarIconErrorForeground": color.diag.error,
         };
     }
 
@@ -168,7 +178,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
         };
     } else {
         currentLine = {
-            "editor.lineHighlightBackground": color.text.currentLine, // Current line background colour.
+            "editor.lineHighlightBackground": color.text.currentLineBgA, // Current line background colour.
             "editor.lineHighlightBorder": "#00000000", // Remove current line border.
         };
     }
@@ -189,23 +199,34 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
         }
         case "faintBackground": {
             inlay = {
-                "editorInlayHint.foreground": color.text.decoration.altInlay,
-                "editorInlayHint.background": color.text.decoration.altInlayBgA,
-                "editorInlayHint.typeForeground": color.text.decoration.altInlay,
-                "editorInlayHint.typeBackground": color.text.decoration.altInlayBgA,
-                "editorInlayHint.parameterForeground": color.text.decoration.altInlay,
-                "editorInlayHint.parameterBackground": color.text.decoration.altInlayBgA,
+                "editorInlayHint.foreground": color.text.decoration.alt1Inlay,
+                "editorInlayHint.background": color.text.decoration.alt1InlayBgA,
+                "editorInlayHint.typeForeground": color.text.decoration.alt1Inlay,
+                "editorInlayHint.typeBackground": color.text.decoration.alt1InlayBgA,
+                "editorInlayHint.parameterForeground": color.text.decoration.alt1Inlay,
+                "editorInlayHint.parameterBackground": color.text.decoration.alt1InlayBgA,
             };
             break;
         }
         case "accent": {
             inlay = {
-                "editorInlayHint.foreground": color.text.decoration.altInlayAccent,
-                "editorInlayHint.background": color.text.decoration.altInlayAccentBgA,
-                "editorInlayHint.typeForeground": color.text.decoration.altInlayAccent,
-                "editorInlayHint.typeBackground": color.text.decoration.altInlayAccentBgA,
-                "editorInlayHint.parameterForeground": color.text.decoration.altInlayAccent,
-                "editorInlayHint.parameterBackground": color.text.decoration.altInlayAccentBgA,
+                "editorInlayHint.foreground": color.text.decoration.alt2Inlay,
+                "editorInlayHint.background": "#00000000",
+                "editorInlayHint.typeForeground": color.text.decoration.alt2Inlay,
+                "editorInlayHint.typeBackground": "#00000000",
+                "editorInlayHint.parameterForeground": color.text.decoration.alt2Inlay,
+                "editorInlayHint.parameterBackground": "#00000000",
+            };
+            break;
+        }
+        case "accentBackground": {
+            inlay = {
+                "editorInlayHint.foreground": color.text.decoration.alt3Inlay,
+                "editorInlayHint.background": color.text.decoration.alt3InlayBgA,
+                "editorInlayHint.typeForeground": color.text.decoration.alt3Inlay,
+                "editorInlayHint.typeBackground": color.text.decoration.alt3InlayBgA,
+                "editorInlayHint.parameterForeground": color.text.decoration.alt3Inlay,
+                "editorInlayHint.parameterBackground": color.text.decoration.alt3InlayBgA,
             };
             break;
         }
@@ -254,50 +275,51 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
     let statusBar;
     let commandBar;
     if (config.globalAccent == "minimal") {
+        // MINIMAL
         statusBar = {
             "statusBar.foreground": color.text.normal,
             "statusBar.background": color.ui.secondaryBg,
             "statusBarItem.hoverBackground": color.ui.hoverBgA,
             "statusBarItem.activeBackground": color.ui.activeBgA,
             "statusBarItem.compactHoverBackground": color.ui.hoverBgA,
-            "statusBarItem.errorBackground": color.text.normal,
             "statusBarItem.errorForeground": color.diag.error,
-            "statusBarItem.warningForeground": color.text.normal,
-            "statusBarItem.warningBackground": color.diag.warning,
-            "statusBarItem.prominentForeground": color.text.normal,
-            "statusBarItem.prominentBackground": color.diag.info,
+            "statusBarItem.errorBackground": color.ui.secondaryBg,
+            "statusBarItem.warningForeground": color.diag.warning,
+            "statusBarItem.warningBackground": color.ui.secondaryBg,
+            "statusBarItem.prominentForeground": color.diag.info,
+            "statusBarItem.prominentBackground": color.ui.secondaryBg,
             "statusBarItem.prominentHoverBackground": color.ui.hoverBgA,
             // Remote icon.
-            "statusBarItem.remoteForeground": color.primary,
+            "statusBarItem.remoteForeground": color.accent.primary,
             "statusBarItem.remoteBackground": color.ui.secondaryBg,
         };
         list = {
             "list.hoverBackground": color.ui.listHoverBgA, // Background on individual entry on hover.
-            "list.activeSelectionBackground": color.ui.primaryHoverBgA,
+            "list.activeSelectionBackground": color.ui.selectedBg,
             "list.activeSelectionForeground": color.text.normal,
             "list.activeSelectionIconForeground": color.text.normal, // Doesn't work?
             "list.inactiveSelectionBackground": color.ui.listHoverBgA, // Colour of a selected item when the list is not actively selected.
-            "list.highlightForeground": color.primary, // E.g. matching text in the command palette.
+            "list.highlightForeground": color.accent.primary, // E.g. matching text in the command palette.
             "list.focusHighlightForeground": color.text.normal, // E.g. matching text in the currently selected entry in the command palette.
         };
         widgets = {
             "editorSuggestWidget.foreground": color.text.normal, // All text.
-            "editorSuggestWidget.background": color.primaryBg,
+            "editorSuggestWidget.background": color.ui.primaryBg,
             "editorSuggestWidget.border": color.ui.border,
-            "editorSuggestWidget.highlightForeground": color.primary, // Matching letters in other entries.
+            "editorSuggestWidget.highlightForeground": color.accent.primary, // Matching letters in other entries.
             "editorSuggestWidget.focusHighlightForeground": color.text.normal, // Matching letters in currently selected entry.
-            "editorSuggestWidget.selectedBackground": color.ui.primaryHoverBgA, // Background of selected entry.
+            "editorSuggestWidget.selectedBackground": color.ui.selectedBg, // Background of selected entry.
             "editorSuggestWidget.selectedForeground": color.text.normal, // Text in selected entry.
             "editorSuggestWidget.selectedIconForeground": color.text.normal, // Icon in selected entry.
             //
             "peekViewResult.selectionForeground": color.text.normal, // Clicked entry.
-            "peekViewResult.selectionBackground": color.ui.primaryHoverBgA, // Clicked entry.
+            "peekViewResult.selectionBackground": color.ui.selectedBg, // Clicked entry.
         };
         badges = {
-            "badge.foreground": color.primary,
-            "badge.background": color.primaryBg,
-            "activityBarBadge.foreground": color.primary,
-            "activityBarBadge.background": color.primaryBg,
+            "badge.foreground": color.accent.primary,
+            "badge.background": color.ui.primaryBg,
+            "activityBarBadge.foreground": color.accent.primary,
+            "activityBarBadge.background": color.ui.primaryBg,
         };
         banner = {
             "banner.foreground": color.text.normal,
@@ -308,7 +330,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "menu.foreground": color.text.normal,
             "menu.background": color.ui.dropdownBg, // Background of a fly-out.
             "menu.selectionForeground": color.text.normal,
-            "menu.selectionBackground": color.ui.primaryHoverBgA,
+            "menu.selectionBackground": color.ui.selectedBg,
             //"menu.selectionBorder": "",
             "menu.separatorBackground": color.ui.separator,
             "menubar.selectionForeground": color.text.normal,
@@ -317,53 +339,54 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
         };
         commandBar = {
             "quickInput.foreground": color.text.normal, // All text.
-            "quickInput.background": color.primaryBg,
-            "quickInputTitle.background": color.primaryBg,
-            "quickInputList.focusBackground": color.ui.primaryHoverBgA,
+            "quickInput.background": color.ui.primaryBg,
+            "quickInputTitle.background": color.ui.primaryBg,
+            "quickInputList.focusBackground": color.ui.selectedBg,
             "quickInputList.focusForeground": color.text.normal,
             "quickInputList.focusIconForeground": color.text.normal,
             "pickerGroup.border": color.ui.separator, // Border between groups within the drop down.
-            "pickerGroup.foreground": color.primary, // The little text seen sometimes, e.g. `other commands`.
+            "pickerGroup.foreground": color.accent.primary, // The little text seen sometimes, e.g. `other commands`.
         };
     } else {
+        // DEFAULT + DISABLED_STATUS_BAR
         list = {
             "list.hoverBackground": color.ui.listHoverBgA, // Background on individual entry on hover.
-            "list.activeSelectionBackground": color.primary,
+            "list.activeSelectionBackground": color.accent.primary,
             "list.activeSelectionForeground": color.text.inverse,
             "list.activeSelectionIconForeground": color.text.inverse, // Doesn't work?
             "list.inactiveSelectionBackground": color.ui.listInactiveBgA, // Colour of a selected item when the list is not actively selected.
-            "list.highlightForeground": color.text.normal, // E.g. matching text in the command palette.
+            "list.highlightForeground": color.accent.primary, // E.g. matching text in the command palette.
             "list.focusHighlightForeground": color.text.inverse, // E.g. matching text in the currently selected entry in the command palette.
         };
         widgets = {
             "editorSuggestWidget.foreground": color.text.normal, // All text.
-            "editorSuggestWidget.background": color.primaryBg,
+            "editorSuggestWidget.background": color.ui.primaryBg,
             "editorSuggestWidget.border": color.ui.border,
-            "editorSuggestWidget.highlightForeground": color.primary, // Matching letters in other entries.
+            "editorSuggestWidget.highlightForeground": color.accent.primary, // Matching letters in other entries.
             "editorSuggestWidget.focusHighlightForeground": color.text.inverse, // Matching letters in currently selected entry.
-            "editorSuggestWidget.selectedBackground": color.primary, // Background of selected entry.
+            "editorSuggestWidget.selectedBackground": color.accent.primary, // Background of selected entry.
             "editorSuggestWidget.selectedForeground": color.text.inverse, // Text in selected entry.
             "editorSuggestWidget.selectedIconForeground": color.text.inverse, // Icon in selected entry.
             //
             "peekViewResult.selectionForeground": color.text.emphasised, // Clicked entry.
-            "peekViewResult.selectionBackground": color.primary, // Clicked entry.
+            "peekViewResult.selectionBackground": color.accent.primary, // Clicked entry.
         };
         badges = {
             "badge.foreground": color.text.inverse,
-            "badge.background": color.primary,
+            "badge.background": color.accent.primary,
             "activityBarBadge.foreground": color.text.inverse,
-            "activityBarBadge.background": color.primary,
+            "activityBarBadge.background": color.accent.primary,
         };
         banner = {
             "banner.foreground": color.text.inverse,
-            "banner.background": color.primary,
+            "banner.background": color.accent.primary,
             "banner.iconForeground": color.text.inverse,
         };
         menu = {
             "menu.foreground": color.text.normal,
             "menu.background": color.ui.dropdownBg, // Background of a fly-out.
             "menu.selectionForeground": color.text.inverse,
-            "menu.selectionBackground": color.primary,
+            "menu.selectionBackground": color.accent.primary,
             //"menu.selectionBorder": "",
             "menu.separatorBackground": color.ui.separator,
             "menubar.selectionForeground": color.text.normal,
@@ -372,50 +395,52 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
         };
         commandBar = {
             "quickInput.foreground": color.text.normal, // All text.
-            "quickInput.background": color.primaryBg,
-            "quickInputTitle.background": color.primaryBg,
-            "quickInputList.focusBackground": color.primary,
+            "quickInput.background": color.ui.primaryBg,
+            "quickInputTitle.background": color.ui.primaryBg,
+            "quickInputList.focusBackground": color.accent.primary,
             "quickInputList.focusForeground": color.text.inverse,
             "quickInputList.focusIconForeground": color.text.inverse,
             "pickerGroup.border": color.ui.separator, // Border between groups within the drop down.
-            "pickerGroup.foreground": color.primary, // The little text seen sometimes, e.g. `other commands`.
+            "pickerGroup.foreground": color.accent.primary, // The little text seen sometimes, e.g. `other commands`.
         };
 
         if (config.globalAccent == "disabledStatusBar") {
+            // DISABLED_STATUS_BAR
             statusBar = {
                 "statusBar.foreground": color.text.normal,
                 "statusBar.background": color.ui.secondaryBg,
                 "statusBarItem.hoverBackground": color.ui.hoverBgA,
                 "statusBarItem.activeBackground": color.ui.activeBgA,
                 "statusBarItem.compactHoverBackground": color.ui.hoverBgA,
-                "statusBarItem.errorBackground": color.text.normal,
                 "statusBarItem.errorForeground": color.diag.error,
-                "statusBarItem.warningForeground": color.text.normal,
-                "statusBarItem.warningBackground": color.diag.warning,
-                "statusBarItem.prominentForeground": color.text.normal,
-                "statusBarItem.prominentBackground": color.diag.info,
+                "statusBarItem.errorBackground": color.ui.secondaryBg,
+                "statusBarItem.warningForeground": color.diag.warning,
+                "statusBarItem.warningBackground": color.ui.secondaryBg,
+                "statusBarItem.prominentForeground": color.diag.info,
+                "statusBarItem.prominentBackground": color.ui.secondaryBg,
                 "statusBarItem.prominentHoverBackground": color.ui.hoverBgA,
                 // Remote icon.
-                "statusBarItem.remoteForeground": color.primary,
+                "statusBarItem.remoteForeground": color.accent.primary,
                 "statusBarItem.remoteBackground": color.ui.secondaryBg,
             };
         } else {
+            // DEFAULT
             statusBar = {
                 "statusBar.foreground": color.text.inverse,
-                "statusBar.background": color.primary,
+                "statusBar.background": color.accent.primary,
                 "statusBarItem.hoverBackground": color.ui.statusHoverBgA,
                 "statusBarItem.activeBackground": color.ui.statusActiveBgA,
                 "statusBarItem.compactHoverBackground": color.ui.statusHoverBgA,
-                "statusBarItem.errorBackground": color.text.inverse,
-                "statusBarItem.errorForeground": color.primary,
+                "statusBarItem.errorForeground": color.text.inverse,
+                "statusBarItem.errorBackground": color.accent.primary,
                 "statusBarItem.warningForeground": color.text.inverse,
-                "statusBarItem.warningBackground": color.primary,
+                "statusBarItem.warningBackground": color.accent.primary,
                 "statusBarItem.prominentForeground": color.text.inverse,
-                "statusBarItem.prominentBackground": color.primary,
+                "statusBarItem.prominentBackground": color.accent.primary,
                 "statusBarItem.prominentHoverBackground": color.ui.statusHoverBgA,
                 // Remote icon.
                 "statusBarItem.remoteForeground": color.text.inverse,
-                "statusBarItem.remoteBackground": color.ui.secondary,
+                "statusBarItem.remoteBackground": color.accent.secondary,
             };
         }
     }
@@ -430,20 +455,20 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             // EDITOR
             // Basics
             "editor.foreground": color.text.normal,
-            "editor.background": color.primaryBg,
+            "editor.background": color.ui.primaryBg,
             "errorForeground": color.diag.error,
             "editorUnicodeHighlight.border": color.diag.error, // Highlight potentially confusing unicode characters.
             "editorUnicodeHighlight.background": color.diag.errorBgA,
             "widget.shadow": color.ui.shadow,
             //
             // Cursor/line
-            "editorCursor.foreground": color.primary,
-            "editorCursor.background": color.text.inverse, // Colour of a character when using block cursor.
+            "editorCursor.foreground": color.accent.primary,
+            "editorCursor.background": color.ui.primaryBg, // Colour of a character when using block cursor.
             ...currentLine,
             "editorLineNumber.foreground": color.text.muted, // Line number colour in the gutter.
-            "editorLineNumber.activeForeground": color.primary, // Current line number colour in the gutter.
-            "editor.foldBackground": color.text.currentLine, // Colour of a line containing a folded range.
-            "editor.hoverHighlightBackground": color.text.currentLine, // Background when hovering over a symbol.
+            "editorLineNumber.activeForeground": color.accent.primary, // Current line number colour in the gutter.
+            "editor.foldBackground": color.text.currentLineBgA, // Colour of a line containing a folded range.
+            "editor.hoverHighlightBackground": color.text.currentLineBgA, // Background when hovering over a symbol.
             //
             // Text selection boxes/ranges
             "editor.selectionBackground": color.text.selectionBgA, // Background of selected text.
@@ -459,9 +484,9 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //"editor.wordHighlightStrongBorder": "",
             //
             // Search highlight boxes
-            "editor.findMatchBackground": "#00000000", // Currently selected found match. Set to 0 so that it doesn't multiple with findMatchHighlightBackground.
+            "editor.findMatchBackground": "#00000000", // Currently selected found match. Set to 0 so that it doesn't multiply with findMatchHighlightBackground.
             "editor.findMatchBorder": color.text.matchBorderA,
-            "editor.findMatchHighlightBackground": color.text.matchBgA, // Other found matches.
+            "editor.findMatchHighlightBackground": color.text.matchBgA, // Found match(es)
             //"editor.findMatchHighlightBorder": "",
             "editor.findRangeHighlightBackground": color.text.secondarySelectionBgA, // Colour of the range of the current search.
             //"editor.findRangeHighlightBorder": "",
@@ -503,7 +528,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //"editorGhostText.border": "",
             //
             // Other
-            "editorLink.activeForeground": color.ui.link, // When ctrl+hovering over a symbol.
+            "editorLink.activeForeground": color.accent.primary, // When ctrl+hovering over a symbol.
             "editorLightBulb.foreground": color.ui.lightBulb, // Colour of the light-bulb.
             "editorLightBulbAutoFix.foreground": color.ui.lightBulb, // ???
             //
@@ -535,12 +560,13 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //
             // ERROR LENS [x]
             ...errorLens,
+            ...errorLensStatusBar,
             //
             // RULER [x]
             //"editorOverviewRuler.background": "",
             "editorOverviewRuler.border": color.ui.border, // Border between scroll-bar and editor.
             "editorOverviewRuler.findMatchForeground": color.diag.match, // Matching text through find/replace.
-            "editorOverviewRuler.rangeHighlightForeground": color.text.secondarySelectionBgA, // Range of selected symbol, e.g. picking symbol with @NAME
+            "editorOverviewRuler.rangeHighlightForeground": color.diag.match, // Range of selected symbol, e.g. picking symbol with @NAME
             "editorOverviewRuler.selectionHighlightForeground": color.diag.selection, // Symbol at current cursor position..
             "editorOverviewRuler.wordHighlightForeground": color.diag.selection, // Matching symbol at position.
             "editorOverviewRuler.wordHighlightStrongForeground": color.diag.selection, // ???
@@ -554,7 +580,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //
             // GUTTER [x]
             // TODO: Gutter - pull request comment annotations
-            "editorGutter.background": color.primaryBg,
+            "editorGutter.background": color.ui.primaryBg,
             "editorGutter.addedBackground": color.git.addedOrStaged, // Added strip.
             "editorGutter.modifiedBackground": color.git.modified, // Modified strip.
             "editorGutter.deletedBackground": color.git.removedOrConflicting, // Removed mark.
@@ -562,7 +588,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //"editorGutter.foldingControlForeground": "", // Arrow for folding code ranges.
             //
             // MINIMAP [x]
-            "minimap.background": color.primaryBg,
+            "minimap.background": color.ui.primaryBg,
             //"minimap.foregroundOpacity": "", // ???
             "minimap.selectionHighlight": color.diag.selection, // Selection & current line
             "minimap.findMatchHighlight": color.diag.match, // Matching lines from find/replace.
@@ -578,9 +604,9 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //
             // BREADCRUMBS [x]
             "breadcrumb.foreground": color.text.light,
-            "breadcrumb.background": color.primaryBg,
-            "breadcrumb.focusForeground": color.primary,
-            "breadcrumb.activeSelectionForeground": color.primary,
+            "breadcrumb.background": color.ui.primaryBg,
+            "breadcrumb.focusForeground": color.accent.primary,
+            "breadcrumb.activeSelectionForeground": color.accent.primary,
             "breadcrumbPicker.background": color.ui.dropdownBg,
             // WIDGETS [x], 
             // Pop-up widgets, e.g. find & replace dialogue.
@@ -592,15 +618,15 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             ...widgets,
             // Hover/documentation widget
             "editorHoverWidget.foreground": color.text.normal,
-            "editorHoverWidget.background": color.primaryBg,
+            "editorHoverWidget.background": color.ui.primaryBg,
             "editorHoverWidget.border": color.ui.border,
-            "editorHoverWidget.highlightForeground": color.ui.secondary, // ???
-            "editorHoverWidget.statusBarBackground": color.ui.tertiaryBg, // The bottom bar, e.g. `View problem, no fixes available`
+            "editorHoverWidget.highlightForeground": color.accent.secondary, // ???
+            "editorHoverWidget.statusBarBackground": color.ui.secondaryBg, // The bottom bar, e.g. `View problem, no fixes available`
             // Debug Exception widget
             "debugExceptionWidget.background": color.debug.exceptionBg,
             "debugExceptionWidget.border": color.ui.border,
             // Peek view errors/warnings
-            "editorMarkerNavigation.background": color.primaryBg,
+            "editorMarkerNavigation.background": color.ui.primaryBg,
             "editorMarkerNavigationInfo.background": color.diag.info,
             "editorMarkerNavigationInfo.headerBackground": color.diag.infoBg,
             "editorMarkerNavigationWarning.background": color.diag.warning,
@@ -608,10 +634,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "editorMarkerNavigationError.background": color.diag.error,
             "editorMarkerNavigationError.headerBackground": color.diag.errorBg,
             // Peek view normal
-            "peekViewEditor.background": color.primaryBg,
+            "peekViewEditor.background": color.ui.primaryBg,
             "peekViewEditor.matchHighlightBackground": color.text.matchBg, // Matching text in symbol.
             "peekViewEditor.matchHighlightBorder": color.text.matchBorderA, // Matching text border.
-            "peekViewEditorGutter.background": color.primaryBg,
+            "peekViewEditorGutter.background": color.ui.primaryBg,
             "peekViewResult.background": color.ui.secondaryBg,
             "peekViewResult.fileForeground": color.text.emphasised, // File header text.
             "peekViewResult.lineForeground": color.text.normal, // Symbol text.
@@ -644,24 +670,24 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //
             //
             // GENERAL TEXT
-            "textLink.foreground": color.ui.link, // Link colour.
-            "textLink.activeForeground": color.ui.linkHover, // Link hover/active colour.
+            "textLink.foreground": color.accent.primary, // Link colour.
+            "textLink.activeForeground": color.accent.primaryHover, // Link hover/active colour.
             "descriptionForeground": color.text.light,
-            "textPreformat.foreground": color.ui.codeblock, // Code block text
+            "textPreformat.foreground": color.accent.secondary, // Code block text
             //
             // SELECTION
-            "focusBorder": color.primary, // Border colour of focused panes/panels.
+            "focusBorder": color.accent.primary, // Border colour of focused panes/panels.
             "selection.background": color.text.selectionBg,
             //
             // BUTTONS [x]
             "button.foreground": color.text.inverse,
-            "button.background": color.primary,
-            "button.hoverBackground": color.primaryHover,
+            "button.background": color.accent.primary,
+            "button.hoverBackground": color.accent.primaryHover,
             "button.secondaryForeground": color.text.inverse, // Secondary button, e.g. `Cancel` on a delete file dialogue.
-            "button.secondaryBackground": color.ui.secondary,
-            "button.secondaryHoverBackground": color.ui.secondaryHover,
+            "button.secondaryBackground": color.accent.secondary,
+            "button.secondaryHoverBackground": color.accent.secondaryHover,
             //"button.border": "",
-            "checkbox.foreground": color.primary, // Colour of the tick itself.
+            "checkbox.foreground": color.accent.primary, // Colour of the tick itself.
             "checkbox.background": color.ui.inputBg,
             "checkbox.border": color.ui.border,
             // All sorts of buttons everywhere, e.g. the little `...`, or the `show diff`, or the `vcs commit` buttons.
@@ -726,7 +752,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "scrollbarSlider.activeBackground": color.ui.scrollActiveBgA, // Held-down.
             //
             // PROGRESS BAR [x], e.g. vsc panel refresh/pull/push animation
-            "progressBar.background": color.primary,
+            "progressBar.background": color.accent.primary,
             //
             // SMALL BADGES [x], e.g. # of changes in vcs panel, or # of problems
             ...badges,
@@ -742,22 +768,22 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "editorGroup.tabsBorder": "#00000000", // Border below the tab row.
             "editorGroupHeader.border": "#00000000", // Border underneath the tabs & breadcrumbs, if enabled.
             //
-            "editorGroup.emptyBackground": color.primaryBg, // Background of empty editor pane.
+            "editorGroup.emptyBackground": color.ui.primaryBg, // Background of empty editor pane.
             //
             "editorGroup.dropIntoPromptForeground": color.text.normal,
-            "editorGroup.dropIntoPromptBackground": color.primaryBg,
+            "editorGroup.dropIntoPromptBackground": color.ui.primaryBg,
             "editorGroup.dropIntoPromptBorder": "#00000000",
             // Individual tabs
             "tab.border": "#00000000", // | Borders between tabs |
             //
             "tab.activeForeground": color.text.normal,
-            "tab.activeBackground": color.primaryBg,
+            "tab.activeBackground": color.ui.primaryBg,
             "tab.unfocusedActiveForeground": color.text.muted,
-            "tab.unfocusedActiveBackground": color.primaryBg,
+            "tab.unfocusedActiveBackground": color.ui.primaryBg,
             "tab.activeBorder": "#00000000", // Bottom border for active tab.
             "tab.unfocusedActiveBorder": "#00000000",
-            "tab.activeBorderTop": color.primary, // Top border for active tab.
-            "tab.unfocusedActiveBorderTop": color.unfocusedTab,
+            "tab.activeBorderTop": color.accent.primary, // Top border for active tab.
+            "tab.unfocusedActiveBorderTop": color.ui.unfocusedTab,
             //
             "tab.lastPinnedBorder": color.ui.tabSeparator, // Border between pinned and non-pinned tabs.
             //
@@ -768,8 +794,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //
             "tab.hoverForeground": color.text.normal, // Text when hovering over a tab.
             "tab.unfocusedHoverForeground": color.text.normal, // Text when hovering over a tab.
-            "tab.hoverBackground": color.primaryBg, // Background when hovering over a tab.
-            "tab.unfocusedHoverBackground": color.primaryBg,
+            "tab.hoverBackground": color.ui.primaryBg, // Background when hovering over a tab.
+            "tab.unfocusedHoverBackground": color.ui.primaryBg,
             "tab.hoverBorder": "#00000000",
             "tab.unfocusedHoverBorder": "#00000000",
             //
@@ -778,18 +804,18 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "tab.inactiveModifiedBorder": "#00000000",
             "tab.unfocusedInactiveModifiedBorder": "#00000000",
             //
-            "editorPane.background": color.primaryBg, // Background to the left/right side when the editor pane is centred.
+            "editorPane.background": color.ui.primaryBg, // Background to the left/right side when the editor pane is centred.
             "sideBySideEditor.horizontalBorder": color.ui.border,
             "sideBySideEditor.verticalBorder": color.ui.border,
             //
             // ACTIVITY BAR [x], icons on the left/right
-            "activityBar.background": color.primaryBg, // Background of the entire bar.
-            "activityBar.dropBorder": color.primary, // Colour for when re-arranging icons.
+            "activityBar.background": color.ui.primaryBg, // Background of the entire bar.
+            "activityBar.dropBorder": color.accent.primary, // Colour for when re-arranging icons.
             //"activityBar.border": "", // Border between bar and sidebar.
-            "activityBar.foreground": color.primary, // Icon selected/hover colour.
+            "activityBar.foreground": color.accent.primary, // Icon selected/hover colour.
             "activityBar.inactiveForeground": color.ui.activityBarInactive, // Icon not-selected colour.
             //"activityBar.activeBackground": "", // Background of active icon.
-            "activityBar.activeBorder": color.primary, // Line next to active icon.
+            "activityBar.activeBorder": color.accent.primary, // Line next to active icon.
             //"activityBar.activeFocusBorder": "", // ???
             //
             // SIDEBAR [x]
@@ -809,38 +835,38 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "extensionBadge.remoteForeground": color.text.inverse,
             "extensionBadge.remoteBackground": color.ui.remote,
             "extensionButton.prominentForeground": color.text.inverse, // `Install` button
-            "extensionButton.prominentBackground": color.primary,
-            "extensionButton.prominentHoverBackground": color.primaryHover,
+            "extensionButton.prominentBackground": color.accent.primary,
+            "extensionButton.prominentHoverBackground": color.accent.primaryHover,
             //
             // VCS SIDEBAR [x]
             "scm.providerBorder": color.ui.border,
             //
             // SETTINGS PAGE [x]
             "settings.headerForeground": color.text.normal, // Titles and headings
-            "settings.modifiedItemIndicator": color.primary, // Strip at the side of any modified settings.
+            "settings.modifiedItemIndicator": color.accent.primary, // Strip at the side of any modified settings.
             "settings.rowHoverBackground": "#00000000", // Background colour of the currently active setting.
             "settings.focusedRowBackground": "#00000000",
             "settings.focusedRowBorder": color.ui.border,
             //
             // WELCOME PAGE [x]
-            "welcomePage.background": color.primaryBg,
+            "welcomePage.background": color.ui.primaryBg,
             //"welcomePage.progress.foreground": "",
             //"welcomePage.progress.background": "",
             //"welcomePage.tileBackground": "",
             //"welcomePage.tileHoverBackground": "",
             //"welcomePage.tileShadow": "",
-            "walkThrough.embeddedEditorBackground": color.primaryBg,
+            "walkThrough.embeddedEditorBackground": color.ui.primaryBg,
             //
             // TODO: NOTEBOOK PAGE 
             //
             // PANEL [x]
-            "panel.background": color.primaryBg,
+            "panel.background": color.ui.primaryBg,
             "panel.border": color.ui.border, // Border between panel and main editor pane.
             "panelSection.border": color.ui.border,
             //"panelInput.border": "", // ???
             //"panel.dropBorder": "", // ???
-            "panelTitle.activeForeground": color.primary, // Panel tabs, e.g. `Problems` or `Terminal`.
-            "panelTitle.activeBorder": color.primary, // Active tab underline.
+            "panelTitle.activeForeground": color.accent.primary, // Panel tabs, e.g. `Problems` or `Terminal`.
+            "panelTitle.activeBorder": color.accent.primary, // Active tab underline.
             "panelTitle.inactiveForeground": color.text.normal,
             "panelSectionHeader.background": color.ui.secondaryBg, // E.g. `Debug Console` and `Output` panels in tab.
             "panelSectionHeader.foreground": color.text.normal,
@@ -886,16 +912,16 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //
             // NOTIFICATIONS [x]
             //"notifications.foreground": "",
-            "notifications.background": color.primaryBg,
+            "notifications.background": color.ui.primaryBg,
             //"notificationToast.border": "", // Border of notification pop-ups.
-            "notifications.border": color.ui.secondaryBorder, // Border between notifications in notification centre.
+            "notifications.border": color.ui.border, // Border between notifications in notification centre.
             "notificationCenterHeader.background": color.ui.secondaryBg,
             "notificationCenterHeader.foreground": color.text.normal,
             //"notificationCenter.border": "", // Border of notification centre pop-up.
             "notificationsInfoIcon.foreground": color.diag.info,
             "notificationsWarningIcon.foreground": color.diag.warning,
             "notificationsErrorIcon.foreground": color.diag.error,
-            "notificationLink.foreground": color.ui.link, // ???
+            "notificationLink.foreground": color.accent.primary, // ???
             //
             // DROP DOWN COMMAND BAR [x]
             ...commandBar,
@@ -911,7 +937,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             ...menu,
             //"window.activeBorder": "",
             //"window.inactiveBorder": "",
-            "sash.hoverBorder": color.primary, // Dragable border to resize panes.
+            "sash.hoverBorder": color.accent.primary, // Dragable border to resize panes.
             //
             // BANNER [x]
             ...banner,
@@ -1018,8 +1044,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "terminalCommandDecoration.successBackground": color.terminal.success,
             "terminalCommandDecoration.errorBackground": color.terminal.error,
             //
-            "terminalCursor.foreground": color.primary,
-            "terminalCursor.background": color.primaryBg, // Colour of text when selected by block cursor.
+            "terminalCursor.foreground": color.accent.primary,
+            "terminalCursor.background": color.ui.primaryBg, // Colour of text when selected by block cursor.
             //
             "terminal.dropBackground": color.ui.primaryDropBg, // // Background for re-organising stacked terminals.
             "terminal.tab.activeBorder": color.ui.border, // ???
@@ -1042,42 +1068,42 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             // _TODO TREE [x]
             "todo-tree.highlights.customHighlight": {
                 "TODO": {
-                    "foreground": color.primaryBg,
+                    "foreground": color.ui.primaryBg,
                     "background": color.todo.todo,
                     "icon": "checklist",
                     "iconColour": color.todo.todo,
                     "gutterIcon": true
                 },
                 "FIXME": {
-                    "foreground": color.primaryBg,
+                    "foreground": color.ui.primaryBg,
                     "background": color.todo.fixme,
                     "icon": "tools",
                     "iconColour": color.todo.fixme,
                     "gutterIcon": true
                 },
                 "BUG": {
-                    "foreground": color.primaryBg,
+                    "foreground": color.ui.primaryBg,
                     "background": color.todo.bug,
                     "icon": "alert",
                     "iconColour": color.todo.bug,
                     "gutterIcon": true
                 },
                 "HACK": {
-                    "foreground": color.primaryBg,
+                    "foreground": color.ui.primaryBg,
                     "background": color.todo.hack,
                     "icon": "flame",
                     "iconColour": color.todo.hack,
                     "gutterIcon": true
                 },
                 "MAYBE": {
-                    "foreground": color.primaryBg,
+                    "foreground": color.ui.primaryBg,
                     "background": color.todo.maybe,
                     "icon": "info",
                     "iconColour": color.todo.maybe,
                     "gutterIcon": true
                 },
                 "[ ]": {
-                    "foreground": color.primaryBg,
+                    "foreground": color.ui.primaryBg,
                     "background": color.todo.unchecked,
                     "icon": "checklist",
                     "iconColour": color.todo.unchecked,
@@ -1085,7 +1111,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
                 },
                 "[x]": {
                     "foreground": color.todo.checked,
-                    "background": color.primaryBg,
+                    "background": color.ui.primaryBg,
                     "icon": "checklist",
                     "iconColour": color.todo.checked,
                     "gutterIcon": true
