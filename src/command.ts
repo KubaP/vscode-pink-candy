@@ -1,5 +1,4 @@
 import * as vscode from "vscode";
-import { info } from "./extension";
 
 /**
  * Toggles a configuration boolean option.
@@ -10,7 +9,6 @@ function toggleBoolean(name: string) {
 
     const toggle: boolean | undefined = config.get(name);
     if (toggle === undefined) {
-        info.appendLine(`ERROR: Could not find value of 'theme-pink-candy.${name}'`);
         return;
     }
 
@@ -22,7 +20,6 @@ async function pickInlayStyle() {
 
     const style: string | undefined = config.get("inlayHintStyle");
     if (style === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.inlayHintStyle'");
         return;
     }
 
@@ -35,6 +32,7 @@ async function pickInlayStyle() {
         case "noBackground": placeHolder = "Currently selected: No background"; break;
         case "faintBackground": placeHolder = "Currently selected: Faint background"; break;
         case "accent": placeHolder = "Currently selected: Accent text"; break;
+        case "accentBackground": placeHolder = "Currently selected: Accent text & faint background"; break;
         default: placeHolder = "Currently selected: Invalid";
     }
 
@@ -86,7 +84,6 @@ async function pickGlobalAccent() {
 
     const option: string | undefined = config.get("globalAccent");
     if (option === undefined) {
-        info.appendLine("ERROR: Could not find value of 'theme-pink-candy.globalAccent'");
         return;
     }
 
@@ -111,7 +108,7 @@ async function pickGlobalAccent() {
         },
         {
             label: "Disabled for the status bar",
-            detail: "The accent colours are used everywhere _but_ on the status bar.",
+            detail: "The accent colours are used everywhere but on the status bar.",
             key: "disabledStatusBar",
         },
         {

@@ -4,9 +4,13 @@ import { Config } from "./config";
 import { lightColors, lightSyntax } from "./light";
 import { darkColors, darkSyntax } from "./dark";
 
+/**
+ * Creates the theme `.json` files.
+ * @param config The current configuration.
+ */
 export function createThemes(config: Config) {
-    createTheme("TEST", "light", "TEST.json", lightColors, lightSyntax, config);
-    createTheme("TEST-DARK", "dark", "TEST-DARK.json", darkColors, darkSyntax, config);
+    createTheme("Pink Candy Light", "light", "pink-candy-light.json", lightColors, lightSyntax, config);
+    createTheme("Pink Candy Dark", "dark", "pink-candy-dark.json", darkColors, darkSyntax, config);
 }
 
 function createTheme(name: string, type: string, file: string, color: any, syntax: any, config: Config) {
@@ -21,7 +25,6 @@ function createTheme(name: string, type: string, file: string, color: any, synta
 }
 
 function generateTheme(color: any, syntax: any, name: string, type: string, config: Config) {
-
     // Output the appropriate error lens keys.
     let errorLens;
     let errorLensStatusBar;
