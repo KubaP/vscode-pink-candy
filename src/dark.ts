@@ -57,7 +57,7 @@ export const darkColors = {
         // Text editor folded line, text editor hover over symbol background box
         //
         // NORMAL_LINE: Text editor current line background
-        currentLine: "#FFFFFF07",
+        currentLineBgA: "#FFFFFF07",
         // ALT_LINE: Text editor current line border
         currentLineBorder: "#FFFFFF10",
 
@@ -101,6 +101,7 @@ export const darkColors = {
         // MINIMAL: list & command bar matching text, badge text
         primary: "#FF1277",
         primaryHover: "#DA005F",
+        linkHover: "#ff4c98",
 
         // Button background, codeblock text, (??? x1)
         //
@@ -222,23 +223,23 @@ export const darkColors = {
         // background, welcome page background, panel background, notification background, 
         // 
         // MINIMAL: Badge background,
-        primaryBg: "#22252A",
+        primaryBg: "#22222A",
 
         // Widgets, hover widget status bar, peek view list, tab row background, tab row empty background, tab
         // inactive background, tab unfocused background, sidebar background, panel section header background,
         // debug toolbar background & border, notification centre header, titlebar
         //
         // DISABLED_STATUS_BAR: MINIMAL: Status bar background, status bar remote icon background,
-        secondaryBg: "#1D2024",
+        secondaryBg: "#1E1D24",
 
         // Sidebar section header background
-        tertiaryBg: "#141619",
+        tertiaryBg: "#151419",
 
         // Breadcrumb, menu, any button which dropdowns
-        dropdownBg: "#22252A",
+        dropdownBg: "#22222A",
 
         // Checkbox, dropdown (+list), input field,
-        inputBg: "#22252A",
+        inputBg: "#22222A",
 
         // Tab group, sidebar pane, panel section, terminal, list
         primaryDropBg: "#FF4C981A",
@@ -246,33 +247,30 @@ export const darkColors = {
         // All borders
         border: "#3D434F",
 
-        // Menu separator, command bar group separator
+        // Menu separator, command bar group separator, border between pinned and non-pinned tabs
         separator: "#3D434F",
 
-        // Border between pinned and non-pinned tabs
-        tabSeparator: "#5A6374",
-
         // Input field foreground
-        placeholderText: "#4D5665",
+        placeholderText: "#595e67",
 
-        // Menu, little buttons, lists
+        // Little buttons, titlebar menu buttons
         //
-        // DISABLED_STATUS_BAR: MINIMAL: Status bar button overlays,
+        // DISABLED_STATUS_BAR: MINIMAL: Status bar hover/active button overlays
         hoverBgA: "#FFFFFF1A",
         activeBgA: "#FFFFFF2A",
 
-        // List
+        // Lists, command bar hover
         //
         // MINIMAL: List unfocused selected overlay
         listHoverBgA: "#FFFFFF1A",
         // DEFAULT: DISABLED_STATUS_BAR: List unfocused selected overlay
         listInactiveBgA: "#FF4C981A",
 
-        // List, intellisense widget, peek view result, menu bar, command bar
-        selectedBg: "#393B40",
+        // Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar
+        selectedBg: "#2f2f37", // FFFFFF10 on primaryBg
 
         // Tree indent guide
-        treeIndent: "#3D434F",
+        treeIndent: "#454c59",
 
         // Scrollbar/minimap handle overlays
         scrollBgA: "#FFFFFF10",

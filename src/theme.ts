@@ -460,6 +460,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "editorUnicodeHighlight.border": color.diag.error, // Highlight potentially confusing unicode characters.
             "editorUnicodeHighlight.background": color.diag.errorBgA,
             "widget.shadow": color.ui.shadow,
+            "disabledForeground": color.ui.placeholderText, // Disabled text, e.g. disable menu dropdown entries.
             //
             // Cursor/line
             "editorCursor.foreground": color.accent.primary,
@@ -671,7 +672,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //
             // GENERAL TEXT
             "textLink.foreground": color.accent.primary, // Link colour.
-            "textLink.activeForeground": color.accent.primaryHover, // Link hover/active colour.
+            "textLink.activeForeground": color.accent.linkHover, // Link hover/active colour.
             "descriptionForeground": color.text.light,
             "textPreformat.foreground": color.accent.secondary, // Code block text
             //
@@ -785,7 +786,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "tab.activeBorderTop": color.accent.primary, // Top border for active tab.
             "tab.unfocusedActiveBorderTop": color.ui.unfocusedTab,
             //
-            "tab.lastPinnedBorder": color.ui.tabSeparator, // Border between pinned and non-pinned tabs.
+            "tab.lastPinnedBorder": color.ui.border, // Border between pinned and non-pinned tabs.
             //
             "tab.inactiveForeground": color.text.muted,
             "tab.inactiveBackground": color.ui.secondaryBg,

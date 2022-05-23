@@ -101,6 +101,7 @@ export const lightColors = {
         // MINIMAL: list & command bar matching text, badge text
         primary: "#FF1277",
         primaryHover: "#DA005F",
+        linkHover: "#DA005F",
 
         // Button background, codeblock text, (??? x1)
         //
@@ -246,33 +247,30 @@ export const lightColors = {
         // All borders
         border: "#CECECE",
 
-        // Menu separator, command bar group separator
+        // Menu separator, command bar group separator, border between pinned and non-pinned tabs
         separator: "#CECECE",
 
-        // Border between pinned and non-pinned tabs
-        tabSeparator: "#999999",
-
         // Input field foreground
-        placeholderText: "#CECECE",
+        placeholderText: "#BEBEBE",
 
-        // Menu, little buttons, lists
+        // Little buttons, titlebar menu buttons
         //
-        // DISABLED_STATUS_BAR: MINIMAL: Status bar button overlays,
+        // DISABLED_STATUS_BAR: MINIMAL: Status bar hover/active button overlays
         hoverBgA: "#0000001A",
         activeBgA: "#0000002A",
 
-        // List
+        // Lists, command bar hover
         //
         // MINIMAL: List unfocused selected overlay
         listHoverBgA: "#0000001A",
         // DEFAULT: DISABLED_STATUS_BAR: List unfocused selected overlay
         listInactiveBgA: "#FF12771A",
 
-        // List, intellisense widget, peek view result, menu bar, command bar
-        selectedBg: "#E6E6E7",
+        // Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar
+        selectedBg: "#EBECED", // 00000010 on primaryBg
 
         // Tree indent guide
-        treeIndent: "#D0D1D2",
+        treeIndent: "#c7c9ca",
 
         // Scrollbar/minimap handle overlays
         scrollBgA: "#00000010",
