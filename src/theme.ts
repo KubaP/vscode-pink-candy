@@ -674,7 +674,11 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "textLink.foreground": color.accent.primary, // Link colour.
             "textLink.activeForeground": color.accent.linkHover, // Link hover/active colour.
             "descriptionForeground": color.text.light,
-            "textPreformat.foreground": color.accent.secondary, // Code block text
+            "textPreformat.foreground": color.accent.secondary, // Inline code block text.
+            "textCodeBlock.background": color.ui.secondaryBg, // Code block background.
+            "textBlockQuote.background": color.ui.secondaryBg, // Block quote background.
+            "textBlockQuote.border": color.accent.primary, // Block quote left border.
+            "textSeparator.foreground": color.ui.separator, // ???
             //
             // SELECTION
             "focusBorder": color.accent.primary, // Border colour of focused panes/panels.
@@ -851,11 +855,11 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //
             // WELCOME PAGE [x]
             "welcomePage.background": color.ui.primaryBg,
-            //"welcomePage.progress.foreground": "",
-            //"welcomePage.progress.background": "",
-            //"welcomePage.tileBackground": "",
-            //"welcomePage.tileHoverBackground": "",
-            //"welcomePage.tileShadow": "",
+            "welcomePage.progress.foreground": color.accent.primary,
+            "welcomePage.progress.background": color.ui.primaryBg,
+            "welcomePage.tileBackground": color.ui.secondaryBg,
+            "welcomePage.tileHoverBackground": color.ui.selectedSecondaryBg,
+            "welcomePage.tileShadow": color.ui.shadow,
             "walkThrough.embeddedEditorBackground": color.ui.primaryBg,
             //
             // TODO: NOTEBOOK PAGE 
@@ -926,6 +930,12 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             //
             // DROP DOWN COMMAND BAR [x]
             ...commandBar,
+            "keybindingLabel.foreground": color.text.normal,
+            "keybindingLabel.background": color.ui.selectedBgA,
+            //"keybindingLabel.border": "", // Border when option is selected in command bar.
+            //"keybindingLabel.bottomBorder": "",
+            "keybindingTable.headerBackground": color.ui.secondaryBg,
+            "keybindingTable.rowsBackground": color.ui.secondaryBg, // Background of every other row.
             //
             //
             //

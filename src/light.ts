@@ -88,7 +88,8 @@ export const lightColors = {
         // text, border of focused elements, button background, extension button background, checkbox tick,
         // progress bar, tab focused indicator, activity bar hover/active icon, activity bar active border,
         // settings modified indicator, panel active title, panel active indicator, border when draggable, command
-        // bar grouping text, intellisense widget matching text, (??? x1)
+        // bar grouping text, intellisense widget matching text, block quote left border, welcome page progress
+        // bar, (??? x1)
         //
         // DEFAULT: DISABLED_STATUS_BAR: List & command bar currently selected background, intellisense widget
         // selected background, peek view widget selected background, badge background, banner background, menu
@@ -227,7 +228,8 @@ export const lightColors = {
 
         // Widgets, hover widget status bar, peek view list, tab row background, tab row empty background, tab
         // inactive background, tab unfocused background, sidebar background, panel section header background,
-        // debug toolbar background & border, notification centre header, titlebar
+        // debug toolbar background & border, notification centre header, titlebar, block quote background,
+        // code-block background, keybind table header backgrounds, keybind table even row background
         //
         // DISABLED_STATUS_BAR: MINIMAL: Status bar background, status bar remote icon background,
         secondaryBg: "#F3F3F3",
@@ -247,7 +249,7 @@ export const lightColors = {
         // All borders
         border: "#CECECE",
 
-        // Menu separator, command bar group separator, border between pinned and non-pinned tabs
+        // Menu separator, command bar group separator, border between pinned and non-pinned tabs, (??? x1)
         separator: "#CECECE",
 
         // Input field foreground
@@ -266,11 +268,16 @@ export const lightColors = {
         // DEFAULT: DISABLED_STATUS_BAR: List unfocused selected overlay
         listInactiveBgA: "#FF12771A",
 
+        // Keybind background
+        selectedBgA: "#00000010",
+
         // Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar
         selectedBg: "#EBECED", // 00000010 on primaryBg
+        // Welcome page tile on hover
+        selectedSecondaryBg: "#DADADA", // 00000010 on secondaryBg
 
         // Tree indent guide
-        treeIndent: "#c7c9ca",
+        treeIndent: "#C7C9CA",
 
         // Scrollbar/minimap handle overlays
         scrollBgA: "#00000010",

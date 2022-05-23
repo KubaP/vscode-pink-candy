@@ -88,7 +88,8 @@ export const darkColors = {
         // text, border of focused elements, button background, extension button background, checkbox tick,
         // progress bar, tab focused indicator, activity bar hover/active icon, activity bar active border,
         // settings modified indicator, panel active title, panel active indicator, border when draggable, command
-        // bar grouping text, intellisense widget matching text, (??? x1)
+        // bar grouping text, intellisense widget matching text, block quote left border, welcome page progress
+        // bar, (??? x1)
         //
         // DEFAULT: DISABLED_STATUS_BAR: List & command bar currently selected background, intellisense widget
         // selected background, peek view widget selected background, badge background, banner background, menu
@@ -227,7 +228,8 @@ export const darkColors = {
 
         // Widgets, hover widget status bar, peek view list, tab row background, tab row empty background, tab
         // inactive background, tab unfocused background, sidebar background, panel section header background,
-        // debug toolbar background & border, notification centre header, titlebar
+        // debug toolbar background & border, notification centre header, titlebar, block quote background,
+        // code-block background, keybind table header backgrounds, keybind table even row background
         //
         // DISABLED_STATUS_BAR: MINIMAL: Status bar background, status bar remote icon background,
         secondaryBg: "#1E1D24",
@@ -247,11 +249,11 @@ export const darkColors = {
         // All borders
         border: "#3D434F",
 
-        // Menu separator, command bar group separator, border between pinned and non-pinned tabs
+        // Menu separator, command bar group separator, border between pinned and non-pinned tabs, (??? x1)
         separator: "#3D434F",
 
         // Input field foreground
-        placeholderText: "#595e67",
+        placeholderText: "#595E67",
 
         // Little buttons, titlebar menu buttons
         //
@@ -266,11 +268,16 @@ export const darkColors = {
         // DEFAULT: DISABLED_STATUS_BAR: List unfocused selected overlay
         listInactiveBgA: "#FF4C981A",
 
+        // Keybind background
+        selectedBgA: "#FFFFFF10",
+
         // Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar
-        selectedBg: "#2f2f37", // FFFFFF10 on primaryBg
+        selectedBg: "#2F2F37", // FFFFFF10 on primaryBg
+        // Welcome page tile on hover
+        selectedSecondaryBg: "#35343A", // FFFFFF10 on secondaryBg
 
         // Tree indent guide
-        treeIndent: "#454c59",
+        treeIndent: "#454C59",
 
         // Scrollbar/minimap handle overlays
         scrollBgA: "#FFFFFF10",
