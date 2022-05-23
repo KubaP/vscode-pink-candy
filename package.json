@@ -94,7 +94,7 @@
                 "theme-pink-candy.alternateCurrentLineStyle": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Controls whether the current line uses an alternate appearance (outlined instead of filled in)."
+                    "description": "Controls whether the current-line uses an alternate appearance (outlined instead of filled in)."
                 },
                 "theme-pink-candy.monochromeBracketPairGuides": {
                     "type": "boolean",

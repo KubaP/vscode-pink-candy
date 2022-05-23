@@ -1,5 +1,5 @@
 # Syntax Highlighting Examples
-Screenshots of syntax highlighting in a selection of languages, with light and dark themes side-by-side.
+Screenshots of syntax highlighting in a selection of languages, with the light and dark themes side-by-side.
 
 ### Table of Contents
 1. [Rust](#rust)
@@ -11,7 +11,7 @@ Screenshots of syntax highlighting in a selection of languages, with light and d
 6. [Markup Formats](#markup-formats)
 
 ## Rust
-Using the [Rust Analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension with semantic highlighting enabled.
+Using the official [Rust Analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) extension with semantic highlighting enabled.
 
 ![Rust 1](./img/examples/rust_1.png)
 
@@ -75,4 +75,4 @@ Using the built-in Javascript language extension with semantic highlighting enab
 > Using the [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) extension.
 
 ![INI](./img/examples/ini_1.png)
-> Using the built-in .ini language extension.
+> Using the built-in INI language extension.

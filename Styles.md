@@ -666,7 +666,7 @@ XML only supports textmate highlighting; it has no semantic highlighting.
 ## Markdown
 Markdown only supports textmate highlighting; it has no semantic highlighting.
 
-### Text #565869 #B9BFCA
+### Text #565869 #B9BFCA (alternatively #ADB1C2 #636d83)
 - "text.html.markdown"
 - "punctuation.definition.list_item.markdown"
 

@@ -1,5 +1,5 @@
 # Extensions
-Note: currently it is impossible to have different colours depending on which theme is selected, i.e. light or dark.
+Note: currently it is impossible to have different colours depending on whether the light or dark theme is selected.
 
 ## Git Graph
 Copy and paste the following snippet into your `settings.json` file:
@@ -11,11 +11,11 @@ Copy and paste the following snippet into your `settings.json` file:
     "#2DAE58",
     "#CF9C00",
     "#FF5C57",
-    "#cd6bf4",
-    "#a8759a",
-    "#6e82a6",
+    "#C75AF3",
+    "#A8759A",
+    "#6E82A6",
     "#13BBB7",
-    "#8cba10"
+    "#8CBA10"
 ],
 ```
 

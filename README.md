@@ -6,14 +6,19 @@
 A vivid colour scheme with a pink accent, in both light and dark variants. Includes editor/syntax highlighting as well as full IDE and workbench theming.
 </p>
 <br>
+<p align="center">
+ℹ <i>New:</i> The theme now has built-in configuration options allowing you to tweak certain aspects of the theme to your liking in an easy-to-use manner. See <a href="#configuration-options">Configuration Options</a> for more details.
+</p>
+<br>
 
 ### Table of Contents
 1. [Screenshots](#screenshots)
 2. [Overview](#overview)
 3. [Language Specific Styles](#language-specific-styles)
-4. [Overriding Styles](#overriding-styles)
-5. [Contributing](#contributing)
-6. [License](#license)
+4. [Configuration Options](#configuration-options)
+5. [Overriding Styles](#overriding-styles)
+6. [Contributing](#contributing)
+7. [License](#license)
 
 ## Screenshots
 
@@ -42,13 +47,14 @@ This theme supports both *'Semantic'* and *'Textmate'* highlighting, so it shoul
 - Yaml
 - Toml
 - INI
-
-ℹ More languages coming in the future.
+- Backus–Naur Form
 
 This theme also supports styling for these extensions:
 - [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
 - [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph) - see [note](#Extensions).
 - [Todo Tree](https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree) - see [note](#Extensions).
+
+⚠ VS Code v1.66 (April 2022) changed a default setting which affects the colours in the terminal. The *Minimum Contrast Ratio* (`terminal.integrated.minimumContrastRatio`) modifies the colours in the terminal to increase the contrast ratios and improve readability of certain colours. By default, this is set to a value of `4.5` which has a slight effect on the colours of this theme. If you wish to disable this feature, you can set the setting to a value of `1` instead.
 
 ## Language Specific Styles
 This theme, unlike many others, takes full advantage of semantic scopes that each language extension provides. This allows the theme to suit its appearance to the specific language and highlight/underline/embolden syntax that otherwise would not stand out in other themes.
@@ -98,13 +104,18 @@ See highlighting examples [here](./Highlighting_Examples.md#jsx).
 - Embedded code delimiters `{...}` are distinctly coloured and emboldened.
 
 ### Markup Formats
-For Markdown, XML, Json, Yaml, Toml, INI, see highlighting examples [here](./Highlighting_Examples.md#markup-formats).
+For Markdown, XML, Json, Yaml, Toml, INI and Bnf, see highlighting examples [here](./Highlighting_Examples.md#markup-formats).
+
+## Configuration Options
+This theme has a number of configuration options which make it easy to tweak the theme to your liking.
+
+See **Settings > Extensions > Pink Candy Theme** for a full list of options. Or alternatively, open the **Command Palette** (with `Ctrl+Shift+P`) and type `Pink Candy` to see a list of commands.
 
 ## Overriding Styles
-See [Overriding Styles](./Overriding_Styles.md) for a guide on how to override specific styles to your liking.
+See [Overriding_Styles.md](./Overriding_Styles.md) for a step-by-step guide on how to override specific styles to your liking.
 
 ## Extensions
-The *Git Graph* and *Todo Tree* extensions do not provide themable colours. As of the time of this writing, if you want these extensions to fit in with this theme, go to [Extensions](./Extensions.md) and follow the instructions. I am in the process of creating a pull request to add themable colour support to the *Git Graph* extension, so hopefully in the future this workaround will not be necessary.
+The *Git Graph* and *Todo Tree* extensions do not provide themable colours. As of the time of this writing, if you want these extensions to fit in with this theme, go to [Extensions.md](./Extensions.md) and follow the instructions. I am in the process of creating a pull request to add themable colour support to the *Git Graph* extension, so hopefully in the future this workaround will not be necessary.
 
 ## Contributing
 I have tested this theme on languages I am proficient in, and I hope that you will find the syntax highlighting in these languages pleasing. However for many languages, I am not aware of their intricacies and I may not have the right sense for how the syntax should look.
