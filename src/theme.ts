@@ -1026,7 +1026,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
             "charts.purple": color.ui.chartPurple,
             //
             // TERMINAL COLOURS [x]
-            "terminal.background": color.terminal.background,
+            "terminal.background": color.ui.primaryBg,
             "terminal.foreground": color.terminal.foreground, // 0m (foreground)
             "terminal.ansiBlack": color.terminal.ansiBlack, // 30m
             "terminal.ansiBrightBlack": color.terminal.ansiBrightBlack, // 30;1m

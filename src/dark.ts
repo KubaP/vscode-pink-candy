@@ -197,11 +197,10 @@ export const darkColors = {
         success: "#31A155",
         error: "#FF1277",
 
-        background: "#22252A",
         foreground: "#ABB2BF", // 0m (foreground)
         ansiBlack: "#FFFFFF", // 30m
         ansiBrightBlack: "#666666", // 30;1m
-        ansiWhite: "#22252A", //37m (background)
+        ansiWhite: "#22222A", //37m (background)
         ansiBrightWhite: "#FFFFFF", // (technicall 37;1m but vscode also applies this to just bold 1m, hence it's white)
         ansiBlue: "#09A1ED",
         ansiBrightBlue: "#41B9FF",
@@ -290,7 +289,7 @@ export const darkColors = {
         // Status bar during debugging background
         statusDebugBg: "#31A155",
         // Status bar when no folder is open background
-        statusEmptyBg: "#E5E5E5", // FIXME: This probably isn't a good colour.
+        statusEmptyBg: "#151419",
         // DEFAULT: Status bar hover/active button overlays
         statusHoverBgA: "#FFFFFF2F",
         statusActiveBgA: "#FFFFFF4F",

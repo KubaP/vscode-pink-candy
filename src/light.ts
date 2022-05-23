@@ -197,7 +197,6 @@ export const lightColors = {
         success: "#11C678",
         error: "#FF1277",
 
-        background: "#FAFBFC",
         foreground: "#333333", // 0m (foreground)
         ansiBlack: "#000000", // 30m
         ansiBrightBlack: "#666666", // 30;1m
