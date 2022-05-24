@@ -1,4 +1,6 @@
 import * as vscode from "vscode";
+import * as path from "path";
+import * as fs from "fs";
 
 /**
  * Valid inlay hint styles.
@@ -15,6 +17,11 @@ type Accent = "default" | "disabledStatusBar" | "minimal";
 function isValidAccent(str: string): str is Accent {
     return str == "default" || str == "disabledStatusBar" || str == "minimal";
 }
+
+/**
+ * The location of the configuration cache file.
+ */
+const cachePath = path.join(__dirname, "..", "themes", "cached_config.json");
 
 /**
  * The configuration of the theme.
@@ -34,6 +41,38 @@ export class Config {
         this.inlayStyle = inlayStyle;
         this.monochromeBracketGuides = monochromeBracketGuides;
         this.globalAccent = globalAccent;
+    }
+
+    isModified(): boolean {
+        // If there is no cache, then we need to assume that the configuration has been modified. We also want to
+        // create the cache file for future use.
+        if (!fs.existsSync(cachePath)) {
+            this.writeToCache();
+            return true;
+        }
+
+        try {
+            const cachedConfig = JSON.parse(fs.readFileSync(cachePath, { encoding: "utf8" }));
+            if (
+                this.mutedMd == cachedConfig.mutedMd &&
+                this.altCurrentLine == cachedConfig.altCurrentLine &&
+                this.italicComments == cachedConfig.italicComments &&
+                this.monochromeBracketGuides == cachedConfig.monochromeBracketGuides &&
+                this.inlayStyle == cachedConfig.inlayStyle &&
+                this.globalAccent == cachedConfig.globalAccent
+            ) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        catch {
+            return true;
+        }
+    }
+
+    writeToCache() {
+        fs.writeFileSync(cachePath, JSON.stringify(this, undefined, 4), { encoding: "utf8" });
     }
 }
 

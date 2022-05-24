@@ -17,11 +17,7 @@ function createTheme(name: string, type: string, file: string, color: any, synta
     const jsonPath = path.join(__dirname, "..", "themes", file);
     const theme = generateTheme(color, syntax, name, type, config);
 
-    return new Promise((resolve, reject) => {
-        fs.writeFile(jsonPath, JSON.stringify(theme, undefined, 4), (err) => {
-            err ? reject(err) : resolve(true)
-        })
-    });
+    fs.writeFileSync(jsonPath, JSON.stringify(theme, undefined, 4));
 }
 
 function generateTheme(color: any, syntax: any, name: string, type: string, config: Config) {

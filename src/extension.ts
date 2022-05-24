@@ -2,26 +2,30 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-import { createThemes } from './theme';
-import * as command from './command';
 import { getConfig } from './config';
+import * as command from './command';
+import { showReloadConfirmation, showReloadOnLoadConfirmation } from './message';
+import { createThemes } from './theme';
 
 // This method is called when your extension is activated.
 export function activate(context: vscode.ExtensionContext) {
-
 	// Register all of the commands.
-	context.subscriptions.push(command.toggleMutedMdCmd);
-	context.subscriptions.push(command.toggleItalicCommentsCmd);
-	context.subscriptions.push(command.toggleAltCurrentLineCmd);
-	context.subscriptions.push(command.toggleMonochromeBracketsCmd);
-	context.subscriptions.push(command.pickInlayStyleCmd);
-	context.subscriptions.push(command.pickGlobalAccentCmd);
+	context.subscriptions.push(command.resetCmd);
+
+	const config = getConfig();
+	if (config.isModified()) {
+		// The configuration must have been modified whilst vscode was not open.
+		//
+		// Write the modified configuration options back to the cache and re-create the theme files.
+		config.writeToCache();
+	createThemes(config);
+
+		// Unlike with icon themes, proper workbench/syntax themes are not reloaded upon modification of the theme
+		// files, so we must force vscode to reload to see the changes.
+		showReloadOnLoadConfirmation();
+	}
 
 	vscode.workspace.onDidChangeConfiguration(onConfigChange)
-
-	// Re-create the theme files, in case the configuration was changed whilst vscode was not open.
-	const config = getConfig();
-	createThemes(config);
 }
 
 /**
@@ -33,8 +37,10 @@ function onConfigChange(e: vscode.ConfigurationChangeEvent) {
 		return;
 	}
 
-	// Read the up-to-date configuration options, and re-create the theme files.
+	// Read the up-to-date configuration options, write any modifications to the cache, and re-create the theme
+	// files.
 	const config = getConfig();
+	config.writeToCache();
 	createThemes(config);
 }
 

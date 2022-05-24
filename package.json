@@ -53,30 +53,6 @@
             }
         ],
         "commands": [
-            {
-                "command": "theme-pink-candy.toggleMutedMarkdown",
-                "title": "Pink Candy: Toggle muted markdown plaintext"
-            },
-            {
-                "command": "theme-pink-candy.toggleItalicComments",
-                "title": "Pink Candy: Toggle italicized comments"
-            },
-            {
-                "command": "theme-pink-candy.toggleAltCurrentLine",
-                "title": "Pink Candy: Toggle the current-line appearance"
-            },
-            {
-                "command": "theme-pink-candy.toggleMonochromeBrackets",
-                "title": "Pink Candy: Toggle monochrome bracket pair guides"
-            },
-            {
-                "command": "theme-pink-candy.pickInlayStyle",
-                "title": "Pink Candy: Select the appearance of inlay hints"
-            },
-            {
-                "command": "theme-pink-candy.pickGlobalAccent",
-                "title": "Pink Candy: Select where the accent colours are used"
-            }
         ],
         "configuration": {
             "title": "Pink Candy Theme",

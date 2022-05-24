@@ -1,159 +1,31 @@
 import * as vscode from "vscode";
+import * as config from "./config";
 
-/**
- * Toggles a configuration boolean option.
- * @param name The boolean key.
- */
-function toggleBoolean(name: string) {
-    const config = vscode.workspace.getConfiguration("theme-pink-candy");
+// NOTE: About configuration commands
+//
+// Commands which would make it easy to toggle theme options are unviable. They exhibit a race condition which
+// makes them work correctly only about half of the time. Hence, I've had to scrap that idea.
+//
+// The idea behind the commands was that you can quickly toggle an option and vscode will reload immediately. This
+// is much faster than having to open the Settings Pane, navigate to the appropriate section, and click on the
+// toggles. Of course, the best solution would be to have vscode automatically reload themes when the files are
+// modified, but that seems to only be a thing when you're debugging themes.
+//
+// The "race condition" that occurred was the following:
+//     A command is ran
+//     It writes to the vscode configuration to toggle the option key
+//     The writing to the configuration triggers the onChange handler (which is necessary to react to settings page
+//     changes)
+//     The handler reads the old configuration values
+//     The handler generates the new theme files and updates the cache with the old values
+//     The new value only now get's written
+//
+// A possible solution would be a `setTimeOut()` in the handler. However, I tried it with a duration of 1000ms and
+// it still wasn't enough to deal with this 100% of the time, and any longer and the delay lags too much when you
+// change an option through the settings pane.
 
-    const toggle: boolean | undefined = config.get(name);
-    if (toggle === undefined) {
-        return;
-    }
-
-    config.update(name, !toggle, true);
-}
-
-async function pickInlayStyle() {
-    const config = vscode.workspace.getConfiguration("theme-pink-candy");
-
-    const style: string | undefined = config.get("inlayHintStyle");
-    if (style === undefined) {
-        return;
-    }
-
-    // MAYBE: Replace this with the more advanced `window.createQuickPick` which allows setting the default
-    // selected entry for example.
-
-    // Note: The cases should match the configuration keys in `package.json`/`config.InlayStyle`.
-    let placeHolder;
-    switch (style) {
-        case "noBackground": placeHolder = "Currently selected: No background"; break;
-        case "faintBackground": placeHolder = "Currently selected: Faint background"; break;
-        case "accent": placeHolder = "Currently selected: Accent text"; break;
-        case "accentBackground": placeHolder = "Currently selected: Accent text & faint background"; break;
-        default: placeHolder = "Currently selected: Invalid";
-    }
-
-    // Note: The keys should match the configuration keys in `package.json`/`config.InlayStyle`.
-    const options = [
-        {
-            label: "No background",
-            detail: "No background behind the inlay hint; this is the 'default' option.",
-            key: "noBackground",
-        },
-        {
-            label: "Faint background",
-            detail: "A lightly shaded background behind the inlay hint for better contrast.",
-            key: "faintBackground",
-        },
-        {
-            label: "Accent text",
-            detail: "An accent colour for the inlay hint text.",
-            key: "accent",
-        },
-        {
-            label: "Accent text & faint background",
-            detail: "An accent colour for the inlay hint text and shaded background.",
-            key: "accentBackground",
-        }
-    ];
-
-    try {
-        const result = await vscode.window.showQuickPick(options, {
-            title: "Select the appearance of inlay hints",
-            canPickMany: false,
-            placeHolder,
-            onDidSelectItem: () => { }
-        });
-
-        if (result === undefined) {
-            // User quit the picker without selecting an option. Do nothing.
-            return;
-        }
-
-        config.update("inlayHintStyle", result.key, true);
-    } catch (err) {
-        console.error(err);
-    }
-}
-
-async function pickGlobalAccent() {
-    const config = vscode.workspace.getConfiguration("theme-pink-candy");
-
-    const option: string | undefined = config.get("globalAccent");
-    if (option === undefined) {
-        return;
-    }
-
-    // MAYBE: Replace this with the more advanced `window.createQuickPick` which allows setting the default
-    // selected entry for example.
-
-    // Note: The cases should match the configuration keys in `package.json`/`config.Accent`.
-    let placeHolder;
-    switch (option) {
-        case "default": placeHolder = "Currently selected: Default"; break;
-        case "disabledStatusBar": placeHolder = "Currently selected: Disabled for the status bar"; break;
-        case "minimal": placeHolder = "Currently selected: Minimal"; break;
-        default: placeHolder = "Currently selected: Invalid";
-    }
-
-    // Note: The keys should match the configuration keys in `package.json`/`config.Accent`.
-    const options = [
-        {
-            label: "Default",
-            detail: "The accent colours are used everywhere; this is the 'default' option.",
-            key: "default",
-        },
-        {
-            label: "Disabled for the status bar",
-            detail: "The accent colours are used everywhere but on the status bar.",
-            key: "disabledStatusBar",
-        },
-        {
-            label: "Minimal",
-            detail: "The accent colours are used only in a select few cases, such as buttons, links, important text, small decorations, etc.",
-            key: "minimal",
-        }
-    ];
-
-    try {
-        const result = await vscode.window.showQuickPick(options, {
-            title: "Select where the accent colours are used",
-            canPickMany: false,
-            placeHolder,
-            onDidSelectItem: () => { }
-        });
-
-        if (result === undefined) {
-            // User quit the picker without selecting an option. Do nothing.
-            return;
-        }
-
-        config.update("globalAccent", result.key, true);
-    } catch (err) {
-        console.error(err);
-    }
-}
-
-const toggleMutedMdCmd = vscode.commands.registerCommand("theme-pink-candy.toggleMutedMarkdown", () => {
-    toggleBoolean("mutedMarkdownPlaintext");
+const resetCmd = vscode.commands.registerCommand("theme-pink-candy.restoreDefaultConfig", () => {
+    config.resetConfig();
 });
-const toggleItalicCommentsCmd = vscode.commands.registerCommand("theme-pink-candy.toggleItalicComments", () => {
-    toggleBoolean("italicizedComments");
-});
-const toggleAltCurrentLineCmd = vscode.commands.registerCommand("theme-pink-candy.toggleAltCurrentLine", () => {
-    toggleBoolean("alternateCurrentLineStyle");
-});
-const toggleMonochromeBracketsCmd = vscode.commands.registerCommand("theme-pink-candy.toggleMonochromeBrackets", () => {
-    toggleBoolean("monochromeBracketPairGuides")
-});
-const pickInlayStyleCmd = vscode.commands.registerCommand("theme-pink-candy.pickInlayStyle", () => {
-    pickInlayStyle();
-});
-const pickGlobalAccentCmd = vscode.commands.registerCommand("theme-pink-candy.pickGlobalAccent", () => {
-    pickGlobalAccent();
-})
 
-export { toggleMutedMdCmd, toggleItalicCommentsCmd, toggleAltCurrentLineCmd, toggleMonochromeBracketsCmd, pickInlayStyleCmd, pickGlobalAccentCmd };
+export { resetCmd };
