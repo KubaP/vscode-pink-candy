@@ -1228,6 +1228,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			label: syntax.rustLabel,
 			lifetime: syntax.interface,
 			formatSpecifier: syntax.format,
+			macroBang: syntax.fn, // The ! in a macro call.
 			//
 			// REFERENCE
 			"variable.reference": {
