@@ -44,6 +44,7 @@ Get-ChildItem -Path $script:SOURCE_DIR | Where-Object {
 		".gitattributes",
 		".gitignore",
 		".prettierrc",
+		".prettierignore",
 		"build",
 		"img",
 		"node_modules",
