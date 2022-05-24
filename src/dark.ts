@@ -41,15 +41,15 @@ export const darkColors = {
 			codelens: "#9C9C9C",
 
 			// BCKG_INLAY: Inlay hint text
-			alt1Inlay: "#9099ab",
+			alt1Inlay: "#909AB",
 			// BCKG_INLAY: Inlay hint background
 			alt1InlayBgA: "#FFFFFF07",
 
 			// ACCENT_INLAY: Inlay hint text
-			alt2Inlay: "#7e3558", // FF4C986A on primaryBg
+			alt2Inlay: "#7E3558", // FF4C986A on primaryBg
 
 			// ACCENT_BCKG_INLAY: Inlay hint text
-			alt3Inlay: "#8b385e", // FF4C987A on primaryBg
+			alt3Inlay: "#8B385E", // FF4C987A on primaryBg
 			// ACCENT_BCKG_INLAY: Inlay hint background
 			alt3InlayBgA: "#FF4C9810",
 		},
@@ -295,7 +295,7 @@ export const darkColors = {
 		statusActiveBgA: "#FFFFFF4F",
 
 		// Tab unfocused indicator
-		unfocusedTab: "#FFA2CA",
+		unfocusedTab: "#7E3558", // FF4C986A on primaryBg
 
 		// Activity bar inactive icon
 		activityBarInactive: "#636D83",

@@ -46,10 +46,10 @@ export const lightColors = {
 			alt1InlayBgA: "#00000007",
 
 			// ACCENT_INLAY: Inlay hint text
-			alt2Inlay: "#fC9AC5", // FF12776A on primaryBg
+			alt2Inlay: "#FC9AC5", // FF12776A on primaryBg
 
 			// ACCENT_BCKG_INLAY: Inlay hint text
-			alt3Inlay: "#fC8CBD", // FF127767A on primaryBg
+			alt3Inlay: "#FC8CBD", // FF12777A on primaryBg
 			// ACCENT_BCKG_INLAY: Inlay hint background
 			alt3InlayBgA: "#FF127710",
 		},
@@ -295,7 +295,7 @@ export const lightColors = {
 		statusActiveBgA: "#0000004F",
 
 		// Tab unfocused indicator
-		unfocusedTab: "#FFA2CA",
+		unfocusedTab: "#FC9AC5", // FF12776A on primaryBg
 
 		// Activity bar inactive icon
 		activityBarInactive: "#BFC0C7",
