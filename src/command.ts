@@ -25,7 +25,7 @@ import * as config from "./config";
 // change an option through the settings pane.
 
 const resetCmd = vscode.commands.registerCommand("theme-pink-candy.restoreDefaultConfig", () => {
-    config.resetConfig();
+	config.resetConfig();
 });
 
 export { resetCmd };

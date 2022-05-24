@@ -1,11 +1,11 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-import { getConfig } from './config';
-import * as command from './command';
-import { showReloadConfirmation, showReloadOnLoadConfirmation } from './message';
-import { createThemes } from './theme';
+import { getConfig } from "./config";
+import * as command from "./command";
+import { showReloadConfirmation, showReloadOnLoadConfirmation } from "./message";
+import { createThemes } from "./theme";
 
 // This method is called when your extension is activated.
 export function activate(context: vscode.ExtensionContext) {
@@ -18,14 +18,14 @@ export function activate(context: vscode.ExtensionContext) {
 		//
 		// Write the modified configuration options back to the cache and re-create the theme files.
 		config.writeToCache();
-	createThemes(config);
+		createThemes(config);
 
 		// Unlike with icon themes, proper workbench/syntax themes are not reloaded upon modification of the theme
 		// files, so we must force vscode to reload to see the changes.
 		showReloadOnLoadConfirmation();
 	}
 
-	vscode.workspace.onDidChangeConfiguration(onConfigChange)
+	vscode.workspace.onDidChangeConfiguration(onConfigChange);
 }
 
 /**
@@ -52,4 +52,4 @@ function onConfigChange(e: vscode.ConfigurationChangeEvent) {
 //export let info = vscode.window.createOutputChannel("Pink Candy INFO");
 
 // This method is called when your extension is deactivated.
-export function deactivate() { }
+export function deactivate() {}

@@ -1,139 +1,140 @@
 {
-    "name": "theme-pink-candy",
-    "displayName": "Pink Candy Theme",
-    "description": "A vivid colour scheme with a pink accent, in both light and dark variants.",
-    "version": "1.2.0",
-    "publisher": "kuba-p",
-    "author": {
-        "name": "kuba_p"
-    },
-    "license": "MIT",
-    "icon": "icon.png",
-    "homepage": "https://github.com/KubaP/vscode-pink-candy/blob/master/README.md",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/KubaP/vscode-pink-candy"
-    },
-    "bugs": {
-        "url": "https://github.com/KubaP/vscode-pink-candy/issues"
-    },
-    "galleryBanner": {
-        "color": "#2F3A43",
-        "theme": "dark"
-    },
-    "markdown": "github",
-    "engines": {
-        "vscode": "^1.67.0"
-    },
-    "categories": [
-        "Themes"
-    ],
-    "keywords": [
-        "theme",
-        "highlighting",
-        "colour scheme",
-        "light",
-        "dark"
-    ],
-    "activationEvents": [
-        "onStartupFinished"
-    ],
-    "main": "./out/extension.js",
-    "contributes": {
-        "themes": [
-            {
-                "label": "Pink Candy Light",
-                "uiTheme": "vs",
-                "path": "./themes/pink-candy-light.json"
-            },
-            {
-                "label": "Pink Candy Dark",
-                "uiTheme": "vs-dark",
-                "path": "./themes/pink-candy-dark.json"
-            }
-        ],
-        "commands": [
-            {
-                "command": "theme-pink-candy.restoreDefaultConfig",
-                "title": "Pink Candy: Restore default configuration"
-            }
-        ],
-        "configuration": {
-            "title": "Pink Candy Theme",
-            "properties": {
-                "theme-pink-candy.mutedMarkdownPlaintext": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Controls whether markdown plaintext has a muted appearance."
-                },
-                "theme-pink-candy.italicizedComments": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Controls whether comments are italicized."
-                },
-                "theme-pink-candy.alternateCurrentLineStyle": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Controls whether the current-line uses an alternate appearance (outlined instead of filled in)."
-                },
-                "theme-pink-candy.monochromeBracketPairGuides": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "Controls whether bracket pair guides are monochrome."
-                },
-                "theme-pink-candy.inlayHintStyle": {
-                    "type": "string",
-                    "default": "noBackground",
-                    "description": "Controls the appearance of inlay hints.",
-                    "enum": [
-                        "noBackground",
-                        "faintBackground",
-                        "accent",
-                        "accentBackground"
-                    ],
-                    "enumDescriptions": [
-                        "No background behind the inlay hint; this is the 'default' option.",
-                        "A lightly shaded background behind the inlay hint for better contrast.",
-                        "An accent colour for the inlay hint text.",
-                        "An accent colour for the inlay hint text and shaded background."
-                    ]
-                },
-                "theme-pink-candy.globalAccent": {
-                    "type": "string",
-                    "default": "default",
-                    "description": "Controls where the accent colours are used.",
-                    "enum": [
-                        "default",
-                        "disabledStatusBar",
-                        "minimal"
-                    ],
-                    "markdownEnumDescriptions": [
-                        "The accent colours are used everywhere; this is the 'default' option.",
-                        "The accent colours are used everywhere *but* on the status bar.",
-                        "The accent colours are used only in a select few cases, such as buttons, links, important text, small decorations, etc."
-                    ]
-                }
-            }
-        }
-    },
-    "scripts": {
-        "buildTheme": "node ./build/theme.js",
-        "build": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "package": "vsce package",
-        "vscode:prepublish": "npm run build",
-        "publish": "vsce publish -p",
-        "postPublish": "node -e \"const version = require('./package.json').version; console.log(`##vso[task.setvariable variable=version;isOutput=true]${version}`);\""
-    },
-    "devDependencies": {
-        "vsce": "=2.7.0",
-        "@types/vscode": "^1.67.0",
-        "@types/glob": "^7.1.4",
-        "@types/mocha": "^9.0.0",
-        "@types/node": "14.x",
-        "glob": "^7.1.7",
-        "mocha": "^9.1.1",
-        "typescript": "^4.4.3",
-        "@vscode/test-electron": "^1.6.2"
-    }
+	"name": "theme-pink-candy",
+	"displayName": "Pink Candy Theme",
+	"description": "A vivid colour scheme with a pink accent, in both light and dark variants.",
+	"version": "1.2.0",
+	"publisher": "kuba-p",
+	"author": {
+		"name": "kuba_p"
+	},
+	"license": "MIT",
+	"icon": "icon.png",
+	"homepage": "https://github.com/KubaP/vscode-pink-candy/blob/master/README.md",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/KubaP/vscode-pink-candy"
+	},
+	"bugs": {
+		"url": "https://github.com/KubaP/vscode-pink-candy/issues"
+	},
+	"galleryBanner": {
+		"color": "#2F3A43",
+		"theme": "dark"
+	},
+	"markdown": "github",
+	"engines": {
+		"vscode": "^1.67.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"keywords": [
+		"color",
+		"theme",
+		"color-theme",
+		"highlighting",
+		"light",
+		"dark"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"themes": [
+			{
+				"label": "Pink Candy Light",
+				"uiTheme": "vs",
+				"path": "./themes/pink-candy-light.json"
+			},
+			{
+				"label": "Pink Candy Dark",
+				"uiTheme": "vs-dark",
+				"path": "./themes/pink-candy-dark.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "theme-pink-candy.restoreDefaultConfig",
+				"title": "Pink Candy: Restore default configuration"
+			}
+		],
+		"configuration": {
+			"title": "Pink Candy Theme",
+			"properties": {
+				"theme-pink-candy.mutedMarkdownPlaintext": {
+					"type": "boolean",
+					"default": false,
+					"description": "Controls whether markdown plaintext has a muted appearance."
+				},
+				"theme-pink-candy.italicizedComments": {
+					"type": "boolean",
+					"default": false,
+					"description": "Controls whether comments are italicized."
+				},
+				"theme-pink-candy.alternateCurrentLineStyle": {
+					"type": "boolean",
+					"default": false,
+					"description": "Controls whether the current-line uses an alternate appearance (outlined instead of filled in)."
+				},
+				"theme-pink-candy.monochromeBracketPairGuides": {
+					"type": "boolean",
+					"default": false,
+					"description": "Controls whether bracket pair guides are monochrome."
+				},
+				"theme-pink-candy.inlayHintStyle": {
+					"type": "string",
+					"default": "noBackground",
+					"description": "Controls the appearance of inlay hints.",
+					"enum": [
+						"noBackground",
+						"faintBackground",
+						"accent",
+						"accentBackground"
+					],
+					"enumDescriptions": [
+						"No background behind the inlay hint; this is the 'default' option.",
+						"A lightly shaded background behind the inlay hint for better contrast.",
+						"An accent colour for the inlay hint text.",
+						"An accent colour for the inlay hint text and shaded background."
+					]
+				},
+				"theme-pink-candy.globalAccent": {
+					"type": "string",
+					"default": "default",
+					"description": "Controls where the accent colours are used.",
+					"enum": [
+						"default",
+						"disabledStatusBar",
+						"minimal"
+					],
+					"markdownEnumDescriptions": [
+						"The accent colours are used everywhere; this is the 'default' option.",
+						"The accent colours are used everywhere *but* on the status bar.",
+						"The accent colours are used only in a select few cases, such as buttons, links, important text, small decorations, etc."
+					]
+				}
+			}
+		}
+	},
+	"scripts": {
+		"buildTheme": "node ./build/theme.js",
+		"build": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"package": "vsce package",
+		"vscode:prepublish": "npm run build",
+		"publish": "vsce publish -p",
+		"postPublish": "node -e \"const version = require('./package.json').version; console.log(`##vso[task.setvariable variable=version;isOutput=true]${version}`);\""
+	},
+	"devDependencies": {
+		"vsce": "=2.7.0",
+		"@types/vscode": "^1.67.0",
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.1",
+		"typescript": "^4.4.3",
+		"@vscode/test-electron": "^1.6.2"
+	}
 }
