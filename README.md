@@ -112,7 +112,7 @@ This theme has a number of configuration options which make it easy to tweak the
 See **Settings > Extensions > Pink Candy Theme** for a full list of options. Or alternatively, open the **Command Palette** (with `Ctrl+Shift+P`) and type `Pink Candy` to see a list of commands.
 
 ## Overriding Styles
-See [Overriding_Styles.md](./Overriding_Styles.md) for a step-by-step guide on how to override specific styles to your liking.
+See [Overriding_Syntax.md](./Overriding_Syntax.md.md) for a step-by-step guide on how to override syntax highlighting styles to your liking.
 
 ## Extensions
 The *Git Graph* and *Todo Tree* extensions do not provide themable colours. As of the time of this writing, if you want these extensions to fit in with this theme, go to [Extensions.md](./Extensions.md) and follow the instructions. I am in the process of creating a pull request to add themable colour support to the *Git Graph* extension, so hopefully in the future this workaround will not be necessary.

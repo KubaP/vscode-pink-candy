@@ -1,5 +1,5 @@
 # Overriding Styles
-If you like the theme overall, but would like to tweak some aspect of it to your liking, here are the instructions to do so.
+If you like the syntax colours overall, but would like to tweak some aspect of it to your liking, here are the instructions to do so.
 
 ### Important Note
 *Semantic highlighting* only works if, a) the language extension supports it, and b) the code is in full context, i.e. within the main editor pane. *Semantic highlighting* does not work in places without context, such as the documentation hover widget, the git diff pane, etc. In such places, only the *Textmate theming* applies.
