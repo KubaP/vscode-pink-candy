@@ -42,6 +42,10 @@ function onConfigChange(e: vscode.ConfigurationChangeEvent) {
 	const config = getConfig();
 	config.writeToCache();
 	createThemes(config);
+
+	// Unlike with icon themes, proper workbench/syntax themes are not reloaded upon modification of the theme
+	// files, so we must force vscode to reload to see the changes.
+	showReloadConfirmation();
 }
 
 // Output channel used for debugging.
