@@ -260,10 +260,10 @@ export const lightColors = {
         hoverBgA: "#0000001A",
         activeBgA: "#0000002A",
 
-        // Lists, command bar hover
+        // Lists, command bar hover, notification hover
         //
         // MINIMAL: List unfocused selected overlay
-        listHoverBgA: "#0000001A",
+        listHoverBgA: "#00000010",
         // DEFAULT: DISABLED_STATUS_BAR: List unfocused selected overlay
         listInactiveBgA: "#FF12771A",
 
