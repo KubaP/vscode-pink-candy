@@ -126,3 +126,22 @@ export function getConfig(): Config {
 
     return new Config(mutedMd, italicComments, altCurrentLine, monochromeBracketGuides, inlayStyle, globalAccent);
 }
+
+/**
+ * The default configuration of the theme.
+ */
+const DEFAULT_CONFIG = new Config(false, false, false, false, "noBackground", "default");
+
+/**
+ * Resets the configuration of the theme to the default options, and updates the cache as well.
+ */
+export function resetConfig() {
+    DEFAULT_CONFIG.writeToCache();
+    const config = vscode.workspace.getConfiguration("theme-pink-candy");
+    config.update("mutedMarkdownPlaintext", undefined, true);
+    config.update("italicizedComments", undefined, true);
+    config.update("alternateCurrentLineStyle", undefined, true);
+    config.update("monochromeBracketPairGuides", undefined, true);
+    config.update("inlayHintStyle", undefined, true);
+    config.update("globalAccent", undefined, true);
+}

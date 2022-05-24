@@ -53,6 +53,10 @@
             }
         ],
         "commands": [
+            {
+                "command": "theme-pink-candy.restoreDefaultConfig",
+                "title": "Pink Candy: Restore default configuration"
+            }
         ],
         "configuration": {
             "title": "Pink Candy Theme",
