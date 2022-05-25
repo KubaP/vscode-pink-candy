@@ -86,42 +86,6 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			},
 		};
 		commentStyles = {
-			name: "Comment",
-			scope: [
-				"comment",
-				"punctuation.definition.comment",
-				// csharp
-				"comment.block.cs",
-				"comment.line.double-slash.cs",
-				// powershell
-				"comment.line.powershell",
-				// js
-				"comment.block.documentation.js",
-				"comment.line.double-slash.js",
-				// ts
-				"comment.block.documentation.ts",
-				"comment.line.double-slash.ts",
-				// xml
-				"comment.block.xml",
-				"punctuation.definition.comment.xml",
-				// json
-				"comment",
-				"comment.line.double-slash.js",
-				"comment.block.json",
-				// yaml
-				"punctuation.definition.comment.yaml",
-				"comment.line.number-sign.yaml",
-				// toml
-				"punctuation.definition.comment.toml",
-				"comment.line.number-sign.toml",
-				// ini
-				"punctuation.definition.comment.ini",
-				"comment.line.semicolon.ini",
-				"comment.line.number-sign.ini",
-				// bnf
-				"comment.line.bnf",
-				"comment.block.bnf",
-			],
 			settings: {
 				foreground: syntax.comment,
 				fontStyle: "italic",
@@ -132,44 +96,6 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			comment: syntax.comment,
 		};
 		commentStyles = {
-			name: "Comment",
-			scope: [
-				"comment",
-				"punctuation.definition.comment",
-				// csharp
-				"comment.block.cs",
-				"comment.line.double-slash.cs",
-				// powershell
-				"comment.line.powershell",
-				// js
-				"comment.block.js",
-				"comment.block.documentation.js",
-				"comment.line.double-slash.js",
-				// ts
-				"comment.block.ts",
-				"comment.block.documentation.ts",
-				"comment.line.double-slash.ts",
-				// xml
-				"comment.block.xml",
-				"punctuation.definition.comment.xml",
-				// json
-				"comment",
-				"comment.line.double-slash.js",
-				"comment.block.json",
-				// yaml
-				"punctuation.definition.comment.yaml",
-				"comment.line.number-sign.yaml",
-				// toml
-				"punctuation.definition.comment.toml",
-				"comment.line.number-sign.toml",
-				// ini
-				"punctuation.definition.comment.ini",
-				"comment.line.semicolon.ini",
-				"comment.line.number-sign.ini",
-				// bnf
-				"comment.line.bnf",
-				"comment.block.bnf",
-			],
 			settings: {
 				foreground: syntax.comment,
 			},
@@ -1861,7 +1787,45 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					foreground: syntax.number,
 				},
 			},
-			commentStyles,
+			{
+				name: "Comment",
+				scope: [
+					"comment",
+					"punctuation.definition.comment",
+					// csharp
+					"comment.block.cs",
+					"comment.line.double-slash.cs",
+					// powershell
+					"comment.line.powershell",
+					// js
+					"comment.block.documentation.js",
+					"comment.line.double-slash.js",
+					// ts
+					"comment.block.documentation.ts",
+					"comment.line.double-slash.ts",
+					// xml
+					"comment.block.xml",
+					"punctuation.definition.comment.xml",
+					// json
+					"comment",
+					"comment.line.double-slash.js",
+					"comment.block.json",
+					// yaml
+					"punctuation.definition.comment.yaml",
+					"comment.line.number-sign.yaml",
+					// toml
+					"punctuation.definition.comment.toml",
+					"comment.line.number-sign.toml",
+					// ini
+					"punctuation.definition.comment.ini",
+					"comment.line.semicolon.ini",
+					"comment.line.number-sign.ini",
+					// bnf
+					"comment.line.bnf",
+					"comment.block.bnf",
+				],
+				commentStyles,
+			},
 			//
 			//
 			//
