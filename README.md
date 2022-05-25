@@ -7,7 +7,7 @@ A vivid colour scheme with a pink accent, in both light and dark variants. Inclu
 </p>
 <br>
 <p align="center">
-ℹ <i>New:</i> The theme now has built-in configuration options allowing you to tweak certain aspects of the theme to your liking in an easy-to-use manner. See <a href="#configuration-options">Configuration Options</a> for more details.
+⭐ <i>New:</i> The theme now has built-in configuration options allowing you to tweak certain aspects of the theme to your liking in an easy-to-use manner. See <a href="#configuration-options">Configuration Options</a> for more details.
 </p>
 <br>
 
@@ -16,7 +16,7 @@ A vivid colour scheme with a pink accent, in both light and dark variants. Inclu
 2. [Overview](#overview)
 3. [Language Specific Styles](#language-specific-styles)
 4. [Configuration Options](#configuration-options)
-5. [Overriding Styles](#overriding-styles)
+5. [Overriding Syntax Styles](#overriding-syntax-styles)
 6. [Contributing](#contributing)
 7. [License](#license)
 
@@ -57,7 +57,7 @@ This theme also supports styling for these extensions:
 ⚠ VS Code v1.66 (April 2022) changed a default setting which affects the colours in the terminal. The *Minimum Contrast Ratio* (`terminal.integrated.minimumContrastRatio`) modifies the colours in the terminal to increase the contrast ratios and improve readability of certain colours. By default, this is set to a value of `4.5` which has a slight effect on the colours of this theme. If you wish to disable this feature, you can set the setting to a value of `1` instead.
 
 ## Language Specific Styles
-This theme, unlike many others, takes full advantage of semantic scopes that each language extension provides. This allows the theme to suit its appearance to the specific language and highlight/underline/embolden syntax that otherwise would not stand out in other themes.
+This theme, unlike many others, takes full advantage of semantic scopes that each language extension provides. This allows the theme to suit its appearance to the specific language and highlight/underline/embolden syntax that otherwise would not stand out in other themes. Here are some of the things which stand out in this theme:
 
 ### Rust
 See highlighting examples [here](./Highlighting_Examples.md#rust).
@@ -107,11 +107,15 @@ See highlighting examples [here](./Highlighting_Examples.md#jsx).
 For Markdown, XML, Json, Yaml, Toml, INI and Bnf, see highlighting examples [here](./Highlighting_Examples.md#markup-formats).
 
 ## Configuration Options
-This theme has a number of configuration options which make it easy to tweak the theme to your liking.
+This theme has a number of configuration options which make it easy to tweak the theme to your liking. See **Settings > Extensions > Pink Candy Theme** for a full list of options.
 
-See **Settings > Extensions > Pink Candy Theme** for a full list of options. Or alternatively, open the **Command Palette** (with `Ctrl+Shift+P`) and type `Pink Candy` to see a list of commands.
+See [Configuration.md](./Configuration.md) for a visual illustration of all of the options.
 
-## Overriding Styles
+There is also a `Pink Candy: Restore default configuration` command which resets all of the options back to their defaults.
+
+⚠ *Note:* Because of a limitation of VS Code, the window must be reloaded in order to see the effects of a change to a theme. A notification will pop-up whenever a change is detected to prompt you.
+
+## Overriding Syntax Styles
 See [Overriding_Syntax.md](./Overriding_Syntax.md.md) for a step-by-step guide on how to override syntax highlighting styles to your liking.
 
 ## Extensions
