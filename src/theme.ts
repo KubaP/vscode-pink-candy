@@ -98,6 +98,9 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				// js
 				"comment.block.documentation.js",
 				"comment.line.double-slash.js",
+				// ts
+				"comment.block.documentation.ts",
+				"comment.line.double-slash.ts",
 				// xml
 				"comment.block.xml",
 				"punctuation.definition.comment.xml",
@@ -139,8 +142,13 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				// powershell
 				"comment.line.powershell",
 				// js
+				"comment.block.js",
 				"comment.block.documentation.js",
 				"comment.line.double-slash.js",
+				// ts
+				"comment.block.ts",
+				"comment.block.documentation.ts",
+				"comment.line.double-slash.ts",
 				// xml
 				"comment.block.xml",
 				"punctuation.definition.comment.xml",
@@ -1154,6 +1162,11 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				foreground: syntax.fn,
 				fontStyle: "underline",
 			},
+			"method.static:typescript": {
+				// Static method.
+				foreground: syntax.fn,
+				fontStyle: "underline",
+			},
 			method: syntax.fn, // Object method.
 			"member:csharp": syntax.fn, // Object method.
 			macro: syntax.fn,
@@ -1196,10 +1209,16 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				foreground: syntax.member,
 				fontStyle: "bold underline",
 			},
+			"property.static:typescript": {
+				// Typescript static members.
+				foreground: syntax.member,
+				fontStyle: "underline",
+			},
 			"*.constant": syntax.constant,
 			"variable.static:csharp": syntax.constant, // Constants
 			"variable.readonly:csharp": syntax.constant, // Constants
 			"variable.readonly:javascript": syntax.constant, // Constants
+			"variable.readonly:typescript": syntax.constant, // Constants
 			//
 			//
 			string: syntax.string, // `"string"`
@@ -1360,10 +1379,16 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"meta.function.powershell",
 					// js
 					"variable.language.this.js",
+					"storage.type.js",
 					"keyword.operator.new.js",
 					"constant.language.null.js",
 					"constant.language.undefined.js",
 					"keyword.operator.ternary.js",
+					// ts
+					"keyword.operator.new.ts",
+					"storage.type.ts",
+					"storage.type.namespace.ts",
+					"variable.language.this.ts",
 				],
 				settings: {
 					foreground: syntax.keyword,
@@ -1379,6 +1404,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"keyword.type.cs",
 					// js
 					"support.type.primitive.js",
+					// ts
+					"support.type.primitive.ts",
 				],
 				settings: {
 					foreground: syntax.keyword,
@@ -1397,9 +1424,12 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"punctuation.definition.tag.html",
 					"punctuation.definition.tag.begin.html",
 					"punctuation.definition.tag.end.html",
-					// jsx
+					// js
 					"meta.brace.round.js",
 					"meta.brace.square.js",
+					// ts
+					"meta.brace.round.ts",
+					"meta.brace.square.ts",
 					// html
 					"punctuation.definition.string.begin.html",
 					"punctuation.definition.string.end.html",
@@ -1440,6 +1470,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"support.function.powershell",
 					// js
 					"entity.name.function.js",
+					// ts
+					"entity.name.function.ts",
 					// css
 					"support.function.misc.css",
 					"support.function.misc.scss",
@@ -1517,6 +1549,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"entity.name.type.class.js",
 					"support.class.builtin.js",
 					"support.class.component.js",
+					// ts
+					"entity.name.type.class.ts",
 				],
 				settings: {
 					foreground: syntax.type,
@@ -1542,6 +1576,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					// js
 					"constant.language.boolean.true.js",
 					"constant.language.boolean.false.js",
+					// ts
+					"variable.other.enummember.ts",
+					"constant.language.boolean.true.ts",
+					"constant.language.boolean.false.ts",
 					// yaml
 					"constant.language.boolean.yaml",
 					// toml
@@ -1559,6 +1597,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				scope: [
 					// rust
 					"entity.name.type.trait.rust",
+					// ts
+					"entity.name.type.interface.ts",
 				],
 				settings: {
 					foreground: syntax.interface,
@@ -1595,6 +1635,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					// js
 					"variable.other.readwrite.js",
 					"variable.other.constant.js",
+					// ts
+					"",
 					// css
 					"variable.css",
 					"variable.argument.css",
@@ -1616,6 +1658,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"entity.name.variable.parameter.cs",
 					// js
 					"variable.parameter.js",
+					// ts
+					"variable.parameter.ts",
 				],
 				settings: {
 					foreground: syntax.parameter,
@@ -1631,6 +1675,9 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"variable.other.member.powershell",
 					// js
 					"variable.other.property.js",
+					// ts
+					"variable.object.property.ts",
+					"variable.other.property.ts",
 				],
 				settings: {
 					foreground: syntax.member,
@@ -1648,6 +1695,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"support.constant.variable.powershell punctuation.definition.variable.powershell",
 					// js
 					"variable.other.constant.js",
+					// ts
+					"variable.other.constant.ts",
 					// json
 					"constant.language.json",
 				],
@@ -1686,6 +1735,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"punctuation.definition.string.end.js",
 					"punctuation.definition.string.template.begin.js",
 					"punctuation.definition.string.template.end.js",
+					// ts
+					"string.quoted.single.ts",
+					"string.quoted.double.ts",
+					"string.template.ts",
+					"punctuation.definition.string.begin.ts",
+					"punctuation.definition.string.end.ts",
+					"punctuation.definition.string.template.begin.ts",
+					"punctuation.definition.string.template.end.ts",
 					// css
 					"string.quoted.double.css",
 					"string.quoted.double.scss",
@@ -1730,6 +1787,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.character.escape.powershell",
 					// js
 					"constant.character.escape.js",
+					// ts
+					"constant.character.escape.ts",
 					// xml
 					"punctuation.definition.constant.xml",
 					"constant.character.entity.xml",
@@ -1780,6 +1839,11 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.numeric.decimal.js",
 					"constant.numeric.hex.js",
 					"constant.numeric.octal.js",
+					// ts
+					"constant.numeric.binary.ts",
+					"constant.numeric.decimal.ts",
+					"constant.numeric.hex.ts",
+					"constant.numeric.octal.ts",
 					// css
 					"constant.numeric.css",
 					// json
@@ -2004,6 +2068,19 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				settings: {
 					foreground: syntax.reactAttribute,
 					fontStyle: "italic",
+				},
+			},
+			//
+			// TS
+			//
+			{
+				name: "TS - String Interpolation",
+				scope: [
+					"punctuation.definition.template-expression.begin.ts",
+					"punctuation.definition.template-expression.end.ts",
+				],
+				settings: {
+					foreground: syntax.format,
 				},
 			},
 			//
