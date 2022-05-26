@@ -20,6 +20,9 @@ function createTheme(name: string, type: string, file: string, color: any, synta
 	fs.writeFileSync(jsonPath, JSON.stringify(theme, undefined, 4));
 }
 
+// TODO: Gutter comments
+// TODO: Notebook styles
+
 function generateTheme(color: any, syntax: any, name: string, type: string, config: Config) {
 	// Output the appropriate error lens keys.
 	let errorLens;

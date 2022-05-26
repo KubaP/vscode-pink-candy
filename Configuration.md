@@ -1,5 +1,5 @@
 # Configuration
-The theme has a number of configuration options. The illustrations below show these in the light theme, but all this also applies to the dark theme.
+The theme has a number of configuration options. The illustrations below present these in the light theme, but this applies to the dark them too.
 
 ### Italicized Comments
 Controls whether comments are italicized.
