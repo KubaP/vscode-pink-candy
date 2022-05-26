@@ -1,5 +1,5 @@
 ![Pink Candy Banner](./img/banner.png#gh-light-mode-only)
-![Pink Candy Banner](./img/banner_dark.png#gh-dark-mode-only)
+![Pink Candy Banner](./img/banner_2.png#gh-dark-mode-only)
 
 <br>
 <p align="center">
