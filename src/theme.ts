@@ -1824,7 +1824,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"comment.line.bnf",
 					"comment.block.bnf",
 				],
-				commentStyles,
+				...commentStyles,
 			},
 			//
 			//
