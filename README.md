@@ -41,6 +41,7 @@ This theme supports both *'Semantic'* and *'Textmate'* highlighting, so it shoul
 - Powershell
 - HTML/CSS/SCSS
 - Javascript (inc. JSX)
+- Typescript
 - Markdown
 - XML
 - Json
@@ -102,6 +103,11 @@ See highlighting examples [here](./Highlighting_Examples.md#javascript).
 See highlighting examples [here](./Highlighting_Examples.md#jsx).
 - Element attributes have a unique colour.
 - Embedded code delimiters `{...}` are distinctly coloured and emboldened.
+
+### Typescript
+See highlighting examples [here](./Highlighting_Examples.md#typescript).
+- String interpolation delimiters are distinctly coloured.
+- Static functions and properties are underlined.
 
 ### Markup Formats
 For Markdown, XML, Json, Yaml, Toml, INI and Bnf, see highlighting examples [here](./Highlighting_Examples.md#markup-formats).
