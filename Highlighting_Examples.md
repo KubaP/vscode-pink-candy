@@ -1,5 +1,5 @@
 # Syntax Highlighting Examples
-Screenshots of syntax highlighting in a selection of languages, with light and dark themes side-by-side.
+Screenshots of syntax highlighting in a selection of languages, with the light and dark themes side-by-side.
 
 ### Table of Contents
 1. [Rust](#rust)
@@ -8,10 +8,11 @@ Screenshots of syntax highlighting in a selection of languages, with light and d
 4. [HTML/CSS/SCSS](#html/css/scss)
 5. [Javascript](#javascript)
    1. [JSX](#jsx)
-6. [Markup Formats](#markup-formats)
+6. [Typescript](#typescript)
+7. [Markup Formats](#markup-formats)
 
 ## Rust
-Using the [Rust Analyzer](https://marketplace.visualstudio.com/items?itemName=matklad.rust-analyzer) extension with semantic highlighting enabled.
+Using the official [Rust Analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) extension with semantic highlighting enabled.
 
 ![Rust 1](./img/examples/rust_1.png)
 
@@ -58,6 +59,15 @@ Using the built-in Javascript language extension with semantic highlighting enab
 
 ![JSX 1](./img/examples/jsx_1.png)
 
+### Typescript
+Using the built-in Typescript language extension with semantic highlighting enabled.
+
+![Typescript 1](./img/examples/ts_1.png)
+
+![Typescript 2](./img/examples/ts_2.png)
+
+![Typescript 3](./img/examples/ts_3.png)
+
 ## Markup Formats
 ![Markdown](./img/examples/markdown_1.png)
 > Using the built-in Markdown language extension along with the [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) extension.
@@ -75,4 +85,7 @@ Using the built-in Javascript language extension with semantic highlighting enab
 > Using the [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) extension.
 
 ![INI](./img/examples/ini_1.png)
-> Using the built-in .ini language extension.
+> Using the built-in INI language extension.
+
+![BNF](./img/examples/bnf_1.png)
+> Using the [BNF & EBNF Highlighting](https://marketplace.visualstudio.com/items?itemName=Vallentin.vscode-bnf) extension.

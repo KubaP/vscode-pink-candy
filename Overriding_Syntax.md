@@ -1,10 +1,10 @@
 # Overriding Styles
-If you like the theme overall, but would like to tweak some aspect of it to your liking, here are the instructions to do so.
+If you like the syntax colours overall, but would like to tweak some aspect of it to your liking, here are the instructions to do so.
 
 ### Important Note
-*Semantic highlighting* only works if, a) the language extension supports it, and b) the code is in full context, i.e. within the main editor pane. *Semantic highlighting* does not work in places without context, such as the documentation hover widget, the git diff pane, etc. In such places, only the *Textmate theming* applies.
+*Semantic highlighting* only works if, a) the language extension supports it and, b) the code is in full context, i.e. within the main editor pane. *Semantic highlighting* does not work in places without context, such as the documentation hover widget, the git diff pane, etc. In such places, only the *Textmate theming* applies.
 
-For a full list of scopes for each language, see [Styles](./Styles.md).
+For a full list of scopes for each language, see [Styles.md](./Styles.md).
 
 ## Font styles
 These are the accepted font styles (make sure to get the exact spelling correct):
@@ -14,6 +14,7 @@ These are the accepted font styles (make sure to get the exact spelling correct)
 - "bold underline"
 - "italic underline"
 - "italic bold underline"
+- "strikethrough"
 - "" (empty; this **clears** any styles)
 
 ## Semantic Overrides
@@ -50,7 +51,7 @@ Inside of your `settings.json`, you can insert the following snippet:
 `SCOPE` refers to the full scope of the token, for example `punctuation.definition.string.rust`.
 
 ## Example
-You don't want C# static functions to be underlined. You open [Styles](./Styles.md) and navigate to the `C Sharp` section. Inside, you will find a sub-section `Static Function`, and in it there is the following line:
+You don't want C# static functions to be underlined. You open [Styles.md](./Styles.md) and navigate to the `C Sharp` section. Inside, you will find a sub-section `Static Function`, and in it there is the following line:
 ```md
 - s: "member.static"
 ```
@@ -67,7 +68,7 @@ Now, inside of your `settings.json`, you write:
 In this example, we only modified the semantic highlighting because the textmate theming does not support static functions.
 
 ## Example
-You want Rust lifetimes to be a different colour. You open [Styles](./Styles.md) and navigate to the `Rust` section. Inside, you will find a sub-section `Lifetimes`, and in it there are the following lines:
+You want Rust lifetime annotations to be a different colour. You open [Styles.md](./Styles.md) and navigate to the `Rust` section. Inside, you will find a sub-section `Lifetimes`, and in it there are the following lines:
 ```md
 - s: "lifetime"
 - tm: "punctuation.definition.lifetime.rust"
@@ -98,4 +99,4 @@ Now, inside of your `settings.json`, you write:
     ]
 }
 ```
-In this example, we had to both modify the semantic and textmate scopes. The semantic scope modified the appearance within the text editor, and the textmate scopes modified the appearance in the documentation widget, git diff pane, (and other places that lack context).
+In this example, we had to modify the semantic and textmate scopes since both support styling lifetime annotations.

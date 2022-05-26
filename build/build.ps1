@@ -41,14 +41,19 @@ $script:PUBLISH_DIR = New-Item -Path "$WorkingDirectory\" -Name "publish" -ItemT
 Write-Header "Copying over files" "Blue"
 Get-ChildItem -Path $script:SOURCE_DIR | Where-Object {
 	@(".vscode", 
-		"build", 
-		"publish",
-		"node_modules",
-		"img", 
-		".gitattributes", 
+		".gitattributes",
 		".gitignore",
-		"Highlighting_Examples.md", 
-		"Overriding_Styles.md",
+		".prettierrc",
+		".prettierignore",
+		"build",
+		"img",
+		"node_modules",
+		"out",
+		"publish",
+		"Configuration.md",
+		"Extensions.md",
+		"Highlighting_Examples.md",
+		"Overriding_Syntax.md",
 		"Styles.md"
 	) -notcontains $_.Name
 } | ForEach-Object {

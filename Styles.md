@@ -21,10 +21,16 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "storage.modifier.cs" - `public`, `static`, `override` etc.
 #### js
 - tm: "keyword"
-- tm: "keyword.operator.new.js"
+- tm: "keyword.operator.new.js" - `new`
 - tm: "keyword.operator.ternary.js"
 - tm: "constant.language.null.js"
 - tm: "constant.language.undefined.js"
+- tm: "storage.type.js" - `var`, `const`, etc.
+#### ts
+- tm: "keyword"
+- tm: "keyword.operator.new.ts" - `new`
+- tm: "storage.type.ts" - `var`, `const`, `class`, `constructor`, etc.
+- tm: "storage.type.namespace.ts" - `module`
 
 ### Self/This #F767BB #f85eb4
 #### rust
@@ -35,6 +41,8 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "keyword.other.this.cs"
 #### js
 - tm: "variable.language.this.js"
+#### ts
+- tm: "variable.language.this.ts"
 
 ### Built-in Type #F767BB #f85eb4
 - s: "type"
@@ -47,13 +55,18 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "keyword.type.cs"
 #### js
 - tm: "support.type.primitive.js"
+#### ts
+- tm: "support.type.primitive.ts"
 
 ### Punctuation #777777 #828da0
 - s: "punctuation"
 - tm: "punctuation"
-#### jsx
-- tm: "meta.brace.round.js"
-- tm: "meta.brace.square.js"
+#### js
+- tm: "meta.brace.round.js" - For some reason not all braces/brackets have the punctuation token
+- tm: "meta.brace.square.js" - see above
+#### ts
+- tm: "meta.brace.round.ts" - see above
+- tm: "meta.brace.square.ts" - see above
 
 ### Operators #777777 #828da0
 ### rust
@@ -68,6 +81,8 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "keyword.operator"
 #### js
 - tm: "keyword.operator"
+#### ts
+- tm: "keyword.operator"
 
 
 ### Function #09A1ED #10b1fe
@@ -80,6 +95,9 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - s: "function"
 - tm: "entity.name.function.js"
+#### ts
+- s: "function"
+- tm: "entity.name.function.ts"
 
 ### Method #09A1ED #10b1fe
 #### rust
@@ -88,6 +106,9 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "member"
 - tm: "entity.name.function.cs"
+#### ts
+- s: "member"
+- tm: "entity.name.function.ts"
 
 
 ### Namespace #565869 #b9bfca
@@ -125,6 +146,11 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "entity.name.type.class.js" - Class declaration (⚠ Cannot differentiate between classes and functions outside of the class declaration).
 - tm: "support.class.builtin.js" - Classes from the std lib
 - tm: "support.class.component.js" - React "classes" (types)
+#### ts
+- s: "class
+- s: "class.defaultLibrary" - Classes from the std lib
+- s: "enum"
+- tm: "entity.name.type.class.ts"- Class declaration (⚠ Cannot differentiate between classes and functions outside of the class declaration).
 
 ### Enum Member #13BBB7 #15c9c5 ℹ Includes boolean `true/false`.
 #### rust
@@ -142,12 +168,19 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - tm: "constant.language.boolean.true.js"
 - tm: "constant.language.boolean.false.js"
-
+#### ts
+- s: "enumMember"
+- tm: "variable.other.enummember.ts" - Enum variant declarations only.
+- tm: "constant.language.boolean.true.ts"
+- tm: "constant.language.boolean.false.ts"
 
 ### Interface/Inheritance #cd6bf4 #d177f5
 #### rust
 - s: "interface"
-- tm: "entity.name.type.trait.rust" - ⚠ Trait declaration only
+- tm: "entity.name.type.trait.rust" - Trait declaration only
+#### ts
+- s: "interface"
+- tm: "entity.name.type.interface.ts" - Interface declaration only
 
 ### Type Parameters #2DAE58 #3fc56b
 #### rust
@@ -155,7 +188,8 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "typeParameter"
 - tm: "entity.name.type.type-parameter.cs" - In object declaration only.
-
+#### ts
+- s: "typeParameter"
 
 
 ### Variables #565869 #b9bfca
@@ -169,7 +203,9 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - s: "variable"
 - tm: "variable.other.readwrite.js"
-- tm: "variable.other.constant.js
+#### ts
+- s: "variable"
+- tm: "variable.other.readwrite.ts"
 
 ### Parameters #6e82a6 #97bccd
 #### rust
@@ -179,7 +215,10 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "entity.name.variable.parameter.cs" - Only for declarations in function header, not uses
 #### js
 - s: "parameter"
-- tm: "variable.parameter.js" - ⚠ Only highlights within the function definition.
+- tm: "variable.parameter.js" - Only highlights within the function definition.
+#### ts
+- s: "parameter"
+- tm: "variable.parameter.ts" - Only highlights within the function definition.
 
 ### Object members #a8759a #b58e95
 #### rust
@@ -187,10 +226,14 @@ View this document inside of a text editor with hex colour highlighting support,
 #### csharp
 - s: "field"
 - tm: "entity.name.variable.field.cs" - Only for declarations within class.
-- tm: "variable.other.object.property.cs" - ⚠ Incorrectly highlights static objects in namespace paths.
+- tm: "variable.other.object.property.cs" - Incorrectly highlights static objects in namespace paths.
 #### js
-- s: "property" - ⚠ Only applies to static values inside a class.
+- s: "property" - Only applies to static values inside a class.
 - tm: "variable.other.property.js"
+#### ts
+- s: "property"
+- tm: "variable.object.property.ts" - Only inside class declarations.
+- tm: "variable.other.property.ts" - Accessing through the dot notation, i.e. `obj.something`
 
 ### Constants #13BBB7 #15c9c5
 #### rust
@@ -202,7 +245,10 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "constant.language.null.cs"
 #### js
 - s: "variable.readonly"
-- tm: "variable.other.constant.js
+- tm: "variable.other.constant.js - Only applies to the declaration.
+#### ts
+- s: "variable.readonly"
+- tm: "variable.other.constant.ts" - Only applies to the declaration.
 
 
 
@@ -224,6 +270,14 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "punctuation.definition.string.end.js"
 - tm: "punctuation.definition.string.template.begin.js"
 - tm: "punctuation.definition.string.template.end.js"
+#### ts
+- tm: "string.quoted.single.ts"
+- tm: "string.quoted.double.ts"
+- tm: "string.template.ts"
+- tm: "punctuation.definition.string.begin.ts"
+- tm: "punctuation.definition.string.end.ts"
+- tm: "punctuation.definition.string.template.begin.ts"
+- tm: "punctuation.definition.string.template.end.ts"
 
 ### Raw Strings
 #### csharp
@@ -237,6 +291,8 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "constant.character.escape.cs"
 #### js
 - tm: "constant.character.escape.js"
+#### ts
+- tm: "constant.character.escape.ts"
 
 ### String Interpolation #cd6bf4 #d177f5
 #### rust
@@ -249,6 +305,9 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - tm: "punctuation.definition.template-expression.begin.js"
 - tm: "punctuation.definition.template-expression.end.js"
+#### ts
+- tm: "punctuation.definition.template-expression.begin.ts"
+- tm: "punctuation.definition.template-expression.end.ts"
 
 ### Character Literals #FF5C57 #ff6b66
 #### rust
@@ -278,6 +337,11 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "constant.numeric.binary.js"
 - tm: "constant.numeric.hex.js"
 - tm: "constant.numeric.octal.js"
+#### ts
+- tm: "constant.numeric.decimal.ts"
+- tm: "constant.numeric.binary.ts"
+- tm: "constant.numeric.hex.ts"
+- tm: "constant.numeric.octal.ts"
 
 ### Comments #ADB1C2 #636d83
 #### rust
@@ -289,9 +353,13 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "comment.line.double-slash.cs"
 - tm: "comment.block.cs"
 #### js
+- tm: "comment.block.js"
 - tm: "comment.block.documentation.js"
 - tm: "comment.line.double-slash.js"
-
+#### ts
+- tm: "comment.block.ts"
+- tm: "comment.block.documentation.ts"
+- tm: "comment.line.double-slash.ts"
 
 
 ### Attributes #FF5C57 #ff6b66
@@ -379,7 +447,7 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Properties #a8759a #b58e95 (bold)
 - s: "property"
 
-### Properties #a8759a #b58e95 (bold underlined)
+### Static Properties #a8759a #b58e95 (bold underlined)
 - s: "property.static"
 
 ### Doc Tag #ADB1C2 #636d83
@@ -445,6 +513,9 @@ Variables #2DAE58 #3fc56b
 Variable Scopes #2DAE58 #3fc56b (underlined)
 - "storage.modifier.scope.powershell" - `global:`, `script:`, etc.
 
+Storage Scopes #2DAE58 #3fc56b (underlined)
+- "support.variable.drive.powershell" - `env:`, `Temp:`, etc.
+
 Special Variable #cd6bf4 #d177f5
 - "support.variable.automatic.powershell" - The `$_` in loops for example
 - "support.variable.automatic.powershell punctuation.definition.variable.powershell" - The `$` beforehand
@@ -455,6 +526,8 @@ Members/Methods #a8759a #b58e95
 Constants/Booleans #13BBB7 #15c9c5
 - "constant.language.powershell" - `true`, `false`, `null`, etc.
 - "constant.language.powershell punctuation.definition.variable.powershell" - The `$` beforehand
+- "support.constant.variable.powershell" - Things like `$Host`, etc.
+- "support.constant.variable.powershell punctuation.definition.variable.powershell" - The `$` beforehand
 
 Strings #CF9C00 #f9c859
 - "string.quoted.double.powershell"
@@ -615,10 +688,28 @@ HTML/Css/Scss only support textmate highlighting.
 
 ### Limitations
 - Distinction between methods and functions only applies within classes; outside, a method is treated the same as a function, so there is no highlighting difference.
-- Distinction between constants is pointless since constants are used differently in javascript compared to most languages, i.e. declaring a value or function as `const` is very common.
 #### Textmate limitations
+- Distinction between constants is pointless since constants are used differently in javascript compared to most languages, i.e. declaring a value or function as `const` is very common.
 - No way to differentiate between class constructor calls and function calls.
 - No support for parameter highlighting inside of the function body.
+
+
+
+## Typescript
+
+### Static Functions #09A1ED  #10b1fe (underlined)
+- s: "method.static"
+
+### Static Members #a8759a #b58e95 (underlined)
+- s: "property.static"
+
+### Textmate limitations
+- Distinction between constants is pointless since constants are used differently in javascript compared to most languages, i.e. declaring a value or function as `const` is very common.
+- No way to differentiate between class constructor calls and function calls.
+- No support for parameter highlighting inside of the function body.
+- No support for static functions or members.
+- No way to differentiate enum variants from object members outside of their declarations.
+- No support for interface usage.
 
 
 
@@ -661,7 +752,7 @@ XML only supports textmate highlighting; it has no semantic highlighting.
 ## Markdown
 Markdown only supports textmate highlighting; it has no semantic highlighting.
 
-### Text #ADB1C2 #636d83
+### Text #565869 #B9BFCA (alternatively #ADB1C2 #636d83)
 - "text.html.markdown"
 - "punctuation.definition.list_item.markdown"
 
@@ -679,20 +770,24 @@ Markdown only supports textmate highlighting; it has no semantic highlighting.
 - "markup.italic"
 - "punctuation.definition.italic.markdown" - `* ... *`
 
-### Quote #13BBB7 #15c9c5
+### Quote #CF9C00 #F9C859
 - "markup.quote.markdown"
 - "punctuation.definition.quote.begin.markdown" - `> ...`
 
-### Inline Code #565869 #abb2bf
+### Strikethrough #ADB1C2 #636D83
+- "markup.strikethrough.markdown"
+- "punctuation.definition.strikethrough.markdown"
+
+### Inline Code #565869 #B9BFCA (bold)
 - "markup.inline.raw.string.markdown"
 - "punctuation.definition.raw.markdown" - `` `...` ``
 
-### Fenced Codeblock #565869 #abb2bf
+### Fenced Codeblock #565869 #B9BFCA
 - "markup.fenced_code.block.markdown"
-#### Language Identifier #F767BB #f85eb4
+#### Language Identifier #565869 #B9BFCA (bold)
 - "fenced_code.block.language.markdown" - ```` ```rust ````
 
-### List #565869 #abb2bf
+### List #13BBB7 #15c9c5
 - "punctuation.definition.list.begin.markdown" - `- ...`, `1. ...`, `* ...`
 
 ### Url Description #2DAE58 #3fc56b
@@ -815,10 +910,10 @@ TOML only supports textmate highlighting; it has no semantic highlighting.
 - "constant.other.time.datetime.local.toml"
 - "constant.other.time.datetime.offset.toml"
 
-### Tables #cd6bf4 #d177f5
+### Tables #8cba10 #9acc12
 - "variable.key.table.toml"
 
-### Array Tables #8cba10 #9acc12
+### Array Tables #cd6bf4 #d177f5
 - "variable.key.array.table.toml"
 
 ### Escape Characters #FF5C57 #ff6b66
@@ -836,7 +931,7 @@ INI only supports textmate highlighting; it has no semantic highlighting.
 ### Keys #F767BB #f85eb4
 - "keyword.other.definition.ini"
 
-### Headings #cd6bf4 #d177f5
+### Headings #8cba10 #9acc12
 - "entity.name.section.group-title.ini"
 
 ### String Values #CF9C00 #f9c859
@@ -849,3 +944,22 @@ INI only supports textmate highlighting; it has no semantic highlighting.
 - "punctuation.definition.comment.ini"
 - "comment.line.semicolon.ini"
 - "comment.line.number-sign.ini"
+
+
+
+## Backus-Naur Form
+BNF only supports textmate highlighting; it has no semantic highlighting.
+
+### Symbols #2DAE58 #3fc56b
+- "entity.name.class.bnf"
+
+### Strings #CF9C00 #f9c859
+- "string.quoted.double.bnf"
+- "string.quoted.single.bnf"
+
+### Built-in #13BBB7 #15c9c5
+- "support.variable.bnf"
+
+### Comments #ADB1C2 #636d83
+- "comment.line.bnf"
+- "comment.block.bnf"
