@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.2 - 2022-05-27
+### Fixed
+- Invalid colour string used for one of the alternate inlay hint styles.
+
 ## 1.3.1 - 2022-05-27
 **FIXED** issue with release `1.3.0` which did not package the theme files because of a build script bug.
 

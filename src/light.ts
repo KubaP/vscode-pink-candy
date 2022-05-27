@@ -41,7 +41,7 @@ export const lightColors = {
 			codelens: "#747474",
 
 			// BCKG_INLAY: Inlay hint text
-			alt1Inlay: "#6c6e84",
+			alt1Inlay: "#6C6E84",
 			// BCKG_INLAY: Inlay hint background
 			alt1InlayBgA: "#00000007",
 
