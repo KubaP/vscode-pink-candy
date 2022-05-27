@@ -122,7 +122,7 @@ There is also a `Pink Candy: Restore default configuration` command which resets
 ⚠ *Note:* Because of a limitation of VS Code, the window must be reloaded in order to see the effects of a change to a theme. A notification will pop-up whenever a change is detected to prompt you.
 
 ## Overriding Syntax Styles
-See [Overriding_Syntax.md](./Overriding_Syntax.md.md) for a step-by-step guide on how to override syntax highlighting styles to your liking.
+See [Overriding_Syntax.md](./Overriding_Syntax.md) for a step-by-step guide on how to override syntax highlighting styles to your liking.
 
 ## Extensions
 The *Git Graph* and *Todo Tree* extensions do not provide themable colours. As of the time of this writing, if you want these extensions to fit in with this theme, go to [Extensions.md](./Extensions.md) and follow the instructions. I am in the process of creating a pull request to add themable colour support to the *Git Graph* extension, so hopefully in the future this workaround will not be necessary.
