@@ -122,7 +122,6 @@
 		"build": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"package": "vsce package",
-		"vscode:prepublish": "tsc -p ./",
 		"publish": "vsce publish -p",
 		"postPublish": "node -e \"const version = require('./package.json').version; console.log(`##vso[task.setvariable variable=version;isOutput=true]${version}`);\""
 	},

@@ -8,8 +8,17 @@ const fs = require("fs");
 const path = require("path");
 const { createThemes } = require("../out/theme");
 
+// Handle working directory paths within Azure pipelines.
+let workingDir = __dirname;
+if (process.env.RELEASE_PRIMARYARTIFACTSOURCEALIAS) {
+	workingDir = path.join(
+		process.env.SYSTEM_DEFAULTWORKINGDIRECTORY,
+		process.env.RELEASE_PRIMARYARTIFACTSOURCEALIAS
+	);
+}
+
 // Create the `./themes` folder if it doesn't exist, otherwise the file writing functions fail.
-const folder = path.join(__dirname, "..", "themes");
+const folder = path.join(workingDir, "..", "themes");
 if (!fs.existsSync(folder)) {
 	fs.mkdirSync(folder);
 }
