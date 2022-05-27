@@ -4,28 +4,25 @@ import { Config } from "./config";
 import { lightColors, lightSyntax } from "./light";
 import { darkColors, darkSyntax } from "./dark";
 
-// Handle working directory paths within Azure pipelines.
-let workingDir = __dirname;
-if (process.env.RELEASE_PRIMARYARTIFACTSOURCEALIAS) {
-	if (process.env.SYSTEM_DEFAULTWORKINGDIRECTORY) {
-		workingDir = path.join(
-			process.env.SYSTEM_DEFAULTWORKINGDIRECTORY,
-			process.env.RELEASE_PRIMARYARTIFACTSOURCEALIAS
-		);
-	}
-}
-
 /**
  * Creates the theme `.json` files.
  * @param config The current configuration.
  */
-export function createThemes(config: Config) {
-	createTheme("Pink Candy Light", "light", "pink-candy-light.json", lightColors, lightSyntax, config);
-	createTheme("Pink Candy Dark", "dark", "pink-candy-dark.json", darkColors, darkSyntax, config);
+export function createThemes(config: Config, path: string) {
+	createTheme("Pink Candy Light", "light", "pink-candy-light.json", path, lightColors, lightSyntax, config);
+	createTheme("Pink Candy Dark", "dark", "pink-candy-dark.json", path, darkColors, darkSyntax, config);
 }
 
-function createTheme(name: string, type: string, file: string, color: any, syntax: any, config: Config) {
-	const jsonPath = path.join(workingDir, "..", "themes", file);
+function createTheme(
+	name: string,
+	type: string,
+	file: string,
+	themeFolder: string,
+	color: any,
+	syntax: any,
+	config: Config
+) {
+	const jsonPath = path.join(themeFolder, file);
 	const theme = generateTheme(color, syntax, name, type, config);
 
 	fs.writeFileSync(jsonPath, JSON.stringify(theme, undefined, 4));
