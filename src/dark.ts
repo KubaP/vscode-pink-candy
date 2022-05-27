@@ -41,7 +41,7 @@ export const darkColors = {
 			codelens: "#9C9C9C",
 
 			// BCKG_INLAY: Inlay hint text
-			alt1Inlay: "#909AB",
+			alt1Inlay: "#9099AB",
 			// BCKG_INLAY: Inlay hint background
 			alt1InlayBgA: "#FFFFFF07",
 
