@@ -8,13 +8,21 @@ import { darkColors, darkSyntax } from "./dark";
  * Creates the theme `.json` files.
  * @param config The current configuration.
  */
-export function createThemes(config: Config) {
-	createTheme("Pink Candy Light", "light", "pink-candy-light.json", lightColors, lightSyntax, config);
-	createTheme("Pink Candy Dark", "dark", "pink-candy-dark.json", darkColors, darkSyntax, config);
+export function createThemes(config: Config, path: string) {
+	createTheme("Pink Candy Light", "light", "pink-candy-light.json", path, lightColors, lightSyntax, config);
+	createTheme("Pink Candy Dark", "dark", "pink-candy-dark.json", path, darkColors, darkSyntax, config);
 }
 
-function createTheme(name: string, type: string, file: string, color: any, syntax: any, config: Config) {
-	const jsonPath = path.join(__dirname, "..", "themes", file);
+function createTheme(
+	name: string,
+	type: string,
+	file: string,
+	themeFolder: string,
+	color: any,
+	syntax: any,
+	config: Config
+) {
+	const jsonPath = path.join(themeFolder, file);
 	const theme = generateTheme(color, syntax, name, type, config);
 
 	fs.writeFileSync(jsonPath, JSON.stringify(theme, undefined, 4));

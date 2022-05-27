@@ -1,6 +1,8 @@
 # Changelog
 
-## 1.3.0 - 2022-05-26
+## 1.3.1 - 2022-05-27
+**FIXED** issue with release `1.3.0` which did not package the theme files because of a build script bug.
+
 ### Added
 - Configuration options for the theme. There are now a number of extension options which allow for configuring aspects of the theme to your liking. Please see the documentation for an overview.
 - Syntax highlighting for Typescript.
@@ -39,6 +41,9 @@
 - The hover-over colour used for buttons/dropdowns in the dark theme was darker than the background.
 - The `!` bang in rust macro calls not being coloured blue like the macro name.
 - A bunch of small inconsistencies in the colours used for the UI in the dark theme.
+
+## 1.3.0 - 2022-05-26
+*PULLED RELEASE* because of major packaging bug.
 
 ## 1.2.0 - 2022-03-10
 ### Added

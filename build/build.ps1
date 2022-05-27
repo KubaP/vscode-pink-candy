@@ -48,7 +48,6 @@ Get-ChildItem -Path $script:SOURCE_DIR | Where-Object {
 		"build",
 		"img",
 		"node_modules",
-		"out",
 		"publish",
 		"Configuration.md",
 		"Extensions.md",
