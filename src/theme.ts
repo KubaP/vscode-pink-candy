@@ -4,6 +4,17 @@ import { Config } from "./config";
 import { lightColors, lightSyntax } from "./light";
 import { darkColors, darkSyntax } from "./dark";
 
+// Handle working directory paths within Azure pipelines.
+let workingDir = __dirname;
+if (process.env.RELEASE_PRIMARYARTIFACTSOURCEALIAS) {
+	if (process.env.SYSTEM_DEFAULTWORKINGDIRECTORY) {
+		workingDir = path.join(
+			process.env.SYSTEM_DEFAULTWORKINGDIRECTORY,
+			process.env.RELEASE_PRIMARYARTIFACTSOURCEALIAS
+		);
+	}
+}
+
 /**
  * Creates the theme `.json` files.
  * @param config The current configuration.
@@ -14,7 +25,7 @@ export function createThemes(config: Config) {
 }
 
 function createTheme(name: string, type: string, file: string, color: any, syntax: any, config: Config) {
-	const jsonPath = path.join(__dirname, "..", "themes", file);
+	const jsonPath = path.join(workingDir, "..", "themes", file);
 	const theme = generateTheme(color, syntax, name, type, config);
 
 	fs.writeFileSync(jsonPath, JSON.stringify(theme, undefined, 4));
