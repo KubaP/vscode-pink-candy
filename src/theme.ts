@@ -1286,6 +1286,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			builtinAttribute: syntax.attribute, // `inline`, `cfg`, etc.
 			"attribute.attribute": syntax.attribute, // `derive` or `clippy::something`.
 			"generic.attribute": syntax.attribute, // Inside the attribute, e.g. `cfg(debug_assertions)`.
+			//
+			// TOML - Even Better TOML only
+			"tomlTableKey": syntax.tomlTable,
+			"tomlArrayKey": syntax.tomlArray,
 		},
 		tokenColors: [
 			// BASICS
@@ -1520,6 +1524,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					// yaml
 					"constant.language.boolean.yaml",
 					// toml
+					// Even Better TOML
 					"constant.language.boolean.toml",
 				],
 				settings: {
@@ -1636,6 +1641,9 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"variable.other.constant.ts",
 					// json
 					"constant.language.json",
+					// toml
+					// Better TOML
+					"constant.other.boolean.toml"
 				],
 				settings: {
 					foreground: syntax.constant,
@@ -1698,7 +1706,11 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"string.quoted.single.yaml",
 					"string.quoted.double.yaml",
 					// toml
+					// Better TOML & Even Better TOML
 					"string.quoted.single.basic.line.toml",
+					"string.quoted.triple.basic.block.toml",
+					"string.quoted.single.literal.line.toml",
+					"string.quoted.triple.literal.block.toml",
 					// ini
 					"string.quoted.single.ini",
 					"string.quoted.double.ini",
@@ -1732,7 +1744,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					// yaml
 					"constant.character.escape.yaml",
 					// toml
-					"constant.character.escape.toml",
+					// Better TOML & Even Better TOML
+					"constant.character.escape.toml", // (Only within multi-line strings for Better TOML)
 				],
 				settings: {
 					foreground: syntax.char,
@@ -1789,10 +1802,15 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.numeric.integer.yaml",
 					"constant.numeric.float.yaml",
 					// toml
+					// Better TOML
 					"constant.numeric.integer.toml",
 					"constant.numeric.float.toml",
+					// Even Better TOML
+					"constant.numeric.bin.toml",
 					"constant.numeric.hex.toml",
 					"constant.numeric.oct.toml",
+					"constant.numeric.inf.toml",
+					"constant.numeric.nan.toml",
 				],
 				settings: {
 					foreground: syntax.number,
@@ -2343,7 +2361,13 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			//
 			{
 				name: "TOML - Keys",
-				scope: ["variable.key.toml"],
+				scope: [
+					// Better TOML
+					"keyword.key.toml",
+					// Even Better TOML
+					"support.type.property-name.toml"
+					//"variable.key.toml"
+				],
 				settings: {
 					foreground: syntax.tomlKey,
 				},
@@ -2351,6 +2375,11 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			{
 				name: "TOML - Timestamp Values",
 				scope: [
+					// Better TOML
+					"constant.other.date.toml",
+					"constant.other.datetime.toml",
+					"constant.other.datetime-with-timezone.toml",
+					// Even Better TOML
 					"constant.other.time.date.toml",
 					"constant.other.time.time.toml",
 					"constant.other.time.datetime.local.toml",
@@ -2362,14 +2391,26 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			},
 			{
 				name: "TOML - Tables",
-				scope: ["variable.key.table.toml"],
+				scope: [
+					// Better TOML
+					"entity.other.attribute-name.table.toml",
+					// Even Better TOML
+					"support.type.property-name.table.toml"
+					//"variable.key.table.toml"
+				],
 				settings: {
 					foreground: syntax.tomlTable,
 				},
 			},
 			{
 				name: "TOML - Array Tables",
-				scope: ["variable.key.array.table.toml"],
+				scope: [
+					// Better TOML
+					"entity.other.attribute-name.table.array.toml",
+					// Even Better TOML
+					"support.type.property-name.array.toml"
+					//"variable.key.array.table.toml"
+				],
 				settings: {
 					foreground: syntax.tomlArray,
 				},
