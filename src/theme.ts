@@ -1916,6 +1916,13 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					foreground: syntax.format,
 				},
 			},
+			{
+				name: "Macro declaration variable specifier",
+				scope: ["variable.other.metavariable.specifier.rust"],
+				settings: {
+					foreground: syntax.rustMacroSpecifier
+				}
+			},
 			//
 			// CSHARP
 			//

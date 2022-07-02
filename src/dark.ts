@@ -381,6 +381,7 @@ export const darkSyntax = {
 	rustFn: "#01AAFA",
 	rustVar: "#ABB2BF",
 	rustParam: "#87B2C5",
+	rustMacroSpecifier: "#9ACC12",
 
 	jsRegex: "#B9BFCA",
 	reactEmbedded: "#FF6B66",

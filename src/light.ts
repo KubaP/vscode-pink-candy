@@ -381,6 +381,7 @@ export const lightSyntax = {
 	rustFn: "#1DAEf6",
 	rustVar: "#6C6E83",
 	rustParam: "#7B8dAE",
+	rustMacroSpecifier: "#8CBA10",
 
 	jsRegex: "#565869",
 	reactEmbedded: "#FF5C57",
