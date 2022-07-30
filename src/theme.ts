@@ -1290,8 +1290,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"generic.attribute": syntax.attribute, // Inside the attribute, e.g. `cfg(debug_assertions)`.
 			//
 			// TOML - Even Better TOML only
-			"tomlTableKey": syntax.tomlTable,
-			"tomlArrayKey": syntax.tomlArray,
+			tomlTableKey: syntax.tomlTable,
+			tomlArrayKey: syntax.tomlArray,
 		},
 		tokenColors: [
 			// BASICS
@@ -1645,7 +1645,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.language.json",
 					// toml
 					// Better TOML
-					"constant.other.boolean.toml"
+					"constant.other.boolean.toml",
 				],
 				settings: {
 					foreground: syntax.constant,
@@ -1922,8 +1922,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "Macro declaration variable specifier",
 				scope: ["variable.other.metavariable.specifier.rust"],
 				settings: {
-					foreground: syntax.rustMacroSpecifier
-				}
+					foreground: syntax.rustMacroSpecifier,
+				},
 			},
 			//
 			// CSHARP
@@ -2374,7 +2374,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					// Better TOML
 					"keyword.key.toml",
 					// Even Better TOML
-					"support.type.property-name.toml"
+					"support.type.property-name.toml",
 					//"variable.key.toml"
 				],
 				settings: {
@@ -2404,7 +2404,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					// Better TOML
 					"entity.other.attribute-name.table.toml",
 					// Even Better TOML
-					"support.type.property-name.table.toml"
+					"support.type.property-name.table.toml",
 					//"variable.key.table.toml"
 				],
 				settings: {
@@ -2417,7 +2417,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					// Better TOML
 					"entity.other.attribute-name.table.array.toml",
 					// Even Better TOML
-					"support.type.property-name.array.toml"
+					"support.type.property-name.array.toml",
 					//"variable.key.array.table.toml"
 				],
 				settings: {
