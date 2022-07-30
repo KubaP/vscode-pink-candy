@@ -404,7 +404,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"editorUnicodeHighlight.border": color.diag.error, // Highlight potentially confusing unicode characters.
 			"editorUnicodeHighlight.background": color.diag.errorBgA,
 			"widget.shadow": color.ui.shadow,
-			disabledForeground: color.ui.placeholderText, // Disabled text, e.g. disable menu dropdown entries.
+			disabledForeground: color.ui.disabledText, // Disabled text, e.g. disable menu dropdown entries.
 			//
 			// Cursor/line
 			"editorCursor.foreground": color.accent.primary,

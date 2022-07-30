@@ -252,7 +252,11 @@ export const darkColors = {
 		separator: "#3D434F",
 
 		// Input field foreground
-		placeholderText: "#595E67",
+		placeholderText: "#646a74",
+
+		// Menu disabled entry foreground, (this is chosen to match `placeholderText` since the disable text also
+		// have a secondary fade layer)
+		disabledText: "#848A95",
 
 		// Little buttons, titlebar menu buttons
 		//
