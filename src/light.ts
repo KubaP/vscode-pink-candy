@@ -320,6 +320,7 @@ export const lightColors = {
 		remote: "#09A1ED",
 		verified: "#11C678",
 		prerelease: "#FF942F",
+		sponsor: "#FF1277",
 
 		// Chart colours
 		chartLine: "#565869",

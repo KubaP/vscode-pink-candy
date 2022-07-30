@@ -320,6 +320,7 @@ export const darkColors = {
 		remote: "#09A1ED",
 		verified: "#31A155",
 		prerelease: "#E17615",
+		sponsor: "#FF1277",
 
 		// Chart colours
 		chartLine: "#B9BFCA",

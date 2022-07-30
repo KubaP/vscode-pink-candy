@@ -791,6 +791,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"extensionIcon.verifiedForeground": color.ui.verified,
 			"extensionIcon.starForeground": color.ui.star,
 			"extensionIcon.preReleaseForeground": color.ui.prerelease,
+			"extensionIcon.sponsorForeground": color.ui.sponsor,
 			"extensionBadge.remoteForeground": color.text.inverse,
 			"extensionBadge.remoteBackground": color.ui.remote,
 			"extensionButton.prominentForeground": color.text.inverse, // `Install` button
