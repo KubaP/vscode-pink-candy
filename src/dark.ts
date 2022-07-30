@@ -63,7 +63,7 @@ export const darkColors = {
 
 		// Text editor selection background box, text editor matching text background box, text editor matching
 		// symbol background box, text editor selection boxes, general selection, input field, terminal selection,
-		selectionBg: "#81577A", // FF4C981A on primaryBg
+		selectionBg: "#392735", // FF4C981A on primaryBg
 		selectionBgA: "#FF4C981A",
 		// Text editor unfocused selection background box, text editor find current range background box,
 		secondarySelectionBgA: "#FF4C9810",
