@@ -157,7 +157,7 @@ export const lightColors = {
 		current: "#11C678",
 		incoming: "#00B7E4",
 
-		// Diff viewer line backgrounds
+		// Diff viewer line backgrounds, refactor preview text backgrounds
 		insertedBgA: "#11C6782A", // Entire modified line #d3f2e6 Specifically added #b2ead3
 		removedBgA: "#FF127720", // Entire modified line #fbddea Specifically removed #fcc2db
 		diffDiagonal: "#ADB1C288",
@@ -193,7 +193,7 @@ export const lightColors = {
 
 	terminal: {
 		// Command decoration icons
-		default: "#ADB1C2",
+		default: "#ADB1C2", // +(SetMark sequence)
 		success: "#11C678",
 		error: "#FF1277",
 

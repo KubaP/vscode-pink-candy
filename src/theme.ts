@@ -990,10 +990,12 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"terminal.ansiBrightMagenta": color.terminal.ansiBrightMagenta,
 			//
 			"terminal.selectionBackground": color.text.selectionBgA,
-			"terminal.findMatchBackground": "#00000000", // Currently selected found match. Set to 0 so that it doesn't multiple with findMatchHighlightBackground.
-			"terminal.findMatchBorder": color.text.matchBorderA,
-			"terminal.findMatchHighlightBackground": color.text.matchBgA,
-			"terminal.findMatchHighlightBorder": "#00000000",
+			"terminal.findMatchBackground": color.text.matchBg, // Currently selected match.
+			"terminal.findMatchBorder": color.text.matchBorderA, // Currently selected match.
+			"terminal.findMatchHighlightBackground": color.text.matchBgA, // Other matches.
+			"terminal.findMatchHighlightBorder": "#00000000", // Other matches.
+			"terminalOverviewRuler.cursorForeground": color.accent.primary,
+			"terminalOverviewRuler.findMatchForeground": color.diag.match,
 			//
 			"terminalCommandDecoration.defaultBackground": color.terminal.default,
 			"terminalCommandDecoration.successBackground": color.terminal.success,

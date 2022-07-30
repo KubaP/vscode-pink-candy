@@ -157,7 +157,7 @@ export const darkColors = {
 		current: "#31A155",
 		incoming: "#018ACC",
 
-		// Diff viewer line backgrounds
+		// Diff viewer line backgrounds, refactor preview text backgrounds
 		insertedBgA: "#31A1552A", // Entire modified line #243a31 Specifically added #264b37
 		removedBgA: "#FF127720", // Entire modified line #3f2234 Specifically removed #58203c
 		diffDiagonal: "#636D8388",
@@ -193,7 +193,7 @@ export const darkColors = {
 
 	terminal: {
 		// Command decoration icons
-		default: "#636D83",
+		default: "#636D83", // +(SetMark sequence)
 		success: "#31A155",
 		error: "#FF1277",
 
