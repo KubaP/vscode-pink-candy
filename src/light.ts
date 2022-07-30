@@ -167,6 +167,14 @@ export const lightColors = {
 		currentHeaderBgA: "#11C6786A",
 		incomingBgA: "#09A1ED2A",
 		incomingHeaderBgA: "#09A1ED6A",
+
+		// Merge editor backgrounds
+		mergeWordChangeBgA: "#EFF3282A",
+		mergeLineChangeBgA: "#EFF3281A",
+		mergeUnhandledUnfocused: "#EFF3287A",
+		mergeUnhandledFocused: "#EFF328DA", // +(ruler marker)
+		mergeHandledUnfocused: "#0000002A",
+		mergeHandledFocused: "#0000004A", // +(ruler marker)
 	},
 
 	debug: {

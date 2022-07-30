@@ -612,6 +612,16 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"editorOverviewRuler.incomingContentForeground": color.git.incoming,
 			//"editorOverviewRuler.commonContentForeground": "",
 			//
+			// MERGE EDITOR [x]
+			"mergeEditor.change.background": color.git.mergeLineChangeBgA,
+			"mergeEditor.change.word.background": color.git.mergeWordChangeBgA,
+			"mergeEditor.conflict.unhandledUnfocused.border": color.git.mergeUnhandledUnfocused,
+			"mergeEditor.conflict.unhandledFocused.border": color.git.mergeUnhandledFocused,
+			"mergeEditor.conflict.handledUnfocused.border": color.git.mergeHandledUnfocused,
+			"mergeEditor.conflict.handledFocused.border": color.git.mergeHandledFocused,
+			"mergeEditor.conflict.unhandled.minimapOverViewRuler": color.git.mergeUnhandledFocused,
+			"mergeEditor.conflict.handled.minimapOverViewRuler": color.git.mergeHandledFocused,
+			//
 			//
 			//
 			// GENERAL TEXT

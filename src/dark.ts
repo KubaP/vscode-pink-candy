@@ -167,6 +167,14 @@ export const darkColors = {
 		currentHeaderBgA: "#31A1556A",
 		incomingBgA: "#018ACC2A",
 		incomingHeaderBgA: "#018ACC6A",
+
+		// Merge editor backgrounds
+		mergeWordChangeBgA: "#CCD00C2A",
+		mergeLineChangeBgA: "#CCD00C1A",
+		mergeUnhandledUnfocused: "#CCD00C4A",
+		mergeUnhandledFocused: "#CCD00CAA", // +(ruler marker)
+		mergeHandledUnfocused: "#FFFFFF3A",
+		mergeHandledFocused: "#FFFFFF8A", // +(ruler marker)
 	},
 
 	debug: {
