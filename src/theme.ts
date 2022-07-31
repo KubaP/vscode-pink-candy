@@ -892,6 +892,13 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"keybindingTable.headerBackground": color.ui.secondaryBg,
 			"keybindingTable.rowsBackground": color.ui.secondaryBg, // Background of every other row.
 			//
+			// COMMAND CENTER [x]
+			"commandCenter.foreground": color.text.normal,
+			"commandCenter.background": color.ui.primaryBg,
+			"commandCenter.border": color.ui.border,
+			"commandCenter.activeForeground": color.text.normal, // Text when hovering over.
+			"commandCenter.activeBackground": color.ui.selectedBg, // Background when hovering over.
+			//
 			//
 			//
 			// WINDOW [x]

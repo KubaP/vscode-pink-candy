@@ -228,7 +228,8 @@ export const darkColors = {
 		// Intellisense widget, command bar, text editor, text editor block cursor char, text editor gutter, text
 		// editor minimap, breacrumbs, hover widget, peek view text editor, peek view text gutter, tab empty group,
 		// tab drop-into promp, tab active background, tab hover background, tab zen mode sides, activity bar
-		// background, welcome page background, panel background, notification background,
+		// background, welcome page background, panel background, notification background, command center
+		// background
 		//
 		// MINIMAL: Badge background,
 		primaryBg: "#22222A",
@@ -282,7 +283,8 @@ export const darkColors = {
 		// Keybind background
 		selectedBgA: "#FFFFFF10",
 
-		// Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar
+		// Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar, command center
+		// hover
 		selectedBg: "#2F2F37", // FFFFFF10 on primaryBg
 		// Welcome page tile on hover
 		selectedSecondaryBg: "#35343A", // FFFFFF10 on secondaryBg
