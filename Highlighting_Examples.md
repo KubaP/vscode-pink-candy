@@ -82,7 +82,7 @@ Using the built-in Typescript language extension with semantic highlighting enab
 > Using the built-in Yaml language extension.
 
 ![Toml](./img/examples/toml_1.png)
-> Using the [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) extension.
+> Using the [Even Better TOML](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) extension. This theme supports the *Better TOML* extension as well.
 
 ![INI](./img/examples/ini_1.png)
 > Using the built-in INI language extension.
