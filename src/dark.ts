@@ -63,7 +63,7 @@ export const darkColors = {
 
 		// Text editor selection background box, text editor matching text background box, text editor matching
 		// symbol background box, text editor selection boxes, general selection, input field, terminal selection,
-		selectionBg: "#81577A", // FF4C981A on primaryBg
+		selectionBg: "#392735", // FF4C981A on primaryBg
 		selectionBgA: "#FF4C981A",
 		// Text editor unfocused selection background box, text editor find current range background box,
 		secondarySelectionBgA: "#FF4C9810",
@@ -157,7 +157,7 @@ export const darkColors = {
 		current: "#31A155",
 		incoming: "#018ACC",
 
-		// Diff viewer line backgrounds
+		// Diff viewer line backgrounds, refactor preview text backgrounds
 		insertedBgA: "#31A1552A", // Entire modified line #243a31 Specifically added #264b37
 		removedBgA: "#FF127720", // Entire modified line #3f2234 Specifically removed #58203c
 		diffDiagonal: "#636D8388",
@@ -167,6 +167,14 @@ export const darkColors = {
 		currentHeaderBgA: "#31A1556A",
 		incomingBgA: "#018ACC2A",
 		incomingHeaderBgA: "#018ACC6A",
+
+		// Merge editor backgrounds
+		mergeWordChangeBgA: "#CCD00C2A",
+		mergeLineChangeBgA: "#CCD00C1A",
+		mergeUnhandledUnfocused: "#CCD00C4A",
+		mergeUnhandledFocused: "#CCD00CAA", // +(ruler marker)
+		mergeHandledUnfocused: "#FFFFFF3A",
+		mergeHandledFocused: "#FFFFFF8A", // +(ruler marker)
 	},
 
 	debug: {
@@ -193,7 +201,7 @@ export const darkColors = {
 
 	terminal: {
 		// Command decoration icons
-		default: "#636D83",
+		default: "#636D83", // +(SetMark sequence)
 		success: "#31A155",
 		error: "#FF1277",
 
@@ -220,7 +228,8 @@ export const darkColors = {
 		// Intellisense widget, command bar, text editor, text editor block cursor char, text editor gutter, text
 		// editor minimap, breacrumbs, hover widget, peek view text editor, peek view text gutter, tab empty group,
 		// tab drop-into promp, tab active background, tab hover background, tab zen mode sides, activity bar
-		// background, welcome page background, panel background, notification background,
+		// background, welcome page background, panel background, notification background, command center
+		// background
 		//
 		// MINIMAL: Badge background,
 		primaryBg: "#22222A",
@@ -252,7 +261,11 @@ export const darkColors = {
 		separator: "#3D434F",
 
 		// Input field foreground
-		placeholderText: "#595E67",
+		placeholderText: "#646a74",
+
+		// Menu disabled entry foreground, (this is chosen to match `placeholderText` since the disabled text also
+		// has a secondary fade layer)
+		disabledText: "#848A95",
 
 		// Little buttons, titlebar menu buttons
 		//
@@ -270,7 +283,8 @@ export const darkColors = {
 		// Keybind background
 		selectedBgA: "#FFFFFF10",
 
-		// Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar
+		// Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar, command center
+		// hover
 		selectedBg: "#2F2F37", // FFFFFF10 on primaryBg
 		// Welcome page tile on hover
 		selectedSecondaryBg: "#35343A", // FFFFFF10 on secondaryBg
@@ -308,6 +322,7 @@ export const darkColors = {
 		remote: "#09A1ED",
 		verified: "#31A155",
 		prerelease: "#E17615",
+		sponsor: "#FF1277",
 
 		// Chart colours
 		chartLine: "#B9BFCA",
@@ -381,6 +396,7 @@ export const darkSyntax = {
 	rustFn: "#01AAFA",
 	rustVar: "#ABB2BF",
 	rustParam: "#87B2C5",
+	rustMacroSpecifier: "#9ACC12",
 
 	jsRegex: "#B9BFCA",
 	reactEmbedded: "#FF6B66",

@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.3.3 - 2022-07-31
+### Added
+- Rust syntax highlighting for the variable specifier within macro declarations, i.e. the `expr` in `$var:expr`.
+- UI styles for the new terminal *Find/Match* functionality introduced in version 1.68.
+- UI styles for the new *Merge Editor* introduced in version 1.69.
+- UI styles for the new *Command Center* introduced in version 1.69.
+- UI style for the new extension sponsor button introduced in version 1.68.
+
+## Changed
+- Increased contrast of disabled text.
+
+### Fixed
+- TOML syntax highlighting applying incorrect colours, inconsistently from the rest of the theme.
+- Incorrect colour used for the text selection background in widgets in the dark theme.
+
 ## 1.3.2 - 2022-05-27
 ### Fixed
 - Invalid colour string used for one of the alternate inlay hint styles.
@@ -13,10 +28,10 @@
 - Syntax highlighting for Backus-Naur Form markup.
 - Powershell syntax highlighting for built-in constants (such as `$Host`), and underlines for storage prefixes (e.g. `$env:`) just like with variable scopes.
 - Markdown syntax highlighting for strikethrough text.
-- UI style for the editor *Drag-into Prompt*.
+- UI style for the new editor *Drag-into Prompt* introduced in version 1.66.
 - Syntax highlighting for *Ambiguous Unicode Characters*.
-- UI styles for the *Find/Match* functionality in the terminal.
-- UI styles for the *Terminal Integration* command decorators.
+- UI styles for the new terminal *Find/Match* functionality introduced in version 1.66.
+- UI styles for the new *Terminal Integration* command decorators introduced in version 1.66.
 - UI styles for the *Welcome/Walkthrough Page*.
 - UI styles for keybind icons and the keybing settings table.
 - UI style for extension preview badges.

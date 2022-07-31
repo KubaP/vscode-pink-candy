@@ -422,6 +422,9 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "*.unsafe"
 - s: "keyword.unsafe" - `unsafe` Bold underline
 
+### Macro declaration variable specifier `...:expr` #8cba10 #9acc12
+- tm: "variable.other.metavariable.specifier.rust"
+
 ### Textmate limitations
 - No way to colour enum variants (empty enum variants appear like types and tuple enum variants appear like functions).
 - No way to colour trait constrains in generics.
@@ -887,41 +890,56 @@ YAML only supports textmate highlighting; it has no semantic highlighting.
 
 
 ## TOML
-TOML only supports textmate highlighting; it has no semantic highlighting.
+TOML has some support for semantic highlighting.
 
 ### Keys #F767BB #f85eb4
-- "variable.key.toml"
+- tm: "keyword.key.toml",
+- tm: "support.type.property-name.toml"
 
 ### String Values #CF9C00 #f9c859
-- "string.quoted.single.basic.line.toml"
+- tm: "string.quoted.single.basic.line.toml"
+- tm: "string.quoted.single.literal.line.toml"
+- tm: "string.quoted.triple.basic.block.toml"
+- tm: "string.quoted.triple.literal.block.toml"
 
 ### Number Values #FF5C57 #ff6b66
-- "constant.numeric.integer.toml"
-- "constant.numeric.float.toml"
-- "constant.numeric.hex.toml"
-- "constant.numeric.oct.toml"
+- tm: "constant.numeric.integer.toml"
+- tm: "constant.numeric.float.toml"
+- tm: "constant.numeric.bin.toml"
+- tm: "constant.numeric.hex.toml"
+- tm: "constant.numeric.oct.toml"
+- tm: "constant.numeric.inf.toml"
+- tm: "constant.numeric.nan.toml"
 
 ### Boolean Values #13BBB7 #15c9c5
-- "constant.language.boolean.toml"
+- tm: "constant.language.boolean.toml"
+- tm: "constant.other.boolean.toml"
 
 ### Timestamp Values #2DAE58 #3fc56b
-- "constant.other.time.date.toml"
-- "constant.other.time.time.toml"
-- "constant.other.time.datetime.local.toml"
-- "constant.other.time.datetime.offset.toml"
+- tm: "constant.other.date.toml"
+- tm: "constant.other.datetime.toml"
+- tm: "constant.other.datetime-with-timezone.toml"
+- tm: "constant.other.time.date.toml"
+- tm: "constant.other.time.time.toml"
+- tm: "constant.other.time.datetime.local.toml"
+- tm: "constant.other.time.datetime.offset.toml"
 
 ### Tables #8cba10 #9acc12
-- "variable.key.table.toml"
+- s: "tomlTableKey"
+- tm: "entity.other.attribute-name.table.toml"
+- tm: "support.type.property-name.table.toml"
 
 ### Array Tables #cd6bf4 #d177f5
-- "variable.key.array.table.toml"
+- s: "tomlArrayKey"
+- tm: "entity.other.attribute-name.table.array.toml"
+- tm: "support.type.property-name.array.toml"
 
 ### Escape Characters #FF5C57 #ff6b66
-- "constant.character.escape.toml"
+- tm: "constant.character.escape.toml"
 
 ### Comments #ADB1C2 #636d83
-- "punctuation.definition.comment.toml"
-- "comment.line.number-sign.toml"
+- tm: "punctuation.definition.comment.toml"
+- tm: "comment.line.number-sign.toml"
 
 
 

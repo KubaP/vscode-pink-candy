@@ -404,7 +404,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"editorUnicodeHighlight.border": color.diag.error, // Highlight potentially confusing unicode characters.
 			"editorUnicodeHighlight.background": color.diag.errorBgA,
 			"widget.shadow": color.ui.shadow,
-			disabledForeground: color.ui.placeholderText, // Disabled text, e.g. disable menu dropdown entries.
+			disabledForeground: color.ui.disabledText, // Disabled text, e.g. disable menu dropdown entries.
 			//
 			// Cursor/line
 			"editorCursor.foreground": color.accent.primary,
@@ -612,6 +612,16 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"editorOverviewRuler.incomingContentForeground": color.git.incoming,
 			//"editorOverviewRuler.commonContentForeground": "",
 			//
+			// MERGE EDITOR [x]
+			"mergeEditor.change.background": color.git.mergeLineChangeBgA,
+			"mergeEditor.change.word.background": color.git.mergeWordChangeBgA,
+			"mergeEditor.conflict.unhandledUnfocused.border": color.git.mergeUnhandledUnfocused,
+			"mergeEditor.conflict.unhandledFocused.border": color.git.mergeUnhandledFocused,
+			"mergeEditor.conflict.handledUnfocused.border": color.git.mergeHandledUnfocused,
+			"mergeEditor.conflict.handledFocused.border": color.git.mergeHandledFocused,
+			"mergeEditor.conflict.unhandled.minimapOverViewRuler": color.git.mergeUnhandledFocused,
+			"mergeEditor.conflict.handled.minimapOverViewRuler": color.git.mergeHandledFocused,
+			//
 			//
 			//
 			// GENERAL TEXT
@@ -781,6 +791,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"extensionIcon.verifiedForeground": color.ui.verified,
 			"extensionIcon.starForeground": color.ui.star,
 			"extensionIcon.preReleaseForeground": color.ui.prerelease,
+			"extensionIcon.sponsorForeground": color.ui.sponsor,
 			"extensionBadge.remoteForeground": color.text.inverse,
 			"extensionBadge.remoteBackground": color.ui.remote,
 			"extensionButton.prominentForeground": color.text.inverse, // `Install` button
@@ -880,6 +891,13 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			//"keybindingLabel.bottomBorder": "",
 			"keybindingTable.headerBackground": color.ui.secondaryBg,
 			"keybindingTable.rowsBackground": color.ui.secondaryBg, // Background of every other row.
+			//
+			// COMMAND CENTER [x]
+			"commandCenter.foreground": color.text.normal,
+			"commandCenter.background": color.ui.primaryBg,
+			"commandCenter.border": color.ui.border,
+			"commandCenter.activeForeground": color.text.normal, // Text when hovering over.
+			"commandCenter.activeBackground": color.ui.selectedBg, // Background when hovering over.
 			//
 			//
 			//
@@ -990,10 +1008,12 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"terminal.ansiBrightMagenta": color.terminal.ansiBrightMagenta,
 			//
 			"terminal.selectionBackground": color.text.selectionBgA,
-			"terminal.findMatchBackground": "#00000000", // Currently selected found match. Set to 0 so that it doesn't multiple with findMatchHighlightBackground.
-			"terminal.findMatchBorder": color.text.matchBorderA,
-			"terminal.findMatchHighlightBackground": color.text.matchBgA,
-			"terminal.findMatchHighlightBorder": "#00000000",
+			"terminal.findMatchBackground": color.text.matchBg, // Currently selected match.
+			"terminal.findMatchBorder": color.text.matchBorderA, // Currently selected match.
+			"terminal.findMatchHighlightBackground": color.text.matchBgA, // Other matches.
+			"terminal.findMatchHighlightBorder": "#00000000", // Other matches.
+			"terminalOverviewRuler.cursorForeground": color.accent.primary,
+			"terminalOverviewRuler.findMatchForeground": color.diag.match,
 			//
 			"terminalCommandDecoration.defaultBackground": color.terminal.default,
 			"terminalCommandDecoration.successBackground": color.terminal.success,
@@ -1286,6 +1306,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			builtinAttribute: syntax.attribute, // `inline`, `cfg`, etc.
 			"attribute.attribute": syntax.attribute, // `derive` or `clippy::something`.
 			"generic.attribute": syntax.attribute, // Inside the attribute, e.g. `cfg(debug_assertions)`.
+			//
+			// TOML - Even Better TOML only
+			tomlTableKey: syntax.tomlTable,
+			tomlArrayKey: syntax.tomlArray,
 		},
 		tokenColors: [
 			// BASICS
@@ -1520,6 +1544,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					// yaml
 					"constant.language.boolean.yaml",
 					// toml
+					// Even Better TOML
 					"constant.language.boolean.toml",
 				],
 				settings: {
@@ -1636,6 +1661,9 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"variable.other.constant.ts",
 					// json
 					"constant.language.json",
+					// toml
+					// Better TOML
+					"constant.other.boolean.toml",
 				],
 				settings: {
 					foreground: syntax.constant,
@@ -1698,7 +1726,11 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"string.quoted.single.yaml",
 					"string.quoted.double.yaml",
 					// toml
+					// Better TOML & Even Better TOML
 					"string.quoted.single.basic.line.toml",
+					"string.quoted.triple.basic.block.toml",
+					"string.quoted.single.literal.line.toml",
+					"string.quoted.triple.literal.block.toml",
 					// ini
 					"string.quoted.single.ini",
 					"string.quoted.double.ini",
@@ -1732,7 +1764,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					// yaml
 					"constant.character.escape.yaml",
 					// toml
-					"constant.character.escape.toml",
+					// Better TOML & Even Better TOML
+					"constant.character.escape.toml", // (Only within multi-line strings for Better TOML)
 				],
 				settings: {
 					foreground: syntax.char,
@@ -1789,10 +1822,15 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.numeric.integer.yaml",
 					"constant.numeric.float.yaml",
 					// toml
+					// Better TOML
 					"constant.numeric.integer.toml",
 					"constant.numeric.float.toml",
+					// Even Better TOML
+					"constant.numeric.bin.toml",
 					"constant.numeric.hex.toml",
 					"constant.numeric.oct.toml",
+					"constant.numeric.inf.toml",
+					"constant.numeric.nan.toml",
 				],
 				settings: {
 					foreground: syntax.number,
@@ -1896,6 +1934,13 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				scope: ["meta.interpolation.rust", "punctuation.definition.interpolation.rust"],
 				settings: {
 					foreground: syntax.format,
+				},
+			},
+			{
+				name: "Macro declaration variable specifier",
+				scope: ["variable.other.metavariable.specifier.rust"],
+				settings: {
+					foreground: syntax.rustMacroSpecifier,
 				},
 			},
 			//
@@ -2343,7 +2388,13 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			//
 			{
 				name: "TOML - Keys",
-				scope: ["variable.key.toml"],
+				scope: [
+					// Better TOML
+					"keyword.key.toml",
+					// Even Better TOML
+					"support.type.property-name.toml",
+					//"variable.key.toml"
+				],
 				settings: {
 					foreground: syntax.tomlKey,
 				},
@@ -2351,6 +2402,11 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			{
 				name: "TOML - Timestamp Values",
 				scope: [
+					// Better TOML
+					"constant.other.date.toml",
+					"constant.other.datetime.toml",
+					"constant.other.datetime-with-timezone.toml",
+					// Even Better TOML
 					"constant.other.time.date.toml",
 					"constant.other.time.time.toml",
 					"constant.other.time.datetime.local.toml",
@@ -2362,14 +2418,26 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			},
 			{
 				name: "TOML - Tables",
-				scope: ["variable.key.table.toml"],
+				scope: [
+					// Better TOML
+					"entity.other.attribute-name.table.toml",
+					// Even Better TOML
+					"support.type.property-name.table.toml",
+					//"variable.key.table.toml"
+				],
 				settings: {
 					foreground: syntax.tomlTable,
 				},
 			},
 			{
 				name: "TOML - Array Tables",
-				scope: ["variable.key.array.table.toml"],
+				scope: [
+					// Better TOML
+					"entity.other.attribute-name.table.array.toml",
+					// Even Better TOML
+					"support.type.property-name.array.toml",
+					//"variable.key.array.table.toml"
+				],
 				settings: {
 					foreground: syntax.tomlArray,
 				},

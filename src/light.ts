@@ -157,7 +157,7 @@ export const lightColors = {
 		current: "#11C678",
 		incoming: "#00B7E4",
 
-		// Diff viewer line backgrounds
+		// Diff viewer line backgrounds, refactor preview text backgrounds
 		insertedBgA: "#11C6782A", // Entire modified line #d3f2e6 Specifically added #b2ead3
 		removedBgA: "#FF127720", // Entire modified line #fbddea Specifically removed #fcc2db
 		diffDiagonal: "#ADB1C288",
@@ -167,6 +167,14 @@ export const lightColors = {
 		currentHeaderBgA: "#11C6786A",
 		incomingBgA: "#09A1ED2A",
 		incomingHeaderBgA: "#09A1ED6A",
+
+		// Merge editor backgrounds
+		mergeWordChangeBgA: "#EFF3282A",
+		mergeLineChangeBgA: "#EFF3281A",
+		mergeUnhandledUnfocused: "#EFF3287A",
+		mergeUnhandledFocused: "#EFF328DA", // +(ruler marker)
+		mergeHandledUnfocused: "#0000002A",
+		mergeHandledFocused: "#0000004A", // +(ruler marker)
 	},
 
 	debug: {
@@ -193,7 +201,7 @@ export const lightColors = {
 
 	terminal: {
 		// Command decoration icons
-		default: "#ADB1C2",
+		default: "#ADB1C2", // +(SetMark sequence)
 		success: "#11C678",
 		error: "#FF1277",
 
@@ -220,7 +228,8 @@ export const lightColors = {
 		// Intellisense widget, command bar, text editor, text editor block cursor char, text editor gutter, text
 		// editor minimap, breacrumbs, hover widget, peek view text editor, peek view text gutter, tab empty group,
 		// tab drop-into promp, tab active background, tab hover background, tab zen mode sides, activity bar
-		// background, welcome page background, panel background, notification background,
+		// background, welcome page background, panel background, notification background, command center
+		// background
 		//
 		// MINIMAL: Badge background,
 		primaryBg: "#FAFBFC",
@@ -254,6 +263,10 @@ export const lightColors = {
 		// Input field foreground
 		placeholderText: "#BEBEBE",
 
+		// Menu disabled entry foreground, (this is chosen to match `placeholderText` since the disabled text also
+		// has a secondary fade layer)
+		disabledText: "#ABABAB",
+
 		// Little buttons, titlebar menu buttons
 		//
 		// DISABLED_STATUS_BAR: MINIMAL: Status bar hover/active button overlays
@@ -270,7 +283,8 @@ export const lightColors = {
 		// Keybind background
 		selectedBgA: "#00000010",
 
-		// Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar
+		// Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar, command center
+		// hover
 		selectedBg: "#EBECED", // 00000010 on primaryBg
 		// Welcome page tile on hover
 		selectedSecondaryBg: "#DADADA", // 00000010 on secondaryBg
@@ -308,6 +322,7 @@ export const lightColors = {
 		remote: "#09A1ED",
 		verified: "#11C678",
 		prerelease: "#FF942F",
+		sponsor: "#FF1277",
 
 		// Chart colours
 		chartLine: "#565869",
@@ -381,6 +396,7 @@ export const lightSyntax = {
 	rustFn: "#1DAEf6",
 	rustVar: "#6C6E83",
 	rustParam: "#7B8dAE",
+	rustMacroSpecifier: "#8CBA10",
 
 	jsRegex: "#565869",
 	reactEmbedded: "#FF5C57",
