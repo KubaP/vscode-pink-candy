@@ -40,6 +40,11 @@
 		"onStartupFinished"
 	],
 	"main": "./out/extension.js",
+	"capabilities": {
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
 	"contributes": {
 		"themes": [
 			{
