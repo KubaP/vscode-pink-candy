@@ -1339,16 +1339,20 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"meta.function.powershell",
 					// js
 					"variable.language.this.js",
-					"storage.type.js",
 					"keyword.operator.new.js",
+					"storage.type.js",
 					"constant.language.null.js",
 					"constant.language.undefined.js",
 					"keyword.operator.ternary.js",
 					// ts
+					"variable.language.this.ts",
 					"keyword.operator.new.ts",
 					"storage.type.ts",
 					"storage.type.namespace.ts",
 					"variable.language.this.ts",
+					"constant.language.null.ts",
+					"constant.language.undefined.ts",
+					"keyword.operator.ternary.ts"
 				],
 				settings: {
 					foreground: syntax.keyword,
