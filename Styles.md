@@ -61,6 +61,14 @@ View this document inside of a text editor with hex colour highlighting support,
 ### Punctuation #777777 #828da0
 - s: "punctuation"
 - tm: "punctuation"
+#### rust
+- s: "parenthesis"
+- s: "brace"
+- s: "bracket"
+- s: "angle"
+- s: "colon"
+- s: "semicolon"
+- s: "comma"
 #### js
 - tm: "meta.brace.round.js" - For some reason not all braces/brackets have the punctuation token
 - tm: "meta.brace.square.js" - see above
@@ -69,19 +77,13 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "meta.brace.square.ts" - see above
 
 ### Operators #777777 #828da0
-### rust
 - s: "operator"
+- tm: "keyword.operator"
+#### rust
 - s: "arithmetic"
 - s: "comparison"
 - s: "logical"
 - s: "bitwise"
-- tm: "keyword.operator"
-#### csharp
-- s: "operator"
-- tm: "keyword.operator"
-#### js
-- tm: "keyword.operator"
-#### ts
 - tm: "keyword.operator"
 
 
@@ -364,15 +366,23 @@ View this document inside of a text editor with hex colour highlighting support,
 
 ### Attributes #FF5C57 #ff6b66
 #### rust
-- s: "attribute"
-- s: "parenthesis.attribute" - `()`
-- s: "macro.attribute" - `#[derive()]`
-- s: "builtinAttribute" - `#[inline]`, `#[cfg]`, etc.
-- s: "generic.attribute" - `clippy::something`, `debug_assertions`, etc.
-- tm: "meta.attribute.rust"
-- tm: "punctuation.definition.attribute.rust"
-- tm: "punctuation.brackets.attribute.rust"
-- tm: "keyword.operator.attribute.inner.rust"
+- s: "attributeBracket.attribute" - The `#[` and `]`
+- s: "builtinAttribute.attribute" - `inline`, `cfg`, `allow`, etc.
+- s: "toolModule.attribute" - All things `rustfmt`
+- s: "decorator.attribute" - `derive`
+- s: "derive.attribute" - The actual derives, such as `Clone`, `Eq`, etc.
+- s: "generic.attribute" - Attribute args, such as `debug_assertions` or `always`
+- s: "parenthesis.attribute" - The `( )`
+- tm: "meta.attribute.rust" - General, including things like `inline`, `cfg`, etc.
+- tm: "meta.attribute.rust punctuation.definition.attribute.rust" - The `#`
+- tm: "meta.attribute.rust punctuation.brackets.attribute.rust" - The `[` and `]`
+- tm: "meta.attribute.rust punctuation.brackets.round.rust" - The `( )`
+- tm: "meta.attribute.rust entity.name.type.rust" - The actual derives
+Not used:
+- s: "operator.attribute" The `::` in `rustfmt::skip` for example.
+- s: "punctuation.attribute" The `( )`, but also things like commas `,`.
+- tm: "meta.attribute.rust punctuation.comma.rust"
+- tm: "meta.attribute.rust keyword.operator.namespace.rust" The `::`
 
 ### Unresolved Symbol #FF1277 #ff2884
 #### rust

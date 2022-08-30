@@ -28,8 +28,9 @@ function createTheme(
 	fs.writeFileSync(jsonPath, JSON.stringify(theme, undefined, 4));
 }
 
-// TODO: Gutter comments
-// TODO: Notebook styles
+// TODO: Review gutter comments
+// TODO: Notebooks
+// TODO: Status bar setting profiles (currently in insider 1.69)
 
 function generateTheme(color: any, syntax: any, name: string, type: string, config: Config) {
 	// Output the appropriate error lens keys.
@@ -524,7 +525,6 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"editorOverviewRuler.errorForeground": color.diag.error,
 			//
 			// GUTTER [x]
-			// TODO: Gutter - pull request comment annotations
 			"editorGutter.background": color.ui.primaryBg,
 			"editorGutter.addedBackground": color.git.addedOrStaged, // Added strip.
 			"editorGutter.modifiedBackground": color.git.modified, // Modified strip.
@@ -817,8 +817,6 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"welcomePage.tileShadow": color.ui.shadow,
 			"walkThrough.embeddedEditorBackground": color.ui.primaryBg,
 			//
-			// TODO: NOTEBOOK PAGE
-			//
 			// PANEL [x]
 			"panel.background": color.ui.primaryBg,
 			"panel.border": color.ui.border, // Border between panel and main editor pane.
@@ -1107,9 +1105,9 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			//
 			punctuation: syntax.punctuation,
 			operator: syntax.punctuation,
-			arithmetic: syntax.punctuation, // `+`, `-`, `*`, `/`
+			arithmetic: syntax.punctuation,
+			comparison: syntax.punctuation,
 			logical: syntax.punctuation,
-			comparison: syntax.punctuation, // `==`, `!=`, `===`
 			bitwise: syntax.punctuation,
 			//
 			//
@@ -1186,7 +1184,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			...commentSemanticStyles,
 			//
 			//
-			attribute: syntax.attribute, // The #[]!() symbols in an attribute.
+			//attribute: syntax.attribute, // The #[]!() symbols in an attribute.
 			unresolvedReference: {
 				foreground: syntax.invalid,
 			},
@@ -1200,11 +1198,11 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"xmlDocCommentAttributeValue:csharp": syntax.string,
 			//
 			// RUST
-			"operator.controlFlow": syntax.keyword,
-			label: syntax.rustLabel,
-			lifetime: syntax.interface,
-			formatSpecifier: syntax.format,
-			macroBang: syntax.fn, // The ! in a macro call.
+			"operator.controlFlow:rust": syntax.keyword,
+			"label:rust": syntax.rustLabel,
+			"lifetime:rust": syntax.interface,
+			"formatSpecifier:rust": syntax.format,
+			"macroBang:rust": syntax.fn, // The ! in a macro call.
 			//
 			// REFERENCE
 			"variable.reference": {
@@ -1300,12 +1298,13 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			},
 			//
 			// ATTRIBUTES
-			attributeBracket: syntax.attribute, // `#[]`
-			"parenthesis.attribute": syntax.attribute, // `cfg(...)`
-			"derive.attribute": syntax.attribute, // `derive(Debug)`
-			builtinAttribute: syntax.attribute, // `inline`, `cfg`, etc.
-			"attribute.attribute": syntax.attribute, // `derive` or `clippy::something`.
-			"generic.attribute": syntax.attribute, // Inside the attribute, e.g. `cfg(debug_assertions)`.
+			"attributeBracket.attribute:rust": syntax.attribute,
+			"builtinAttribute.attribute:rust": syntax.attribute,
+			"toolModule.attribute:rust": syntax.attribute,
+			"decorator.attribute:rust": syntax.attribute,
+			"derive.attribute:rust": syntax.attribute,
+			"generic.attribute:rust": syntax.attribute,
+			"parenthesis.attribute:rust": syntax.attribute,
 			//
 			// TOML - Even Better TOML only
 			tomlTableKey: syntax.tomlTable,
@@ -1340,16 +1339,20 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"meta.function.powershell",
 					// js
 					"variable.language.this.js",
-					"storage.type.js",
 					"keyword.operator.new.js",
+					"storage.type.js",
 					"constant.language.null.js",
 					"constant.language.undefined.js",
 					"keyword.operator.ternary.js",
 					// ts
+					"variable.language.this.ts",
 					"keyword.operator.new.ts",
 					"storage.type.ts",
 					"storage.type.namespace.ts",
 					"variable.language.this.ts",
+					"constant.language.null.ts",
+					"constant.language.undefined.ts",
+					"keyword.operator.ternary.ts"
 				],
 				settings: {
 					foreground: syntax.keyword,
@@ -1377,6 +1380,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				scope: [
 					"punctuation",
 					"keyword.operator",
+					// 
 					"keyword.operator.sigil.rust",
 					"keyword.operator.access.dot.rust",
 					"keyword.operator.key-value.rust",
@@ -1883,9 +1887,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				scope: [
 					// rust
 					"meta.attribute.rust",
-					"punctuation.definition.attribute.rust",
-					"punctuation.brackets.attribute.rust",
-					"keyword.operator.attribute.inner.rust",
+					"meta.attribute.rust punctuation.definition.attribute.rust",
+					"meta.attribute.rust punctuation.brackets.attribute.rust",
+					"meta.attribute.rust punctuation.brackets.round.rust",
+					"meta.attribute.rust entity.name.type.rust",
 					// powershell
 					"support.function.attribute.powershell",
 					"variable.parameter.attribute.powershell",

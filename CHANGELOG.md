@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.4 - 2022-08-30
+### Added
+- Support for running this extension in *Restricted Mode*.
+- Typescript syntax highlighting for a bunch of keywords, such as `null`, `undefined`, etc.
+
+### Fixed
+- Rust syntax highlighting applying incorrect textmate & semantic colours. This breakage occurred because of the latest rust-analyzer release (29/08/2022) which changed how it outputs syntax colours for punctuation, operator and attribute tokens. This extension has been updated to reflect these changes and return the previous highlighting behaviour.
+
 ## 1.3.3 - 2022-07-31
 ### Added
 - Rust syntax highlighting for the variable specifier within macro declarations, i.e. the `expr` in `$var:expr`.
