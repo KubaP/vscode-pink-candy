@@ -1352,7 +1352,8 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"variable.language.this.ts",
 					"constant.language.null.ts",
 					"constant.language.undefined.ts",
-					"keyword.operator.ternary.ts"
+					"keyword.operator.ternary.ts",
+					"keyword.operator.expression.of.ts",
 				],
 				settings: {
 					foreground: syntax.keyword,
@@ -1380,7 +1381,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				scope: [
 					"punctuation",
 					"keyword.operator",
-					// 
+					//
 					"keyword.operator.sigil.rust",
 					"keyword.operator.access.dot.rust",
 					"keyword.operator.key-value.rust",
@@ -2009,10 +2010,12 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				},
 			},
 			{
-				name: "Powershell $_ Variable",
+				name: "Powershell Special/Built-In Variables",
 				scope: [
 					"support.variable.automatic.powershell",
 					"support.variable.automatic.powershell punctuation.definition.variable.powershell",
+					"variable.language.powershell",
+					"variable.language.powershell punctuation.definition.variable.powershell",
 				],
 				settings: {
 					foreground: syntax.psSpecialVar,
@@ -2119,14 +2122,6 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				},
 			},
 			{
-				name: "HTML - Attributes",
-				scope: ["entity.other.attribute-name.html"],
-				settings: {
-					foreground: syntax.htmlAttribute,
-					fontStyle: "italic",
-				},
-			},
-			{
 				name: "HTML - IDs",
 				scope: ["meta.attribute.id.html string.quoted.double.html", "entity.other.attribute-name.id.css"],
 				settings: {
@@ -2145,10 +2140,18 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				},
 			},
 			{
-				name: "HTML - Meta Value",
-				scope: ["meta.attribute"],
+				name: "HTML - Attributes",
+				scope: ["entity.other.attribute-name.html", "entity.other.attribute-name.css"],
 				settings: {
-					foreground: syntax.htmlMeta,
+					foreground: syntax.htmlAttribute,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "HTML - Attribute Value",
+				scope: ["meta.attribute", "meta.attribute-selector.css string.quoted.double.css"],
+				settings: {
+					foreground: syntax.htmlAttributeValue,
 				},
 			},
 			{

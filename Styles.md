@@ -529,9 +529,11 @@ Variable Scopes #2DAE58 #3fc56b (underlined)
 Storage Scopes #2DAE58 #3fc56b (underlined)
 - "support.variable.drive.powershell" - `env:`, `Temp:`, etc.
 
-Special Variable #cd6bf4 #d177f5
+Special/Built-In Variables #cd6bf4 #d177f5
 - "support.variable.automatic.powershell" - The `$_` in loops for example
 - "support.variable.automatic.powershell punctuation.definition.variable.powershell" - The `$` beforehand
+- "variable.language.powershell" - Built-in variables, e.g. `$WhatIfPreference`
+- "variable.language.powershell punctuation.definition.variable.powershell" - The `$` beforehand
 
 Members/Methods #a8759a #b58e95
 - "variable.other.member.powershell" - `.something`
@@ -598,9 +600,11 @@ HTML/Css/Scss only support textmate highlighting.
 
 ### Attributes (HTML) #13BBB7 #15c9c5 (italicised)
 - "entity.other.attribute-name.html"
+- "entity.other.attribute-name.css" - The "type" in `input[type="radio"]`
 
 ### Attribute Values (HTML) #CF9C00 #f9c859
 - "string.quoted.double.html"
+- "meta.attribute-selector.css string.quoted.double.css"
 
 ### Attribute Value Urls (HTML) #cd6bf4 #d177f5
 - "meta.attribute.href.html"
@@ -651,7 +655,7 @@ HTML/Css/Scss only support textmate highlighting.
 ### Property Value Constants/Keys (CSS) #13BBB7 #15c9c5
 - "support.constant.property-value.css"
 
-### Pseudoclass Selectors (CSS) #8cba10 #9acc12
+### Pseudoclass/Attribute Selectors (CSS) #8cba10 #9acc12
 - "entity.other.attribute-name.pseudo-class.css"
 - "entity.other.attribute-name.pseudo-element.css"
 

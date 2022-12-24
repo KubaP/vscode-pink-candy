@@ -408,11 +408,11 @@ export const darkSyntax = {
 	psCommentKeyword: "#B9BFCA",
 
 	htmlTag: "#F85EB4",
-	htmlAttribute: "#15C9C5",
 	htmlId: "#FF6B66",
 	htmlClass: "#3FC56B",
+	htmlAttribute: "#15C9C5",
+	htmlAttributeValue: "#F9C859",
 	htmlLink: "#D177F5",
-	htmlMeta: "#F9C859",
 	htmlEmbeddedCss: "#9ACC12",
 
 	cssProperty: "#B58E95",

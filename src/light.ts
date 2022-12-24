@@ -408,11 +408,11 @@ export const lightSyntax = {
 	psCommentKeyword: "#565869",
 
 	htmlTag: "#F767BB",
-	htmlAttribute: "#13BBB7",
 	htmlId: "#FF5C57",
 	htmlClass: "#2DAE58",
+	htmlAttribute: "#13BBB7",
+	htmlAttributeValue: "#CF9C00",
 	htmlLink: "#C75AF3",
-	htmlMeta: "#CF9C00",
 	htmlEmbeddedCss: "#8CBA10",
 
 	cssProperty: "#A8759A",
