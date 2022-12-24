@@ -553,6 +553,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"breadcrumb.focusForeground": color.accent.primary,
 			"breadcrumb.activeSelectionForeground": color.accent.primary,
 			"breadcrumbPicker.background": color.ui.dropdownBg,
+			//
+			// STICKY [x]
+			"editorStickyScroll.background": color.ui.primaryBg,
+			"editorStickyScrollHover.background": color.ui.listHoverBgA,
 			// WIDGETS [x],
 			// Pop-up widgets, e.g. find & replace dialogue.
 			"editorWidget.foreground": color.text.normal, // All text.
@@ -1006,6 +1010,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"terminal.ansiBrightMagenta": color.terminal.ansiBrightMagenta,
 			//
 			"terminal.selectionBackground": color.text.selectionBgA,
+			"terminal.inactiveSelectionBackground": color.text.secondarySelectionBgA,
 			"terminal.findMatchBackground": color.text.matchBg, // Currently selected match.
 			"terminal.findMatchBorder": color.text.matchBorderA, // Currently selected match.
 			"terminal.findMatchHighlightBackground": color.text.matchBgA, // Other matches.

@@ -65,7 +65,8 @@ export const lightColors = {
 		// symbol background box, text editor selection boxes, general selection, input field, terminal selection,
 		selectionBg: "#FBE3EE", // FF12771A on primaryBg
 		selectionBgA: "#FF12771A",
-		// Text editor unfocused selection background box, text editor find current range background box,
+		// Text editor unfocused selection background box, text editor find current range background box, terminal
+		// unfocused selection
 		secondarySelectionBgA: "#FF127710",
 
 		// Text editor tabstop background box
@@ -267,7 +268,7 @@ export const lightColors = {
 		// has a secondary fade layer)
 		disabledText: "#ABABAB",
 
-		// Little buttons, titlebar menu buttons
+		// Little buttons, titlebar menu buttons, editor stick hover
 		//
 		// DISABLED_STATUS_BAR: MINIMAL: Status bar hover/active button overlays
 		hoverBgA: "#0000001A",
