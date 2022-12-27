@@ -56,6 +56,11 @@
 				"label": "Pink Candy Dark",
 				"uiTheme": "vs-dark",
 				"path": "./themes/pink-candy-dark.json"
+			},
+			{
+				"label": "Pink Candy Dark Warm",
+				"uiTheme": "vs-dark",
+				"path": "./themes/pink-candy-dark-warm.json"
 			}
 		],
 		"commands": [
