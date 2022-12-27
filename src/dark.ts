@@ -1,3 +1,27 @@
+import { SyntaxColors } from "./theme";
+
+export const darkSyntax: SyntaxColors = {
+	strongPink: "#FF2884",
+	pink: "#F85EB4",
+	purple: "#D177F5",
+	blue: "#10B1FE",
+	cyan: "#15C9C5",
+	lightBlue: "#97BCCD",
+	green: "#3FC56B",
+	lime: "#9ACC12",
+	yellow: "#F9C859",
+	orange: "#FF6B66",
+	mauve: "#B58E95",
+	fg: "#B9BFCA",
+	gray: "#828DA0",
+	fadedGray: "#636D83",
+
+	boldPink: "#F750AE",
+	boldBlue: "#01AAFA",
+	boldLightBlue: "#87B2C5",
+	boldFg: "#ABB2BF",
+};
+
 export const darkColors = {
 	// Note: All non-alpha backgrounds are based on `primaryBg`.
 
@@ -366,94 +390,4 @@ export const darkColors = {
 		unchecked: "#B9BFCA",
 		checked: "#3FC56B",
 	},
-};
-
-export const darkSyntax = {
-	keyword: "#F85EB4",
-	fn: "#10B1FE",
-	type: "#3FC56B",
-	variant: "#15C9C5",
-	constant: "#15C9C5",
-	var: "#B9BFCA",
-
-	punctuation: "#828DA0",
-	parameter: "#97BCCD",
-	member: "#B58E95",
-
-	string: "#F9C859",
-	char: "#FF6B66",
-	number: "#FF6B66",
-	format: "#D177F5",
-	comment: "#636D83",
-
-	interface: "#D177F5",
-	attribute: "#FF6B66",
-
-	invalid: "#FF2884",
-
-	rustLabel: "#9ACC12",
-	rustUnsafe: "#FF6B66",
-	rustKeyword: "#F750AE",
-	rustFn: "#01AAFA",
-	rustVar: "#ABB2BF",
-	rustParam: "#87B2C5",
-	rustMacroSpecifier: "#9ACC12",
-
-	jsRegex: "#B9BFCA",
-	reactEmbedded: "#FF6B66",
-	reactAttribute: "#D177F5",
-
-	psVar: "#3FC56B",
-	psSpecialVar: "#D177F5",
-	psOperator: "#F85EB4",
-	psCommentKeyword: "#B9BFCA",
-
-	htmlTag: "#F85EB4",
-	htmlId: "#FF6B66",
-	htmlClass: "#3FC56B",
-	htmlAttribute: "#15C9C5",
-	htmlAttributeValue: "#F9C859",
-	htmlLink: "#D177F5",
-	htmlEmbeddedCss: "#9ACC12",
-
-	cssProperty: "#B58E95",
-	cssValue: "#15C9C5",
-	cssFontname: "#F9C859",
-	cssPseudoclass: "#9ACC12",
-	cssMedia: "#D177F5",
-
-	xmlNamespace: "#9ACC12",
-	xmlDoctype: "#D177F5",
-
-	mdText: "#B9BFCA",
-	mdAltText: "#636D83",
-	mdHeading: "#F85EB4",
-	mdBold: "#FF6B66",
-	mdItalic: "#10B1FE",
-	mdQuote: "#F9C859",
-	mdStrikethrough: "#636D83",
-	mdCode: "#B9BFCA",
-	mdSeparator: "#B9BFCA",
-	mdList: "#15C9C5",
-	mdUrlName: "#3FC56B",
-	mdUrl: "#D177F5",
-	mdMaths: "#9ACC12",
-	mdMathsConst: "#15C9C5",
-
-	jsonKey: "#F85EB4",
-
-	yamlKey: "#F85EB4",
-	yamlTimestamp: "#3FC56B",
-	yamlAnchor: "#9ACC12",
-
-	tomlKey: "#F85EB4",
-	tomlTimestamp: "#3FC56B",
-	tomlTable: "#9ACC12",
-	tomlArray: "#D177F5",
-
-	iniKey: "#F85EB4",
-	iniHeading: "#9ACC12",
-
-	bnfSymbol: "#3FC56B",
-	bnfBuiltin: "#15C9C5",
 };
