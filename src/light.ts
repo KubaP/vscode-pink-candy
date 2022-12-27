@@ -1,4 +1,4 @@
-import { SyntaxColors } from "./theme";
+import { SyntaxColors, UiColors } from "./theme";
 
 export const lightSyntax: SyntaxColors = {
 	strongPink: "#FF1277",
@@ -21,12 +21,15 @@ export const lightSyntax: SyntaxColors = {
 	boldFg: "#6C6E83",
 };
 
-export const lightColors = {
+export const lightColors: UiColors = {
 	// Note: All non-alpha backgrounds are based on `primaryBg`.
 
 	text: {
 		// Most ui text, text editor default text
 		normal: "#565869",
+
+		// Setting header text
+		bold: "#565869",
 
 		// Text editor line number, text editor suggestion ghost text, list deemphasized text, tab unfocused title,
 		// (??? x1)
