@@ -6,7 +6,7 @@ export const darkWarmSyntax: SyntaxColors = {
 	purple: "#bd86d3",
 	blue: "#839da5",
 	cyan: "#7cc091",
-	lightBlue: "#a5bcc4",
+	lightBlue: "#aaaaaa",
 	green: "#b8bb26",
 	lime: "#91c043",
 	yellow: "#fabd2f",
@@ -17,10 +17,10 @@ export const darkWarmSyntax: SyntaxColors = {
 	fadedGray: "#928374",
 	//fadedGray: "#7c6f64",
 
-	boldPink: "#fb5270",
-	boldBlue: "#839da5",
-	boldLightBlue: "#a5bcc4",
-	boldFg: "#d5c4a1",
+	boldPink: "#fb4162",
+	boldBlue: "#778f97",
+	boldLightBlue: "#969696",
+	boldFg: "#cfbc94",
 };
 
 export const darkWarmColors: UiColors = {
@@ -46,7 +46,7 @@ export const darkWarmColors: UiColors = {
 		// text, menu selected text
 		//
 		// DEFAULT: Status bar text & icons
-		inverse: "#FFFFFF",
+		inverse: "#fbf1c7",
 
 		// Peek view selected text, peek view header text, peek view filename text,
 		emphasised: "#fbf1c7",
@@ -330,7 +330,7 @@ export const darkWarmColors: UiColors = {
 		shadow: "#0000005F",
 
 		// Status bar during debugging background
-		statusDebugBg: "#91c043",
+		statusDebugBg: "#779e35",
 		// Status bar when no folder is open background
 		statusEmptyBg: "#151419",
 		// DEFAULT: Status bar hover/active button overlays
