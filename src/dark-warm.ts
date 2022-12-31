@@ -143,7 +143,7 @@ export const darkWarmColors: UiColors = {
 	diag: {
 		// Ruler markers, minimap markers,
 		selection: "#8D334B", // +(list search match background, ??? x1)
-		match: "#9CA320", // +(marker for currently selected @SYMBOL)
+		match: "#c8d129", // +(marker for currently selected @SYMBOL)
 		bracket: "#665c545A",
 
 		// Error lens text, error lens gutter icons, peek view border, input validation text & border, testing
