@@ -3,6 +3,7 @@ import * as fs from "fs";
 import { Config } from "./config";
 import { lightColors, lightSyntax } from "./light";
 import { darkColors, darkSyntax } from "./dark";
+import { darkWarmColors, darkWarmSyntax } from "./dark-warm";
 
 /**
  * Creates the theme `.json` files.
@@ -11,6 +12,15 @@ import { darkColors, darkSyntax } from "./dark";
 export function createThemes(config: Config, path: string) {
 	createTheme("Pink Candy Light", "light", "pink-candy-light.json", path, lightColors, lightSyntax, config);
 	createTheme("Pink Candy Dark", "dark", "pink-candy-dark.json", path, darkColors, darkSyntax, config);
+	createTheme(
+		"Pink Candy Dark Warm",
+		"dark",
+		"pink-candy-dark-warm.json",
+		path,
+		darkWarmColors,
+		darkWarmSyntax,
+		config
+	);
 }
 
 function createTheme(
@@ -18,8 +28,8 @@ function createTheme(
 	type: string,
 	file: string,
 	themeFolder: string,
-	color: any,
-	syntax: any,
+	color: UiColors,
+	syntax: SyntaxColors,
 	config: Config
 ) {
 	const jsonPath = path.join(themeFolder, file);
@@ -32,7 +42,7 @@ function createTheme(
 // TODO: Notebooks
 // TODO: Status bar setting profiles (currently in insider 1.69)
 
-function generateTheme(color: any, syntax: any, name: string, type: string, config: Config) {
+function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type: string, config: Config) {
 	// Output the appropriate error lens keys.
 	let errorLens;
 	let errorLensStatusBar;
@@ -93,23 +103,23 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 	if (config.italicComments) {
 		commentSemanticStyles = {
 			comment: {
-				foreground: syntax.comment,
+				foreground: syntax.fadedGray,
 				fontStyle: "italic",
 			},
 		};
 		commentStyles = {
 			settings: {
-				foreground: syntax.comment,
+				foreground: syntax.fadedGray,
 				fontStyle: "italic",
 			},
 		};
 	} else {
 		commentSemanticStyles = {
-			comment: syntax.comment,
+			comment: syntax.fadedGray,
 		};
 		commentStyles = {
 			settings: {
-				foreground: syntax.comment,
+				foreground: syntax.fadedGray,
 			},
 		};
 	}
@@ -268,7 +278,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 		};
 		banner = {
 			"banner.foreground": color.text.normal,
-			"banner.background": color.secondaryBg,
+			"banner.background": color.ui.secondaryBg,
 			"banner.iconForeground": color.text.normal,
 		};
 		menu = {
@@ -399,13 +409,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 		colors: {
 			// EDITOR
 			// Basics
+			foreground: color.text.normal,
+			disabledForeground: color.ui.disabledText, // Disabled text, e.g. disable menu dropdown entries.
 			"editor.foreground": color.text.normal,
 			"editor.background": color.ui.primaryBg,
 			errorForeground: color.diag.error,
 			"editorUnicodeHighlight.border": color.diag.error, // Highlight potentially confusing unicode characters.
 			"editorUnicodeHighlight.background": color.diag.errorBgA,
 			"widget.shadow": color.ui.shadow,
-			disabledForeground: color.ui.disabledText, // Disabled text, e.g. disable menu dropdown entries.
 			//
 			// Cursor/line
 			"editorCursor.foreground": color.accent.primary,
@@ -553,6 +564,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"breadcrumb.focusForeground": color.accent.primary,
 			"breadcrumb.activeSelectionForeground": color.accent.primary,
 			"breadcrumbPicker.background": color.ui.dropdownBg,
+			//
+			// STICKY [x]
+			"editorStickyScroll.background": color.ui.primaryBg,
+			"editorStickyScrollHover.background": color.ui.listHoverBgA,
 			// WIDGETS [x],
 			// Pop-up widgets, e.g. find & replace dialogue.
 			"editorWidget.foreground": color.text.normal, // All text.
@@ -748,7 +763,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			//
 			"tab.inactiveForeground": color.text.muted,
 			"tab.inactiveBackground": color.ui.secondaryBg,
-			"tab.unfocusedInactiveForeground": color.ui.muted,
+			"tab.unfocusedInactiveForeground": color.text.muted,
 			"tab.unfocusedInactiveBackground": color.ui.secondaryBg,
 			//
 			"tab.hoverForeground": color.text.normal, // Text when hovering over a tab.
@@ -802,7 +817,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"scm.providerBorder": color.ui.border,
 			//
 			// SETTINGS PAGE [x]
-			"settings.headerForeground": color.text.normal, // Titles and headings
+			"settings.headerForeground": color.text.bold, // Titles and headings
 			"settings.modifiedItemIndicator": color.accent.primary, // Strip at the side of any modified settings.
 			"settings.rowHoverBackground": "#00000000", // Background colour of the currently active setting.
 			"settings.focusedRowBackground": "#00000000",
@@ -863,10 +878,10 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			//
 			"debugTokenExpression.name": color.text.normal,
 			"debugTokenExpression.value": color.text.normal,
-			"debugTokenExpression.string": syntax.string,
-			"debugTokenExpression.boolean": syntax.variant,
-			"debugTokenExpression.number": syntax.number,
-			"debugTokenExpression.error": syntax.invalid,
+			"debugTokenExpression.string": syntax.yellow,
+			"debugTokenExpression.boolean": syntax.cyan,
+			"debugTokenExpression.number": syntax.orange,
+			"debugTokenExpression.error": syntax.strongPink,
 			//
 			// NOTIFICATIONS [x]
 			//"notifications.foreground": "",
@@ -928,38 +943,38 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			//
 			//
 			// SYMBOLS [x]
-			"symbolIcon.arrayForeground": syntax.var,
-			"symbolIcon.booleanForeground": syntax.variant,
-			"symbolIcon.classForeground": syntax.type,
+			"symbolIcon.arrayForeground": syntax.fg,
+			"symbolIcon.booleanForeground": syntax.cyan,
+			"symbolIcon.classForeground": syntax.green,
 			"symbolIcon.colorForeground": color.text.normal,
-			"symbolIcon.constantForeground": syntax.constant,
-			"symbolIcon.enumeratorForeground": syntax.type,
-			"symbolIcon.enumeratorMemberForeground": syntax.variant,
+			"symbolIcon.constantForeground": syntax.cyan,
+			"symbolIcon.enumeratorForeground": syntax.green,
+			"symbolIcon.enumeratorMemberForeground": syntax.cyan,
 			"symbolIcon.eventForeground": color.text.normal,
-			"symbolIcon.fieldForeground": syntax.member,
+			"symbolIcon.fieldForeground": syntax.mauve,
 			"symbolIcon.fileForeground": color.text.normal,
 			"symbolIcon.folderForeground": color.text.normal,
-			"symbolIcon.functionForeground": syntax.fn,
-			"symbolIcon.interfaceForeground": syntax.interface,
-			"symbolIcon.keyForeground": syntax.jsonKey,
-			"symbolIcon.keywordForeground": syntax.keyword,
-			"symbolIcon.methodForeground": syntax.fn,
-			"symbolIcon.moduleForeground": syntax.var,
-			"symbolIcon.namespaceForeground": syntax.var,
-			"symbolIcon.nullForeground": syntax.keyword,
-			"symbolIcon.numberForeground": syntax.number,
-			"symbolIcon.objectForeground": syntax.type,
-			"symbolIcon.operatorForeground": syntax.punctuation,
-			"symbolIcon.packageForeground": syntax.var,
-			"symbolIcon.propertyForeground": syntax.member,
-			"symbolIcon.referenceForeground": syntax.keyword,
-			"symbolIcon.snippetForeground": syntax.keyword,
-			"symbolIcon.stringForeground": syntax.string,
-			"symbolIcon.structForeground": syntax.type,
+			"symbolIcon.functionForeground": syntax.blue,
+			"symbolIcon.interfaceForeground": syntax.purple,
+			"symbolIcon.keyForeground": syntax.pink,
+			"symbolIcon.keywordForeground": syntax.pink,
+			"symbolIcon.methodForeground": syntax.blue,
+			"symbolIcon.moduleForeground": syntax.fg,
+			"symbolIcon.namespaceForeground": syntax.fg,
+			"symbolIcon.nullForeground": syntax.pink,
+			"symbolIcon.numberForeground": syntax.orange,
+			"symbolIcon.objectForeground": syntax.green,
+			"symbolIcon.operatorForeground": syntax.gray,
+			"symbolIcon.packageForeground": syntax.fg,
+			"symbolIcon.propertyForeground": syntax.mauve,
+			"symbolIcon.referenceForeground": syntax.pink,
+			"symbolIcon.snippetForeground": syntax.pink,
+			"symbolIcon.stringForeground": syntax.yellow,
+			"symbolIcon.structForeground": syntax.green,
 			"symbolIcon.textForeground": color.text.normal,
-			"symbolIcon.typeParameterForeground": syntax.type,
-			"symbolIcon.unitForeground": syntax.number,
-			"symbolIcon.variableForeground": syntax.var,
+			"symbolIcon.typeParameterForeground": syntax.green,
+			"symbolIcon.unitForeground": syntax.orange,
+			"symbolIcon.variableForeground": syntax.fg,
 			//
 			// TESTING COLOURS [x]
 			"testing.iconPassed": color.diag.testPassed,
@@ -1006,6 +1021,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			"terminal.ansiBrightMagenta": color.terminal.ansiBrightMagenta,
 			//
 			"terminal.selectionBackground": color.text.selectionBgA,
+			"terminal.inactiveSelectionBackground": color.text.secondarySelectionBgA,
 			"terminal.findMatchBackground": color.text.matchBg, // Currently selected match.
 			"terminal.findMatchBorder": color.text.matchBorderA, // Currently selected match.
 			"terminal.findMatchHighlightBackground": color.text.matchBgA, // Other matches.
@@ -1094,115 +1110,115 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 		semanticHighlighting: true,
 		semanticTokenColors: {
 			//
-			keyword: syntax.keyword,
-			type: syntax.keyword,
-			builtinType: syntax.keyword,
-			selfKeyword: syntax.keyword,
-			newOperator: syntax.keyword,
-			"plainKeyword:csharp": syntax.keyword,
-			"controlKeyword:csharp": syntax.keyword,
+			keyword: syntax.pink,
+			type: syntax.pink,
+			builtinType: syntax.pink,
+			selfKeyword: syntax.pink,
+			newOperator: syntax.pink,
+			"plainKeyword:csharp": syntax.pink,
+			"controlKeyword:csharp": syntax.pink,
 			//
 			//
-			punctuation: syntax.punctuation,
-			operator: syntax.punctuation,
-			arithmetic: syntax.punctuation,
-			comparison: syntax.punctuation,
-			logical: syntax.punctuation,
-			bitwise: syntax.punctuation,
+			punctuation: syntax.gray,
+			operator: syntax.gray,
+			arithmetic: syntax.gray,
+			comparison: syntax.gray,
+			logical: syntax.gray,
+			bitwise: syntax.gray,
 			//
 			//
-			function: syntax.fn, // Static function.
+			function: syntax.blue, // Static function.
 			"member.static:csharp": {
 				// Static function.
-				foreground: syntax.fn,
+				foreground: syntax.blue,
 				fontStyle: "underline",
 			},
 			"method.static:typescript": {
 				// Static method.
-				foreground: syntax.fn,
+				foreground: syntax.blue,
 				fontStyle: "underline",
 			},
-			method: syntax.fn, // Object method.
-			"member:csharp": syntax.fn, // Object method.
-			macro: syntax.fn,
-			namespace: syntax.var,
-			struct: syntax.type,
-			class: syntax.type,
+			method: syntax.blue, // Object method.
+			"member:csharp": syntax.blue, // Object method.
+			macro: syntax.blue,
+			namespace: syntax.fg,
+			struct: syntax.green,
+			class: syntax.green,
 			"class.static:csharp": {
 				// Static class.
-				foreground: syntax.type,
+				foreground: syntax.green,
 				fontStyle: "underline",
 			},
-			enum: syntax.type,
-			union: syntax.type,
-			typeAlias: syntax.type,
-			enumMember: syntax.variant,
-			boolean: syntax.variant,
+			enum: syntax.green,
+			union: syntax.green,
+			typeAlias: syntax.green,
+			enumMember: syntax.cyan,
+			boolean: syntax.cyan,
 			//
 			//
-			interface: syntax.interface, // Rust: `MyTrait`
-			typeParameter: syntax.type, // Generic type annotation, e.g. `T`
+			interface: syntax.purple, // Rust: `MyTrait`
+			typeParameter: syntax.green, // Generic type annotation, e.g. `T`
 			//
 			//
-			variable: syntax.var,
-			"local:csharp": syntax.var, // Local variable.
-			parameter: syntax.parameter,
-			property: syntax.member, // Object members.
-			"field:csharp": syntax.member, // Object members.
+			variable: syntax.fg,
+			"local:csharp": syntax.fg, // Local variable.
+			parameter: syntax.lightBlue,
+			property: syntax.mauve, // Object members.
+			"field:csharp": syntax.mauve, // Object members.
 			"field.static:csharp": {
 				// Static object members.
-				foreground: syntax.member,
+				foreground: syntax.mauve,
 				fontStyle: "underline",
 			},
 			"property:csharp": {
 				// Csharp properties.
-				foreground: syntax.member,
+				foreground: syntax.mauve,
 				fontStyle: "bold",
 			},
 			"property.static:csharp": {
 				// Cssharp static properties.
-				foreground: syntax.member,
+				foreground: syntax.mauve,
 				fontStyle: "bold underline",
 			},
 			"property.static:typescript": {
 				// Typescript static members.
-				foreground: syntax.member,
+				foreground: syntax.mauve,
 				fontStyle: "underline",
 			},
-			"*.constant": syntax.constant,
-			"variable.static:csharp": syntax.constant, // Constants
-			"variable.readonly:csharp": syntax.constant, // Constants
-			"variable.readonly:javascript": syntax.constant, // Constants
-			"variable.readonly:typescript": syntax.constant, // Constants
+			"*.constant": syntax.cyan,
+			"variable.static:csharp": syntax.cyan, // Constants
+			"variable.readonly:csharp": syntax.cyan, // Constants
+			"variable.readonly:javascript": syntax.cyan, // Constants
+			"variable.readonly:typescript": syntax.cyan, // Constants
 			//
 			//
-			string: syntax.string, // `"string"`
-			"stringVerbatim:csharp": syntax.string,
-			escapeSequence: syntax.char, // `\n`
-			character: syntax.char, // `'b'`
-			number: syntax.number,
+			string: syntax.yellow, // `"string"`
+			"stringVerbatim:csharp": syntax.yellow,
+			escapeSequence: syntax.orange, // `\n`
+			character: syntax.orange, // `'b'`
+			number: syntax.orange,
 			...commentSemanticStyles,
 			//
 			//
 			//attribute: syntax.attribute, // The #[]!() symbols in an attribute.
 			unresolvedReference: {
-				foreground: syntax.invalid,
+				foreground: syntax.strongPink,
 			},
 			//
 			// CSHARP
-			xmlDocCommentText: syntax.var,
-			"xmlDocCommentName:csharp": syntax.comment,
-			"xmlDocCommentDelimiter:csharp": syntax.comment,
-			"xmlDocCommentAttributeName:csharp": syntax.char,
-			"xmlDocCommentAttributeQuotes:csharp": syntax.string,
-			"xmlDocCommentAttributeValue:csharp": syntax.string,
+			xmlDocCommentText: syntax.fg,
+			"xmlDocCommentName:csharp": syntax.fadedGray,
+			"xmlDocCommentDelimiter:csharp": syntax.fadedGray,
+			"xmlDocCommentAttributeName:csharp": syntax.orange,
+			"xmlDocCommentAttributeQuotes:csharp": syntax.yellow,
+			"xmlDocCommentAttributeValue:csharp": syntax.yellow,
 			//
 			// RUST
-			"operator.controlFlow:rust": syntax.keyword,
-			"label:rust": syntax.rustLabel,
-			"lifetime:rust": syntax.interface,
-			"formatSpecifier:rust": syntax.format,
-			"macroBang:rust": syntax.fn, // The ! in a macro call.
+			"operator.controlFlow:rust": syntax.pink,
+			"label:rust": syntax.lime,
+			"lifetime:rust": syntax.purple,
+			"formatSpecifier:rust": syntax.purple,
+			"macroBang:rust": syntax.blue, // The ! in a macro call.
 			//
 			// REFERENCE
 			"variable.reference": {
@@ -1223,45 +1239,45 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			//
 			// MUTABLE
 			"variable.mutable": {
-				foreground: syntax.rustVar,
+				foreground: syntax.boldFg,
 				fontStyle: "bold",
 			},
 			"method.mutable": {
-				foreground: syntax.rustFn,
+				foreground: syntax.boldBlue,
 				fontStyle: "bold",
 			},
 			"function.mutable": {
-				foreground: syntax.rustFn,
+				foreground: syntax.boldBlue,
 				fontStyle: "bold",
 			},
 			"parameter.mutable": {
-				foreground: syntax.rustParam,
+				foreground: syntax.boldLightBlue,
 				fontStyle: "bold",
 			},
 			"selfKeyword.mutable": {
-				foreground: syntax.rustKeyword,
+				foreground: syntax.boldPink,
 				fontStyle: "bold",
 			},
 			//
 			// MUTABLE REFERENCE
 			"variable.mutable.reference": {
-				foreground: syntax.rustVar,
+				foreground: syntax.boldFg,
 				fontStyle: "italic bold",
 			},
 			"method.mutable.reference": {
-				foreground: syntax.rustFn,
+				foreground: syntax.boldBlue,
 				fontStyle: "italic bold",
 			},
 			"function.mutable.reference": {
-				foreground: syntax.rustFn,
+				foreground: syntax.boldBlue,
 				fontStyle: "italic bold",
 			},
 			"parameter.mutable.reference": {
-				foreground: syntax.rustParam,
+				foreground: syntax.boldLightBlue,
 				fontStyle: "italic bold",
 			},
 			"selfKeyword.mutable.reference": {
-				foreground: syntax.rustKeyword,
+				foreground: syntax.boldPink,
 				fontStyle: "italic bold",
 			},
 			// Unset the underline effect, since something like `+=` would otherwise be underlined.
@@ -1274,7 +1290,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			},
 			//
 			// UNSAFE
-			"*.unsafe": syntax.rustUnsafe,
+			"*.unsafe": syntax.orange,
 			"keyword.unsafe": {
 				fontStyle: "bold underline",
 			},
@@ -1298,17 +1314,17 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 			},
 			//
 			// ATTRIBUTES
-			"attributeBracket.attribute:rust": syntax.attribute,
-			"builtinAttribute.attribute:rust": syntax.attribute,
-			"toolModule.attribute:rust": syntax.attribute,
-			"decorator.attribute:rust": syntax.attribute,
-			"derive.attribute:rust": syntax.attribute,
-			"generic.attribute:rust": syntax.attribute,
-			"parenthesis.attribute:rust": syntax.attribute,
+			"attributeBracket.attribute:rust": syntax.orange,
+			"builtinAttribute.attribute:rust": syntax.orange,
+			"toolModule.attribute:rust": syntax.orange,
+			"decorator.attribute:rust": syntax.orange,
+			"derive.attribute:rust": syntax.orange,
+			"generic.attribute:rust": syntax.orange,
+			"parenthesis.attribute:rust": syntax.orange,
 			//
 			// TOML - Even Better TOML only
-			tomlTableKey: syntax.tomlTable,
-			tomlArrayKey: syntax.tomlArray,
+			tomlTableKey: syntax.lime,
+			tomlArrayKey: syntax.purple,
 		},
 		tokenColors: [
 			// BASICS
@@ -1352,10 +1368,11 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"variable.language.this.ts",
 					"constant.language.null.ts",
 					"constant.language.undefined.ts",
-					"keyword.operator.ternary.ts"
+					"keyword.operator.ternary.ts",
+					"keyword.operator.expression.of.ts",
 				],
 				settings: {
-					foreground: syntax.keyword,
+					foreground: syntax.pink,
 				},
 			},
 			{
@@ -1372,7 +1389,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"support.type.primitive.ts",
 				],
 				settings: {
-					foreground: syntax.keyword,
+					foreground: syntax.pink,
 				},
 			},
 			{
@@ -1380,7 +1397,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				scope: [
 					"punctuation",
 					"keyword.operator",
-					// 
+					//
 					"keyword.operator.sigil.rust",
 					"keyword.operator.access.dot.rust",
 					"keyword.operator.key-value.rust",
@@ -1410,7 +1427,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"punctuation.definition.string.end.json",
 				],
 				settings: {
-					foreground: syntax.punctuation,
+					foreground: syntax.gray,
 					fontStyle: "",
 				},
 			},
@@ -1442,7 +1459,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"support.function.misc.scss",
 				],
 				settings: {
-					foreground: syntax.fn,
+					foreground: syntax.blue,
 				},
 			},
 			{
@@ -1459,7 +1476,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"support.function.builtin.zig",
 				],
 				settings: {
-					foreground: syntax.fn,
+					foreground: syntax.blue,
 				},
 			},
 			{
@@ -1518,7 +1535,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"entity.name.type.class.ts",
 				],
 				settings: {
-					foreground: syntax.type,
+					foreground: syntax.green,
 				},
 			},
 			{
@@ -1552,7 +1569,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.language.boolean.toml",
 				],
 				settings: {
-					foreground: syntax.variant,
+					foreground: syntax.cyan,
 				},
 			},
 			//
@@ -1567,7 +1584,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"entity.name.type.interface.ts",
 				],
 				settings: {
-					foreground: syntax.interface,
+					foreground: syntax.purple,
 				},
 			},
 			{
@@ -1577,7 +1594,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"entity.name.type.type-parameter.cs",
 				],
 				settings: {
-					foreground: syntax.type,
+					foreground: syntax.green,
 				},
 			},
 			//
@@ -1609,7 +1626,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"variable.scss",
 				],
 				settings: {
-					foreground: syntax.var,
+					foreground: syntax.fg,
 				},
 			},
 			{
@@ -1628,7 +1645,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"variable.parameter.ts",
 				],
 				settings: {
-					foreground: syntax.parameter,
+					foreground: syntax.lightBlue,
 				},
 			},
 			{
@@ -1646,7 +1663,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"variable.other.property.ts",
 				],
 				settings: {
-					foreground: syntax.member,
+					foreground: syntax.mauve,
 				},
 			},
 			{
@@ -1670,7 +1687,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.other.boolean.toml",
 				],
 				settings: {
-					foreground: syntax.constant,
+					foreground: syntax.cyan,
 				},
 			},
 			//
@@ -1745,7 +1762,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"string.quoted.single.bnf",
 				],
 				settings: {
-					foreground: syntax.string,
+					foreground: syntax.yellow,
 				},
 			},
 			{
@@ -1772,7 +1789,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.character.escape.toml", // (Only within multi-line strings for Better TOML)
 				],
 				settings: {
-					foreground: syntax.char,
+					foreground: syntax.orange,
 				},
 			},
 			{
@@ -1787,7 +1804,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"string.quoted.single.cs",
 				],
 				settings: {
-					foreground: syntax.char,
+					foreground: syntax.orange,
 				},
 			},
 			{
@@ -1837,7 +1854,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.numeric.nan.toml",
 				],
 				settings: {
-					foreground: syntax.number,
+					foreground: syntax.orange,
 				},
 			},
 			{
@@ -1896,14 +1913,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"variable.parameter.attribute.powershell",
 				],
 				settings: {
-					foreground: syntax.attribute,
+					foreground: syntax.orange,
 				},
 			},
 			{
 				name: "Unresolved Symbol",
 				scope: ["invalid", "invalid.illegal"],
 				settings: {
-					foreground: syntax.invalid,
+					foreground: syntax.strongPink,
 				},
 			},
 			{
@@ -1920,7 +1937,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "? Operator",
 				scope: ["keyword.operator.misc.question-mark.rust", "keyword.operator.question.rust"],
 				settings: {
-					foreground: syntax.keyword,
+					foreground: syntax.pink,
 				},
 			},
 			{
@@ -1931,21 +1948,21 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"storage.modifier.lifetime.rust",
 				],
 				settings: {
-					foreground: syntax.interface,
+					foreground: syntax.purple,
 				},
 			},
 			{
 				name: "Format Specifier",
 				scope: ["meta.interpolation.rust", "punctuation.definition.interpolation.rust"],
 				settings: {
-					foreground: syntax.format,
+					foreground: syntax.purple,
 				},
 			},
 			{
 				name: "Macro declaration variable specifier",
 				scope: ["variable.other.metavariable.specifier.rust"],
 				settings: {
-					foreground: syntax.rustMacroSpecifier,
+					foreground: syntax.lime,
 				},
 			},
 			//
@@ -1959,21 +1976,21 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"comment.block.documentation.cs punctuation.separator.equals.cs",
 				],
 				settings: {
-					foreground: syntax.comment,
+					foreground: syntax.fadedGray,
 				},
 			},
 			{
 				name: "Csharp - Doc Tag Attribute",
 				scope: ["entity.other.attribute-name.cs"],
 				settings: {
-					foreground: syntax.char,
+					foreground: syntax.orange,
 				},
 			},
 			{
 				name: "Csharp - Doc Text",
 				scope: ["comment.block.documentation.cs"],
 				settings: {
-					foreground: syntax.var,
+					foreground: syntax.fg,
 				},
 			},
 			{
@@ -1983,7 +2000,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"punctuation.definition.interpolation.end.cs",
 				],
 				settings: {
-					foreground: syntax.interface,
+					foreground: syntax.purple,
 				},
 			},
 			//
@@ -1997,39 +2014,41 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"storage.modifier.scope.powershell",
 				],
 				settings: {
-					foreground: syntax.psVar,
+					foreground: syntax.green,
 				},
 			},
 			{
 				name: "Powershell Variable/Storage Scopes",
 				scope: ["storage.modifier.scope.powershell", "support.variable.drive.powershell"],
 				settings: {
-					foreground: syntax.psVar,
+					foreground: syntax.green,
 					fontStyle: "underline",
 				},
 			},
 			{
-				name: "Powershell $_ Variable",
+				name: "Powershell Special/Built-In Variables",
 				scope: [
 					"support.variable.automatic.powershell",
 					"support.variable.automatic.powershell punctuation.definition.variable.powershell",
+					"variable.language.powershell",
+					"variable.language.powershell punctuation.definition.variable.powershell",
 				],
 				settings: {
-					foreground: syntax.psSpecialVar,
+					foreground: syntax.purple,
 				},
 			},
 			{
 				name: "Powershell Operators",
 				scope: ["keyword.operator.comparison.powershell", "keyword.operator.logical.powershell"],
 				settings: {
-					foreground: syntax.psOperator,
+					foreground: syntax.pink,
 				},
 			},
 			{
 				name: "Powershell Comment Keywords",
 				scope: "keyword.operator.documentation.powershell",
 				settings: {
-					foreground: syntax.psCommentKeyword,
+					foreground: syntax.fg,
 				},
 			},
 			{
@@ -2039,7 +2058,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"punctuation.section.embedded.substatement.end.powershell",
 				],
 				settings: {
-					foreground: syntax.format,
+					foreground: syntax.purple,
 				},
 			},
 			//
@@ -2052,14 +2071,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"punctuation.definition.template-expression.end.js",
 				],
 				settings: {
-					foreground: syntax.format,
+					foreground: syntax.purple,
 				},
 			},
 			{
 				name: "JS - Regexp Group",
 				scope: ["punctuation.definition.group.regexp", "punctuation.definition.group.no-capture.regexp"],
 				settings: {
-					foreground: syntax.jsRegex,
+					foreground: syntax.fg,
 				},
 			},
 			{
@@ -2073,7 +2092,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"meta.group.assertion.regexp",
 				],
 				settings: {
-					foreground: syntax.format,
+					foreground: syntax.purple,
 				},
 			},
 			//
@@ -2083,7 +2102,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "JSX - Embedded Code",
 				scope: ["punctuation.section.embedded.begin.js", "punctuation.section.embedded.end.js"],
 				settings: {
-					foreground: syntax.reactEmbedded,
+					foreground: syntax.orange,
 					fontStyle: "bold",
 				},
 			},
@@ -2091,7 +2110,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "JSX - Attributes",
 				scope: ["entity.other.attribute-name.js"],
 				settings: {
-					foreground: syntax.reactAttribute,
+					foreground: syntax.purple,
 					fontStyle: "italic",
 				},
 			},
@@ -2105,7 +2124,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"punctuation.definition.template-expression.end.ts",
 				],
 				settings: {
-					foreground: syntax.format,
+					foreground: syntax.purple,
 				},
 			},
 			//
@@ -2115,22 +2134,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "HTML - Tags",
 				scope: ["entity.name.tag.html"],
 				settings: {
-					foreground: syntax.htmlTag,
-				},
-			},
-			{
-				name: "HTML - Attributes",
-				scope: ["entity.other.attribute-name.html"],
-				settings: {
-					foreground: syntax.htmlAttribute,
-					fontStyle: "italic",
+					foreground: syntax.pink,
 				},
 			},
 			{
 				name: "HTML - IDs",
 				scope: ["meta.attribute.id.html string.quoted.double.html", "entity.other.attribute-name.id.css"],
 				settings: {
-					foreground: syntax.htmlId,
+					foreground: syntax.orange,
 					fontStyle: "bold",
 				},
 			},
@@ -2141,14 +2152,22 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"entity.other.attribute-name.class.css",
 				],
 				settings: {
-					foreground: syntax.htmlClass,
+					foreground: syntax.green,
 				},
 			},
 			{
-				name: "HTML - Meta Value",
-				scope: ["meta.attribute"],
+				name: "HTML - Attributes",
+				scope: ["entity.other.attribute-name.html", "entity.other.attribute-name.css"],
 				settings: {
-					foreground: syntax.htmlMeta,
+					foreground: syntax.cyan,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "HTML - Attribute Value",
+				scope: ["meta.attribute", "meta.attribute-selector.css string.quoted.double.css"],
+				settings: {
+					foreground: syntax.yellow,
 				},
 			},
 			{
@@ -2159,14 +2178,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"meta.attribute.unrecognized.xmlns.html string.quoted.double.html",
 				],
 				settings: {
-					foreground: syntax.htmlLink,
+					foreground: syntax.purple,
 				},
 			},
 			{
 				name: "HTML - Embedded CSS",
 				scope: ["meta.embedded.line.css"],
 				settings: {
-					foreground: syntax.htmlEmbeddedCss,
+					foreground: syntax.lime,
 				},
 			},
 			//
@@ -2176,7 +2195,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "CSS - Tags",
 				scope: ["entity.name.tag.css"],
 				settings: {
-					foreground: syntax.htmlTag,
+					foreground: syntax.pink,
 				},
 			},
 			{
@@ -2188,21 +2207,21 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"support.type.property-name.media.css",
 				],
 				settings: {
-					foreground: syntax.cssProperty,
+					foreground: syntax.mauve,
 				},
 			},
 			{
 				name: "CSS - Property Values",
 				scope: ["support.constant.property-value.css"],
 				settings: {
-					foreground: syntax.cssValue,
+					foreground: syntax.cyan,
 				},
 			},
 			{
 				name: "CSS - Fontname Selector",
 				scope: ["support.constant.font-name.css"],
 				settings: {
-					foreground: syntax.cssFontname,
+					foreground: syntax.yellow,
 				},
 			},
 			{
@@ -2212,7 +2231,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"entity.other.attribute-name.pseudo-element.css",
 				],
 				settings: {
-					foreground: syntax.cssPseudoclass,
+					foreground: syntax.lime,
 				},
 			},
 			{
@@ -2236,7 +2255,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.other.scss", // {x}n
 				],
 				settings: {
-					foreground: syntax.number,
+					foreground: syntax.orange,
 				},
 			},
 			{
@@ -2247,14 +2266,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"keyword.operator.logical.only.media.css",
 				],
 				settings: {
-					foreground: syntax.keyword,
+					foreground: syntax.pink,
 				},
 			},
 			{
 				name: "CSS - Media Query Types",
 				scope: ["support.constant.media.css"],
 				settings: {
-					foreground: syntax.cssMedia,
+					foreground: syntax.purple,
 				},
 			},
 			//
@@ -2269,7 +2288,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"entity.name.tag.wildcard.scss",
 				],
 				settings: {
-					foreground: syntax.keyword,
+					foreground: syntax.pink,
 				},
 			},
 			//
@@ -2279,14 +2298,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "XML - Tags",
 				scope: ["entity.name.tag.xml", "entity.name.tag.localname.xml"],
 				settings: {
-					foreground: syntax.keyword,
+					foreground: syntax.pink,
 				},
 			},
 			{
 				name: "XML - Attributes",
 				scope: ["entity.other.attribute-name.xml", "entity.other.attribute-name.localname.xml"],
 				settings: {
-					foreground: syntax.htmlAttribute,
+					foreground: syntax.cyan,
 					fontStyle: "italic",
 				},
 			},
@@ -2294,14 +2313,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "XML - Tag Namespace",
 				scope: ["entity.name.tag.namespace.xml"],
 				settings: {
-					foreground: syntax.xmlNamespace,
+					foreground: syntax.lime,
 				},
 			},
 			{
 				name: "XML - Attribute Namespace",
 				scope: ["entity.other.attribute-name.namespace.xml"],
 				settings: {
-					foreground: syntax.xmlNamespace,
+					foreground: syntax.lime,
 					fontStyle: "italic",
 				},
 			},
@@ -2316,7 +2335,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "XML - Doctype",
 				scope: "variable.language.documentroot.xml",
 				settings: {
-					foreground: syntax.xmlDoctype,
+					foreground: syntax.purple,
 				},
 			},
 			//
@@ -2330,7 +2349,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "JSON - Key",
 				scope: "support.type.property-name.json",
 				settings: {
-					foreground: syntax.jsonKey,
+					foreground: syntax.pink,
 				},
 			},
 			{
@@ -2352,28 +2371,28 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "YAML - Keys",
 				scope: ["entity.name.tag.yaml"],
 				settings: {
-					foreground: syntax.yamlKey,
+					foreground: syntax.pink,
 				},
 			},
 			{
 				name: "YAML - Timestamp Values",
 				scope: ["constant.other.timestamp.yaml"],
 				settings: {
-					foreground: syntax.yamlTimestamp,
+					foreground: syntax.green,
 				},
 			},
 			{
 				name: "YAML - Null Values",
 				scope: ["constant.language.null.yaml"],
 				settings: {
-					foreground: syntax.keyword,
+					foreground: syntax.pink,
 				},
 			},
 			{
 				name: "YAML - Types",
 				scope: ["storage.type.tag-handle.yaml"],
 				settings: {
-					foreground: syntax.keyword,
+					foreground: syntax.pink,
 				},
 			},
 			{
@@ -2385,7 +2404,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"keyword.control.flow.alias.yaml punctuation.definition.alias.yaml",
 				],
 				settings: {
-					foreground: syntax.yamlAnchor,
+					foreground: syntax.lime,
 				},
 			},
 			//
@@ -2401,7 +2420,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					//"variable.key.toml"
 				],
 				settings: {
-					foreground: syntax.tomlKey,
+					foreground: syntax.pink,
 				},
 			},
 			{
@@ -2418,7 +2437,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					"constant.other.time.datetime.offset.toml",
 				],
 				settings: {
-					foreground: syntax.tomlTimestamp,
+					foreground: syntax.green,
 				},
 			},
 			{
@@ -2431,7 +2450,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					//"variable.key.table.toml"
 				],
 				settings: {
-					foreground: syntax.tomlTable,
+					foreground: syntax.lime,
 				},
 			},
 			{
@@ -2444,7 +2463,7 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 					//"variable.key.array.table.toml"
 				],
 				settings: {
-					foreground: syntax.tomlArray,
+					foreground: syntax.purple,
 				},
 			},
 			//
@@ -2454,14 +2473,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "INI - Keys",
 				scope: "keyword.other.definition.ini",
 				settings: {
-					foreground: syntax.iniKey,
+					foreground: syntax.pink,
 				},
 			},
 			{
 				name: "INI - Headings",
 				scope: "entity.name.section.group-title.ini",
 				settings: {
-					foreground: syntax.iniHeading,
+					foreground: syntax.lime,
 				},
 			},
 			//
@@ -2471,14 +2490,14 @@ function generateTheme(color: any, syntax: any, name: string, type: string, conf
 				name: "BNF - Symbol",
 				scope: "entity.name.class.bnf",
 				settings: {
-					foreground: syntax.bnfSymbol,
+					foreground: syntax.green,
 				},
 			},
 			{
 				name: "BNF - Builtin",
 				scope: "support.variable.bnf",
 				settings: {
-					foreground: syntax.bnfBuiltin,
+					foreground: syntax.cyan,
 				},
 			},
 		],
@@ -2493,7 +2512,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markdown - Plain",
 			scope: ["text.html.markdown", "punctuation.definition.list_item.markdown"],
 			settings: {
-				foreground: syntax.mdAltText,
+				foreground: syntax.fadedGray,
 			},
 		});
 		styles.push({
@@ -2501,7 +2520,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markdown - Markup Raw Inline",
 			scope: ["punctuation.definition.raw.markdown", "markup.inline.raw.string.markdown"],
 			settings: {
-				foreground: syntax.mdCode,
+				foreground: syntax.fg,
 			},
 		});
 		styles.push({
@@ -2509,7 +2528,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markdown - Markup Raw Inline",
 			scope: ["markup.fenced_code.block.markdown"],
 			settings: {
-				foreground: syntax.mdCode,
+				foreground: syntax.fg,
 			},
 		});
 		styles.push({
@@ -2520,7 +2539,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 				"markup.fenced_code.block.markdown punctuation.definition.markdown",
 			],
 			settings: {
-				foreground: syntax.mdCode,
+				foreground: syntax.fg,
 			},
 		});
 	} else {
@@ -2529,7 +2548,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markdown - Plain",
 			scope: ["text.html.markdown", "punctuation.definition.list_item.markdown"],
 			settings: {
-				foreground: syntax.mdText,
+				foreground: syntax.fg,
 			},
 		});
 		styles.push({
@@ -2537,7 +2556,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markdown - Markup Raw Inline",
 			scope: ["punctuation.definition.raw.markdown", "markup.inline.raw.string.markdown"],
 			settings: {
-				foreground: syntax.mdCode,
+				foreground: syntax.fg,
 				fontStyle: "bold",
 			},
 		});
@@ -2546,7 +2565,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markdown - Markup Raw Inline",
 			scope: ["markup.fenced_code.block.markdown"],
 			settings: {
-				foreground: syntax.mdCode,
+				foreground: syntax.fg,
 			},
 		});
 		styles.push({
@@ -2557,7 +2576,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 				"markup.fenced_code.block.markdown punctuation.definition.markdown",
 			],
 			settings: {
-				foreground: syntax.mdCode,
+				foreground: syntax.fg,
 				fontStyle: "bold",
 			},
 		});
@@ -2575,7 +2594,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 				"entity.name.section.markdown",
 			],
 			settings: {
-				foreground: syntax.mdHeading,
+				foreground: syntax.pink,
 			},
 		},
 		{
@@ -2583,7 +2602,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			scope: ["punctuation.definition.bold.markdown", "markup.bold", "markup.bold string"],
 			settings: {
 				fontStyle: "bold",
-				foreground: syntax.mdBold,
+				foreground: syntax.orange,
 			},
 		},
 		{
@@ -2591,7 +2610,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			scope: ["punctuation.definition.italic.markdown", "markup.italic"],
 			settings: {
 				fontStyle: "italic",
-				foreground: syntax.mdItalic,
+				foreground: syntax.blue,
 			},
 		},
 		{
@@ -2605,7 +2624,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 				"markup.quote markup.bold string",
 			],
 			settings: {
-				foreground: syntax.mdItalic,
+				foreground: syntax.blue,
 				fontStyle: "italic bold",
 			},
 		},
@@ -2613,7 +2632,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markdown - Quote",
 			scope: ["punctuation.definition.quote.begin.markdown", "markup.quote.markdown"],
 			settings: {
-				foreground: syntax.mdQuote,
+				foreground: syntax.yellow,
 				fontStyle: "italic",
 			},
 		},
@@ -2621,7 +2640,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markdown - Strikethrough",
 			scope: ["markup.strikethrough.markdown", "punctuation.definition.strikethrough.markdown"],
 			settings: {
-				foreground: syntax.mdStrikethrough,
+				foreground: syntax.fadedGray,
 				fontStyle: "strikethrough",
 			},
 		},
@@ -2629,7 +2648,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markdown - Separator",
 			scope: ["meta.separator.markdown"],
 			settings: {
-				foreground: syntax.mdSeparator,
+				foreground: syntax.fg,
 				fontStyle: "bold",
 			},
 		},
@@ -2638,7 +2657,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markdown - List",
 			scope: ["punctuation.definition.list.begin.markdown"],
 			settings: {
-				foreground: syntax.mdList,
+				foreground: syntax.cyan,
 			},
 		},
 		{
@@ -2652,7 +2671,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 				"string.other.link.title.markdown",
 			],
 			settings: {
-				foreground: syntax.mdUrlName,
+				foreground: syntax.green,
 			},
 		},
 		{
@@ -2660,7 +2679,7 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markup - Url Underline",
 			scope: ["markup.underline.link", "constant.other.reference.link.markdown"],
 			settings: {
-				foreground: syntax.mdUrl,
+				foreground: syntax.purple,
 				fontStyle: "underline",
 			},
 		},
@@ -2668,15 +2687,397 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			name: "Markup - Maths",
 			scope: "punctuation.definition.math.begin.markdown",
 			settings: {
-				foreground: syntax.mdMaths,
+				foreground: syntax.limeGreen,
 			},
 		},
 		{
 			name: "Markup - Maths constants/functions",
 			scope: ["constant.character.math.tex", "constant.character.math.tex punctuation.definition.math.tex"],
 			settings: {
-				foreground: syntax.mdMathsConst,
+				foreground: syntax.cyan,
 			},
 		},
 	];
+}
+
+export interface SyntaxColors {
+	strongPink: string;
+	pink: string;
+	purple: string;
+	blue: string;
+	cyan: string;
+	lightBlue: string;
+	green: string;
+	lime: string;
+	yellow: string;
+	orange: string;
+	mauve: string;
+	fg: string;
+	gray: string;
+	fadedGray: string;
+
+	boldPink: string;
+	boldBlue: string;
+	boldLightBlue: string;
+	boldFg: string;
+}
+
+export interface UiColors {
+	text: {
+		// Most ui text, text editor default text
+		normal: string;
+
+		// Setting header text
+		bold: string;
+
+		// Text editor line number, text editor suggestion ghost text, list deemphasized text, tab unfocused title,
+		// (??? x1)
+		muted: string;
+
+		// Breadcrumb text, general description text, titlebar unfocused text
+		light: string;
+
+		// Button text, extension button text, status bar when debugging text & icons
+		//
+		// DEFAULT: DISABLED_STATUS_BAR: Command bar & intellisense & list selected text & icon, badge text, banner
+		// text, menu selected text
+		//
+		// DEFAULT: Status bar text & icons
+		inverse: string;
+
+		// Peek view selected text, peek view header text, peek view filename text,
+		emphasised: string;
+
+		/// Text editor unnecessary text
+		faded: string;
+
+		decoration: {
+			// Text editor whitespace chars, text editor indentation guides, text editor rulers
+			light: string;
+
+			// Text editor matching bracket border, text editor corrent indentation guide
+			//
+			// MONO_GUIDES: Bracket match guides
+			dark: string;
+
+			// Codelens
+			//
+			// DEFAULT_INLAY: Inlay hint text
+			codelens: string;
+
+			// BCKG_INLAY: Inlay hint text
+			alt1Inlay: string;
+			// BCKG_INLAY: Inlay hint background
+			alt1InlayBgA: string;
+
+			// ACCENT_INLAY: Inlay hint text
+			alt2Inlay: string; // FF4C986A on primaryBg
+
+			// ACCENT_BCKG_INLAY: Inlay hint text
+			alt3Inlay: string; // FF4C987A on primaryBg
+			// ACCENT_BCKG_INLAY: Inlay hint background
+			alt3InlayBgA: string;
+		};
+
+		// Text editor folded line, text editor hover over symbol background box
+		//
+		// NORMAL_LINE: Text editor current line background
+		currentLineBgA: string;
+		// ALT_LINE: Text editor current line border
+		currentLineBorder: string;
+
+		// Text editor selection background box, text editor matching text background box, text editor matching
+		// symbol background box, text editor selection boxes, general selection, input field, terminal selection,
+		selectionBg: string; // FF4C981A on primaryBg
+		selectionBgA: string;
+		// Text editor unfocused selection background box, text editor find current range background box, terminal
+		// unfocused selection
+		secondarySelectionBgA: string;
+
+		// Text editor tabstop background box
+		tabstopBgA: string;
+
+		// Text editor & search sidebar find match background box, text editor match line background, peek view
+		// match background box, list filter widget background, list filter match background, terminal find match
+		// background box, (??? x1)
+		matchBg: string;
+		matchBgA: string;
+
+		// Text editor & search sidebar find match border, peek view match border, list filter match border,
+		// terminal find match border,
+		matchBorder: string;
+		matchBorderA: string;
+	};
+
+	accent: {
+		// Cursor, text editor current line number, text editor ctrl+click, breadcrumb focused/active text, link
+		// text, border of focused elements, button background, extension button background, checkbox tick,
+		// progress bar, tab focused indicator, activity bar hover/active icon, activity bar active border,
+		// settings modified indicator, panel active title, panel active indicator, border when draggable, command
+		// bar grouping text, intellisense widget matching text, block quote left border, welcome page progress
+		// bar, (??? x1)
+		//
+		// DEFAULT: DISABLED_STATUS_BAR: List & command bar currently selected background, intellisense widget
+		// selected background, peek view widget selected background, badge background, banner background, menu
+		// selected background
+		//
+		// DEFAULT: status bar background
+		//
+		// DISABLED_STATUS_BAR: MINIMAL: status bar remote icon
+		//
+		// MINIMAL: list & command bar matching text, badge text
+		primary: string;
+		primaryHover: string;
+		linkHover: string;
+
+		// Button background, codeblock text, (??? x1)
+		//
+		// DEFAULT: status bar remote background
+		secondary: string;
+		secondaryHover: string;
+	};
+
+	diag: {
+		// Ruler markers, minimap markers,
+		selection: string; // +(list search match background, ??? x1)
+		match: string; // +(marker for currently selected @SYMBOL)
+		bracket: string;
+
+		// Error lens text, error lens gutter icons, peek view border, input validation text & border, testing
+		// message line text (info+error), text editor underline squiggles, problems panel icons, ruler markers,
+		// minimap markers, notification icons,
+		//
+		// DISABLED_STATUS_BAR: MINIMAL: Status bar text & icons,
+		hint: string;
+		info: string; // +(general peek view, status bar prominent if applicable)
+		warning: string; // +(list warning text)
+		error: string; // +(general error text, bracket mismatch foreground, list error text, list invalid text, list no matches, confusing unicode highlighting border)
+
+		// Error lens line background, peek view header background, input validation background, testing message
+		// line background (info+error),
+		hintBg: string;
+		hintBgA: string;
+		infoBg: string; // +(general peek view)
+		infoBgA: string; // +(general peek view)
+		warningBg: string;
+		warningBgA: string;
+		errorBg: string;
+		errorBgA: string; // +(confusing unicode highlighting)
+
+		// Testing status icons
+		testPassed: string;
+		testQueued: string;
+		testFailed: string;
+		testUnset: string;
+		testSkipped: string;
+	};
+
+	git: {
+		// Ruler markers, minimap markers, gutter markers, file names
+		addedOrStaged: string;
+		modified: string;
+		renamed: string;
+		untracked: string;
+		removedOrConflicting: string;
+		ignoredOrSubmodule: string;
+		current: string;
+		incoming: string;
+
+		// Diff viewer line backgrounds, refactor preview text backgrounds
+		insertedBgA: string; // Entire modified line #243a31 Specifically added #264b37
+		removedBgA: string; // Entire modified line #3f2234 Specifically removed #58203c
+		diffDiagonal: string;
+
+		// Conflict viewer line backgrounds
+		currentBgA: string;
+		currentHeaderBgA: string;
+		incomingBgA: string;
+		incomingHeaderBgA: string;
+
+		// Merge editor backgrounds
+		mergeWordChangeBgA: string;
+		mergeLineChangeBgA: string;
+		mergeUnhandledUnfocused: string;
+		mergeUnhandledFocused: string; // +(ruler marker)
+		mergeHandledUnfocused: string;
+		mergeHandledFocused: string; // +(ruler marker)
+	};
+
+	debug: {
+		// Debug toolbar icons
+		start: string;
+		pause: string;
+		step: string;
+		stop: string;
+
+		// Gutter icons
+		breakpoint: string;
+		breakpointDisabled: string;
+
+		// Exception widget background
+		exceptionBg: string;
+
+		// Debug console text
+		info: string;
+		warning: string;
+		error: string;
+		source: string;
+		input: string;
+	};
+
+	terminal: {
+		// Command decoration icons
+		default: string; // +(SetMark sequence)
+		success: string;
+		error: string;
+
+		foreground: string; // 0m (foreground)
+		ansiBlack: string; // 30m
+		ansiBrightBlack: string; // 30;1m
+		ansiWhite: string; //37m (background)
+		ansiBrightWhite: string; // (technicall 37;1m but vscode also applies this to just bold 1m, hence it's white)
+		ansiBlue: string;
+		ansiBrightBlue: string;
+		ansiCyan: string;
+		ansiBrightCyan: string;
+		ansiGreen: string;
+		ansiBrightGreen: string;
+		ansiYellow: string;
+		ansiBrightYellow: string;
+		ansiRed: string;
+		ansiBrightRed: string;
+		ansiMagenta: string;
+		ansiBrightMagenta: string;
+	};
+
+	ui: {
+		// Intellisense widget, command bar, text editor, text editor block cursor char, text editor gutter, text
+		// editor minimap, breacrumbs, hover widget, peek view text editor, peek view text gutter, tab empty group,
+		// tab drop-into promp, tab active background, tab hover background, tab zen mode sides, activity bar
+		// background, welcome page background, panel background, notification background, command center
+		// background
+		//
+		// MINIMAL: Badge background,
+		primaryBg: string;
+
+		// Widgets, hover widget status bar, peek view list, tab row background, tab row empty background, tab
+		// inactive background, tab unfocused background, sidebar background, panel section header background,
+		// debug toolbar background & border, notification centre header, titlebar, block quote background,
+		// code-block background, keybind table header backgrounds, keybind table even row background
+		//
+		// DISABLED_STATUS_BAR: MINIMAL: Status bar background, status bar remote icon background,
+		secondaryBg: string;
+
+		// Sidebar section header background
+		tertiaryBg: string;
+
+		// Breadcrumb, menu, any button which dropdowns
+		dropdownBg: string;
+
+		// Checkbox, dropdown (+list), input field,
+		inputBg: string;
+
+		// Tab group, sidebar pane, panel section, terminal, list
+		primaryDropBg: string;
+
+		// All borders
+		border: string;
+
+		// Menu separator, command bar group separator, border between pinned and non-pinned tabs, (??? x1)
+		separator: string;
+
+		// Input field foreground
+		placeholderText: string;
+
+		// Menu disabled entry foreground, (this is chosen to match `placeholderText` since the disabled text also
+		// has a secondary fade layer)
+		disabledText: string;
+
+		// Little buttons, titlebar menu buttons, editor stick hover
+		//
+		// DISABLED_STATUS_BAR: MINIMAL: Status bar hover/active button overlays
+		hoverBgA: string;
+		activeBgA: string;
+
+		// Lists, command bar hover, notification hover
+		//
+		// MINIMAL: List unfocused selected overlay
+		listHoverBgA: string;
+		// DEFAULT: DISABLED_STATUS_BAR: List unfocused selected overlay
+		listInactiveBgA: string;
+
+		// Keybind background
+		selectedBgA: string;
+
+		// Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar, command center
+		// hover
+		selectedBg: string; // FFFFFF10 on primaryBg
+		// Welcome page tile on hover
+		selectedSecondaryBg: string; // FFFFFF10 on secondaryBg
+
+		// Tree indent guide
+		treeIndent: string;
+
+		// Scrollbar/minimap handle overlays
+		scrollBgA: string;
+		scrollHoverBgA: string;
+		scrollActiveBgA: string;
+
+		// Shadow whenever some scrollable element is scrolled, shadows around open widgets
+		shadow: string;
+
+		// Status bar during debugging background
+		statusDebugBg: string;
+		// Status bar when no folder is open background
+		statusEmptyBg: string;
+		// DEFAULT: Status bar hover/active button overlays
+		statusHoverBgA: string;
+		statusActiveBgA: string;
+
+		// Tab unfocused indicator
+		unfocusedTab: string; // FF4C986A on primaryBg
+
+		// Activity bar inactive icon
+		activityBarInactive: string;
+
+		// Code actions icon
+		lightBulb: string;
+
+		// Extension badge icons
+		star: string;
+		remote: string;
+		verified: string;
+		prerelease: string;
+		sponsor: string;
+
+		// Chart colours
+		chartLine: string;
+		chartBlue: string;
+		chartGreen: string;
+		chartYellow: string;
+		chartOrange: string;
+		chartRed: string;
+		chartPurple: string;
+	};
+
+	brackets: {
+		one: string;
+		two: string;
+		three: string;
+		four: string;
+		five: string;
+		six: string;
+	};
+
+	gitGraph: [string, string, string, string, string, string, string, string, string, string];
+
+	todo: {
+		todo: string;
+		fixme: string;
+		bug: string;
+		hack: string;
+		maybe: string;
+		unchecked: string;
+		checked: string;
+	};
 }

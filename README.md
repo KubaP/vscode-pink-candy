@@ -7,7 +7,7 @@ A vivid colour scheme with a pink accent, in both light and dark variants. Inclu
 </p>
 <br>
 <p align="center">
-⭐ <i>New:</i> The theme now has built-in configuration options allowing you to tweak certain aspects of the theme to your liking in an easy-to-use manner. See <a href="#configuration-options">Configuration Options</a> for more details.
+⭐ <i>New:</i> The theme now has a warm variant of the dark theme. This variant was heavily inspired by the colour palette of <a href="https://github.com/morhetz/gruvbox">Gruvbox</a>, but with a number of tweaks to make it more readable and to support the larger number of syntax colours this theme employs.
 </p>
 <br>
 
@@ -33,6 +33,13 @@ A vivid colour scheme with a pink accent, in both light and dark variants. Inclu
 
 ![Example 4](./img/example_4.png)
 > Viewing a git diff.
+
+![Comparison 1](./img/comparison_1.png)
+
+![Comparison 2](./img/comparison_2.png)
+
+![Comparison 3](./img/comparison_3.png)
+> Comparisons between the `dark` and `dark-warm` variants.
 
 ## Overview
 This theme supports both *'Semantic'* and *'Textmate'* highlighting, so it should work well with any langauge extension. More specifically however, this theme has been hand-tweaked and tested on:

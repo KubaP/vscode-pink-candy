@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.4.0 - 2022-12-31
+### Added
+- A warm variant of the dark theme. This is heavily inspired by Gruvbox, but with some modifications to fit with the rest of the themes.
+- Typescript syntax highlighting for the `of` keyword.
+- Powershell syntax highlighting for built-in variables, such as `$WhatIfPreference`.
+- CSS syntax highlighting for attribute selectors, i.e. the `type` in `input[type = "checkbox"]`.
+- UI styles for the new *Sticky Scroll* functionality introduced in version 1.71.
+
+### Fixed
+- Missing UI style for general text within the settings pane.
+
 ## 1.3.4 - 2022-08-30
 ### Added
 - Support for running this extension in *Restricted Mode*.

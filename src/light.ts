@@ -1,9 +1,35 @@
-export const lightColors = {
+import { SyntaxColors, UiColors } from "./theme";
+
+export const lightSyntax: SyntaxColors = {
+	strongPink: "#FF1277",
+	pink: "#F767BB",
+	purple: "#C75AF3",
+	blue: "#09A1ED",
+	cyan: "#13BBB7",
+	lightBlue: "#6E82A6",
+	green: "#2DAE58",
+	lime: "#8CBA10",
+	yellow: "#CF9C00",
+	orange: "#FF5C57",
+	mauve: "#A8759A",
+	fg: "#565869",
+	gray: "#777777",
+	fadedGray: "#ADB1C2",
+	boldPink: "#F871C0",
+	boldBlue: "#1DAEf6",
+	boldLightBlue: "#7B8dAE",
+	boldFg: "#6C6E83",
+};
+
+export const lightColors: UiColors = {
 	// Note: All non-alpha backgrounds are based on `primaryBg`.
 
 	text: {
 		// Most ui text, text editor default text
 		normal: "#565869",
+
+		// Setting header text
+		bold: "#565869",
 
 		// Text editor line number, text editor suggestion ghost text, list deemphasized text, tab unfocused title,
 		// (??? x1)
@@ -65,7 +91,8 @@ export const lightColors = {
 		// symbol background box, text editor selection boxes, general selection, input field, terminal selection,
 		selectionBg: "#FBE3EE", // FF12771A on primaryBg
 		selectionBgA: "#FF12771A",
-		// Text editor unfocused selection background box, text editor find current range background box,
+		// Text editor unfocused selection background box, text editor find current range background box, terminal
+		// unfocused selection
 		secondarySelectionBgA: "#FF127710",
 
 		// Text editor tabstop background box
@@ -267,7 +294,7 @@ export const lightColors = {
 		// has a secondary fade layer)
 		disabledText: "#ABABAB",
 
-		// Little buttons, titlebar menu buttons
+		// Little buttons, titlebar menu buttons, editor stick hover
 		//
 		// DISABLED_STATUS_BAR: MINIMAL: Status bar hover/active button overlays
 		hoverBgA: "#0000001A",
@@ -365,94 +392,4 @@ export const lightColors = {
 		unchecked: "#565869",
 		checked: "#2DAE58",
 	},
-};
-
-export const lightSyntax = {
-	keyword: "#F767BB",
-	fn: "#09A1ED",
-	type: "#2DAE58",
-	variant: "#13BBB7",
-	constant: "#13BBB7",
-	var: "#565869",
-
-	punctuation: "#777777",
-	parameter: "#6E82A6",
-	member: "#A8759A",
-
-	string: "#CF9C00",
-	char: "#FF5C57",
-	number: "#FF5C57",
-	format: "#C75AF3",
-	comment: "#ADB1C2",
-
-	interface: "#C75AF3",
-	attribute: "#FF5C57",
-
-	invalid: "#FF1277",
-
-	rustLabel: "#8CBA10",
-	rustUnsafe: "#FF5C57",
-	rustKeyword: "#F871C0",
-	rustFn: "#1DAEf6",
-	rustVar: "#6C6E83",
-	rustParam: "#7B8dAE",
-	rustMacroSpecifier: "#8CBA10",
-
-	jsRegex: "#565869",
-	reactEmbedded: "#FF5C57",
-	reactAttribute: "#C75AF3",
-
-	psVar: "#2DAE58",
-	psSpecialVar: "#C75AF3",
-	psOperator: "#F767BB",
-	psCommentKeyword: "#565869",
-
-	htmlTag: "#F767BB",
-	htmlAttribute: "#13BBB7",
-	htmlId: "#FF5C57",
-	htmlClass: "#2DAE58",
-	htmlLink: "#C75AF3",
-	htmlMeta: "#CF9C00",
-	htmlEmbeddedCss: "#8CBA10",
-
-	cssProperty: "#A8759A",
-	cssValue: "#13BBB7",
-	cssFontname: "#CF9C00",
-	cssPseudoclass: "#8CBA10",
-	cssMedia: "#C75AF3",
-
-	xmlNamespace: "#8CBA10",
-	xmlDoctype: "#C75AF3",
-
-	mdText: "#565869",
-	mdAltText: "#ADB1C2",
-	mdHeading: "#F767BB",
-	mdBold: "#FF5C57",
-	mdItalic: "#09A1ED",
-	mdQuote: "#CF9C00",
-	mdStrikethrough: "#ADB1C2",
-	mdCode: "#565869",
-	mdSeparator: "#565869",
-	mdList: "#13BBB7",
-	mdUrlName: "#2DAE58",
-	mdUrl: "#C75AF3",
-	mdMaths: "#8CBA10",
-	mdMathsConst: "#13BBB7",
-
-	jsonKey: "#F767BB",
-
-	yamlKey: "#F767BB",
-	yamlTimestamp: "#2DAE58",
-	yamlAnchor: "#8CBA10",
-
-	tomlKey: "#F767BB",
-	tomlTimestamp: "#2DAE58",
-	tomlTable: "#8CBA10",
-	tomlArray: "#C75AF3",
-
-	iniKey: "#F767BB",
-	iniHeading: "#8CBA10",
-
-	bnfSymbol: "#2DAE58",
-	bnfBuiltin: "#13BBB7",
 };

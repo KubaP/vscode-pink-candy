@@ -1,43 +1,44 @@
 import { SyntaxColors, UiColors } from "./theme";
 
-export const darkSyntax: SyntaxColors = {
-	strongPink: "#FF2884",
-	pink: "#F85EB4",
-	purple: "#D177F5",
-	blue: "#10B1FE",
-	cyan: "#15C9C5",
-	lightBlue: "#97BCCD",
-	green: "#3FC56B",
-	lime: "#9ACC12",
-	yellow: "#F9C859",
-	orange: "#FF6B66",
-	mauve: "#B58E95",
-	fg: "#B9BFCA",
-	gray: "#828DA0",
-	fadedGray: "#636D83",
+export const darkWarmSyntax: SyntaxColors = {
+	strongPink: "#fb3453",
+	pink: "#fb5270",
+	purple: "#bd86d3",
+	blue: "#839da5",
+	cyan: "#7cc091",
+	lightBlue: "#aaaaaa",
+	green: "#b8bb26",
+	lime: "#91c043",
+	yellow: "#fabd2f",
+	orange: "#fe8019",
+	mauve: "#c7899a",
+	fg: "#d5c4a1",
+	gray: "#a89984",
+	fadedGray: "#928374",
+	//fadedGray: "#7c6f64",
 
-	boldPink: "#F750AE",
-	boldBlue: "#01AAFA",
-	boldLightBlue: "#87B2C5",
-	boldFg: "#ABB2BF",
+	boldPink: "#fb4162",
+	boldBlue: "#778f97",
+	boldLightBlue: "#969696",
+	boldFg: "#cfbc94",
 };
 
-export const darkColors: UiColors = {
+export const darkWarmColors: UiColors = {
 	// Note: All non-alpha backgrounds are based on `primaryBg`.
 
 	text: {
 		// Most ui text, text editor default text
-		normal: "#ABB2BF",
+		normal: "#bdae93",
 
 		// Setting header text
-		bold: "#B9BFCA",
+		bold: "#d5c4a1",
 
 		// Text editor line number, text editor suggestion ghost text, list deemphasized text, tab unfocused title,
 		// (??? x1)
-		muted: "#636D83",
+		muted: "#928374",
 
 		// Breadcrumb text, general description text, titlebar unfocused text
-		light: "#7C869B",
+		light: "#97856B",
 
 		// Button text, extension button text, status bar when debugging text & icons
 		//
@@ -45,70 +46,70 @@ export const darkColors: UiColors = {
 		// text, menu selected text
 		//
 		// DEFAULT: Status bar text & icons
-		inverse: "#FFFFFF",
+		inverse: "#fbf1c7",
 
 		// Peek view selected text, peek view header text, peek view filename text,
-		emphasised: "#FFFFFF",
+		emphasised: "#fbf1c7",
 
 		/// Text editor unnecessary text
 		faded: "#000000C0",
 
 		decoration: {
 			// Text editor whitespace chars, text editor indentation guides, text editor rulers
-			light: "#3D434F",
+			light: "#48423F",
 
 			// Text editor matching bracket border, text editor corrent indentation guide
 			//
 			// MONO_GUIDES: Bracket match guides
-			dark: "#5A6375",
+			dark: "#665c54",
 
 			// Codelens
 			//
 			// DEFAULT_INLAY: Inlay hint text
-			codelens: "#9C9C9C",
+			codelens: "#a89984",
 
 			// BCKG_INLAY: Inlay hint text
-			alt1Inlay: "#9099AB",
+			alt1Inlay: "#bdae93",
 			// BCKG_INLAY: Inlay hint background
-			alt1InlayBgA: "#FFFFFF07",
+			alt1InlayBgA: "#fbf1c707",
 
 			// ACCENT_INLAY: Inlay hint text
-			alt2Inlay: "#7E3558", // FF4C986A on primaryBg
+			alt2Inlay: "#7a2936", // fb34536A on primaryBg
 
 			// ACCENT_BCKG_INLAY: Inlay hint text
-			alt3Inlay: "#8B385E", // FF4C987A on primaryBg
+			alt3Inlay: "#872a39", // fb34537A on primaryBg
 			// ACCENT_BCKG_INLAY: Inlay hint background
-			alt3InlayBgA: "#FF4C9810",
+			alt3InlayBgA: "#fb345310",
 		},
 
 		// Text editor folded line, text editor hover over symbol background box
 		//
 		// NORMAL_LINE: Text editor current line background
-		currentLineBgA: "#FFFFFF07",
+		currentLineBgA: "#fbf1c707",
 		// ALT_LINE: Text editor current line border
-		currentLineBorder: "#FFFFFF10",
+		currentLineBorder: "#fbf1c710",
 
 		// Text editor selection background box, text editor matching text background box, text editor matching
 		// symbol background box, text editor selection boxes, general selection, input field, terminal selection,
-		selectionBg: "#392735", // FF4C981A on primaryBg
-		selectionBgA: "#FF4C981A",
+		selectionBg: "#342226", // FF4C981A on primaryBg
+		selectionBgA: "#fb34531A",
 		// Text editor unfocused selection background box, text editor find current range background box, terminal
 		// unfocused selection
-		secondarySelectionBgA: "#FF4C9810",
+		secondarySelectionBgA: "#fb345310",
 
 		// Text editor tabstop background box
-		tabstopBgA: "#FF4C981A",
+		tabstopBgA: "#fb34531A",
 
 		// Text editor & search sidebar find match background box, text editor match line background, peek view
 		// match background box, list filter widget background, list filter match background, terminal find match
 		// background box, (??? x1)
-		matchBg: "#4E522B",
-		matchBgA: "#CCD00C3A",
+		matchBg: "#414422",
+		matchBgA: "#b8bb263A",
 
 		// Text editor & search sidebar find match border, peek view match border, list filter match border,
 		// terminal find match border,
-		matchBorder: "#31A155",
-		matchBorderA: "#31A1558A",
+		matchBorder: "#91c043",
+		matchBorderA: "#91c0438A",
 	},
 
 	accent: {
@@ -128,128 +129,128 @@ export const darkColors: UiColors = {
 		// DISABLED_STATUS_BAR: MINIMAL: status bar remote icon
 		//
 		// MINIMAL: list & command bar matching text, badge text
-		primary: "#FF1277",
-		primaryHover: "#DA005F",
-		linkHover: "#ff4c98",
+		primary: "#fb3453",
+		primaryHover: "#c42941",
+		linkHover: "#ff516c",
 
 		// Button background, codeblock text, (??? x1)
 		//
 		// DEFAULT: status bar remote background
-		secondary: "#09A1ED",
-		secondaryHover: "#0784C2",
+		secondary: "#61a2b7",
+		secondaryHover: "#508596",
 	},
 
 	diag: {
 		// Ruler markers, minimap markers,
-		selection: "#81577A", // +(list search match background, ??? x1)
-		match: "#9CA320", // +(marker for currently selected @SYMBOL)
-		bracket: "#5A63755A",
+		selection: "#8D334B", // +(list search match background, ??? x1)
+		match: "#c8d129", // +(marker for currently selected @SYMBOL)
+		bracket: "#665c545A",
 
 		// Error lens text, error lens gutter icons, peek view border, input validation text & border, testing
 		// message line text (info+error), text editor underline squiggles, problems panel icons, ruler markers,
 		// minimap markers, notification icons,
 		//
 		// DISABLED_STATUS_BAR: MINIMAL: Status bar text & icons,
-		hint: "#31A155",
-		info: "#018ACC", // +(general peek view, status bar prominent if applicable)
-		warning: "#E17615", // +(list warning text)
-		error: "#FF1277", // +(general error text, bracket mismatch foreground, list error text, list invalid text, list no matches, confusing unicode highlighting border)
+		hint: "#91c043",
+		info: "#458588", // +(general peek view, status bar prominent if applicable)
+		warning: "#fe8019", // +(list warning text)
+		error: "#fb3453", // +(general error text, bracket mismatch foreground, list error text, list invalid text, list no matches, confusing unicode highlighting border)
 
 		// Error lens line background, peek view header background, input validation background, testing message
 		// line background (info+error),
-		hintBg: "#293B38",
-		hintBgA: "#31A15520",
-		infoBg: "#233847", // +(general peek view)
-		infoBgA: "#018ACC20", // +(general peek view)
-		warningBg: "#403530",
-		warningBgA: "#E1761520",
-		errorBg: "#3E2A3B",
-		errorBgA: "#FF12771A", // +(confusing unicode highlighting)
+		hintBg: "#2c3526", // *BgA on primaryBg
+		hintBgA: "#91c04320",
+		infoBg: "#222d2f", // +(general peek view)
+		infoBgA: "#45858820", // +(general peek view)
+		warningBg: "#3a2d20",
+		warningBgA: "#fe801920",
+		errorBg: "#342226",
+		errorBgA: "#fb34531A", // +(confusing unicode highlighting)
 
 		// Testing status icons
-		testPassed: "#31A155",
-		testQueued: "#018ACC",
-		testFailed: "#FF1277",
-		testUnset: "#E17615",
-		testSkipped: "#636D83",
+		testPassed: "#91c043",
+		testQueued: "#458588",
+		testFailed: "#fb3453",
+		testUnset: "#fe8019",
+		testSkipped: "#928374",
 	},
 
 	git: {
 		// Ruler markers, minimap markers, gutter markers, file names
-		addedOrStaged: "#31A155",
-		modified: "#018ACC",
-		renamed: "#13BBB7",
-		untracked: "#C75AF3",
-		removedOrConflicting: "#FF1277",
-		ignoredOrSubmodule: "#636D83",
-		current: "#31A155",
-		incoming: "#018ACC",
+		addedOrStaged: "#91c043",
+		modified: "#458588",
+		renamed: "#7cc091",
+		untracked: "#b16286",
+		removedOrConflicting: "#fb3453",
+		ignoredOrSubmodule: "#928374",
+		current: "#91c043",
+		incoming: "#458588",
 
 		// Diff viewer line backgrounds, refactor preview text backgrounds
-		insertedBgA: "#31A1552A", // Entire modified line #243a31 Specifically added #264b37
-		removedBgA: "#FF127720", // Entire modified line #3f2234 Specifically removed #58203c
-		diffDiagonal: "#636D8388",
+		insertedBgA: "#91c0432A",
+		removedBgA: "#fb345320",
+		diffDiagonal: "#92837480",
 
 		// Conflict viewer line backgrounds
-		currentBgA: "#31A1552A",
-		currentHeaderBgA: "#31A1556A",
-		incomingBgA: "#018ACC2A",
-		incomingHeaderBgA: "#018ACC6A",
+		currentBgA: "#91c0432A",
+		currentHeaderBgA: "#91c0436A",
+		incomingBgA: "#4585882A",
+		incomingHeaderBgA: "#4585886A",
 
 		// Merge editor backgrounds
-		mergeWordChangeBgA: "#CCD00C2A",
-		mergeLineChangeBgA: "#CCD00C1A",
-		mergeUnhandledUnfocused: "#CCD00C4A",
-		mergeUnhandledFocused: "#CCD00CAA", // +(ruler marker)
-		mergeHandledUnfocused: "#FFFFFF3A",
-		mergeHandledFocused: "#FFFFFF8A", // +(ruler marker)
+		mergeWordChangeBgA: "#b8bb262A",
+		mergeLineChangeBgA: "#b8bb261A",
+		mergeUnhandledUnfocused: "#b8bb264A",
+		mergeUnhandledFocused: "#b8bb26AA", // +(ruler marker)
+		mergeHandledUnfocused: "#fbf1c73A",
+		mergeHandledFocused: "#fbf1c78A", // +(ruler marker)
 	},
 
 	debug: {
 		// Debug toolbar icons
-		start: "#31A155",
-		pause: "#E17615",
-		step: "#018ACC",
-		stop: "#FF1277",
+		start: "#91c043",
+		pause: "#fe8019",
+		step: "#458588",
+		stop: "#fb3453",
 
 		// Gutter icons
-		breakpoint: "#FF1277",
-		breakpointDisabled: "#636D83",
+		breakpoint: "#fb3453",
+		breakpointDisabled: "#928374",
 
 		// Exception widget background
 		exceptionBg: "#3D412F",
 
 		// Debug console text
-		info: "#10B1FE",
-		warning: "#FF6B66",
-		error: "#FF2884",
-		source: "#FFFFFF",
-		input: "#D177F5",
+		info: "#839da5",
+		warning: "#fe8019",
+		error: "#fb3453",
+		source: "#d5c4a1",
+		input: "#bd86d3",
 	},
 
 	terminal: {
 		// Command decoration icons
-		default: "#636D83", // +(SetMark sequence)
-		success: "#31A155",
-		error: "#FF1277",
+		default: "#928374", // +(SetMark sequence)
+		success: "#91c043",
+		error: "#fb3453",
 
-		foreground: "#ABB2BF", // 0m (foreground)
-		ansiBlack: "#FFFFFF", // 30m
+		foreground: "#d5c4a1", // 0m (foreground)
+		ansiBlack: "#fbf1c7", // 30m
 		ansiBrightBlack: "#666666", // 30;1m
-		ansiWhite: "#22222A", //37m (background)
-		ansiBrightWhite: "#FFFFFF", // (technicall 37;1m but vscode also applies this to just bold 1m, hence it's white)
-		ansiBlue: "#09A1ED",
-		ansiBrightBlue: "#41B9FF",
-		ansiCyan: "#13BBB7",
-		ansiBrightCyan: "#16DAD6",
-		ansiGreen: "#2DAE58",
-		ansiBrightGreen: "#25DA6A",
-		ansiYellow: "#CF9C00",
-		ansiBrightYellow: "#FFC104",
-		ansiRed: "#FF0046",
-		ansiBrightRed: "#FF2E87",
-		ansiMagenta: "#C010EF",
-		ansiBrightMagenta: "#C75AF3",
+		ansiWhite: "#1d2021", //37m (background)
+		ansiBrightWhite: "#fbf1c7", // (technicall 37;1m but vscode also applies this to just bold 1m, hence it's white)
+		ansiBlue: "#458588",
+		ansiBrightBlue: "#83a598",
+		ansiCyan: "#689d6a",
+		ansiBrightCyan: "#8ec07c",
+		ansiGreen: "#98971a",
+		ansiBrightGreen: "#b8bb26",
+		ansiYellow: "#d79921",
+		ansiBrightYellow: "#fabd2f",
+		ansiRed: "#cc241d",
+		ansiBrightRed: "#fb4934",
+		ansiMagenta: "#b16286",
+		ansiBrightMagenta: "#d3869b",
 	},
 
 	ui: {
@@ -260,7 +261,7 @@ export const darkColors: UiColors = {
 		// background
 		//
 		// MINIMAL: Badge background,
-		primaryBg: "#22222A",
+		primaryBg: "#1d2021",
 
 		// Widgets, hover widget status bar, peek view list, tab row background, tab row empty background, tab
 		// inactive background, tab unfocused background, sidebar background, panel section header background,
@@ -268,129 +269,129 @@ export const darkColors: UiColors = {
 		// code-block background, keybind table header backgrounds, keybind table even row background
 		//
 		// DISABLED_STATUS_BAR: MINIMAL: Status bar background, status bar remote icon background,
-		secondaryBg: "#1E1D24",
+		secondaryBg: "#212526",
 
 		// Sidebar section header background
-		tertiaryBg: "#151419",
+		tertiaryBg: "#1a1c1d",
 
 		// Breadcrumb, menu, any button which dropdowns
-		dropdownBg: "#22222A",
+		dropdownBg: "#1d2021",
 
 		// Checkbox, dropdown (+list), input field,
-		inputBg: "#22222A",
+		inputBg: "#1d2021",
 
 		// Tab group, sidebar pane, panel section, terminal, list
-		primaryDropBg: "#FF4C981A",
+		primaryDropBg: "#fb34531A",
 
 		// All borders
-		border: "#3D434F",
+		border: "#504945",
 
 		// Menu separator, command bar group separator, border between pinned and non-pinned tabs, (??? x1)
-		separator: "#3D434F",
+		separator: "#504945",
 
 		// Input field foreground
-		placeholderText: "#646a74",
+		placeholderText: "#776B5E",
 
 		// Menu disabled entry foreground, (this is chosen to match `placeholderText` since the disabled text also
 		// has a secondary fade layer)
-		disabledText: "#848A95",
+		disabledText: "#9E8E76",
 
 		// Little buttons, titlebar menu buttons, editor stick hover
 		//
 		// DISABLED_STATUS_BAR: MINIMAL: Status bar hover/active button overlays
-		hoverBgA: "#FFFFFF1A",
-		activeBgA: "#FFFFFF2A",
+		hoverBgA: "#fbf1c71A",
+		activeBgA: "#fbf1c72A",
 
 		// Lists, command bar hover, notification hover
 		//
 		// MINIMAL: List unfocused selected overlay
-		listHoverBgA: "#FFFFFF10",
+		listHoverBgA: "#fbf1c710",
 		// DEFAULT: DISABLED_STATUS_BAR: List unfocused selected overlay
-		listInactiveBgA: "#FF4C981A",
+		listInactiveBgA: "#fb34531A",
 
 		// Keybind background
-		selectedBgA: "#FFFFFF10",
+		selectedBgA: "#fbf1c710",
 
 		// Dropdown selected, intellisense widget, peek view result, menu dropdown, command bar, command center
 		// hover
-		selectedBg: "#2F2F37", // FFFFFF10 on primaryBg
+		selectedBg: "#2a2c2b", // fbf1c710 on primaryBg
 		// Welcome page tile on hover
-		selectedSecondaryBg: "#35343A", // FFFFFF10 on secondaryBg
+		selectedSecondaryBg: "#383a36", // fbf1c710 on secondaryBg
 
 		// Tree indent guide
-		treeIndent: "#454C59",
+		treeIndent: "#504945",
 
 		// Scrollbar/minimap handle overlays
-		scrollBgA: "#FFFFFF10",
-		scrollHoverBgA: "#FFFFFF1F",
-		scrollActiveBgA: "#FFFFFF2F",
+		scrollBgA: "#fbf1c710",
+		scrollHoverBgA: "#fbf1c71F",
+		scrollActiveBgA: "#fbf1c72F",
 
 		// Shadow whenever some scrollable element is scrolled, shadows around open widgets
 		shadow: "#0000005F",
 
 		// Status bar during debugging background
-		statusDebugBg: "#31A155",
+		statusDebugBg: "#779e35",
 		// Status bar when no folder is open background
 		statusEmptyBg: "#151419",
 		// DEFAULT: Status bar hover/active button overlays
-		statusHoverBgA: "#FFFFFF2F",
-		statusActiveBgA: "#FFFFFF4F",
+		statusHoverBgA: "#0000002F",
+		statusActiveBgA: "#0000004F",
 
 		// Tab unfocused indicator
-		unfocusedTab: "#7E3558", // FF4C986A on primaryBg
+		unfocusedTab: "#75293a", // fb34536A on primaryBg
 
 		// Activity bar inactive icon
-		activityBarInactive: "#636D83",
+		activityBarInactive: "#928374",
 
 		// Code actions icon
-		lightBulb: "#FFC104",
+		lightBulb: "#fabd2f",
 
 		// Extension badge icons
-		star: "#FFC104",
-		remote: "#09A1ED",
-		verified: "#31A155",
-		prerelease: "#E17615",
-		sponsor: "#FF1277",
+		star: "#fabd2f",
+		remote: "#458588",
+		verified: "#91c043",
+		prerelease: "#fe8019",
+		sponsor: "#fb3453",
 
 		// Chart colours
-		chartLine: "#B9BFCA",
-		chartBlue: "#10B1FE",
-		chartGreen: "#3FC56B",
-		chartYellow: "#F9C859",
-		chartOrange: "#FF6B66",
-		chartRed: "#FF2884",
-		chartPurple: "#D177F5",
+		chartLine: "#d5c4a1",
+		chartBlue: "#839da5",
+		chartGreen: "#b8bb26",
+		chartYellow: "#fabd2f",
+		chartOrange: "#fe8019",
+		chartRed: "#fb3453",
+		chartPurple: "#bd86d3",
 	},
 
 	brackets: {
-		one: "#3FC56B",
-		two: "#10B1FE",
-		three: "#F9C859",
-		four: "#FF6B66",
-		five: "#D177F5",
-		six: "#B58E95",
+		one: "#b8bb26",
+		two: "#839da5",
+		three: "#fabd2f",
+		four: "#fe8019",
+		five: "#bd86d3",
+		six: "#c7899a",
 	},
 
 	gitGraph: [
-		"#F85EB4",
-		"#10B1FE",
-		"#3FC56B",
-		"#F9C859",
-		"#FF6B66",
-		"#D177F5",
-		"#B58E95",
-		"#97BCCD",
-		"#15C9C5",
-		"#9ACC12",
+		"#fb5270",
+		"#839da5",
+		"#b8bb26",
+		"#fabd2f",
+		"#fe8019",
+		"#bd86d3",
+		"#c7899a",
+		"#a5bcc4",
+		"#7cc091",
+		"#91c043",
 	],
 
 	todo: {
-		todo: "#B9BFCA",
-		fixme: "#FF6B66",
-		bug: "#FF2884",
-		hack: "#F9C859",
-		maybe: "#15C9C5",
-		unchecked: "#B9BFCA",
-		checked: "#3FC56B",
+		todo: "#d5c4a1",
+		fixme: "#fe8019",
+		bug: "#fb3453",
+		hack: "#fabd2f",
+		maybe: "#7cc091",
+		unchecked: "#d5c4a1",
+		checked: "#b8bb26",
 	},
 };
