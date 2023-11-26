@@ -785,7 +785,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			// ACTIVITY BAR [x], icons on the left/right
 			"activityBar.background": color.ui.primaryBg, // Background of the entire bar.
 			"activityBar.dropBorder": color.accent.primary, // Colour for when re-arranging icons.
-			//"activityBar.border": "", // Border between bar and sidebar.
+			"activityBar.border": color.ui.border, // Border between bar and sidebar/whatever main panel.
 			"activityBar.foreground": color.accent.primary, // Icon selected/hover colour.
 			"activityBar.inactiveForeground": color.ui.activityBarInactive, // Icon not-selected colour.
 			//"activityBar.activeBackground": "", // Background of active icon.
