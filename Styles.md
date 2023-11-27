@@ -769,64 +769,117 @@ XML only supports textmate highlighting; it has no semantic highlighting.
 ## Markdown
 Markdown only supports textmate highlighting; it has no semantic highlighting.
 
-### Text #565869 #B9BFCA (alternatively #ADB1C2 #636d83)
-- "text.html.markdown"
-- "punctuation.definition.list_item.markdown"
+For markdown, any control characters (e.g. `*`, ``` ` ```) are styled the same as the text they surround. This is different from asciidoc where the control characters are grayed-out.
 
-### Titles #F767BB #f85eb4
-- "entity.name.section.markdown" - `# Heading title`
-- "markdown.heading"
-- "markup.heading.markdown"
-- "punctuation.definition.heading.markdown" - `## ...`
+Root: `text.html.markdown` when inside of a markdown file
 
-### Bold #FF5C57 #ff6b66 (bold)
-- "markup.bold"
-- "punctuation.definition.bold.markdown" - `** ... **`
+### Text #565869 #B9BFCA #d5c4a1 (alternatively #ADB1C2 #636d83 #928374)
+- `<none>`
 
-### Italic #09A1ED #10b1fe
-- "markup.italic"
-- "punctuation.definition.italic.markdown" - `* ... *`
+### Bold $inline #FF5C57 #ff6b66 #fe8019 (bold)
+- inline `markup.bold.markdown`, includes the actual bold text
+  - `punctuation.definition.bold.markdown`, the `**`
 
-### Quote #CF9C00 #F9C859
-- "markup.quote.markdown"
-- "punctuation.definition.quote.begin.markdown" - `> ...`
+### Italic $inline #09A1ED #10b1fe #839da5 (italic)
+- inline `markup.italic.markdown`, includes the actual italic text
+  - `punctuation.definition.italic.markdown`, the `*`
 
-### Strikethrough #ADB1C2 #636D83
-- "markup.strikethrough.markdown"
-- "punctuation.definition.strikethrough.markdown"
+### Strikethrough $inline #ADB1C2 #636D83 #928374 (strikethrough)
+- inline `markup.strikethrough.markdown`, includes the actual strikethrough text
+  - `punctuation.definition.strikethrough.markdown`, the `~~`
 
-### Inline Code #565869 #B9BFCA (bold)
-- "markup.inline.raw.string.markdown"
-- "punctuation.definition.raw.markdown" - `` `...` ``
+### Inline Code $inline #565869 #B9BFCA #d5c4a1 (bold)
+- inline `markup.inline.raw.string.markdown`, includes the actual raw text
+  - `punctuation.definition.raw.markdown`, the ``` ` ```
 
-### Fenced Codeblock #565869 #B9BFCA
-- "markup.fenced_code.block.markdown"
-#### Language Identifier #565869 #B9BFCA (bold)
-- "fenced_code.block.language.markdown" - ```` ```rust ````
+### Url $inline Link #cd6bf4 #d177f5 #bd86d3 (underline) and Title #8cba10 #9acc12 #b8bb26 and Description #CF9C00 #F9C859 #fabd2f
+- `meta.link.email.lt-gt.markdown`, a `<mailto:foo@bar.com>`
+  - `punctuation.definition.link.markdown`, the `<` and `>`
+  - `markup.underline.link.markdown`, the actual url text
+- `meta.link.inet.lt-gt.markdown`, a `<https://foo.com>` or `<ftp://bar.net>`
+  - `punctuation.definition.link.markdown`, the `<` and `>`
+  - `markup.underline.link.markdown`, the actual url text
+- `meta.link.inline.markdown`, a `[foo](bar "baz")`
+  - `punctuation.definition.link.title.begin.markdown`, the `[`
+  - `string.other.link.title.markdown`, the title within square brackets
+  - `punctuation.definition.link.title.end.markdown`, the `]`
+  - `punctuation.definition.metadata.markdown`, the `(` and `)`
+  - `markup.underline.link.markdown`, the actual url text
+  - `string.other.link.description.title.markdown`, the description text
+    - `punctuation.definition.string.begin.markdown`, the `"`, `'` or `(`
+- `meta.link.reference.markdown`, a `[foo][1]`
+  - `punctuation.definition.link.title.begin.markdown`, the `[`
+  - `string.other.link.title.markdown`, the title
+  - `punctuation.definition.link.title.end.markdown`, the `]`
+  - `punctuation.definition.constant.begin.markdown`, the `[`
+  - `constant.other.reference.link.markdown`, the reference
+  - `punctuation.definition.constant.end.markdown`, the `]`
+- `meta.link.reference.def.markdown`
+  - `punctuation.definition.constant.markdown`, the `[` and `]`
+  - `constant.other.reference.link.markdown`, the reference title
+  - `punctuation.separator.key-value.markdown`, the `:`
+  - `markup.underline.link.markdown`, if the text is a url
+- `meta.image.inline.markdown`, a `![image](foo.png "bar")`
+  - `punctuation.definition.link.description.begin.markdown`, the `![`
+  - `string.other.link.description.markdown`, the image title
+  - `punctuation.definition.link.description.end.markdown`, the `]`
+  - `punctuation.definition.metadata.markdown`, the `(` and `)`
+  - `markup.underline.link.image.markdown`, the actual url text
+  - `string.other.link.description.title.markdown`, the description text
+    - `punctuation.definition.string.begin.markdown`, the `"`, `'` or `(`
+- `meta.image.reference.markdown`, a `![image][1]`
+  - `punctuation.definition.link.description.begin.markdown`, the `![`
+  - `string.other.link.description.markdown`, the image title
+  - `punctuation.definition.link.description.end.markdown`, the `]`
+  - `punctuation.definition.constant.markdown`, the `[` and `]`
+  - `constant.other.reference.link.markdown`, the reference
+  
+### Math $inline/$block Delimiter #8CBA10 #9ACC12 #91c043 and Fn 
+- `markup.math.inline.markdown`/`markup.math.block.markdown`
+  - `punctuation.definition.math.begin.markdown`, the `$`
+  - `punctuation.definition.math.end.markdown`, the `$`
+  - `meta.embedded.math.markdown`, the actual math text
+    - `constant.numeric.math.tex`, numbers `4`, `1.0`
 
-### List #13BBB7 #15c9c5
-- "punctuation.definition.list.begin.markdown" - `- ...`, `1. ...`, `* ...`
+### Heading #F767BB #f85eb4
+- `markup.heading.markdown`
+  - `heading.$x.markdown`, where `1 <= $x <= 6`
+    - `punctuation.definition.heading.markdown`, the `#`, `##`, etc.
+    - `entity.name.section.markdown`, the actual heading text
 
-### Url Description #2DAE58 #3fc56b
-- "string.other.link.title.markdown"
-- "string.other.link.description.markdown"
-- "string.other.link.description.title.markdown"
-- "punctuation.definition.string.begin.markdown" - `[](... "...")`
-- "punctuation.definition.string.end.markdown" - `[](... "...")`
+### Fenced Code Block #565869 #B9BFCA #d5c4a1
+- `markup.fenced_code.block.markdown`
+  - `punctuation.definition.markdown`, the ` ``` `
+  - `fenced_code.block.language.markdown`, the language
+  - `meta.embedded.block.$x`, where `$x` is the language
 
-### Url Link #cd6bf4 #d177f5 (underlined)
-- "markup.underline.link"
-- "constant.other.reference.link.markdown"
+### Raw Block #565869 #B9BFCA #d5c4a1
+- `markup.raw.block.markdown`
 
-### String Quote Marks #777777 #828da0
-- "punctuation.definition.string.markdown"
+### Block Quote #CF9C00 #F9C859 #fabd2f (italic)
+- `markup.quote.markdown`
+  - `punctuation.definition.quote.begin.markdown`, the `>`
+  - `meta.paragraph.markdown`, the actual quote paragraph text
 
-### Math Delimiters #8cba10 #9acc12
-- "punctuation.definition.math.begin.markdown"
+### Separator #565869 #B9BFCA #d5c4a1 (bold)
+- `meta.separator.markdown`
 
-### Math Constants/Functions #13BBB7 #15c9c5
-- "constant.character.math.tex",
-- "constant.character.math.tex punctuation.definition.math.tex"
+### List Point #13BBB7 #15c9c5 #7cc091
+- `markup.list.numbered.markdown`
+  - `punctuation.definition.list.begin.markdown`, the `1.`, `1)`
+- `markup.list.unnumbered.markdown`
+  - `punctuation.definition.list.begin.markdown`, the `-`, `*`, `+`
+
+### Table (inherits Text)
+- `markup.table.markdown`, all text within table
+  - `punctuation.definition.table.markdown`, the `|`
+  - `punctuation.separator.table.markdown`, the `-`, `:`
+
+### Comments
+See HTML styles.
+
+### Inline HTML
+See HTML styles.
 
 
 

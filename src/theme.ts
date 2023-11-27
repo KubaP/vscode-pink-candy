@@ -2504,124 +2504,191 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 	};
 }
 
-function markdownStyles(syntax: any, alternate: boolean) {
-	let styles = [];
+function markdownStyles(syntax: SyntaxColors, alternate: boolean): TextMateStyle[] {
+	// TODO: Replace this with a variant system:
+	// - normal - normal
+	// - faded - the existing "alternate" mode that fades out main text
+	// - decluttered - gray-out all markup punctuation symbols, properly style bolt & italic & raw & etc
+	//   combinations. Style table stuff appropriately. Style some github tabs, e.g. <details> and light/dark mode
+	//   <picture>, raw block.
+	let text;
+	let inlineCode;
+	let fencedCode;
 	if (alternate) {
-		styles.push({
-			// Normal undecorated text.
-			name: "Markdown - Plain",
-			scope: ["text.html.markdown", "punctuation.definition.list_item.markdown"],
-			settings: {
-				foreground: syntax.fadedGray,
+		text = [
+			{
+				name: "Markdown - Text",
+				scope: ["text.html.markdown"],
+				settings: {
+					foreground: syntax.fadedGray,
+				},
 			},
-		});
-		styles.push({
-			// Inline code block text.
-			name: "Markdown - Markup Raw Inline",
-			scope: ["punctuation.definition.raw.markdown", "markup.inline.raw.string.markdown"],
-			settings: {
-				foreground: syntax.fg,
+		];
+		inlineCode = [
+			{
+				name: "Markdown - Inline Code $inline",
+				scope: [
+					"markup.inline.raw.string.markdown",
+					"markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+				],
+				settings: {
+					foreground: syntax.fg,
+				},
 			},
-		});
-		styles.push({
-			// Fenced code block text.
-			name: "Markdown - Markup Raw Inline",
-			scope: ["markup.fenced_code.block.markdown"],
-			settings: {
-				foreground: syntax.fg,
+		];
+		fencedCode = [
+			{
+				name: "Markdown - Fenced Code Block",
+				scope: [
+					"markup.fenced_code.block.markdown",
+					"markup.fenced_code.block.markdown punctuation.definition.markdown",
+				],
+				settings: {
+					foreground: syntax.fg,
+				},
 			},
-		});
-		styles.push({
-			// The language identifier in a fenced code block, e.g. ```rust
-			name: "Markdown - Raw Block Language Identifier",
-			scope: [
-				"fenced_code.block.language.markdown",
-				"markup.fenced_code.block.markdown punctuation.definition.markdown",
-			],
-			settings: {
-				foreground: syntax.fg,
+			{
+				name: "Markdown - Fenced Code Block Language",
+				scope: ["markup.fenced_code.block.markdown fenced_code.block.language.markdown"],
+				settings: {
+					foreground: syntax.fg,
+				},
 			},
-		});
+			{
+				name: "Markdown - Raw Block",
+				scope: ["markup.raw.block.markdown"],
+				settings: {
+					foreground: syntax.fg,
+				},
+			},
+		];
 	} else {
-		styles.push({
-			// Normal undecorated text.
-			name: "Markdown - Plain",
-			scope: ["text.html.markdown", "punctuation.definition.list_item.markdown"],
-			settings: {
-				foreground: syntax.fg,
+		text = [
+			{
+				name: "Markdown - Text",
+				scope: ["text.html.markdown"],
+				settings: {
+					foreground: syntax.fg,
+				},
 			},
-		});
-		styles.push({
-			// Inline code block text.
-			name: "Markdown - Markup Raw Inline",
-			scope: ["punctuation.definition.raw.markdown", "markup.inline.raw.string.markdown"],
-			settings: {
-				foreground: syntax.fg,
-				fontStyle: "bold",
+		];
+		inlineCode = [
+			{
+				name: "Markdown - Inline Code $inline",
+				scope: [
+					"markup.inline.raw.string.markdown",
+					"markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+				],
+				settings: {
+					foreground: syntax.fg,
+					fontStyle: "bold",
+				},
 			},
-		});
-		styles.push({
-			// Fenced code block text.
-			name: "Markdown - Markup Raw Inline",
-			scope: ["markup.fenced_code.block.markdown"],
-			settings: {
-				foreground: syntax.fg,
+		];
+		fencedCode = [
+			{
+				name: "Markdown - Fenced Code Block",
+				scope: [
+					"markup.fenced_code.block.markdown",
+					"markup.fenced_code.block.markdown punctuation.definition.markdown",
+				],
+				settings: {
+					foreground: syntax.fg,
+				},
 			},
-		});
-		styles.push({
-			// The language identifier in a fenced code block, e.g. ```rust
-			name: "Markdown - Raw Block Language Identifier",
-			scope: [
-				"fenced_code.block.language.markdown",
-				"markup.fenced_code.block.markdown punctuation.definition.markdown",
-			],
-			settings: {
-				foreground: syntax.fg,
-				fontStyle: "bold",
+			{
+				name: "Markdown - Fenced Code Block Language",
+				scope: ["markup.fenced_code.block.markdown fenced_code.block.language.markdown"],
+				settings: {
+					foreground: syntax.fg,
+					fontStyle: "bold",
+				},
 			},
-		});
+			{
+				name: "Markdown - Raw Block",
+				scope: ["markup.raw.block.markdown"],
+				settings: {
+					foreground: syntax.fg,
+				},
+			},
+		];
 	}
 
 	return [
-		...styles,
+		...text,
 		{
-			// The `#` symbol in titles.
-			name: "Markdown - Headings",
+			name: "Markup - Bold $inline",
+			scope: ["markup.bold.markdown", "markup.bold.markdown punctuation.definition.bold.markdown"],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold",
+			},
+		},
+		{
+			name: "Markup - Italic $inline",
+			scope: ["markup.italic.markdown", "markup.italic.markdown punctuation.definition.italic.markdown"],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "italic",
+			},
+		},
+		{
+			name: "Markup - Strikethrough $inline",
 			scope: [
-				"markdown.heading",
-				"markup.heading | markup.heading entity.name",
-				"markup.heading.markdown punctuation.definition.heading.markdown",
-				"entity.name.section.markdown",
+				"markup.strikethrough.markdown",
+				"markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
 			],
 			settings: {
-				foreground: syntax.pink,
+				foreground: syntax.fadedGray,
+				fontStyle: "strikethrough",
 			},
 		},
+		...inlineCode,
 		{
-			name: "Markup - Bold",
-			scope: ["punctuation.definition.bold.markdown", "markup.bold", "markup.bold string"],
-			settings: {
-				fontStyle: "bold",
-				foreground: syntax.orange,
-			},
-		},
-		{
-			name: "Markup - Italic",
-			scope: ["punctuation.definition.italic.markdown", "markup.italic"],
-			settings: {
-				fontStyle: "italic",
-				foreground: syntax.blue,
-			},
-		},
-		{
-			name: "Markup - Bold-Italic",
+			name: "Markdown - Url $inline Link",
 			scope: [
-				"markup.bold markup.italic",
-				"markup.italic markup.bold",
-				"markup.quote markup.bold",
-				"markup.bold markup.italic string",
-				"markup.italic markup.bold string",
-				"markup.quote markup.bold string",
+				"meta.link.email.lt-gt.markdown markup.underline.link.markdown",
+				"meta.link.inet.markdown markup.underline.link.markdown",
+				"meta.link.inline.markdown markup.underline.link.markdown",
+				"meta.link.reference.markdown constant.other.reference.link.markdown",
+				"meta.link.reference.def.markdown markup.underline.link.markdown",
+				"meta.image.inline.markdown markup.underline.link.image.markdown",
+				"meta.image.reference.markdown constant.other.reference.link.markdown",
+			],
+			settings: {
+				foreground: syntax.purple,
+				fontStyle: "underline",
+			},
+		},
+		{
+			name: "Markdown - Url $inline Title",
+			scope: [
+				"meta.link.inline.markdown string.other.link.title.markdown",
+				"meta.link.reference.markdown string.other.link.title.markdown",
+				"meta.link.reference.def.markdown constant.other.reference.link.markdown",
+				"meta.image.inline.markdown string.other.link.description.markdown",
+				"meta.image.reference.markdown string.other.link.description.markdown",
+			],
+			settings: {
+				foreground: syntax.green,
+			},
+		},
+		{
+			name: "Markdown - Url $inline Descrption",
+			scope: [
+				"meta.link.inline.markdown string.other.link.description.title.markdown",
+				"meta.image.inline.markdown string.other.link.description.title.markdown",
+			],
+			settings: {
+				foreground: syntax.yellow,
+			},
+		},
+		// #region: inline permutations
+		{
+			name: "Markdown - Bold > Italic $inline",
+			scope: [
+				"markup.bold.markdown markup.italic.markdown",
+				"markup.bold.markdown markup.italic.markdown punctuation.definition.italic.markdown",
 			],
 			settings: {
 				foreground: syntax.blue,
@@ -2629,19 +2696,197 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			},
 		},
 		{
-			name: "Markdown - Quote",
-			scope: ["punctuation.definition.quote.begin.markdown", "markup.quote.markdown"],
+			name: "Markdown - Italic > Bold $inline",
+			scope: [
+				"markup.italic.markdown markup.bold.markdown",
+				"markup.italic.markdown markup.bold.markdown punctuation.definition.bold.markdown",
+			],
 			settings: {
-				foreground: syntax.yellow,
+				foreground: syntax.orange,
+				fontStyle: "italic bold",
+			},
+		},
+		{
+			name: "Markdown - Bold > Strikethrough $inline",
+			scope: [
+				"markup.bold.markdown markup.strikethrough.markdown",
+				"markup.bold.markdown markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
+			],
+			settings: {
+				foreground: syntax.fadedGray,
+				fontStyle: "bold strikethrough",
+			},
+		},
+
+		{
+			name: "Markdown - Strikethrough > Bold $inline",
+			scope: [
+				"markup.strikethrough.markdown markup.bold.markdown",
+				"markup.strikethrough.markdown markup.bold.markdown punctuation.definition.bold.markdown",
+			],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Italic > Strikethrough $inline",
+			scope: [
+				"markup.italic.markdown markup.strikethrough.markdown",
+				"markup.italic.markdown markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
+			],
+			settings: {
+				foreground: syntax.fadedGray,
+				fontStyle: "italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Strikethrough > Italic $inline",
+			scope: [
+				"markup.strikethrough.markdown markup.italic.markdown",
+				"markup.strikethrough.markdown markup.italic.markdown punctuation.definition.italic.markdown",
+			],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Bold > Italic > Strikethrough $inline",
+			scope: [
+				"markup.bold.markdown markup.italic.markdown markup.strikethrough.markdown",
+				"markup.bold.markdown markup.italic.markdown markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
+			],
+			settings: {
+				foreground: syntax.fadedGray,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Bold > Strikethrough > Italic $inline",
+			scope: [
+				"markup.bold.markdown markup.strikethrough.markdown markup.italic.markdown",
+				"markup.bold.markdown markup.strikethrough.markdown markup.italic.markdown punctuation.definition.italic.markdown",
+			],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown -  Italic > Bold > Strikethrough $inline",
+			scope: [
+				"markup.italic.markdown markup.bold.markdown markup.strikethrough.markdown",
+				"markup.italic.markdown markup.bold.markdown markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
+			],
+			settings: {
+				foreground: syntax.fadedGray,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown -  Italic > Strikethrough > Bold $inline",
+			scope: [
+				"markup.italic.markdown markup.strikethrough.markdown markup.bold.markdown",
+				"markup.italic.markdown markup.strikethrough.markdown markup.bold.markdown punctuation.definition.bold.markdown",
+			],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Strikethrough > Bold > Italic $inline",
+			scope: [
+				"markup.strikethrough.markdown markup.bold.markdown markup.italic.markdown",
+				"markup.strikethrough.markdown markup.bold.markdown markup.italic.markdown punctuation.definition.italic.markdown",
+			],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Strikethrough > Italic > Bold $inline",
+			scope: [
+				"markup.strikethrough.markdown markup.italic.markdown markup.bold.markdown",
+				"markup.strikethrough.markdown markup.italic.markdown markup.bold.markdown punctuation.definition.bold.markdown",
+			],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Bold > Inline Code $inline",
+			scope: [
+				"markup.bold.markdown markup.inline.raw.string.markdown",
+				"markup.bold.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+			],
+			settings: {
+				foreground: syntax.fg,
+				fontStyle: "bold",
+			},
+		},
+		{
+			name: "Markdown - Italic > Inline Code $inline",
+			scope: [
+				"markup.italic.markdown markup.inline.raw.string.markdown",
+				"markup.italic.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+			],
+			settings: {
+				foreground: syntax.fg,
 				fontStyle: "italic",
 			},
 		},
 		{
-			name: "Markdown - Strikethrough",
-			scope: ["markup.strikethrough.markdown", "punctuation.definition.strikethrough.markdown"],
+			name: "Markdown - Strikethrough > Inline Code $inline",
+			scope: [
+				"markup.strikethrough.markdown markup.inline.raw.string.markdown",
+				"markup.strikethrough.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+			],
 			settings: {
-				foreground: syntax.fadedGray,
+				foreground: syntax.fg,
 				fontStyle: "strikethrough",
+			},
+		},
+		// #endregion: inline permutations
+		{
+			name: "Markdown - Math Delimiter $inline/$block",
+			scope: [
+				"markup.math.inline.markdown punctuation.definition.math.begin.markdown",
+				"markup.math.inline.markdown punctuation.definition.math.end.markdown",
+				"markup.math.block.markdown punctuation.definition.math.begin.markdown",
+				"markup.math.block.markdown punctuation.definition.math.end.markdown",
+			],
+			settings: {
+				foreground: syntax.lime,
+			},
+		},
+		{
+			name: "Markdown - Heading",
+			scope: [
+				"markup.heading.markdown",
+				// by default, punctuation is coloured for programming languages
+				"markup.heading.markdown punctuation.definition.heading.markdown",
+				"markup.heading.markdown entity.name.section.markdown",
+			],
+			settings: {
+				foreground: syntax.pink,
+			},
+		},
+		...fencedCode,
+		{
+			name: "Markdown - Block Quote",
+			scope: [
+				"markup.quote.markdown",
+				// by default, punctuation is coloured for programming languages
+				"markup.quote.markdown punctuation.definition.quote.begin.markdown",
+				"markup.quote.markdown meta.paragraph.markdown",
+			],
+			settings: {
+				foreground: syntax.yellow,
+				fontStyle: "italic",
 			},
 		},
 		{
@@ -2653,51 +2898,49 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			},
 		},
 		{
-			// The `1.` or `-` or `*` symbols in a list entry.
-			name: "Markdown - List",
-			scope: ["punctuation.definition.list.begin.markdown"],
-			settings: {
-				foreground: syntax.cyan,
-			},
-		},
-		{
-			// Text comment/description around a link, e.g. `[Go to this link](...)`, or `[](... "some website")`
-			name: "Markup - Url String",
+			name: "Markdown - List Point",
 			scope: [
-				"punctuation.definition.string.begin.markdown",
-				"punctuation.definition.string.end.markdown",
-				"string.other.link.description.title.markdown",
-				"string.other.link.description.markdown",
-				"string.other.link.title.markdown",
+				"markup.list.numbered.markdown punctuation.definition.list.begin.markdown",
+				"markup.list.unnumbered.markdown punctuation.definition.list.begin.markdown",
 			],
 			settings: {
-				foreground: syntax.green,
-			},
-		},
-		{
-			// The url part of the link.
-			name: "Markup - Url Underline",
-			scope: ["markup.underline.link", "constant.other.reference.link.markdown"],
-			settings: {
-				foreground: syntax.purple,
-				fontStyle: "underline",
-			},
-		},
-		{
-			name: "Markup - Maths",
-			scope: "punctuation.definition.math.begin.markdown",
-			settings: {
-				foreground: syntax.limeGreen,
-			},
-		},
-		{
-			name: "Markup - Maths constants/functions",
-			scope: ["constant.character.math.tex", "constant.character.math.tex punctuation.definition.math.tex"],
-			settings: {
 				foreground: syntax.cyan,
+			},
+		},
+		{
+			name: "Markdown - Punctuation",
+			scope: [
+				"meta.link.email.lt-gt.markdown punctuation.definition.link.markdown",
+				"meta.link.inet.markdown punctuation.definition.link.markdown",
+				"meta.link.inline.markdown punctuation.definition.link.title.begin.markdown",
+				"meta.link.inline.markdown punctuation.definition.link.title.end.markdown",
+				"meta.link.inline.markdown punctuation.definition.metadata.markdown",
+				"meta.link.reference.markdown punctuation.definition.link.title.begin.markdown",
+				"meta.link.reference.markdown punctuation.definition.link.title.end.markdown",
+				"meta.link.reference.markdown punctuation.definition.constant.begin.markdown",
+				"meta.link.reference.markdown punctuation.definition.constant.end.markdown",
+				"meta.link.reference.def.markdown punctuation.definition.constant.markdown",
+				"meta.link.reference.def.markdown punctuation.separator.key-value.markdown",
+				"meta.image.inline.markdown punctuation.definition.link.description.begin.markdown",
+				"meta.image.inline.markdown punctuation.definition.link.description.end.markdown",
+				"meta.image.inline.markdown punctuation.definition.metadata.markdown",
+				"meta.image.reference.markdown punctuation.definition.link.description.begin.markdown",
+				"meta.image.reference.markdown punctuation.definition.constant.markdown",
+			],
+			settings: {
+				foreground: syntax.gray,
 			},
 		},
 	];
+}
+
+export interface TextMateStyle {
+	name: string;
+	scope: string | string[];
+	settings: {
+		foreground?: string;
+		fontStyle?: string;
+	};
 }
 
 export interface SyntaxColors {
