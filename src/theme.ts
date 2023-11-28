@@ -2555,6 +2555,13 @@ function markdownStyles(syntax: SyntaxColors, alternate: boolean): TextMateStyle
 				},
 			},
 			{
+				name: "Markdown - Fenced Code Block Attributes",
+				scope: ["markup.fenced_code.block.markdown fenced_code.block.language.attributes.markdown"],
+				settings: {
+					foreground: syntax.yellow,
+				},
+			},
+			{
 				name: "Markdown - Raw Block",
 				scope: ["markup.raw.block.markdown"],
 				settings: {
@@ -2602,6 +2609,13 @@ function markdownStyles(syntax: SyntaxColors, alternate: boolean): TextMateStyle
 				settings: {
 					foreground: syntax.fg,
 					fontStyle: "bold",
+				},
+			},
+			{
+				name: "Markdown - Fenced Code Block Attributes",
+				scope: ["markup.fenced_code.block.markdown fenced_code.block.language.attributes.markdown"],
+				settings: {
+					foreground: syntax.yellow,
 				},
 			},
 			{
@@ -2870,6 +2884,8 @@ function markdownStyles(syntax: SyntaxColors, alternate: boolean): TextMateStyle
 				// by default, punctuation is coloured for programming languages
 				"markup.heading.markdown punctuation.definition.heading.markdown",
 				"markup.heading.markdown entity.name.section.markdown",
+				"markup.heading.setext.1.markdown",
+				"markup.heading.setext.2.markdown",
 			],
 			settings: {
 				foreground: syntax.pink,
