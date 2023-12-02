@@ -74,26 +74,59 @@
 			"properties": {
 				"theme-pink-candy.mutedMarkdownPlaintext": {
 					"type": "boolean",
+					"scope": "application",
 					"default": false,
-					"description": "Controls whether markdown plaintext has a muted appearance."
+					"description": "Controls whether markdown plaintext has a muted appearance.",
+					"markdownDeprecationMessage": "Deprecated; use `#theme-pink-candy.markdownSyntaxStyle#` instead.",
+					"deprecationMessage": "Deprecated; use `theme-pink-candy.markdownSyntaxStyle` instead."
+				},
+				"theme-pink-candy.markdownSyntaxStyle": {
+					"type": "string",
+					"scope": "application",
+					"default": "traditional",
+					"description": "Controls the syntax colour scheme for markdown.\r\nNote that this overrides the deprecated `theme-pink-candy.mutedMarkdownPlaintext` key.",
+					"enum": [
+						"traditional",
+						"mutedPlaintext",
+						"alternate"
+					],
+					"enumItemLabels": [
+						"Traditional",
+						"Muted plaintext",
+						"Alternate"
+					],
+					"markdownEnumDescriptions": [
+						"The traditional colour scheme that shipped with the initial release of this theme; this is the *default* option.",
+						"The traditional colour scheme, **but** plaintext uses a muted appearance.",
+						"An alternate colour scheme that emphasizes semantic meaning and de-emphasizes markdown control characters."
+					],
+					"enumDescriptions": [
+						"The traditional colour scheme that shipped with the initial release of this theme; this is the default option.",
+						"The traditional colour scheme, **but** plaintext uses a muted appearance.",
+						"An alternate colour scheme that emphasizes semantic meaning and de-emphasizes markdown control characters."
+					]
 				},
 				"theme-pink-candy.italicizedComments": {
 					"type": "boolean",
+					"scope": "application",
 					"default": false,
 					"description": "Controls whether comments are italicized."
 				},
 				"theme-pink-candy.alternateCurrentLineStyle": {
 					"type": "boolean",
+					"scope": "application",
 					"default": false,
-					"description": "Controls whether the current-line uses an alternate appearance (outlined instead of filled in)."
+					"description": "Controls whether the current-line uses an alternate appearance (outline rather than transparent background fill)."
 				},
 				"theme-pink-candy.monochromeBracketPairGuides": {
 					"type": "boolean",
+					"scope": "application",
 					"default": false,
 					"description": "Controls whether bracket pair guides are monochrome."
 				},
 				"theme-pink-candy.inlayHintStyle": {
 					"type": "string",
+					"scope": "application",
 					"default": "noBackground",
 					"description": "Controls the appearance of inlay hints.",
 					"enum": [
@@ -102,15 +135,28 @@
 						"accent",
 						"accentBackground"
 					],
+					"enumItemLabels": [
+						"No background",
+						"Faint background",
+						"Accent",
+						"Accent with background"
+					],
+					"markdownEnumDescriptions": [
+						"No background behind the inlay hint; this is the *default* option.",
+						"A lightly shaded background behind the inlay hint.",
+						"An accent colour for the inlay hint text, with no background.",
+						"An accent colour for the inlay hint text and a lightly shaded background."
+					],
 					"enumDescriptions": [
-						"No background behind the inlay hint; this is the 'default' option.",
-						"A lightly shaded background behind the inlay hint for better contrast.",
-						"An accent colour for the inlay hint text.",
-						"An accent colour for the inlay hint text and shaded background."
+						"No background behind the inlay hint; this is the default option.",
+						"A lightly shaded background behind the inlay hint.",
+						"An accent colour for the inlay hint text, with no background.",
+						"An accent colour for the inlay hint text and a lightly shaded background."
 					]
 				},
 				"theme-pink-candy.globalAccent": {
 					"type": "string",
+					"scope": "application",
 					"default": "default",
 					"description": "Controls where the accent colours are used.",
 					"enum": [
@@ -118,9 +164,19 @@
 						"disabledStatusBar",
 						"minimal"
 					],
+					"enumItemLabels": [
+						"Everywhere",
+						"Disabled on status bar",
+						"Minimal"
+					],
 					"markdownEnumDescriptions": [
-						"The accent colours are used everywhere; this is the 'default' option.",
-						"The accent colours are used everywhere *but* on the status bar.",
+						"The accent colours are used everywhere; this is the *default* option.",
+						"The accent colours are used everywhere **but** on the status bar.",
+						"The accent colours are used only in a select few cases, such as buttons, links, important text, small decorations, etc."
+					],
+					"enumDescriptions": [
+						"The accent colours are used everywhere; this is the default option.",
+						"The accent colours are used everywhere but on the status bar.",
 						"The accent colours are used only in a select few cases, such as buttons, links, important text, small decorations, etc."
 					]
 				}

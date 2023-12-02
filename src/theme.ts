@@ -401,7 +401,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 	}
 
 	// Markdown plaintest styles.
-	let mdStyles = markdownStyles(syntax, config.mutedMd);
+	let mdStyles = markdownStyles(syntax, false);
 
 	return {
 		name: name,
