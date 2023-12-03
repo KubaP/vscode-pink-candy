@@ -10,8 +10,24 @@ import { darkWarmColors, darkWarmSyntax } from "./dark-warm";
  * @param config The current configuration.
  */
 export function createThemes(config: Config, path: string) {
-	createTheme("Pink Candy Light", "light", "pink-candy-light.json", path, lightColors, lightSyntax, config);
-	createTheme("Pink Candy Dark", "dark", "pink-candy-dark.json", path, darkColors, darkSyntax, config);
+	createTheme(
+		"Pink Candy Light",
+		"light",
+		"pink-candy-light.json",
+		path,
+		lightColors,
+		lightSyntax,
+		config
+	);
+	createTheme(
+		"Pink Candy Dark",
+		"dark",
+		"pink-candy-dark.json",
+		path,
+		darkColors,
+		darkSyntax,
+		config
+	);
 	createTheme(
 		"Pink Candy Dark Warm",
 		"dark",
@@ -1935,7 +1951,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			//
 			{
 				name: "? Operator",
-				scope: ["keyword.operator.misc.question-mark.rust", "keyword.operator.question.rust"],
+				scope: [
+					"keyword.operator.misc.question-mark.rust",
+					"keyword.operator.question.rust",
+				],
 				settings: {
 					foreground: syntax.pink,
 				},
@@ -2039,7 +2058,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			},
 			{
 				name: "Powershell Operators",
-				scope: ["keyword.operator.comparison.powershell", "keyword.operator.logical.powershell"],
+				scope: [
+					"keyword.operator.comparison.powershell",
+					"keyword.operator.logical.powershell",
+				],
 				settings: {
 					foreground: syntax.pink,
 				},
@@ -2076,7 +2098,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			},
 			{
 				name: "JS - Regexp Group",
-				scope: ["punctuation.definition.group.regexp", "punctuation.definition.group.no-capture.regexp"],
+				scope: [
+					"punctuation.definition.group.regexp",
+					"punctuation.definition.group.no-capture.regexp",
+				],
 				settings: {
 					foreground: syntax.fg,
 				},
@@ -2100,7 +2125,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			//
 			{
 				name: "JSX - Embedded Code",
-				scope: ["punctuation.section.embedded.begin.js", "punctuation.section.embedded.end.js"],
+				scope: [
+					"punctuation.section.embedded.begin.js",
+					"punctuation.section.embedded.end.js",
+				],
 				settings: {
 					foreground: syntax.orange,
 					fontStyle: "bold",
@@ -2139,7 +2167,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			},
 			{
 				name: "HTML - IDs",
-				scope: ["meta.attribute.id.html string.quoted.double.html", "entity.other.attribute-name.id.css"],
+				scope: [
+					"meta.attribute.id.html string.quoted.double.html",
+					"entity.other.attribute-name.id.css",
+				],
 				settings: {
 					foreground: syntax.orange,
 					fontStyle: "bold",
@@ -2303,7 +2334,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			},
 			{
 				name: "XML - Attributes",
-				scope: ["entity.other.attribute-name.xml", "entity.other.attribute-name.localname.xml"],
+				scope: [
+					"entity.other.attribute-name.xml",
+					"entity.other.attribute-name.localname.xml",
+				],
 				settings: {
 					foreground: syntax.cyan,
 					fontStyle: "italic",
@@ -2556,7 +2590,9 @@ function markdownStyles(syntax: SyntaxColors, alternate: boolean): TextMateStyle
 			},
 			{
 				name: "Markdown - Fenced Code Block Attributes",
-				scope: ["markup.fenced_code.block.markdown fenced_code.block.language.attributes.markdown"],
+				scope: [
+					"markup.fenced_code.block.markdown fenced_code.block.language.attributes.markdown",
+				],
 				settings: {
 					foreground: syntax.yellow,
 				},
@@ -2613,7 +2649,9 @@ function markdownStyles(syntax: SyntaxColors, alternate: boolean): TextMateStyle
 			},
 			{
 				name: "Markdown - Fenced Code Block Attributes",
-				scope: ["markup.fenced_code.block.markdown fenced_code.block.language.attributes.markdown"],
+				scope: [
+					"markup.fenced_code.block.markdown fenced_code.block.language.attributes.markdown",
+				],
 				settings: {
 					foreground: syntax.yellow,
 				},
@@ -2632,7 +2670,10 @@ function markdownStyles(syntax: SyntaxColors, alternate: boolean): TextMateStyle
 		...text,
 		{
 			name: "Markup - Bold $inline",
-			scope: ["markup.bold.markdown", "markup.bold.markdown punctuation.definition.bold.markdown"],
+			scope: [
+				"markup.bold.markdown",
+				"markup.bold.markdown punctuation.definition.bold.markdown",
+			],
 			settings: {
 				foreground: syntax.orange,
 				fontStyle: "bold",
@@ -2640,7 +2681,10 @@ function markdownStyles(syntax: SyntaxColors, alternate: boolean): TextMateStyle
 		},
 		{
 			name: "Markup - Italic $inline",
-			scope: ["markup.italic.markdown", "markup.italic.markdown punctuation.definition.italic.markdown"],
+			scope: [
+				"markup.italic.markdown",
+				"markup.italic.markdown punctuation.definition.italic.markdown",
+			],
 			settings: {
 				foreground: syntax.blue,
 				fontStyle: "italic",

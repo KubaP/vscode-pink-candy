@@ -1,12 +1,13 @@
-import * as vscode from "vscode";
-import * as path from "path";
+import { THEME_FOLDER } from "./extension";
 import * as fs from "fs";
+import * as path from "path";
+import * as vscode from "vscode";
 
 /**
  * Valid markdown syntax styles.
  */
 type MarkdownSyntaxStyle = "traditional" | "mutedPlaintext" | "alternate";
-function isValidMarkdownStyle(str: String): str is MarkdownSyntaxStyle {
+function isValidMarkdownSyntaxStyle(str: String): str is MarkdownSyntaxStyle {
 	return str == "traditional" || str == "mutedPlaintext" || str == "alternate";
 }
 
@@ -14,22 +15,27 @@ function isValidMarkdownStyle(str: String): str is MarkdownSyntaxStyle {
  * Valid inlay hint styles.
  */
 type InlayHintStyle = "noBackground" | "faintBackground" | "accent" | "accentBackground";
-function isValidInlayStyle(str: string): str is InlayHintStyle {
-	return str == "noBackground" || str == "faintBackground" || str == "accent" || str == "accentBackground";
+function isValidInlayHintStyle(str: string): str is InlayHintStyle {
+	return (
+		str == "noBackground" ||
+		str == "faintBackground" ||
+		str == "accent" ||
+		str == "accentBackground"
+	);
 }
 
 /**
  * Valid global accent options.
  */
 type GlobalAccent = "default" | "disabledStatusBar" | "minimal";
-function isValidAccent(str: string): str is GlobalAccent {
+function isValidGlobalAccent(str: string): str is GlobalAccent {
 	return str == "default" || str == "disabledStatusBar" || str == "minimal";
 }
 
 /**
  * The location of the configuration cache file.
  */
-const cachePath = path.join(__dirname, "..", "themes", "cached_config.json");
+const CACHE_FILE = path.join(THEME_FOLDER, "cached_config.json");
 
 /**
  * The configuration of the theme.
@@ -58,16 +64,21 @@ export class Config {
 		this.globalAccent = globalAccent;
 	}
 
+	/**
+	 * Returns whether the theme configuration has been modified since the last time it was written to the cache.
+	 */
 	isModified(): boolean {
 		// If there is no cache, then we need to assume that the configuration has been modified. We also want to
 		// create the cache file for future use.
-		if (!fs.existsSync(cachePath)) {
+		if (!fs.existsSync(CACHE_FILE)) {
 			this.writeToCache();
 			return true;
 		}
 
 		try {
-			let cachedConfig = JSON.parse(fs.readFileSync(cachePath, { encoding: "utf8" }));
+			// For details about handling deprecated properties, see: /docs/Design Document.md#cached-configuration
+
+			let cachedConfig = JSON.parse(fs.readFileSync(CACHE_FILE, { encoding: "utf8" }));
 			if (cachedConfig.markdownSyntaxStyle === undefined) {
 				if (cachedConfig.mutedMd === true) {
 					cachedConfig.markdownSyntaxStyle = "mutedPlaintext";
@@ -75,6 +86,7 @@ export class Config {
 					cachedConfig.markdownSyntaxStyle = "traditional";
 				}
 			}
+
 			if (
 				this.markdownSyntaxStyle == cachedConfig.markdownSyntaxStyle &&
 				this.altCurrentLine == cachedConfig.altCurrentLine &&
@@ -92,9 +104,24 @@ export class Config {
 		}
 	}
 
+	/**
+	 * Writes the configuration to the cache file.
+	 */
 	writeToCache() {
-		fs.writeFileSync(cachePath, JSON.stringify(this, undefined, 4), { encoding: "utf8" });
+		fs.writeFileSync(CACHE_FILE, JSON.stringify(this, undefined, 4), { encoding: "utf8" });
 	}
+
+	/**
+	 * The default configuration settings.
+	 */
+	static DEFAULT: Config = new Config(
+		"traditional",
+		false,
+		false,
+		false,
+		"noBackground",
+		"default"
+	);
 }
 
 /**
@@ -102,6 +129,8 @@ export class Config {
  */
 export function getConfig(): Config {
 	const config = vscode.workspace.getConfiguration("theme-pink-candy");
+
+	// For details about handling deprecated settings, see: /docs/Design Document.md#configuration-vs-code
 
 	let markdownSyntaxStyle: MarkdownSyntaxStyle;
 	let markdownSyntaxStyleRaw = config.inspect("markdownSyntaxStyle")!;
@@ -119,7 +148,7 @@ export function getConfig(): Config {
 	} else {
 		if (typeof markdownSyntaxStyleRaw.globalValue === "string") {
 			let value = markdownSyntaxStyleRaw.globalValue as string;
-			if (isValidMarkdownStyle(value)) {
+			if (isValidMarkdownSyntaxStyle(value)) {
 				markdownSyntaxStyle = value;
 			} else {
 				markdownSyntaxStyle = "traditional";
@@ -149,7 +178,7 @@ export function getConfig(): Config {
 	if (inlayStyleRaw === undefined) {
 		inlayStyleRaw = "noBackground";
 	}
-	if (isValidInlayStyle(inlayStyleRaw)) {
+	if (isValidInlayHintStyle(inlayStyleRaw)) {
 		inlayStyle = inlayStyleRaw;
 	} else {
 		inlayStyle = "noBackground";
@@ -160,7 +189,7 @@ export function getConfig(): Config {
 	if (globalAccentRaw === undefined) {
 		globalAccentRaw = "default";
 	}
-	if (isValidAccent(globalAccentRaw)) {
+	if (isValidGlobalAccent(globalAccentRaw)) {
 		globalAccent = globalAccentRaw;
 	} else {
 		globalAccent = "default";
@@ -177,16 +206,11 @@ export function getConfig(): Config {
 }
 
 /**
- * The default configuration of the theme.
- */
-const DEFAULT_CONFIG = new Config("traditional", false, false, false, "noBackground", "default");
-
-/**
- * Resets the configuration of the theme to the default options by undefining every configuration key, and resets
+ * Resets the configuration of the theme to the default settings by undefining every configuration key, and resets
  * the cache as well.
  */
 export function resetConfig() {
-	DEFAULT_CONFIG.writeToCache();
+	Config.DEFAULT.writeToCache();
 	const config = vscode.workspace.getConfiguration("theme-pink-candy");
 	config.update("mutedMarkdownPlaintext", undefined, true);
 	config.update("markdownSyntaxStyle", undefined, true);
