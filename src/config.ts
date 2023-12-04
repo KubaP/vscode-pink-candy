@@ -1,6 +1,5 @@
-import { THEME_FOLDER } from "./extension";
+import { CACHE_FILE } from "./paths";
 import * as fs from "fs";
-import * as path from "path";
 import * as vscode from "vscode";
 
 /**
@@ -33,11 +32,6 @@ function isValidGlobalAccent(str: string): str is GlobalAccent {
 }
 
 /**
- * The location of the configuration cache file.
- */
-const CACHE_FILE = path.join(THEME_FOLDER, "cached_config.json");
-
-/**
  * The configuration of the theme.
  */
 export class Config {
@@ -63,6 +57,18 @@ export class Config {
 		this.monochromeBracketGuides = monochromeBracketGuides;
 		this.globalAccent = globalAccent;
 	}
+
+	/**
+	 * The default configuration settings.
+	 */
+	static DEFAULT: Config = new Config(
+		"traditional",
+		false,
+		false,
+		false,
+		"noBackground",
+		"default"
+	);
 
 	/**
 	 * Returns whether the theme configuration has been modified since the last time it was written to the cache.
@@ -110,18 +116,6 @@ export class Config {
 	writeToCache() {
 		fs.writeFileSync(CACHE_FILE, JSON.stringify(this, undefined, 4), { encoding: "utf8" });
 	}
-
-	/**
-	 * The default configuration settings.
-	 */
-	static DEFAULT: Config = new Config(
-		"traditional",
-		false,
-		false,
-		false,
-		"noBackground",
-		"default"
-	);
 }
 
 /**

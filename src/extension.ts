@@ -2,13 +2,7 @@ import { getConfig } from "./config";
 import * as command from "./command";
 import { showReloadConfirmation, showReloadOnLoadConfirmation } from "./message";
 import { createThemes } from "./theme";
-import * as path from "path";
 import * as vscode from "vscode";
-
-/**
- * Location of the `$extension_root/themes` folder.
- */
-export const THEME_FOLDER = path.join(__dirname, "..", "themes");
 
 // This method is called when your extension is activated.
 export function activate(context: vscode.ExtensionContext) {
@@ -21,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 		//
 		// Write the modified configuration settings back to the cache and recreate the theme files.
 		config.writeToCache();
-		createThemes(config, THEME_FOLDER);
+		createThemes(config);
 
 		// Unlike with icon themes, proper workbench/syntax themes are not reloaded upon modification of the theme
 		// files, so we must force vscode to reload to see the changes.
@@ -46,7 +40,7 @@ function onConfigChange(e: vscode.ConfigurationChangeEvent) {
 	// Read the current configuration settings, write any modifications to the cache, and recreate the theme files.
 	const config = getConfig();
 	config.writeToCache();
-	createThemes(config, THEME_FOLDER);
+	createThemes(config);
 
 	// Unlike with icon themes, proper workbench/syntax themes are not reloaded upon modification of the theme
 	// files, so we must force vscode to reload to see the changes.
