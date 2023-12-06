@@ -84,7 +84,8 @@
 					"type": "string",
 					"scope": "application",
 					"default": "traditional",
-					"description": "Controls the syntax colour scheme for markdown.\r\nNote that this overrides the deprecated `theme-pink-candy.mutedMarkdownPlaintext` key.",
+					"markdownDescription": "Controls the syntax colour scheme for markdown.\r\nNote that this overrides the deprecated `#theme-pink-candy.mutedMarkdownPlaintext#` key.",
+					"description": "Controls the syntax colour scheme for markdown. Note that this overrides the deprecated `theme-pink-candy.mutedMarkdownPlaintext` key.",
 					"enum": [
 						"traditional",
 						"mutedPlaintext",
@@ -96,13 +97,13 @@
 						"Alternate"
 					],
 					"markdownEnumDescriptions": [
-						"The traditional colour scheme that shipped with the initial release of this theme; this is the *default* option.",
-						"The traditional colour scheme, **but** plaintext uses a muted appearance.",
+						"The colour scheme that shipped with the initial release of this theme; this is the *default* option.",
+						"The default colour scheme, **but** plaintext has a muted appearance.",
 						"An alternate colour scheme that emphasizes semantic meaning and de-emphasizes markdown control characters."
 					],
 					"enumDescriptions": [
-						"The traditional colour scheme that shipped with the initial release of this theme; this is the default option.",
-						"The traditional colour scheme, **but** plaintext uses a muted appearance.",
+						"The colour scheme that shipped with the initial release of this theme; this is the default option.",
+						"The default colour scheme, but plaintext has a muted appearance.",
 						"An alternate colour scheme that emphasizes semantic meaning and de-emphasizes markdown control characters."
 					]
 				},

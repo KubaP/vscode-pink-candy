@@ -2,6 +2,8 @@ import { CACHE_FILE } from "./paths";
 import * as fs from "fs";
 import * as vscode from "vscode";
 
+// Note: the accepted values should be kept in-line with `package.json`.
+
 /**
  * Valid markdown syntax styles.
  */
@@ -60,6 +62,8 @@ export class Config {
 
 	/**
 	 * The default configuration settings.
+	 *
+	 * Note: these default values should be kept in-line with `package.json`.
 	 */
 	static DEFAULT: Config = new Config(
 		"traditional",
@@ -82,7 +86,7 @@ export class Config {
 		}
 
 		try {
-			// For details about handling deprecated properties, see: /docs/Design Document.md#cached-configuration
+			// For details about handling deprecated fields, see: /docs/Design Document.md#cached-configuration
 
 			let cachedConfig = JSON.parse(fs.readFileSync(CACHE_FILE, { encoding: "utf8" }));
 			if (cachedConfig.markdownSyntaxStyle === undefined) {
@@ -206,6 +210,7 @@ export function getConfig(): Config {
 export function resetConfig() {
 	Config.DEFAULT.writeToCache();
 	const config = vscode.workspace.getConfiguration("theme-pink-candy");
+	// Note: this should undefine all settings defined in `package.json`.
 	config.update("mutedMarkdownPlaintext", undefined, true);
 	config.update("markdownSyntaxStyle", undefined, true);
 	config.update("italicizedComments", undefined, true);

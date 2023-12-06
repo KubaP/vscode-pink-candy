@@ -769,9 +769,12 @@ XML only supports textmate highlighting; it has no semantic highlighting.
 ## Markdown
 Markdown only supports textmate highlighting; it has no semantic highlighting.
 
-For markdown, any control characters (e.g. `*`, ``` ` ```) are styled the same as the text they surround. This is different from asciidoc where the control characters are grayed-out.
+For markdown `"traditonal"` and `"mutedPlaintext"` styles, any control characters (e.g. `*`, ``` ` ```) are styled the same as the text they surround. This is different from markdown `"alternate"` and asciidoc where the control characters are grayed-out.
 
 Root: `text.html.markdown` when inside of a markdown file
+
+- [tmGrammar definition](https://github.com/microsoft/vscode-markdown-tm-grammar/blob/main/markdown.tmLanguage.base.yaml)
+- [tmGrammar for the injected math tex](https://github.com/microsoft/vscode/blob/d5aa7c36486e51fafe074eb9327ae9196ca3759b/extensions/latex/syntaxes/TeX.tmLanguage.json)
 
 ### Text #565869 #B9BFCA #d5c4a1 (alternatively #ADB1C2 #636d83 #928374)
 - `<none>`
@@ -807,6 +810,7 @@ Root: `text.html.markdown` when inside of a markdown file
   - `markup.underline.link.markdown`, the actual url text
   - `string.other.link.description.title.markdown`, the description text
     - `punctuation.definition.string.begin.markdown`, the `"`, `'` or `(`
+    - `punctuation.definition.string.end.markdown`, the `"`, `'` or `)`
 - `meta.link.reference.markdown`, a `[foo][1]`
   - `punctuation.definition.link.title.begin.markdown`, the `[`
   - `string.other.link.title.markdown`, the title
@@ -827,14 +831,18 @@ Root: `text.html.markdown` when inside of a markdown file
   - `markup.underline.link.image.markdown`, the actual url text
   - `string.other.link.description.title.markdown`, the description text
     - `punctuation.definition.string.begin.markdown`, the `"`, `'` or `(`
+    - `punctuation.definition.string.end.markdown`, the `"`, `'` or `)`
 - `meta.image.reference.markdown`, a `![image][1]`
   - `punctuation.definition.link.description.begin.markdown`, the `![`
   - `string.other.link.description.markdown`, the image title
   - `punctuation.definition.link.description.end.markdown`, the `]`
   - `punctuation.definition.constant.markdown`, the `[` and `]`
   - `constant.other.reference.link.markdown`, the reference
-  
-### Math $inline/$block Delimiter #8CBA10 #9ACC12 #91c043 and Fn 
+
+### Escape Character $inline #FF5C57 #ff6b66 #fe8019
+- `constant.character.escape.markdown`
+
+### Math $inline/$block Delimiter #8CBA10 #9ACC12 #91c043
 - `markup.math.inline.markdown`/`markup.math.block.markdown`
   - `punctuation.definition.math.begin.markdown`, the `$`
   - `punctuation.definition.math.end.markdown`, the `$`
@@ -846,11 +854,14 @@ Root: `text.html.markdown` when inside of a markdown file
   - `heading.$x.markdown`, where `1 <= $x <= 6`
     - `punctuation.definition.heading.markdown`, the `#`, `##`, etc.
     - `entity.name.section.markdown`, the actual heading text
+- `markup.heading.setext.1.markdown`, a heading by underlining with `=`
+- `markup.heading.setext.2.markdown`, a heading by underlining with `-`
 
-### Fenced Code Block #565869 #B9BFCA #d5c4a1
+### Fenced Code Block Delimiter/Language #565869 #B9BFCA #d5c4a1 and Attributes #CF9C00 #F9C859 #fabd2f
 - `markup.fenced_code.block.markdown`
   - `punctuation.definition.markdown`, the ` ``` `
   - `fenced_code.block.language.markdown`, the language
+  - `fenced_code.block.language.attributes.markdown`, anything after the language
   - `meta.embedded.block.$x`, where `$x` is the language
 
 ### Raw Block #565869 #B9BFCA #d5c4a1
