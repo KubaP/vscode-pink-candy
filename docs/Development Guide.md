@@ -40,7 +40,8 @@ To package the extension locally, run the following:
 1. `npm run buildTs`
 2. `npm run buildTheme`
 3. `./build/Pre-Package.ps1 -WorkingDirectory ./`
-4. `npm run package`
+4. `cd ./package`
+5. `npm run package`
 
 The packaged extension will be located at `./package/theme-pink-candy-${version}.vsix`.
 

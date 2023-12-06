@@ -1,11 +1,11 @@
-# The build directory.
-publish/
+# Npm packages
+node_modules/
 
-# Build directory.
+# Typescript project build directory
 out/
 
-# Built theme files.
+# Theme files build directory
 themes/
 
-# Npm packages.
-node_modules/
+# The temporary packaging directory
+package/

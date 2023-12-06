@@ -1,4 +1,4 @@
-// Builds the necessary files for packaging/publishing.
+// Builds the theme files (the json theme definitions).
 //
 // Whilst all the necessary files can and will be created at runtime if missing, it's a good idea to publish the
 // extension with pre-built files so that when the extension is installed, nothing _needs_ to be ran and vscode
