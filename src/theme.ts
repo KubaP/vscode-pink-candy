@@ -1164,6 +1164,7 @@ function generateTheme(
 			"member:csharp": syntax.blue, // Object method.
 			macro: syntax.blue,
 			namespace: syntax.fg,
+			"type:typescript": syntax.green,
 			struct: syntax.green,
 			class: syntax.green,
 			"class.static:csharp": {
@@ -1378,20 +1379,42 @@ function generateTheme(
 					// js
 					"variable.language.this.js",
 					"keyword.operator.new.js",
+					"keyword.operator.ternary.js",
+					"keyword.control.import.js",
+					"keyword.control.as.js",
+					"keyword.control.from.js",
 					"storage.type.js",
 					"constant.language.null.js",
 					"constant.language.undefined.js",
-					"keyword.operator.ternary.js",
 					// ts
 					"variable.language.this.ts",
+					"variable.language.super.ts",
 					"keyword.operator.new.ts",
+					"keyword.operator.ternary.ts",
+					"keyword.operator.expression.typeof.ts",
+					"keyword.operator.expression.of.ts",
+					"keyword.operator.expression.in.ts",
+					"keyword.operator.expression.instanceof.ts",
+					"keyword.operator.expression.is.ts",
+					"keyword.operator.expression.keyof.ts",
+					"keyword.operator.expression.infer.ts",
+					"keyword.control.import.ts",
+					"keyword.control.as.ts",
+					"keyword.contorl.from.ts",
+					"keyword.contorl.export.ts",
 					"storage.type.ts",
+					"storage.type.class.ts",
+					"storage.type.enum.ts",
+					"storage.type.interface.ts",
 					"storage.type.namespace.ts",
-					"variable.language.this.ts",
+					"storage.type.function.ts",
+					"storage.type.function.arrow.ts",
+					"storage.type.numeric.bigint.ts",
+					"storage.type.property.ts",
+					"storage.modifier.ts",
+					"storage.modifier.async.ts",
 					"constant.language.null.ts",
 					"constant.language.undefined.ts",
-					"keyword.operator.ternary.ts",
-					"keyword.operator.expression.of.ts",
 				],
 				settings: {
 					foreground: syntax.pink,
@@ -1409,6 +1432,7 @@ function generateTheme(
 					"support.type.primitive.js",
 					// ts
 					"support.type.primitive.ts",
+					"support.type.builtin.ts",
 				],
 				settings: {
 					foreground: syntax.pink,
@@ -1434,6 +1458,8 @@ function generateTheme(
 					// ts
 					"meta.brace.round.ts",
 					"meta.brace.square.ts",
+					"keyword.operator.optional.ts",
+					"keyword.operator.rest.ts",
 					// html
 					"punctuation.definition.string.begin.html",
 					"punctuation.definition.string.end.html",
@@ -1502,7 +1528,7 @@ function generateTheme(
 				},
 			},
 			{
-				name: "Classes, Enum types",
+				name: "Non-primitive Types",
 				scope: [
 					"support.type",
 					"support.class",
@@ -1874,6 +1900,7 @@ function generateTheme(
 					"constant.numeric.oct.toml",
 					"constant.numeric.inf.toml",
 					"constant.numeric.nan.toml",
+					"constant.language.nan.ts",
 				],
 				settings: {
 					foreground: syntax.orange,

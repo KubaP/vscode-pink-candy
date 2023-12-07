@@ -22,15 +22,42 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - tm: "keyword"
 - tm: "keyword.operator.new.js" - `new`
-- tm: "keyword.operator.ternary.js"
+- tm: "keyword.operator.ternary.js" = `?`, `:`
+- tm: "keyword.control.import.js" - `import`
+- tm: "keyword.control.as.js" - `as`
+- tm: "keyword.control.from.js" - `from`
+- tm: "variable.language.this.js" - `this`
+- tm: "storage.type.js" - `var`, `const`, `let`
 - tm: "constant.language.null.js"
 - tm: "constant.language.undefined.js"
-- tm: "storage.type.js" - `var`, `const`, etc.
 #### ts
 - tm: "keyword"
 - tm: "keyword.operator.new.ts" - `new`
-- tm: "storage.type.ts" - `var`, `const`, `class`, `constructor`, etc.
-- tm: "storage.type.namespace.ts" - `module`
+- tm: "keyword.operator.ternary.ts" - `?`, `:`
+- tm: "keyword.operator.expression.typeof.ts" - `typeof`
+- tm: "keyword.operator.expression.of.ts" - `of`
+- tm: "keyword.operator.expression.in.ts" - `in`
+- tm: "keyword.operator.expression.instanceof.ts" - `instanceof`
+- tm: "keyword.operator.expression.is.ts" - `is`
+- tm: "keyword.operator.expression.keyof.ts" - `keyof`
+- tm: "keyword.operator.expression.infer.ts" - `keyof`
+- tm: "keyword.control.import.ts" - `import`
+- tm: "keyword.control.as.ts" - `as`
+- tm: "keyword.control.from.ts" - `from`
+- tm: "keyword.control.export.ts" - `export`
+- tm: "storage.type.ts" - `var`, `const`, `let`, `constructor`
+- tm: "storage.type.class.ts" - `class`
+- tm: "storage.type.enum.ts" - `enum`
+- tm: "storage.type.interface.ts" - `interface`
+- tm: "storage.type.namespace.ts" - `namespace`
+- tm: "storage.type.function.ts" - `function`
+- tm: "storage.type.function.arrow.ts" - `=>`
+- tm: "storage.type.numeric.bigint.ts" - `n` numeric suffix
+- tm: "storage.type.property.ts" - `get`, `set`
+- tm: "storage.modifier.ts" - `implements`, `static`, `public`, `private`, `extends`, `readonly`, `declare`, `protected`, `abstract`
+- tm: "storage.modifier.async.ts" - `async`
+- tm: "constant.language.null.ts" - `null`
+- tm: "constant.language.undefined.ts" - `undefined`
 
 ### Self/This #F767BB #f85eb4
 #### rust
@@ -42,9 +69,10 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - tm: "variable.language.this.js"
 #### ts
-- tm: "variable.language.this.ts"
+- tm: "variable.language.this.ts" - `this`
+- tm: "variable.language.super.ts" - `super.`, `super()`
 
-### Built-in Type #F767BB #f85eb4
+### Primitive Types #F767BB #f85eb4
 - s: "type"
 #### rust
 - s: "builtinType"
@@ -56,7 +84,8 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - tm: "support.type.primitive.js"
 #### ts
-- tm: "support.type.primitive.ts"
+- tm: "support.type.primitive.ts" - `number`, `string`, `boolean`, `any`, `bigint`, `never`, `void`, `unknown`
+- tm: "support.type.builtin.ts" - `undefined`, `object`, `null`
 
 ### Punctuation #777777 #828da0
 - s: "punctuation"
@@ -75,6 +104,8 @@ View this document inside of a text editor with hex colour highlighting support,
 #### ts
 - tm: "meta.brace.round.ts" - see above
 - tm: "meta.brace.square.ts" - see above
+- tm: "keyword.operator.optional.ts" - `?` ⚠ This is not styled like the rust question mark because this is always used as part of `?:`, and vscode currently doesn't support mutliple colours in a single glyph which will be the case if you have a font with ligatures.
+- tm: "keyword.operator.rest.ts" - `...`
 
 ### Operators #777777 #828da0
 - s: "operator"
@@ -87,7 +118,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "keyword.operator"
 
 
-### Function #09A1ED #10b1fe
+### Functions #09A1ED #10b1fe
 #### rust
 - s: "function"
 - tm: "entity.name.function.rust" ⚠ Cannot differentiate between functions and enum tuple variants. Cannot differentiate static functions from object methods.
@@ -101,7 +132,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "function"
 - tm: "entity.name.function.ts"
 
-### Method #09A1ED #10b1fe
+### Methods #09A1ED #10b1fe
 #### rust
 - s: "method"
 - tm: "entity.name.function.rust"
@@ -113,7 +144,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "entity.name.function.ts"
 
 
-### Namespace #565869 #b9bfca
+### Namespaces #565869 #b9bfca
 #### rust
 - s: "namespace"
 - tm: "entity.name.namespace.rust"
@@ -124,7 +155,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "namespace" - Only in code, not in imports header.
 
 
-### Custom Type #2DAE58 #3fc56b
+### Non-primitive Types #2DAE58 #3fc56b
 #### rust
 - s: "struct"
 - s: "enum"
@@ -149,12 +180,13 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "support.class.builtin.js" - Classes from the std lib
 - tm: "support.class.component.js" - React "classes" (types)
 #### ts
-- s: "class
-- s: "class.defaultLibrary" - Classes from the std lib
-- s: "enum"
-- tm: "entity.name.type.class.ts"- Class declaration (⚠ Cannot differentiate between classes and functions outside of the class declaration).
+- s: "class - Types defined using `class`.
+- s: "enum" - Types defined using `enum`.
+- s: "type" - Types defined using `type`.
+- s: ".defaultLibrary" - Defined in the std lib
+- tm: "entity.name.type.class.ts" - Class declaration only (⚠ Cannot differentiate between classes and functions outside of the class declaration).
 
-### Enum Member #13BBB7 #15c9c5 ℹ Includes boolean `true/false`.
+### Enum Members #13BBB7 #15c9c5 ℹ Includes boolean `true/false`.
 #### rust
 - s: "enumMember"
 - s: "boolean"
@@ -341,9 +373,10 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "constant.numeric.octal.js"
 #### ts
 - tm: "constant.numeric.decimal.ts"
-- tm: "constant.numeric.binary.ts"
-- tm: "constant.numeric.hex.ts"
-- tm: "constant.numeric.octal.ts"
+- tm: "constant.numeric.binary.ts" - `0b...`
+- tm: "constant.numeric.hex.ts" - `0x...`
+- tm: "constant.numeric.octal.ts" - `0o...`
+- tm: "constant.language.nan.ts" - `NaN`
 
 ### Comments #ADB1C2 #636d83
 #### rust
