@@ -636,6 +636,8 @@ function generateTheme(
 			//"diffEditor.removedTextBorder": "",
 			"diffEditor.border": color.ui.border, // Border between the two diff viewers.
 			"diffEditor.diagonalFill": color.git.diffDiagonal, // Diagonal hatchings for differences.
+			"multiDiffEditor.border": color.ui.border,
+			"multiDiffEditor.background": color.ui.tertiaryBg,
 			//
 			// MERGE CONFLICT VIEWER [x]
 			"merge.currentHeaderBackground": color.git.currentHeaderBgA,
@@ -662,10 +664,11 @@ function generateTheme(
 			//
 			//
 			// GENERAL TEXT
-			"textLink.foreground": color.accent.primary, // Link colour.
+			"textLink.foreground": color.accent.link, // Link colour.
 			"textLink.activeForeground": color.accent.linkHover, // Link hover/active colour.
 			descriptionForeground: color.text.light,
-			"textPreformat.foreground": color.accent.secondary, // Inline code block text.
+			"textPreformat.foreground": color.ui.preformatText, // Inline code block text.
+			"textPreformat.background": color.ui.secondaryBg,
 			"textCodeBlock.background": color.ui.secondaryBg, // Code block background.
 			"textBlockQuote.background": color.ui.secondaryBg, // Block quote background.
 			"textBlockQuote.border": color.accent.primary, // Block quote left border.
@@ -804,6 +807,9 @@ function generateTheme(
 			"sideBySideEditor.horizontalBorder": color.ui.border,
 			"sideBySideEditor.verticalBorder": color.ui.border,
 			//
+			// ACTION BAR [x], icons on the tab bar for example
+			"actionBar.toggledBackground": color.ui.primaryBg,
+			//
 			// ACTIVITY BAR [x], icons on the left/right
 			"activityBar.background": color.ui.primaryBg, // Background of the entire bar.
 			"activityBar.dropBorder": color.accent.primary, // Colour for when re-arranging icons.
@@ -813,6 +819,10 @@ function generateTheme(
 			//"activityBar.activeBackground": "", // Background of active icon.
 			"activityBar.activeBorder": color.accent.primary, // Line next to active icon.
 			//"activityBar.activeFocusBorder": "", // ???
+			"activityBarTop.foreground": color.accent.primary, // Icon selected/hover colour.
+			"activityBarTop.inactiveForeground": color.ui.activityBarTopInactive, // Icon not-selected colour.
+			"activityBarTop.activeBorder": color.accent.primary, // Line underneath the active icon.
+			"activityBarTop.dropBorder": color.accent.primary, // Colour for when re-arranging icons.
 			//
 			// SIDEBAR [x]
 			"sideBar.background": color.ui.secondaryBg,
@@ -3507,6 +3517,7 @@ export interface UiColors {
 		// MINIMAL: list & command bar matching text, badge text
 		primary: string;
 		primaryHover: string;
+		link: string;
 		linkHover: string;
 
 		// Button background, codeblock text, (??? x1)
@@ -3718,6 +3729,7 @@ export interface UiColors {
 
 		// Activity bar inactive icon
 		activityBarInactive: string;
+		activityBarTopInactive: string;
 
 		// Code actions icon
 		lightBulb: string;
@@ -3737,6 +3749,8 @@ export interface UiColors {
 		chartOrange: string;
 		chartRed: string;
 		chartPurple: string;
+
+		preformatText: string;
 	};
 
 	brackets: {

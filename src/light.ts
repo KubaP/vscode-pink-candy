@@ -129,6 +129,7 @@ export const lightColors: UiColors = {
 		// MINIMAL: list & command bar matching text, badge text
 		primary: "#FF1277",
 		primaryHover: "#DA005F",
+		link: "#FF1277",
 		linkHover: "#DA005F",
 
 		// Button background, codeblock text, (??? x1)
@@ -340,6 +341,7 @@ export const lightColors: UiColors = {
 
 		// Activity bar inactive icon
 		activityBarInactive: "#BFC0C7",
+		activityBarTopInactive: "#999aa5",
 
 		// Code actions icon
 		lightBulb: "#FFC104",
@@ -359,6 +361,8 @@ export const lightColors: UiColors = {
 		chartOrange: "#FF5C57",
 		chartRed: "#FF1277",
 		chartPurple: "#C75AF3",
+
+		preformatText: "#0896dd",
 	},
 
 	brackets: {
