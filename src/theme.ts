@@ -2420,6 +2420,178 @@ function generateTheme(
 			//
 			...mdStyles,
 			//
+			// ASCIIDOC
+			//
+			{
+				name: "Asciidoc - Text",
+				scope: ["text.asciidoc"],
+				settings: {
+					foreground: syntax.fg,
+				},
+			},
+			{
+				name: "Asciidoc - Headings",
+				scope: [
+					"markup.heading.heading-0.asciidoc",
+					"markup.heading.heading-1.asciidoc",
+					"markup.heading.heading-2.asciidoc",
+					"markup.heading.heading-3.asciidoc",
+					"markup.heading.heading-4.asciidoc",
+					"markup.heading.heading-5.asciidoc",
+				],
+				settings: {
+					foreground: syntax.pink,
+					fontStyle: "bold",
+				},
+			},
+			{
+				name: "Asciidoc - Bold Text",
+				scope: ["markup.bold.asciidoc"],
+				settings: {
+					foreground: syntax.orange,
+					fontStyle: "bold",
+				},
+			},
+			{
+				name: "Asciidoc - Italic Text",
+				scope: ["markup.italic.asciidoc"],
+				settings: {
+					foreground: syntax.blue,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "Asciidoc - Mark Text",
+				scope: ["markup.mark.asciidoc"],
+				settings: {
+					foreground: syntax.green,
+				},
+			},
+			{
+				name: "Asciidoc - Punctation",
+				scope: [
+					"punctuation.separator.asciidoc",
+					"callout.asciidoc constant.other.symbol.asciidoc",
+					"callout.source.code.asciidoc constant.other.symbol.asciidoc",
+					"callout.source.code.asciidoc",
+					"markup.macro.kbd.asciidoc",
+					"markup.other.menu.asciidoc",
+					"markup.macro.btn.asciidoc",
+				],
+				settings: {
+					foreground: syntax.gray,
+				},
+			},
+			{
+				name: "Asciidoc - Inline Punctuation",
+				scope: [
+					"markup.super.superscript.asciidoc punctuation.definition.asciidoc",
+					"markup.sub.subscript.asciidoc punctuation.definition.asciidoc",
+					"markup.bold.asciidoc punctuation.definition.asciidoc",
+					"markup.italic.asciidoc punctuation.definition.asciidoc",
+					"markup.highlight.asciidoc punctuation.definition.asciidoc",
+					"markup.mark.constrained.asciidoc markup.meta.attribute-list.asciidoc",
+					"markup.mark.asciidoc punctuation.definition.asciidoc",
+				],
+				settings: {
+					foreground: syntax.gray,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "Asciidoc - Highlight",
+				scope: ["markup.highlight.asciidoc"],
+				settings: {
+					foreground: syntax.yellow,
+					fontStyle: "bold",
+				},
+			},
+			{
+				name: "Asciidoc - Attribute",
+				scope: [
+					"markup.meta.attribute-list.asciidoc",
+					"markup.heading.block-attribute.asciidoc",
+					"markup.heading.block-attribute.asciidoc punctuation.separator.asciidoc",
+				],
+				settings: {
+					foreground: syntax.gray,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "Asciidoc - Document Attribute",
+				scope: [
+					"support.constant.attribute-name.asciidoc",
+					"markup.substitution.attribute-reference.asciidoc",
+				],
+				settings: {
+					foreground: syntax.lime,
+				},
+			},
+			{
+				name: "Asciidoc - List",
+				scope: [
+					"markup.list.asciidoc",
+					"callout.source.code.asciidoc constant.numeric.asciidoc",
+					"callout.asciidoc constant.numeric.asciidoc",
+					"markup.list.bullet.asciidoc",
+				],
+				settings: {
+					foreground: syntax.cyan,
+					fontStyle: "bold",
+				},
+			},
+			{
+				name: "Asciidoc - Link",
+				scope: [
+					"markup.link.asciidoc",
+					"markup.link.email.asciidoc",
+					"markup.reference.xref.asciidoc string.unquoted.asciidoc",
+				],
+				settings: {
+					foreground: syntax.purple,
+					fontStyle: "underline",
+				},
+			},
+			{
+				name: "Asciidoc - Table",
+				scope: ["markup.table.delimiter.asciidoc", "markup.table.cell.delimiter.asciidoc"],
+				settings: {
+					foreground: syntax.gray,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "Asciidoc - Footnote",
+				scope: ["markup.other.footnote.asciidoc"],
+				settings: {
+					foreground: syntax.gray,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "Asciidoc - Macro",
+				scope: ["entity.name.function.asciidoc"],
+				settings: {
+					foreground: syntax.blue,
+				},
+			},
+			{
+				name: "Asciidoc - Macro content",
+				scope: ["string.unquoted.asciidoc"],
+				settings: {
+					foreground: syntax.yellow,
+				},
+			},
+			{
+				name: "Asciidoc - Ruler",
+				scope: ["constant.other.symbol.horizontal-rule.asciidoc"],
+				settings: {
+					foreground: syntax.orange,
+					fontStyle: "bold underline",
+				},
+			},
+			//
 			// JSON
 			//
 			{
