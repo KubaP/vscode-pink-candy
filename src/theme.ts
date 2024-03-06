@@ -1,22 +1,29 @@
-import * as path from "path";
-import * as fs from "fs";
 import { Config } from "./config";
-import { lightColors, lightSyntax } from "./light";
 import { darkColors, darkSyntax } from "./dark";
 import { darkWarmColors, darkWarmSyntax } from "./dark-warm";
+import { lightColors, lightSyntax } from "./light";
+import { THEME_FOLDER } from "./paths";
+import * as fs from "fs";
+import * as path from "path";
 
 /**
  * Creates the theme `.json` files.
  * @param config The current configuration.
  */
-export function createThemes(config: Config, path: string) {
-	createTheme("Pink Candy Light", "light", "pink-candy-light.json", path, lightColors, lightSyntax, config);
-	createTheme("Pink Candy Dark", "dark", "pink-candy-dark.json", path, darkColors, darkSyntax, config);
+export function createThemes(config: Config) {
+	createTheme(
+		"Pink Candy Light",
+		"light",
+		"pink-candy-light.json",
+		lightColors,
+		lightSyntax,
+		config
+	);
+	createTheme("Pink Candy Dark", "dark", "pink-candy-dark.json", darkColors, darkSyntax, config);
 	createTheme(
 		"Pink Candy Dark Warm",
 		"dark",
 		"pink-candy-dark-warm.json",
-		path,
 		darkWarmColors,
 		darkWarmSyntax,
 		config
@@ -25,16 +32,14 @@ export function createThemes(config: Config, path: string) {
 
 function createTheme(
 	name: string,
-	type: string,
+	type: "light" | "dark",
 	file: string,
-	themeFolder: string,
 	color: UiColors,
 	syntax: SyntaxColors,
 	config: Config
 ) {
-	const jsonPath = path.join(themeFolder, file);
+	const jsonPath = path.join(THEME_FOLDER, file);
 	const theme = generateTheme(color, syntax, name, type, config);
-
 	fs.writeFileSync(jsonPath, JSON.stringify(theme, undefined, 4));
 }
 
@@ -42,7 +47,13 @@ function createTheme(
 // TODO: Notebooks
 // TODO: Status bar setting profiles (currently in insider 1.69)
 
-function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type: string, config: Config) {
+function generateTheme(
+	color: UiColors,
+	syntax: SyntaxColors,
+	name: string,
+	type: "light" | "dark",
+	config: Config
+) {
 	// Output the appropriate error lens keys.
 	let errorLens;
 	let errorLensStatusBar;
@@ -401,7 +412,18 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 	}
 
 	// Markdown plaintest styles.
-	let mdStyles = markdownStyles(syntax, config.mutedMd);
+	let mdStyles: TextMateStyle[] = []; // Need to initialize array otherwise build-theme js script will complain.
+	switch (config.markdownSyntaxStyle) {
+		case "traditional":
+			mdStyles = generateMarkdownColors(syntax, false);
+			break;
+		case "mutedPlaintext":
+			mdStyles = generateMarkdownColors(syntax, true);
+			break;
+		case "alternate":
+			mdStyles = generateAlternateMarkdownColors(syntax);
+			break;
+	}
 
 	return {
 		name: name,
@@ -463,7 +485,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			"editorBracketMatch.border": color.text.decoration.dark, // Border around matching brackets.
 			"editorBracketMatch.background": "#00000000", // Remove match background.
 			//
-			// Bracket pair colours
+			// Bracket pair colors
 			...brackets,
 			"editorBracketHighlight.unexpectedBracket.foreground": color.diag.error,
 			//
@@ -614,6 +636,8 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			//"diffEditor.removedTextBorder": "",
 			"diffEditor.border": color.ui.border, // Border between the two diff viewers.
 			"diffEditor.diagonalFill": color.git.diffDiagonal, // Diagonal hatchings for differences.
+			"multiDiffEditor.border": color.ui.border,
+			"multiDiffEditor.background": color.ui.tertiaryBg,
 			//
 			// MERGE CONFLICT VIEWER [x]
 			"merge.currentHeaderBackground": color.git.currentHeaderBgA,
@@ -640,10 +664,11 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			//
 			//
 			// GENERAL TEXT
-			"textLink.foreground": color.accent.primary, // Link colour.
+			"textLink.foreground": color.accent.link, // Link colour.
 			"textLink.activeForeground": color.accent.linkHover, // Link hover/active colour.
 			descriptionForeground: color.text.light,
-			"textPreformat.foreground": color.accent.secondary, // Inline code block text.
+			"textPreformat.foreground": color.ui.preformatText, // Inline code block text.
+			"textPreformat.background": color.ui.secondaryBg,
 			"textCodeBlock.background": color.ui.secondaryBg, // Code block background.
 			"textBlockQuote.background": color.ui.secondaryBg, // Block quote background.
 			"textBlockQuote.border": color.accent.primary, // Block quote left border.
@@ -782,15 +807,22 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			"sideBySideEditor.horizontalBorder": color.ui.border,
 			"sideBySideEditor.verticalBorder": color.ui.border,
 			//
+			// ACTION BAR [x], icons on the tab bar for example
+			"actionBar.toggledBackground": color.ui.primaryBg,
+			//
 			// ACTIVITY BAR [x], icons on the left/right
 			"activityBar.background": color.ui.primaryBg, // Background of the entire bar.
 			"activityBar.dropBorder": color.accent.primary, // Colour for when re-arranging icons.
-			//"activityBar.border": "", // Border between bar and sidebar.
+			"activityBar.border": color.ui.border, // Border between bar and sidebar/whatever main panel.
 			"activityBar.foreground": color.accent.primary, // Icon selected/hover colour.
 			"activityBar.inactiveForeground": color.ui.activityBarInactive, // Icon not-selected colour.
 			//"activityBar.activeBackground": "", // Background of active icon.
 			"activityBar.activeBorder": color.accent.primary, // Line next to active icon.
 			//"activityBar.activeFocusBorder": "", // ???
+			"activityBarTop.foreground": color.accent.primary, // Icon selected/hover colour.
+			"activityBarTop.inactiveForeground": color.ui.activityBarTopInactive, // Icon not-selected colour.
+			"activityBarTop.activeBorder": color.accent.primary, // Line underneath the active icon.
+			"activityBarTop.dropBorder": color.accent.primary, // Colour for when re-arranging icons.
 			//
 			// SIDEBAR [x]
 			"sideBar.background": color.ui.secondaryBg,
@@ -976,7 +1008,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			"symbolIcon.unitForeground": syntax.orange,
 			"symbolIcon.variableForeground": syntax.fg,
 			//
-			// TESTING COLOURS [x]
+			// TESTING COLORS [x]
 			"testing.iconPassed": color.diag.testPassed,
 			"testing.iconFailed": color.diag.testFailed,
 			"testing.iconErrored": color.diag.testFailed,
@@ -990,7 +1022,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			"testing.message.error.lineBackground": color.diag.errorBgA,
 			"testing.message.error.decorationForeground": color.diag.error,
 			//
-			// CHART COLOURS [x]
+			// CHART COLORS [x]
 			"charts.foreground": color.text.normal,
 			"charts.lines": color.ui.chartLine,
 			"charts.blue": color.ui.chartBlue,
@@ -1000,7 +1032,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			"charts.red": color.ui.chartRed,
 			"charts.purple": color.ui.chartPurple,
 			//
-			// TERMINAL COLOURS [x]
+			// TERMINAL COLORS [x]
 			"terminal.background": color.ui.primaryBg,
 			"terminal.foreground": color.terminal.foreground, // 0m (foreground)
 			"terminal.ansiBlack": color.terminal.ansiBlack, // 30m
@@ -1039,7 +1071,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			"terminal.dropBackground": color.ui.primaryDropBg, // // Background for re-organising stacked terminals.
 			"terminal.tab.activeBorder": color.ui.border, // ???
 			//
-			// GIT COLOURS [x]
+			// GIT COLORS [x]
 			"gitDecoration.untrackedResourceForeground": color.git.untracked,
 			"gitDecoration.addedResourceForeground": color.git.addedOrStaged, // Files added to vcs that are not currently tracked.
 			"gitDecoration.modifiedResourceForeground": color.git.modified, // Files already in vcs that are modified.
@@ -1142,6 +1174,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			"member:csharp": syntax.blue, // Object method.
 			macro: syntax.blue,
 			namespace: syntax.fg,
+			"type:typescript": syntax.green,
 			struct: syntax.green,
 			class: syntax.green,
 			"class.static:csharp": {
@@ -1356,20 +1389,42 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 					// js
 					"variable.language.this.js",
 					"keyword.operator.new.js",
+					"keyword.operator.ternary.js",
+					"keyword.control.import.js",
+					"keyword.control.as.js",
+					"keyword.control.from.js",
 					"storage.type.js",
 					"constant.language.null.js",
 					"constant.language.undefined.js",
-					"keyword.operator.ternary.js",
 					// ts
 					"variable.language.this.ts",
+					"variable.language.super.ts",
 					"keyword.operator.new.ts",
+					"keyword.operator.ternary.ts",
+					"keyword.operator.expression.typeof.ts",
+					"keyword.operator.expression.of.ts",
+					"keyword.operator.expression.in.ts",
+					"keyword.operator.expression.instanceof.ts",
+					"keyword.operator.expression.is.ts",
+					"keyword.operator.expression.keyof.ts",
+					"keyword.operator.expression.infer.ts",
+					"keyword.control.import.ts",
+					"keyword.control.as.ts",
+					"keyword.contorl.from.ts",
+					"keyword.contorl.export.ts",
 					"storage.type.ts",
+					"storage.type.class.ts",
+					"storage.type.enum.ts",
+					"storage.type.interface.ts",
 					"storage.type.namespace.ts",
-					"variable.language.this.ts",
+					"storage.type.function.ts",
+					"storage.type.function.arrow.ts",
+					"storage.type.numeric.bigint.ts",
+					"storage.type.property.ts",
+					"storage.modifier.ts",
+					"storage.modifier.async.ts",
 					"constant.language.null.ts",
 					"constant.language.undefined.ts",
-					"keyword.operator.ternary.ts",
-					"keyword.operator.expression.of.ts",
 				],
 				settings: {
 					foreground: syntax.pink,
@@ -1387,6 +1442,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 					"support.type.primitive.js",
 					// ts
 					"support.type.primitive.ts",
+					"support.type.builtin.ts",
 				],
 				settings: {
 					foreground: syntax.pink,
@@ -1412,6 +1468,8 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 					// ts
 					"meta.brace.round.ts",
 					"meta.brace.square.ts",
+					"keyword.operator.optional.ts",
+					"keyword.operator.rest.ts",
 					// html
 					"punctuation.definition.string.begin.html",
 					"punctuation.definition.string.end.html",
@@ -1480,7 +1538,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 				},
 			},
 			{
-				name: "Classes, Enum types",
+				name: "Non-primitive Types",
 				scope: [
 					"support.type",
 					"support.class",
@@ -1852,6 +1910,7 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 					"constant.numeric.oct.toml",
 					"constant.numeric.inf.toml",
 					"constant.numeric.nan.toml",
+					"constant.language.nan.ts",
 				],
 				settings: {
 					foreground: syntax.orange,
@@ -1935,7 +1994,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			//
 			{
 				name: "? Operator",
-				scope: ["keyword.operator.misc.question-mark.rust", "keyword.operator.question.rust"],
+				scope: [
+					"keyword.operator.misc.question-mark.rust",
+					"keyword.operator.question.rust",
+				],
 				settings: {
 					foreground: syntax.pink,
 				},
@@ -2039,7 +2101,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			},
 			{
 				name: "Powershell Operators",
-				scope: ["keyword.operator.comparison.powershell", "keyword.operator.logical.powershell"],
+				scope: [
+					"keyword.operator.comparison.powershell",
+					"keyword.operator.logical.powershell",
+				],
 				settings: {
 					foreground: syntax.pink,
 				},
@@ -2076,7 +2141,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			},
 			{
 				name: "JS - Regexp Group",
-				scope: ["punctuation.definition.group.regexp", "punctuation.definition.group.no-capture.regexp"],
+				scope: [
+					"punctuation.definition.group.regexp",
+					"punctuation.definition.group.no-capture.regexp",
+				],
 				settings: {
 					foreground: syntax.fg,
 				},
@@ -2100,7 +2168,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			//
 			{
 				name: "JSX - Embedded Code",
-				scope: ["punctuation.section.embedded.begin.js", "punctuation.section.embedded.end.js"],
+				scope: [
+					"punctuation.section.embedded.begin.js",
+					"punctuation.section.embedded.end.js",
+				],
 				settings: {
 					foreground: syntax.orange,
 					fontStyle: "bold",
@@ -2139,7 +2210,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			},
 			{
 				name: "HTML - IDs",
-				scope: ["meta.attribute.id.html string.quoted.double.html", "entity.other.attribute-name.id.css"],
+				scope: [
+					"meta.attribute.id.html string.quoted.double.html",
+					"entity.other.attribute-name.id.css",
+				],
 				settings: {
 					foreground: syntax.orange,
 					fontStyle: "bold",
@@ -2303,7 +2377,10 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			},
 			{
 				name: "XML - Attributes",
-				scope: ["entity.other.attribute-name.xml", "entity.other.attribute-name.localname.xml"],
+				scope: [
+					"entity.other.attribute-name.xml",
+					"entity.other.attribute-name.localname.xml",
+				],
 				settings: {
 					foreground: syntax.cyan,
 					fontStyle: "italic",
@@ -2342,6 +2419,178 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 			// MARKDOWN
 			//
 			...mdStyles,
+			//
+			// ASCIIDOC
+			//
+			{
+				name: "Asciidoc - Text",
+				scope: ["text.asciidoc"],
+				settings: {
+					foreground: syntax.fg,
+				},
+			},
+			{
+				name: "Asciidoc - Headings",
+				scope: [
+					"markup.heading.heading-0.asciidoc",
+					"markup.heading.heading-1.asciidoc",
+					"markup.heading.heading-2.asciidoc",
+					"markup.heading.heading-3.asciidoc",
+					"markup.heading.heading-4.asciidoc",
+					"markup.heading.heading-5.asciidoc",
+				],
+				settings: {
+					foreground: syntax.pink,
+					fontStyle: "bold",
+				},
+			},
+			{
+				name: "Asciidoc - Bold Text",
+				scope: ["markup.bold.asciidoc"],
+				settings: {
+					foreground: syntax.orange,
+					fontStyle: "bold",
+				},
+			},
+			{
+				name: "Asciidoc - Italic Text",
+				scope: ["markup.italic.asciidoc"],
+				settings: {
+					foreground: syntax.blue,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "Asciidoc - Mark Text",
+				scope: ["markup.mark.asciidoc"],
+				settings: {
+					foreground: syntax.green,
+				},
+			},
+			{
+				name: "Asciidoc - Punctation",
+				scope: [
+					"punctuation.separator.asciidoc",
+					"callout.asciidoc constant.other.symbol.asciidoc",
+					"callout.source.code.asciidoc constant.other.symbol.asciidoc",
+					"callout.source.code.asciidoc",
+					"markup.macro.kbd.asciidoc",
+					"markup.other.menu.asciidoc",
+					"markup.macro.btn.asciidoc",
+				],
+				settings: {
+					foreground: syntax.gray,
+				},
+			},
+			{
+				name: "Asciidoc - Inline Punctuation",
+				scope: [
+					"markup.super.superscript.asciidoc punctuation.definition.asciidoc",
+					"markup.sub.subscript.asciidoc punctuation.definition.asciidoc",
+					"markup.bold.asciidoc punctuation.definition.asciidoc",
+					"markup.italic.asciidoc punctuation.definition.asciidoc",
+					"markup.highlight.asciidoc punctuation.definition.asciidoc",
+					"markup.mark.constrained.asciidoc markup.meta.attribute-list.asciidoc",
+					"markup.mark.asciidoc punctuation.definition.asciidoc",
+				],
+				settings: {
+					foreground: syntax.gray,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "Asciidoc - Highlight",
+				scope: ["markup.highlight.asciidoc"],
+				settings: {
+					foreground: syntax.yellow,
+					fontStyle: "bold",
+				},
+			},
+			{
+				name: "Asciidoc - Attribute",
+				scope: [
+					"markup.meta.attribute-list.asciidoc",
+					"markup.heading.block-attribute.asciidoc",
+					"markup.heading.block-attribute.asciidoc punctuation.separator.asciidoc",
+				],
+				settings: {
+					foreground: syntax.gray,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "Asciidoc - Document Attribute",
+				scope: [
+					"support.constant.attribute-name.asciidoc",
+					"markup.substitution.attribute-reference.asciidoc",
+				],
+				settings: {
+					foreground: syntax.lime,
+				},
+			},
+			{
+				name: "Asciidoc - List",
+				scope: [
+					"markup.list.asciidoc",
+					"callout.source.code.asciidoc constant.numeric.asciidoc",
+					"callout.asciidoc constant.numeric.asciidoc",
+					"markup.list.bullet.asciidoc",
+				],
+				settings: {
+					foreground: syntax.cyan,
+					fontStyle: "bold",
+				},
+			},
+			{
+				name: "Asciidoc - Link",
+				scope: [
+					"markup.link.asciidoc",
+					"markup.link.email.asciidoc",
+					"markup.reference.xref.asciidoc string.unquoted.asciidoc",
+				],
+				settings: {
+					foreground: syntax.purple,
+					fontStyle: "underline",
+				},
+			},
+			{
+				name: "Asciidoc - Table",
+				scope: ["markup.table.delimiter.asciidoc", "markup.table.cell.delimiter.asciidoc"],
+				settings: {
+					foreground: syntax.gray,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "Asciidoc - Footnote",
+				scope: ["markup.other.footnote.asciidoc"],
+				settings: {
+					foreground: syntax.gray,
+					fontStyle: "italic",
+				},
+			},
+			{
+				name: "Asciidoc - Macro",
+				scope: ["entity.name.function.asciidoc"],
+				settings: {
+					foreground: syntax.blue,
+				},
+			},
+			{
+				name: "Asciidoc - Macro content",
+				scope: ["string.unquoted.asciidoc"],
+				settings: {
+					foreground: syntax.yellow,
+				},
+			},
+			{
+				name: "Asciidoc - Ruler",
+				scope: ["constant.other.symbol.horizontal-rule.asciidoc"],
+				settings: {
+					foreground: syntax.orange,
+					fontStyle: "bold underline",
+				},
+			},
 			//
 			// JSON
 			//
@@ -2504,124 +2753,216 @@ function generateTheme(color: UiColors, syntax: SyntaxColors, name: string, type
 	};
 }
 
-function markdownStyles(syntax: any, alternate: boolean) {
-	let styles = [];
-	if (alternate) {
-		styles.push({
-			// Normal undecorated text.
-			name: "Markdown - Plain",
-			scope: ["text.html.markdown", "punctuation.definition.list_item.markdown"],
-			settings: {
-				foreground: syntax.fadedGray,
+function generateMarkdownColors(syntax: SyntaxColors, muted: boolean): TextMateStyle[] {
+	let text;
+	let inlineCode;
+	let fencedCode;
+	if (muted) {
+		text = [
+			{
+				name: "Markdown - Text",
+				scope: ["text.html.markdown"],
+				settings: {
+					foreground: syntax.fadedGray,
+				},
 			},
-		});
-		styles.push({
-			// Inline code block text.
-			name: "Markdown - Markup Raw Inline",
-			scope: ["punctuation.definition.raw.markdown", "markup.inline.raw.string.markdown"],
-			settings: {
-				foreground: syntax.fg,
+		];
+		inlineCode = [
+			{
+				name: "Markdown - Inline Code $inline",
+				scope: [
+					"markup.inline.raw.string.markdown",
+					"markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+				],
+				settings: {
+					foreground: syntax.fg,
+				},
 			},
-		});
-		styles.push({
-			// Fenced code block text.
-			name: "Markdown - Markup Raw Inline",
-			scope: ["markup.fenced_code.block.markdown"],
-			settings: {
-				foreground: syntax.fg,
+		];
+		fencedCode = [
+			{
+				name: "Markdown - Fenced Code Block",
+				scope: [
+					"markup.fenced_code.block.markdown",
+					"markup.fenced_code.block.markdown punctuation.definition.markdown",
+				],
+				settings: {
+					foreground: syntax.fg,
+				},
 			},
-		});
-		styles.push({
-			// The language identifier in a fenced code block, e.g. ```rust
-			name: "Markdown - Raw Block Language Identifier",
-			scope: [
-				"fenced_code.block.language.markdown",
-				"markup.fenced_code.block.markdown punctuation.definition.markdown",
-			],
-			settings: {
-				foreground: syntax.fg,
+			{
+				name: "Markdown - Fenced Code Block Language",
+				scope: ["markup.fenced_code.block.markdown fenced_code.block.language.markdown"],
+				settings: {
+					foreground: syntax.fg,
+				},
 			},
-		});
+			{
+				name: "Markdown - Fenced Code Block Attributes",
+				scope: [
+					"markup.fenced_code.block.markdown fenced_code.block.language.attributes.markdown",
+				],
+				settings: {
+					foreground: syntax.yellow,
+				},
+			},
+			{
+				name: "Markdown - Raw Block",
+				scope: ["markup.raw.block.markdown"],
+				settings: {
+					foreground: syntax.fg,
+				},
+			},
+		];
 	} else {
-		styles.push({
-			// Normal undecorated text.
-			name: "Markdown - Plain",
-			scope: ["text.html.markdown", "punctuation.definition.list_item.markdown"],
-			settings: {
-				foreground: syntax.fg,
+		text = [
+			{
+				name: "Markdown - Text",
+				scope: ["text.html.markdown"],
+				settings: {
+					foreground: syntax.fg,
+				},
 			},
-		});
-		styles.push({
-			// Inline code block text.
-			name: "Markdown - Markup Raw Inline",
-			scope: ["punctuation.definition.raw.markdown", "markup.inline.raw.string.markdown"],
-			settings: {
-				foreground: syntax.fg,
-				fontStyle: "bold",
+		];
+		inlineCode = [
+			{
+				name: "Markdown - Inline Code $inline",
+				scope: [
+					"markup.inline.raw.string.markdown",
+					"markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+				],
+				settings: {
+					foreground: syntax.fg,
+					fontStyle: "bold",
+				},
 			},
-		});
-		styles.push({
-			// Fenced code block text.
-			name: "Markdown - Markup Raw Inline",
-			scope: ["markup.fenced_code.block.markdown"],
-			settings: {
-				foreground: syntax.fg,
+		];
+		fencedCode = [
+			{
+				name: "Markdown - Fenced Code Block",
+				scope: [
+					"markup.fenced_code.block.markdown",
+					"markup.fenced_code.block.markdown punctuation.definition.markdown",
+				],
+				settings: {
+					foreground: syntax.fg,
+				},
 			},
-		});
-		styles.push({
-			// The language identifier in a fenced code block, e.g. ```rust
-			name: "Markdown - Raw Block Language Identifier",
-			scope: [
-				"fenced_code.block.language.markdown",
-				"markup.fenced_code.block.markdown punctuation.definition.markdown",
-			],
-			settings: {
-				foreground: syntax.fg,
-				fontStyle: "bold",
+			{
+				name: "Markdown - Fenced Code Block Language",
+				scope: ["markup.fenced_code.block.markdown fenced_code.block.language.markdown"],
+				settings: {
+					foreground: syntax.fg,
+					fontStyle: "bold",
+				},
 			},
-		});
+			{
+				name: "Markdown - Fenced Code Block Attributes",
+				scope: [
+					"markup.fenced_code.block.markdown fenced_code.block.language.attributes.markdown",
+				],
+				settings: {
+					foreground: syntax.yellow,
+				},
+			},
+			{
+				name: "Markdown - Raw Block",
+				scope: ["markup.raw.block.markdown"],
+				settings: {
+					foreground: syntax.fg,
+				},
+			},
+		];
 	}
 
 	return [
-		...styles,
+		...text,
 		{
-			// The `#` symbol in titles.
-			name: "Markdown - Headings",
+			name: "Markup - Bold $inline",
 			scope: [
-				"markdown.heading",
-				"markup.heading | markup.heading entity.name",
-				"markup.heading.markdown punctuation.definition.heading.markdown",
-				"entity.name.section.markdown",
+				"markup.bold.markdown",
+				"markup.bold.markdown punctuation.definition.bold.markdown",
 			],
 			settings: {
-				foreground: syntax.pink,
+				foreground: syntax.orange,
+				fontStyle: "bold",
 			},
 		},
 		{
-			name: "Markup - Bold",
-			scope: ["punctuation.definition.bold.markdown", "markup.bold", "markup.bold string"],
+			name: "Markup - Italic $inline",
+			scope: [
+				"markup.italic.markdown",
+				"markup.italic.markdown punctuation.definition.italic.markdown",
+			],
 			settings: {
-				fontStyle: "bold",
+				foreground: syntax.blue,
+				fontStyle: "italic",
+			},
+		},
+		{
+			name: "Markup - Strikethrough $inline",
+			scope: [
+				"markup.strikethrough.markdown",
+				"markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
+			],
+			settings: {
+				foreground: syntax.fadedGray,
+				fontStyle: "strikethrough",
+			},
+		},
+		...inlineCode,
+		{
+			name: "Markdown - Url $inline Link",
+			scope: [
+				"meta.link.email.lt-gt.markdown markup.underline.link.markdown",
+				"meta.link.inet.markdown markup.underline.link.markdown",
+				"meta.link.inline.markdown markup.underline.link.markdown",
+				"meta.link.reference.markdown constant.other.reference.link.markdown",
+				"meta.link.reference.def.markdown markup.underline.link.markdown",
+				"meta.image.inline.markdown markup.underline.link.image.markdown",
+				"meta.image.reference.markdown constant.other.reference.link.markdown",
+			],
+			settings: {
+				foreground: syntax.purple,
+				fontStyle: "underline",
+			},
+		},
+		{
+			name: "Markdown - Url $inline Title",
+			scope: [
+				"meta.link.inline.markdown string.other.link.title.markdown",
+				"meta.link.reference.markdown string.other.link.title.markdown",
+				"meta.link.reference.def.markdown constant.other.reference.link.markdown",
+				"meta.image.inline.markdown string.other.link.description.markdown",
+				"meta.image.reference.markdown string.other.link.description.markdown",
+			],
+			settings: {
+				foreground: syntax.green,
+			},
+		},
+		{
+			name: "Markdown - Url $inline Descrption",
+			scope: [
+				"meta.link.inline.markdown string.other.link.description.title.markdown",
+				"meta.image.inline.markdown string.other.link.description.title.markdown",
+			],
+			settings: {
+				foreground: syntax.yellow,
+			},
+		},
+		{
+			name: "Markdown - Escape $inline",
+			scope: ["constant.character.escape.markdown"],
+			settings: {
 				foreground: syntax.orange,
 			},
 		},
+		// #region: inline permutations
 		{
-			name: "Markup - Italic",
-			scope: ["punctuation.definition.italic.markdown", "markup.italic"],
-			settings: {
-				fontStyle: "italic",
-				foreground: syntax.blue,
-			},
-		},
-		{
-			name: "Markup - Bold-Italic",
+			name: "Markdown - Bold > Italic $inline",
 			scope: [
-				"markup.bold markup.italic",
-				"markup.italic markup.bold",
-				"markup.quote markup.bold",
-				"markup.bold markup.italic string",
-				"markup.italic markup.bold string",
-				"markup.quote markup.bold string",
+				"markup.bold.markdown markup.italic.markdown",
+				"markup.bold.markdown markup.italic.markdown punctuation.definition.italic.markdown",
 			],
 			settings: {
 				foreground: syntax.blue,
@@ -2629,19 +2970,199 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			},
 		},
 		{
-			name: "Markdown - Quote",
-			scope: ["punctuation.definition.quote.begin.markdown", "markup.quote.markdown"],
+			name: "Markdown - Italic > Bold $inline",
+			scope: [
+				"markup.italic.markdown markup.bold.markdown",
+				"markup.italic.markdown markup.bold.markdown punctuation.definition.bold.markdown",
+			],
 			settings: {
-				foreground: syntax.yellow,
+				foreground: syntax.orange,
+				fontStyle: "italic bold",
+			},
+		},
+		{
+			name: "Markdown - Bold > Strikethrough $inline",
+			scope: [
+				"markup.bold.markdown markup.strikethrough.markdown",
+				"markup.bold.markdown markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
+			],
+			settings: {
+				foreground: syntax.fadedGray,
+				fontStyle: "bold strikethrough",
+			},
+		},
+
+		{
+			name: "Markdown - Strikethrough > Bold $inline",
+			scope: [
+				"markup.strikethrough.markdown markup.bold.markdown",
+				"markup.strikethrough.markdown markup.bold.markdown punctuation.definition.bold.markdown",
+			],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Italic > Strikethrough $inline",
+			scope: [
+				"markup.italic.markdown markup.strikethrough.markdown",
+				"markup.italic.markdown markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
+			],
+			settings: {
+				foreground: syntax.fadedGray,
+				fontStyle: "italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Strikethrough > Italic $inline",
+			scope: [
+				"markup.strikethrough.markdown markup.italic.markdown",
+				"markup.strikethrough.markdown markup.italic.markdown punctuation.definition.italic.markdown",
+			],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Bold > Italic > Strikethrough $inline",
+			scope: [
+				"markup.bold.markdown markup.italic.markdown markup.strikethrough.markdown",
+				"markup.bold.markdown markup.italic.markdown markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
+			],
+			settings: {
+				foreground: syntax.fadedGray,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Bold > Strikethrough > Italic $inline",
+			scope: [
+				"markup.bold.markdown markup.strikethrough.markdown markup.italic.markdown",
+				"markup.bold.markdown markup.strikethrough.markdown markup.italic.markdown punctuation.definition.italic.markdown",
+			],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown -  Italic > Bold > Strikethrough $inline",
+			scope: [
+				"markup.italic.markdown markup.bold.markdown markup.strikethrough.markdown",
+				"markup.italic.markdown markup.bold.markdown markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
+			],
+			settings: {
+				foreground: syntax.fadedGray,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown -  Italic > Strikethrough > Bold $inline",
+			scope: [
+				"markup.italic.markdown markup.strikethrough.markdown markup.bold.markdown",
+				"markup.italic.markdown markup.strikethrough.markdown markup.bold.markdown punctuation.definition.bold.markdown",
+			],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Strikethrough > Bold > Italic $inline",
+			scope: [
+				"markup.strikethrough.markdown markup.bold.markdown markup.italic.markdown",
+				"markup.strikethrough.markdown markup.bold.markdown markup.italic.markdown punctuation.definition.italic.markdown",
+			],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Strikethrough > Italic > Bold $inline",
+			scope: [
+				"markup.strikethrough.markdown markup.italic.markdown markup.bold.markdown",
+				"markup.strikethrough.markdown markup.italic.markdown markup.bold.markdown punctuation.definition.bold.markdown",
+			],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Bold > Inline Code $inline",
+			scope: [
+				"markup.bold.markdown markup.inline.raw.string.markdown",
+				"markup.bold.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+			],
+			settings: {
+				foreground: syntax.fg,
+				fontStyle: "bold",
+			},
+		},
+		{
+			name: "Markdown - Italic > Inline Code $inline",
+			scope: [
+				"markup.italic.markdown markup.inline.raw.string.markdown",
+				"markup.italic.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+			],
+			settings: {
+				foreground: syntax.fg,
 				fontStyle: "italic",
 			},
 		},
 		{
-			name: "Markdown - Strikethrough",
-			scope: ["markup.strikethrough.markdown", "punctuation.definition.strikethrough.markdown"],
+			name: "Markdown - Strikethrough > Inline Code $inline",
+			scope: [
+				"markup.strikethrough.markdown markup.inline.raw.string.markdown",
+				"markup.strikethrough.markdown markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+			],
 			settings: {
-				foreground: syntax.fadedGray,
+				foreground: syntax.fg,
 				fontStyle: "strikethrough",
+			},
+		},
+		// #endregion: inline permutations
+		{
+			name: "Markdown - Math Delimiter $inline/$block",
+			scope: [
+				"markup.math.inline.markdown punctuation.definition.math.begin.markdown",
+				"markup.math.inline.markdown punctuation.definition.math.end.markdown",
+				"markup.math.block.markdown punctuation.definition.math.begin.markdown",
+				"markup.math.block.markdown punctuation.definition.math.end.markdown",
+			],
+			settings: {
+				foreground: syntax.lime,
+			},
+		},
+		{
+			name: "Markdown - Heading",
+			scope: [
+				"markup.heading.markdown",
+				// by default, punctuation is coloured for programming languages
+				"markup.heading.markdown punctuation.definition.heading.markdown",
+				"markup.heading.markdown entity.name.section.markdown",
+				"markup.heading.setext.1.markdown",
+				"markup.heading.setext.2.markdown",
+			],
+			settings: {
+				foreground: syntax.pink,
+			},
+		},
+		...fencedCode,
+		{
+			name: "Markdown - Block Quote",
+			scope: [
+				"markup.quote.markdown",
+				// by default, punctuation is coloured for programming languages
+				"markup.quote.markdown punctuation.definition.quote.begin.markdown",
+				"markup.quote.markdown meta.paragraph.markdown",
+			],
+			settings: {
+				foreground: syntax.yellow,
+				fontStyle: "italic",
 			},
 		},
 		{
@@ -2653,51 +3174,391 @@ function markdownStyles(syntax: any, alternate: boolean) {
 			},
 		},
 		{
-			// The `1.` or `-` or `*` symbols in a list entry.
-			name: "Markdown - List",
-			scope: ["punctuation.definition.list.begin.markdown"],
+			name: "Markdown - List Point",
+			scope: [
+				"markup.list.numbered.markdown punctuation.definition.list.begin.markdown",
+				"markup.list.unnumbered.markdown punctuation.definition.list.begin.markdown",
+			],
 			settings: {
 				foreground: syntax.cyan,
 			},
 		},
 		{
-			// Text comment/description around a link, e.g. `[Go to this link](...)`, or `[](... "some website")`
-			name: "Markup - Url String",
+			name: "Markdown - Punctuation",
 			scope: [
-				"punctuation.definition.string.begin.markdown",
-				"punctuation.definition.string.end.markdown",
-				"string.other.link.description.title.markdown",
-				"string.other.link.description.markdown",
-				"string.other.link.title.markdown",
+				"meta.link.email.lt-gt.markdown punctuation.definition.link.markdown",
+				"meta.link.inet.markdown punctuation.definition.link.markdown",
+				"meta.link.inline.markdown punctuation.definition.link.title.begin.markdown",
+				"meta.link.inline.markdown punctuation.definition.link.title.end.markdown",
+				"meta.link.inline.markdown punctuation.definition.metadata.markdown",
+				"meta.link.reference.markdown punctuation.definition.link.title.begin.markdown",
+				"meta.link.reference.markdown punctuation.definition.link.title.end.markdown",
+				"meta.link.reference.markdown punctuation.definition.constant.begin.markdown",
+				"meta.link.reference.markdown punctuation.definition.constant.end.markdown",
+				"meta.link.reference.def.markdown punctuation.definition.constant.markdown",
+				"meta.link.reference.def.markdown punctuation.separator.key-value.markdown",
+				"meta.image.inline.markdown punctuation.definition.link.description.begin.markdown",
+				"meta.image.inline.markdown punctuation.definition.link.description.end.markdown",
+				"meta.image.inline.markdown punctuation.definition.metadata.markdown",
+				"meta.image.reference.markdown punctuation.definition.link.description.begin.markdown",
+				"meta.image.reference.markdown punctuation.definition.constant.markdown",
 			],
 			settings: {
-				foreground: syntax.green,
+				foreground: syntax.gray,
+			},
+		},
+	];
+}
+
+function generateAlternateMarkdownColors(syntax: SyntaxColors): TextMateStyle[] {
+	return [
+		{
+			name: "Markdown - Text",
+			scope: ["text.html.markdown"],
+			settings: {
+				foreground: syntax.fg,
 			},
 		},
 		{
-			// The url part of the link.
-			name: "Markup - Url Underline",
-			scope: ["markup.underline.link", "constant.other.reference.link.markdown"],
+			name: "Markdown - Bold $inline",
+			scope: ["markup.bold.markdown"],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold",
+			},
+		},
+		{
+			name: "Markdown - Italic $inline",
+			scope: ["markup.italic.markdown"],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "italic",
+			},
+		},
+		{
+			name: "Markdown - Bold + Italic $inline",
+			scope: [
+				"markup.italic.markdown markup.bold.markdown",
+				"markup.bold.markdown markup.italic.markdown",
+			],
+			settings: {
+				foreground: syntax.purple,
+				fontStyle: "bold italic",
+			},
+		},
+		{
+			name: "Markdown - Strikethrough $inline",
+			scope: ["markup.strikethrough.markdown"],
+			settings: {
+				fontStyle: "strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Inline Code $inline",
+			scope: ["markup.inline.raw.string.markdown"],
+			settings: {
+				fontStyle: "underline",
+			},
+		},
+		{
+			name: "Markdown - Url $inline Link",
+			scope: [
+				"meta.link.email.lt-gt.markdown markup.underline.link.markdown",
+				"meta.link.inet.markdown markup.underline.link.markdown",
+				"meta.link.inline.markdown markup.underline.link.markdown",
+				"meta.link.reference.markdown constant.other.reference.link.markdown",
+				"meta.link.reference.def.markdown markup.underline.link.markdown",
+				"meta.image.inline.markdown markup.underline.link.image.markdown",
+				"meta.image.reference.markdown constant.other.reference.link.markdown",
+			],
 			settings: {
 				foreground: syntax.purple,
 				fontStyle: "underline",
 			},
 		},
 		{
-			name: "Markup - Maths",
-			scope: "punctuation.definition.math.begin.markdown",
+			name: "Markdown - Url $inline Title",
+			scope: [
+				"meta.link.inline.markdown string.other.link.title.markdown",
+				"meta.link.reference.markdown string.other.link.title.markdown",
+				"meta.link.reference.def.markdown constant.other.reference.link.markdown",
+				"meta.image.inline.markdown string.other.link.description.markdown",
+				"meta.image.reference.markdown string.other.link.description.markdown",
+			],
 			settings: {
-				foreground: syntax.limeGreen,
+				foreground: syntax.green,
 			},
 		},
 		{
-			name: "Markup - Maths constants/functions",
-			scope: ["constant.character.math.tex", "constant.character.math.tex punctuation.definition.math.tex"],
+			name: "Markdown - Url $inline Descrption",
+			scope: [
+				"meta.link.inline.markdown string.other.link.description.title.markdown",
+				"meta.image.inline.markdown string.other.link.description.title.markdown",
+			],
+			settings: {
+				foreground: syntax.yellow,
+			},
+		},
+		{
+			name: "Markdown - Escape $inline",
+			scope: ["constant.character.escape.markdown"],
+			settings: {
+				foreground: syntax.orange,
+			},
+		},
+		// #region: inline permutations
+		{
+			name: "Markdown - Bold + Strikethrough $inline",
+			scope: [
+				"markup.bold.markdown markup.strikethrough.markdown",
+				"markup.strikethrough.markdown markup.bold.markdown",
+			],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Italic + Strikethrough $inline",
+			scope: [
+				"markup.italic.markdown markup.strikethrough.markdown",
+				"markup.strikethrough.markdown markup.italic.markdown",
+			],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Bold + Italic + Strikethrough $inline",
+			scope: [
+				"markup.bold.markdown markup.italic.markdown markup.strikethrough.markdown",
+				"markup.bold.markdown markup.strikethrough.markdown markup.italic.markdown",
+				"markup.italic.markdown markup.bold.markdown markup.strikethrough.markdown",
+				"markup.italic.markdown markup.strikethrough.markdown markup.bold.markdown",
+				"markup.strikethrough.markdown markup.bold.markdown markup.italic.markdown",
+				"markup.strikethrough.markdown markup.italic.markdown markup.bold.markdown",
+			],
+			settings: {
+				foreground: syntax.purple,
+				fontStyle: "bold italic strikethrough",
+			},
+		},
+		{
+			name: "Markdown - Bold > Inline code $inline",
+			scope: ["markup.bold.markdown markup.inline.raw.string.markdown"],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold underline",
+			},
+		},
+		{
+			name: "Markdown - Italic > Inline code $inline",
+			scope: ["markup.italic.markdown markup.inline.raw.string.markdown"],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "italic underline",
+			},
+		},
+		{
+			name: "Markdown - Bold + Italic > Inline code $inline",
+			scope: [
+				"markup.bold.markdown markup.italic.markdown markup.inline.raw.string.markdown",
+				"markup.italic.markdown markup.bold.markdown markup.inline.raw.string.markdown",
+			],
+			settings: {
+				foreground: syntax.purple,
+				fontStyle: "bold italic underline",
+			},
+		},
+		{
+			name: "Markdown - Strikethrough > Inline code $inline",
+			scope: ["markup.strikethrough.markdown markup.inline.raw.string.markdown"],
+			settings: {
+				fontStyle: "strikethrough underline",
+			},
+		},
+		{
+			name: "Markdown - Bold + Strikethrough > Inline code $inline",
+			scope: [
+				"markup.bold.markdown markup.strikethrough.markdown markup.inline.raw.string.markdown",
+				"markup.strikethrough.markdown markup.bold.markdown markup.inline.raw.string.markdown",
+			],
+			settings: {
+				foreground: syntax.orange,
+				fontStyle: "bold strikethrough underline",
+			},
+		},
+		{
+			name: "Markdown - Italic + Strikethrough > Inline code $inline",
+			scope: [
+				"markup.italic.markdown markup.strikethrough.markdown markup.inline.raw.string.markdown",
+				"markup.strikethrough.markdown markup.italic.markdown markup.inline.raw.string.markdown",
+			],
+			settings: {
+				foreground: syntax.blue,
+				fontStyle: "italic strikethrough underline",
+			},
+		},
+		{
+			name: "Markdown - Bold + Italic > Inline code $inline",
+			scope: [
+				"markup.italic.markdown markup.bold.markdown markup.inline.raw.string.markdown",
+				"markup.bold.markdown markup.italic.markdown markup.inline.raw.string.markdown",
+			],
+			settings: {
+				foreground: syntax.purple,
+				fontStyle: "bold italic underline",
+			},
+		},
+		{
+			name: "Markdown - Bold + Italic + Strikethrough > Inline code $inline",
+			scope: [
+				"markup.bold.markdown markup.italic.markdown markup.strikethrough.markdown markup.inline.raw.string.markdown",
+				"markup.bold.markdown markup.strikethrough.markdown markup.italic.markdown markup.inline.raw.string.markdown",
+				"markup.italic.markdown markup.bold.markdown markup.strikethrough.markdown markup.inline.raw.string.markdown",
+				"markup.italic.markdown markup.strikethrough.markdown markup.bold.markdown markup.inline.raw.string.markdown",
+				"markup.strikethrough.markdown markup.bold.markdown markup.italic.markdown markup.inline.raw.string.markdown",
+				"markup.strikethrough.markdown markup.italic.markdown markup.bold.markdown markup.inline.raw.string.markdown",
+			],
+			settings: {
+				foreground: syntax.purple,
+				fontStyle: "bold italic strikethrough underline",
+			},
+		},
+		// #endregion: inline permutations
+		{
+			name: "Markdown - Heading",
+			scope: [
+				"markup.heading.markdown",
+				"markup.heading.markdown entity.name.section.markdown",
+				"markup.heading.setext.1.markdown",
+				"markup.heading.setext.2.markdown",
+			],
+			settings: {
+				foreground: syntax.pink,
+			},
+		},
+		{
+			name: "Markdown - Fenced Code Block",
+			scope: ["markup.fenced_code.block.markdown"],
+			settings: {
+				foreground: syntax.fg,
+			},
+		},
+		{
+			name: "Markdown - Fenced Code Block Language",
+			scope: ["markup.fenced_code.block.markdown fenced_code.block.language.markdown"],
+			settings: {
+				foreground: syntax.fg,
+				fontStyle: "underline",
+			},
+		},
+		{
+			name: "Markdown - Fenced Code Block Attributes",
+			scope: [
+				"markup.fenced_code.block.markdown fenced_code.block.language.attributes.markdown",
+			],
+			settings: {
+				foreground: syntax.yellow,
+				fontStyle: "underline",
+			},
+		},
+		{
+			name: "Markdown - Raw Block",
+			scope: ["markup.raw.block.markdown"],
+			settings: {
+				foreground: syntax.blue,
+			},
+		},
+		{
+			name: "Markdown - Block Quote",
+			scope: ["markup.quote.markdown", "markup.quote.markdown meta.paragraph.markdown"],
+			settings: {
+				foreground: syntax.yellow,
+				fontStyle: "italic",
+			},
+		},
+		{
+			name: "Markdown - Separator",
+			scope: ["meta.separator.markdown"],
+			settings: {
+				foreground: syntax.lime,
+			},
+		},
+		{
+			name: "Markdown - List Point",
+			scope: [
+				"markup.list.numbered.markdown punctuation.definition.list.begin.markdown",
+				"markup.list.unnumbered.markdown punctuation.definition.list.begin.markdown",
+			],
 			settings: {
 				foreground: syntax.cyan,
 			},
 		},
+		{
+			name: "Markdown - Table Control",
+			scope: ["punctuation.separator.table.markdown"],
+			settings: {
+				foreground: syntax.lime,
+			},
+		},
+		{
+			name: "Markdown - Punctuation",
+			scope: [
+				"punctuation.definition.tag.begin.html",
+				"punctuation.definition.tag.end.html",
+				"punctuation.separator.key-value.html",
+				"punctuation.definition.string.begin.html",
+				"punctuation.definition.string.end.html",
+				"punctuation.definition.comment.html",
+				"markup.bold.markdown punctuation.definition.bold.markdown",
+				"markup.italic.markdown punctuation.definition.italic.markdown",
+				"markup.strikethrough.markdown punctuation.definition.strikethrough.markdown",
+				"markup.inline.raw.string.markdown punctuation.definition.raw.markdown",
+				"meta.link.email.lt-gt.markdown punctuation.definition.link.markdown",
+				"meta.link.inet.markdown punctuation.definition.link.markdown",
+				"meta.link.inline.markdown punctuation.definition.link.title.begin.markdown",
+				"meta.link.inline.markdown punctuation.definition.link.title.end.markdown",
+				"meta.link.inline.markdown punctuation.definition.metadata.markdown",
+				"meta.link.inline.markdown string.other.link.description.title.markdown punctuation.definition.string.begin.markdown",
+				"meta.link.inline.markdown string.other.link.description.title.markdown punctuation.definition.string.end.markdown",
+				"meta.link.reference.markdown punctuation.definition.link.title.begin.markdown",
+				"meta.link.reference.markdown punctuation.definition.link.title.end.markdown",
+				"meta.link.reference.markdown punctuation.definition.constant.begin.markdown",
+				"meta.link.reference.markdown punctuation.definition.constant.end.markdown",
+				"meta.link.reference.def.markdown punctuation.definition.constant.markdown",
+				"meta.link.reference.def.markdown punctuation.separator.key-value.markdown",
+				"meta.image.inline.markdown punctuation.definition.link.description.begin.markdown",
+				"meta.image.inline.markdown punctuation.definition.link.description.end.markdown",
+				"meta.image.inline.markdown punctuation.definition.metadata.markdown",
+				"meta.image.inline.markdown string.other.link.description.title.markdown punctuation.definition.string.begin.markdown",
+				"meta.image.inline.markdown string.other.link.description.title.markdown punctuation.definition.string.end.markdown",
+				"meta.image.reference.markdown punctuation.definition.link.description.begin.markdown",
+				"meta.image.reference.markdown punctuation.definition.constant.markdown",
+				"markup.math.inline.markdown punctuation.definition.math.begin.markdown",
+				"markup.math.inline.markdown punctuation.definition.math.end.markdown",
+				"markup.math.block.markdown punctuation.definition.math.begin.markdown",
+				"markup.math.block.markdown punctuation.definition.math.end.markdown",
+				"markup.heading.markdown punctuation.definition.heading.markdown",
+				"markup.fenced_code.block.markdown punctuation.definition.markdown",
+				"markup.quote.markdown punctuation.definition.quote.begin.markdown",
+				"markup.table.markdown punctuation.definition.table.markdown",
+			],
+			settings: {
+				foreground: syntax.fadedGray,
+			},
+		},
 	];
+}
+
+export interface TextMateStyle {
+	name: string;
+	scope: string | string[];
+	settings: {
+		foreground?: string;
+		fontStyle?: string;
+	};
 }
 
 export interface SyntaxColors {
@@ -2828,6 +3689,7 @@ export interface UiColors {
 		// MINIMAL: list & command bar matching text, badge text
 		primary: string;
 		primaryHover: string;
+		link: string;
 		linkHover: string;
 
 		// Button background, codeblock text, (??? x1)
@@ -3039,6 +3901,7 @@ export interface UiColors {
 
 		// Activity bar inactive icon
 		activityBarInactive: string;
+		activityBarTopInactive: string;
 
 		// Code actions icon
 		lightBulb: string;
@@ -3050,7 +3913,7 @@ export interface UiColors {
 		prerelease: string;
 		sponsor: string;
 
-		// Chart colours
+		// Chart colors
 		chartLine: string;
 		chartBlue: string;
 		chartGreen: string;
@@ -3058,6 +3921,8 @@ export interface UiColors {
 		chartOrange: string;
 		chartRed: string;
 		chartPurple: string;
+
+		preformatText: string;
 	};
 
 	brackets: {

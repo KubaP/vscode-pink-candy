@@ -22,15 +22,42 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - tm: "keyword"
 - tm: "keyword.operator.new.js" - `new`
-- tm: "keyword.operator.ternary.js"
+- tm: "keyword.operator.ternary.js" = `?`, `:`
+- tm: "keyword.control.import.js" - `import`
+- tm: "keyword.control.as.js" - `as`
+- tm: "keyword.control.from.js" - `from`
+- tm: "variable.language.this.js" - `this`
+- tm: "storage.type.js" - `var`, `const`, `let`
 - tm: "constant.language.null.js"
 - tm: "constant.language.undefined.js"
-- tm: "storage.type.js" - `var`, `const`, etc.
 #### ts
 - tm: "keyword"
 - tm: "keyword.operator.new.ts" - `new`
-- tm: "storage.type.ts" - `var`, `const`, `class`, `constructor`, etc.
-- tm: "storage.type.namespace.ts" - `module`
+- tm: "keyword.operator.ternary.ts" - `?`, `:`
+- tm: "keyword.operator.expression.typeof.ts" - `typeof`
+- tm: "keyword.operator.expression.of.ts" - `of`
+- tm: "keyword.operator.expression.in.ts" - `in`
+- tm: "keyword.operator.expression.instanceof.ts" - `instanceof`
+- tm: "keyword.operator.expression.is.ts" - `is`
+- tm: "keyword.operator.expression.keyof.ts" - `keyof`
+- tm: "keyword.operator.expression.infer.ts" - `keyof`
+- tm: "keyword.control.import.ts" - `import`
+- tm: "keyword.control.as.ts" - `as`
+- tm: "keyword.control.from.ts" - `from`
+- tm: "keyword.control.export.ts" - `export`
+- tm: "storage.type.ts" - `var`, `const`, `let`, `constructor`
+- tm: "storage.type.class.ts" - `class`
+- tm: "storage.type.enum.ts" - `enum`
+- tm: "storage.type.interface.ts" - `interface`
+- tm: "storage.type.namespace.ts" - `namespace`
+- tm: "storage.type.function.ts" - `function`
+- tm: "storage.type.function.arrow.ts" - `=>`
+- tm: "storage.type.numeric.bigint.ts" - `n` numeric suffix
+- tm: "storage.type.property.ts" - `get`, `set`
+- tm: "storage.modifier.ts" - `implements`, `static`, `public`, `private`, `extends`, `readonly`, `declare`, `protected`, `abstract`
+- tm: "storage.modifier.async.ts" - `async`
+- tm: "constant.language.null.ts" - `null`
+- tm: "constant.language.undefined.ts" - `undefined`
 
 ### Self/This #F767BB #f85eb4
 #### rust
@@ -42,9 +69,10 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - tm: "variable.language.this.js"
 #### ts
-- tm: "variable.language.this.ts"
+- tm: "variable.language.this.ts" - `this`
+- tm: "variable.language.super.ts" - `super.`, `super()`
 
-### Built-in Type #F767BB #f85eb4
+### Primitive Types #F767BB #f85eb4
 - s: "type"
 #### rust
 - s: "builtinType"
@@ -56,7 +84,8 @@ View this document inside of a text editor with hex colour highlighting support,
 #### js
 - tm: "support.type.primitive.js"
 #### ts
-- tm: "support.type.primitive.ts"
+- tm: "support.type.primitive.ts" - `number`, `string`, `boolean`, `any`, `bigint`, `never`, `void`, `unknown`
+- tm: "support.type.builtin.ts" - `undefined`, `object`, `null`
 
 ### Punctuation #777777 #828da0
 - s: "punctuation"
@@ -75,6 +104,8 @@ View this document inside of a text editor with hex colour highlighting support,
 #### ts
 - tm: "meta.brace.round.ts" - see above
 - tm: "meta.brace.square.ts" - see above
+- tm: "keyword.operator.optional.ts" - `?` ⚠ This is not styled like the rust question mark because this is always used as part of `?:`, and vscode currently doesn't support mutliple colours in a single glyph which will be the case if you have a font with ligatures.
+- tm: "keyword.operator.rest.ts" - `...`
 
 ### Operators #777777 #828da0
 - s: "operator"
@@ -87,7 +118,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "keyword.operator"
 
 
-### Function #09A1ED #10b1fe
+### Functions #09A1ED #10b1fe
 #### rust
 - s: "function"
 - tm: "entity.name.function.rust" ⚠ Cannot differentiate between functions and enum tuple variants. Cannot differentiate static functions from object methods.
@@ -101,7 +132,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "function"
 - tm: "entity.name.function.ts"
 
-### Method #09A1ED #10b1fe
+### Methods #09A1ED #10b1fe
 #### rust
 - s: "method"
 - tm: "entity.name.function.rust"
@@ -113,7 +144,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "entity.name.function.ts"
 
 
-### Namespace #565869 #b9bfca
+### Namespaces #565869 #b9bfca
 #### rust
 - s: "namespace"
 - tm: "entity.name.namespace.rust"
@@ -124,7 +155,7 @@ View this document inside of a text editor with hex colour highlighting support,
 - s: "namespace" - Only in code, not in imports header.
 
 
-### Custom Type #2DAE58 #3fc56b
+### Non-primitive Types #2DAE58 #3fc56b
 #### rust
 - s: "struct"
 - s: "enum"
@@ -149,12 +180,13 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "support.class.builtin.js" - Classes from the std lib
 - tm: "support.class.component.js" - React "classes" (types)
 #### ts
-- s: "class
-- s: "class.defaultLibrary" - Classes from the std lib
-- s: "enum"
-- tm: "entity.name.type.class.ts"- Class declaration (⚠ Cannot differentiate between classes and functions outside of the class declaration).
+- s: "class - Types defined using `class`.
+- s: "enum" - Types defined using `enum`.
+- s: "type" - Types defined using `type`.
+- s: ".defaultLibrary" - Defined in the std lib
+- tm: "entity.name.type.class.ts" - Class declaration only (⚠ Cannot differentiate between classes and functions outside of the class declaration).
 
-### Enum Member #13BBB7 #15c9c5 ℹ Includes boolean `true/false`.
+### Enum Members #13BBB7 #15c9c5 ℹ Includes boolean `true/false`.
 #### rust
 - s: "enumMember"
 - s: "boolean"
@@ -341,9 +373,10 @@ View this document inside of a text editor with hex colour highlighting support,
 - tm: "constant.numeric.octal.js"
 #### ts
 - tm: "constant.numeric.decimal.ts"
-- tm: "constant.numeric.binary.ts"
-- tm: "constant.numeric.hex.ts"
-- tm: "constant.numeric.octal.ts"
+- tm: "constant.numeric.binary.ts" - `0b...`
+- tm: "constant.numeric.hex.ts" - `0x...`
+- tm: "constant.numeric.octal.ts" - `0o...`
+- tm: "constant.language.nan.ts" - `NaN`
 
 ### Comments #ADB1C2 #636d83
 #### rust
@@ -769,64 +802,128 @@ XML only supports textmate highlighting; it has no semantic highlighting.
 ## Markdown
 Markdown only supports textmate highlighting; it has no semantic highlighting.
 
-### Text #565869 #B9BFCA (alternatively #ADB1C2 #636d83)
-- "text.html.markdown"
-- "punctuation.definition.list_item.markdown"
+For markdown `"traditonal"` and `"mutedPlaintext"` styles, any control characters (e.g. `*`, ``` ` ```) are styled the same as the text they surround. This is different from markdown `"alternate"` and asciidoc where the control characters are grayed-out.
 
-### Titles #F767BB #f85eb4
-- "entity.name.section.markdown" - `# Heading title`
-- "markdown.heading"
-- "markup.heading.markdown"
-- "punctuation.definition.heading.markdown" - `## ...`
+Root: `text.html.markdown` when inside of a markdown file
 
-### Bold #FF5C57 #ff6b66 (bold)
-- "markup.bold"
-- "punctuation.definition.bold.markdown" - `** ... **`
+- [tmGrammar definition](https://github.com/microsoft/vscode-markdown-tm-grammar/blob/main/markdown.tmLanguage.base.yaml)
+- [tmGrammar for the injected math tex](https://github.com/microsoft/vscode/blob/d5aa7c36486e51fafe074eb9327ae9196ca3759b/extensions/latex/syntaxes/TeX.tmLanguage.json)
 
-### Italic #09A1ED #10b1fe
-- "markup.italic"
-- "punctuation.definition.italic.markdown" - `* ... *`
+### Text #565869 #B9BFCA #d5c4a1 (alternatively #ADB1C2 #636d83 #928374)
+- `<none>`
 
-### Quote #CF9C00 #F9C859
-- "markup.quote.markdown"
-- "punctuation.definition.quote.begin.markdown" - `> ...`
+### Bold $inline #FF5C57 #ff6b66 #fe8019 (bold)
+- inline `markup.bold.markdown`, includes the actual bold text
+  - `punctuation.definition.bold.markdown`, the `**`
 
-### Strikethrough #ADB1C2 #636D83
-- "markup.strikethrough.markdown"
-- "punctuation.definition.strikethrough.markdown"
+### Italic $inline #09A1ED #10b1fe #839da5 (italic)
+- inline `markup.italic.markdown`, includes the actual italic text
+  - `punctuation.definition.italic.markdown`, the `*`
 
-### Inline Code #565869 #B9BFCA (bold)
-- "markup.inline.raw.string.markdown"
-- "punctuation.definition.raw.markdown" - `` `...` ``
+### Strikethrough $inline #ADB1C2 #636D83 #928374 (strikethrough)
+- inline `markup.strikethrough.markdown`, includes the actual strikethrough text
+  - `punctuation.definition.strikethrough.markdown`, the `~~`
 
-### Fenced Codeblock #565869 #B9BFCA
-- "markup.fenced_code.block.markdown"
-#### Language Identifier #565869 #B9BFCA (bold)
-- "fenced_code.block.language.markdown" - ```` ```rust ````
+### Inline Code $inline #565869 #B9BFCA #d5c4a1 (bold)
+- inline `markup.inline.raw.string.markdown`, includes the actual raw text
+  - `punctuation.definition.raw.markdown`, the ``` ` ```
 
-### List #13BBB7 #15c9c5
-- "punctuation.definition.list.begin.markdown" - `- ...`, `1. ...`, `* ...`
+### Url $inline Link #cd6bf4 #d177f5 #bd86d3 (underline) and Title #8cba10 #9acc12 #b8bb26 and Description #CF9C00 #F9C859 #fabd2f
+- `meta.link.email.lt-gt.markdown`, a `<mailto:foo@bar.com>`
+  - `punctuation.definition.link.markdown`, the `<` and `>`
+  - `markup.underline.link.markdown`, the actual url text
+- `meta.link.inet.lt-gt.markdown`, a `<https://foo.com>` or `<ftp://bar.net>`
+  - `punctuation.definition.link.markdown`, the `<` and `>`
+  - `markup.underline.link.markdown`, the actual url text
+- `meta.link.inline.markdown`, a `[foo](bar "baz")`
+  - `punctuation.definition.link.title.begin.markdown`, the `[`
+  - `string.other.link.title.markdown`, the title within square brackets
+  - `punctuation.definition.link.title.end.markdown`, the `]`
+  - `punctuation.definition.metadata.markdown`, the `(` and `)`
+  - `markup.underline.link.markdown`, the actual url text
+  - `string.other.link.description.title.markdown`, the description text
+    - `punctuation.definition.string.begin.markdown`, the `"`, `'` or `(`
+    - `punctuation.definition.string.end.markdown`, the `"`, `'` or `)`
+- `meta.link.reference.markdown`, a `[foo][1]`
+  - `punctuation.definition.link.title.begin.markdown`, the `[`
+  - `string.other.link.title.markdown`, the title
+  - `punctuation.definition.link.title.end.markdown`, the `]`
+  - `punctuation.definition.constant.begin.markdown`, the `[`
+  - `constant.other.reference.link.markdown`, the reference
+  - `punctuation.definition.constant.end.markdown`, the `]`
+- `meta.link.reference.def.markdown`
+  - `punctuation.definition.constant.markdown`, the `[` and `]`
+  - `constant.other.reference.link.markdown`, the reference title
+  - `punctuation.separator.key-value.markdown`, the `:`
+  - `markup.underline.link.markdown`, if the text is a url
+- `meta.image.inline.markdown`, a `![image](foo.png "bar")`
+  - `punctuation.definition.link.description.begin.markdown`, the `![`
+  - `string.other.link.description.markdown`, the image title
+  - `punctuation.definition.link.description.end.markdown`, the `]`
+  - `punctuation.definition.metadata.markdown`, the `(` and `)`
+  - `markup.underline.link.image.markdown`, the actual url text
+  - `string.other.link.description.title.markdown`, the description text
+    - `punctuation.definition.string.begin.markdown`, the `"`, `'` or `(`
+    - `punctuation.definition.string.end.markdown`, the `"`, `'` or `)`
+- `meta.image.reference.markdown`, a `![image][1]`
+  - `punctuation.definition.link.description.begin.markdown`, the `![`
+  - `string.other.link.description.markdown`, the image title
+  - `punctuation.definition.link.description.end.markdown`, the `]`
+  - `punctuation.definition.constant.markdown`, the `[` and `]`
+  - `constant.other.reference.link.markdown`, the reference
 
-### Url Description #2DAE58 #3fc56b
-- "string.other.link.title.markdown"
-- "string.other.link.description.markdown"
-- "string.other.link.description.title.markdown"
-- "punctuation.definition.string.begin.markdown" - `[](... "...")`
-- "punctuation.definition.string.end.markdown" - `[](... "...")`
+### Escape Character $inline #FF5C57 #ff6b66 #fe8019
+- `constant.character.escape.markdown`
 
-### Url Link #cd6bf4 #d177f5 (underlined)
-- "markup.underline.link"
-- "constant.other.reference.link.markdown"
+### Math $inline/$block Delimiter #8CBA10 #9ACC12 #91c043
+- `markup.math.inline.markdown`/`markup.math.block.markdown`
+  - `punctuation.definition.math.begin.markdown`, the `$`
+  - `punctuation.definition.math.end.markdown`, the `$`
+  - `meta.embedded.math.markdown`, the actual math text
+    - `constant.numeric.math.tex`, numbers `4`, `1.0`
 
-### String Quote Marks #777777 #828da0
-- "punctuation.definition.string.markdown"
+### Heading #F767BB #f85eb4
+- `markup.heading.markdown`
+  - `heading.$x.markdown`, where `1 <= $x <= 6`
+    - `punctuation.definition.heading.markdown`, the `#`, `##`, etc.
+    - `entity.name.section.markdown`, the actual heading text
+- `markup.heading.setext.1.markdown`, a heading by underlining with `=`
+- `markup.heading.setext.2.markdown`, a heading by underlining with `-`
 
-### Math Delimiters #8cba10 #9acc12
-- "punctuation.definition.math.begin.markdown"
+### Fenced Code Block Delimiter/Language #565869 #B9BFCA #d5c4a1 and Attributes #CF9C00 #F9C859 #fabd2f
+- `markup.fenced_code.block.markdown`
+  - `punctuation.definition.markdown`, the ` ``` `
+  - `fenced_code.block.language.markdown`, the language
+  - `fenced_code.block.language.attributes.markdown`, anything after the language
+  - `meta.embedded.block.$x`, where `$x` is the language
 
-### Math Constants/Functions #13BBB7 #15c9c5
-- "constant.character.math.tex",
-- "constant.character.math.tex punctuation.definition.math.tex"
+### Raw Block #565869 #B9BFCA #d5c4a1
+- `markup.raw.block.markdown`
+
+### Block Quote #CF9C00 #F9C859 #fabd2f (italic)
+- `markup.quote.markdown`
+  - `punctuation.definition.quote.begin.markdown`, the `>`
+  - `meta.paragraph.markdown`, the actual quote paragraph text
+
+### Separator #565869 #B9BFCA #d5c4a1 (bold)
+- `meta.separator.markdown`
+
+### List Point #13BBB7 #15c9c5 #7cc091
+- `markup.list.numbered.markdown`
+  - `punctuation.definition.list.begin.markdown`, the `1.`, `1)`
+- `markup.list.unnumbered.markdown`
+  - `punctuation.definition.list.begin.markdown`, the `-`, `*`, `+`
+
+### Table (inherits Text)
+- `markup.table.markdown`, all text within table
+  - `punctuation.definition.table.markdown`, the `|`
+  - `punctuation.separator.table.markdown`, the `-`, `:`
+
+### Comments
+See HTML styles.
+
+### Inline HTML
+See HTML styles.
 
 
 
