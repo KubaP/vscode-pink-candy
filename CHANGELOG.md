@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.5.0 - 2024-03-06
+### Added
+- Syntax highlighting for Asciidoc files; most language features are now styled.
+- Markdown syntax highlighting for raw blocks (indent by 4 spaces), fenced code block attributes, and alternate-notation headings (`===` and `---` underlines).
+- Alternate markdown syntax highlighting colour scheme that emphasizes semantic meaning and de-emphasizes markdown control characters. This is accessible through the new `theme-pink-candy.markdownSyntaxStyle` setting. See the documentation for a comparison against the existing colour scheme.
+- Typescript syntax highlighting for `typeof`, `in`, `is`, `instanceof`, `keyof` and `infer` keywords; `super` built-in variable, `NaN` literal; built-in primitive types (like `undefined`, `null`, `object`, etc).
+- Javascript syntax highlighting for `typeof`.
+- UI styles for the new *Multi Diff Viewer* introduced in version 1.86.
+- UI styles for the new *Button toggle states* introduced in version 1.82.
+- UI styles for the new *Top Activity Bar* introduced in version 1.84.
+- UI style for the new *preformatted text background* introduced in version 1.84.
+
+### Changed
+- Increased contrast of links in the dark theme variants.
+- Improved existing markdown syntax highlighting for inline styles. Edge cases such as bold and simultaneously italic and simultaneously strikethrough text now are styled correctly and more clearly.
+- The existing `theme-pink-candy.mutedMarkdownPlaintext` setting is now deprecated. The existing functionality is replaced by the new `theme-pink-candy.markdownSyntaxStyle` setting.
+- Improved the descriptions for the extension's settings.
+- Scoped the extension's settings to be application-wide. Previously the settings were unscoped.
+
+### Fixed
+- Missing border between the activity bar and whatever is to the side of it (primary side bar, editor pane, etc).
+- Typescript syntax highlighting for types defined using the `type` keyword were incorrectly coloured like primitive types.
+
 ## 1.4.0 - 2022-12-31
 ### Added
 - A warm variant of the dark theme. This is heavily inspired by Gruvbox, but with some modifications to fit with the rest of the themes.
