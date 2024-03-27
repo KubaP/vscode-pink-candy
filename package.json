@@ -155,6 +155,33 @@
 						"An accent colour for the inlay hint text and a lightly shaded background."
 					]
 				},
+				"theme-pink-candy.light.terminalColourScheme": {
+					"type": "string",
+					"scope": "application",
+					"default": "normal+dark",
+					"markdownDescription": "Controls the terminal colour scheme.\r\nThe commonly accepted ANSI/aixterm escape sequences to control colours are somewhat ambiguous. The \"bright\" colours on a dark terminal background often mean \"higher contrast\". However, on a light terminal background, higher contrast requires \"darker\" colours instead. Since this is quite ambiguous and there's no clearly defined standard interpretation, this setting allows choosing from a few options.",
+					"description": "Controls the terminal colour scheme.",
+					"enum": [
+						"normal+dark",
+						"normal+light",
+						"dark+normal"
+					],
+					"enumItemLabels": [
+						"Normal/Dark",
+						"Normal/Light",
+						"Dark/Normal"
+					],
+					"markdownEnumDescriptions": [
+						"Normal theme colours for the standard 30-37/40-47 ANSI colours, and darker (higher contrast) colours for the \"bright\" 90-97 aixterm colours; this is the *default* option.",
+						"Normal theme colours for the standard 30-37 ANSI colours, and lighter (lower contrast) colours for the \"bright\" 90-97/100-107 aixterm colours.",
+						"Darker (higher contrast) colours for the standard 30-37/40-47 ANSI colours, and normal theme colours for the \"bright\" 90-97 aixterm colours."
+					],
+					"enumDescriptions": [
+						"Normal theme colours for the standard 30-37/40-47 ANSI colours, and darker (higher contrast) colours for the \"bright\" 90-97 aixterm colours; this is the default option.",
+						"Normal theme colours for the standard 30-37 ANSI colours, and lighter (lower contrast) colours for the \"bright\" 90-97/100-107 aixterm colours.",
+						"Darker (higher contrast) colours for the standard 30-37/40-47 ANSI colours, and normal theme colours for the \"bright\" 90-97 aixterm colours."
+					]
+				},
 				"theme-pink-candy.globalAccent": {
 					"type": "string",
 					"scope": "application",

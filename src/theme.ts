@@ -425,6 +425,78 @@ function generateTheme(
 			break;
 	}
 
+	// Terminal colour scheme.
+	let terminalColourScheme;
+	if (type == "light" && config.lightTerminalColourScheme != "normal+dark") {
+		if (config.lightTerminalColourScheme == "normal+light") {
+			terminalColourScheme = {
+				"terminal.foreground": color.terminal.foreground,
+				"terminal.background": color.ui.primaryBg,
+				"terminal.ansiBlack": color.terminal.ansiBackground,
+				"terminal.ansiBrightBlack":
+					color.terminal.alternativeContrast!.ansiContrastBackground,
+				"terminal.ansiWhite": color.terminal.ansiForeground,
+				"terminal.ansiBrightWhite":
+					color.terminal.alternativeContrast!.ansiContrastForeground,
+				"terminal.ansiBlue": color.terminal.ansiBlue,
+				"terminal.ansiBrightBlue": color.terminal.alternativeContrast!.ansiContrastBlue,
+				"terminal.ansiCyan": color.terminal.ansiCyan,
+				"terminal.ansiBrightCyan": color.terminal.alternativeContrast!.ansiContrastCyan,
+				"terminal.ansiGreen": color.terminal.ansiGreen,
+				"terminal.ansiBrightGreen": color.terminal.alternativeContrast!.ansiContrastGreen,
+				"terminal.ansiYellow": color.terminal.ansiYellow,
+				"terminal.ansiBrightYellow": color.terminal.alternativeContrast!.ansiContrastYellow,
+				"terminal.ansiRed": color.terminal.ansiRed,
+				"terminal.ansiBrightRed": color.terminal.alternativeContrast!.ansiContrastRed,
+				"terminal.ansiMagenta": color.terminal.ansiMagenta,
+				"terminal.ansiBrightMagenta":
+					color.terminal.alternativeContrast!.ansiContrastMagenta,
+			};
+		} else {
+			terminalColourScheme = {
+				"terminal.foreground": color.terminal.alternativeWhole!.foreground,
+				"terminal.background": color.ui.primaryBg,
+				"terminal.ansiBlack": color.terminal.alternativeWhole!.ansiBackground,
+				"terminal.ansiBrightBlack": color.terminal.alternativeWhole!.ansiContrastBackground,
+				"terminal.ansiWhite": color.terminal.alternativeWhole!.ansiForeground,
+				"terminal.ansiBrightWhite": color.terminal.alternativeWhole!.ansiContrastForeground,
+				"terminal.ansiBlue": color.terminal.alternativeWhole!.ansiBlue,
+				"terminal.ansiBrightBlue": color.terminal.alternativeWhole!.ansiContrastBlue,
+				"terminal.ansiCyan": color.terminal.alternativeWhole!.ansiCyan,
+				"terminal.ansiBrightCyan": color.terminal.alternativeWhole!.ansiContrastCyan,
+				"terminal.ansiGreen": color.terminal.alternativeWhole!.ansiGreen,
+				"terminal.ansiBrightGreen": color.terminal.alternativeWhole!.ansiContrastGreen,
+				"terminal.ansiYellow": color.terminal.alternativeWhole!.ansiYellow,
+				"terminal.ansiBrightYellow": color.terminal.alternativeWhole!.ansiContrastYellow,
+				"terminal.ansiRed": color.terminal.alternativeWhole!.ansiRed,
+				"terminal.ansiBrightRed": color.terminal.alternativeWhole!.ansiContrastRed,
+				"terminal.ansiMagenta": color.terminal.alternativeWhole!.ansiMagenta,
+				"terminal.ansiBrightMagenta": color.terminal.alternativeWhole!.ansiContrastMagenta,
+			};
+		}
+	} else {
+		terminalColourScheme = {
+			"terminal.foreground": color.terminal.foreground,
+			"terminal.background": color.ui.primaryBg,
+			"terminal.ansiBlack": color.terminal.ansiBackground,
+			"terminal.ansiBrightBlack": color.terminal.ansiContrastBackground,
+			"terminal.ansiWhite": color.terminal.ansiForeground,
+			"terminal.ansiBrightWhite": color.terminal.ansiContrastForeground,
+			"terminal.ansiBlue": color.terminal.ansiBlue,
+			"terminal.ansiBrightBlue": color.terminal.ansiContrastBlue,
+			"terminal.ansiCyan": color.terminal.ansiCyan,
+			"terminal.ansiBrightCyan": color.terminal.ansiContrastCyan,
+			"terminal.ansiGreen": color.terminal.ansiGreen,
+			"terminal.ansiBrightGreen": color.terminal.ansiContrastGreen,
+			"terminal.ansiYellow": color.terminal.ansiYellow,
+			"terminal.ansiBrightYellow": color.terminal.ansiContrastYellow,
+			"terminal.ansiRed": color.terminal.ansiRed,
+			"terminal.ansiBrightRed": color.terminal.ansiContrastRed,
+			"terminal.ansiMagenta": color.terminal.ansiMagenta,
+			"terminal.ansiBrightMagenta": color.terminal.ansiContrastMagenta,
+		};
+	}
+
 	return {
 		name: name,
 		type: type,
@@ -1033,24 +1105,7 @@ function generateTheme(
 			"charts.purple": color.ui.chartPurple,
 			//
 			// TERMINAL COLORS [x]
-			"terminal.background": color.ui.primaryBg,
-			"terminal.foreground": color.terminal.foreground, // 0m (foreground)
-			"terminal.ansiBlack": color.terminal.ansiBlack, // 30m
-			"terminal.ansiBrightBlack": color.terminal.ansiBrightBlack, // 30;1m
-			"terminal.ansiWhite": color.terminal.ansiWhite, //37m (background)
-			"terminal.ansiBrightWhite": color.terminal.ansiBrightWhite, // (technicall 37;1m but vscode also applies this to just bold 1m)
-			"terminal.ansiBlue": color.terminal.ansiBlue,
-			"terminal.ansiBrightBlue": color.terminal.ansiBrightBlue,
-			"terminal.ansiCyan": color.terminal.ansiCyan,
-			"terminal.ansiBrightCyan": color.terminal.ansiBrightCyan,
-			"terminal.ansiGreen": color.terminal.ansiGreen,
-			"terminal.ansiBrightGreen": color.terminal.ansiBrightGreen,
-			"terminal.ansiYellow": color.terminal.ansiYellow,
-			"terminal.ansiBrightYellow": color.terminal.ansiBrightYellow,
-			"terminal.ansiRed": color.terminal.ansiRed,
-			"terminal.ansiBrightRed": color.terminal.ansiBrightRed,
-			"terminal.ansiMagenta": color.terminal.ansiMagenta,
-			"terminal.ansiBrightMagenta": color.terminal.ansiBrightMagenta,
+			...terminalColourScheme,
 			//
 			"terminal.selectionBackground": color.text.selectionBgA,
 			"terminal.inactiveSelectionBackground": color.text.secondarySelectionBgA,
@@ -3576,7 +3631,8 @@ export interface SyntaxColors {
 	fg: string;
 	gray: string;
 	fadedGray: string;
-
+	// Bold text, due to it's boldness, has a higher contrast. To maintain the same perceptual contrast, a lower
+	// contrast colour must be used instead.
 	boldPink: string;
 	boldBlue: string;
 	boldLightBlue: string;
@@ -3793,23 +3849,58 @@ export interface UiColors {
 		success: string;
 		error: string;
 
-		foreground: string; // 0m (foreground)
-		ansiBlack: string; // 30m
-		ansiBrightBlack: string; // 30;1m
-		ansiWhite: string; //37m (background)
-		ansiBrightWhite: string; // (technicall 37;1m but vscode also applies this to just bold 1m, hence it's white)
-		ansiBlue: string;
-		ansiBrightBlue: string;
-		ansiCyan: string;
-		ansiBrightCyan: string;
-		ansiGreen: string;
-		ansiBrightGreen: string;
-		ansiYellow: string;
-		ansiBrightYellow: string;
-		ansiRed: string;
-		ansiBrightRed: string;
-		ansiMagenta: string;
-		ansiBrightMagenta: string;
+		foreground: string;
+
+		ansiForeground: string; // 7
+		ansiContrastForeground: string; // 7^
+		ansiBackground: string; // 0
+		ansiContrastBackground: string; // 0^
+		ansiBlue: string; // 4
+		ansiContrastBlue: string; // 4^
+		ansiCyan: string; // 6
+		ansiContrastCyan: string; // 6^
+		ansiGreen: string; // 2
+		ansiContrastGreen: string; // 2^
+		ansiYellow: string; // 3
+		ansiContrastYellow: string; // 3^
+		ansiRed: string; // 1
+		ansiContrastRed: string; // 1^
+		ansiMagenta: string; // 5
+		ansiContrastMagenta: string; // 5^
+
+		// Alternative set of colours for the "bright" aixterm colours (90-97/100-107).
+		alternativeContrast?: {
+			ansiContrastForeground: string; // 7^
+			ansiContrastBackground: string; // 0^
+			ansiContrastBlue: string; // 4^
+			ansiContrastCyan: string; // 6^
+			ansiContrastGreen: string; // 2^
+			ansiContrastYellow: string; // 3^
+			ansiContrastRed: string; // 1^
+			ansiContrastMagenta: string; // 5^
+		};
+
+		// Alternative set of all ANSI/aixterm colours.
+		alternativeWhole?: {
+			foreground: string;
+
+			ansiForeground: string; // 7
+			ansiContrastForeground: string; // 7^
+			ansiBackground: string; // 0
+			ansiContrastBackground: string; // 0^
+			ansiBlue: string; // 4
+			ansiContrastBlue: string; // 4^
+			ansiCyan: string; // 6
+			ansiContrastCyan: string; // 6^
+			ansiGreen: string; // 2
+			ansiContrastGreen: string; // 2^
+			ansiYellow: string; // 3
+			ansiContrastYellow: string; // 3^
+			ansiRed: string; // 1
+			ansiContrastRed: string; // 1^
+			ansiMagenta: string; // 5
+			ansiContrastMagenta: string; // 5^
+		};
 	};
 
 	ui: {
