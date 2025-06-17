@@ -18,9 +18,9 @@ Developer documentation lives in the `/docs` folder. User documentation lives in
 
 ## Development
 Prerequisites:
-- `npm` 8.0.0+
-- `node` 10.0.0+
-- `pwsh` 7.0.0+
+- `npm` 8.0+
+- `node` 20.0+
+- `pwsh` 7.0+
 
 The extension manifest defines the following npm scripts:
 - `buildTheme` - Builds the theme files.
