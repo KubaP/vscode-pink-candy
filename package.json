@@ -216,8 +216,9 @@
 		"buildTs": "tsc -p ./",
 		"watchTs": "tsc -watch -p ./",
 		"package": "vsce package",
-		"publish": "vsce publish -p",
-		"postPublish": "node -e \"const version = require('./package.json').version; console.log(`##vso[task.setvariable variable=version;isOutput=true]${version}`);\""
+		"publishMS": "vsce publish -p",
+		"publishOVSX": "ovsx publish",
+		"getVersion": "node -e \"const version = require('./package.json').version; console.log(`##vso[task.setvariable variable=version;isOutput=true]${version}`);\""
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.4",
@@ -230,6 +231,7 @@
 		"glob": "^7.1.7",
 		"jimp": "^0.16.1",
 		"mocha": "^9.1.1",
+		"ovsx": "^0.10.4",
 		"typescript": "^4.4.3"
 	}
 }
