@@ -1,22 +1,20 @@
 import { SyntaxColors, UiColors } from "./theme";
 
 export const darkWarmSyntax: SyntaxColors = {
+	fg: "#d5c4a1",
+	gray: "#a89984",
+	fadedGray: "#928374",
 	strongPink: "#fb3453",
 	pink: "#fb5270",
 	purple: "#bd86d3",
 	blue: "#839da5",
-	cyan: "#7cc091",
 	lightBlue: "#aaaaaa",
+	cyan: "#7cc091",
 	green: "#b8bb26",
 	lime: "#91c043",
 	yellow: "#fabd2f",
 	orange: "#fe8019",
 	mauve: "#c7899a",
-	fg: "#d5c4a1",
-	gray: "#a89984",
-	fadedGray: "#928374",
-	//fadedGray: "#7c6f64",
-
 	boldPink: "#fb4162",
 	boldBlue: "#778f97",
 	boldLightBlue: "#969696",
@@ -236,22 +234,22 @@ export const darkWarmColors: UiColors = {
 		error: "#fb3453",
 
 		foreground: "#d5c4a1", // 0m (foreground)
-		ansiBlack: "#fbf1c7", // 30m
-		ansiBrightBlack: "#666666", // 30;1m
-		ansiWhite: "#1d2021", //37m (background)
-		ansiBrightWhite: "#fbf1c7", // (technicall 37;1m but vscode also applies this to just bold 1m, hence it's white)
+		ansiForeground: "#1d2021", //37m (background)
+		ansiContrastForeground: "#fbf1c7", // (technicall 37;1m but vscode also applies this to just bold 1m, hence it's white)
+		ansiBackground: "#fbf1c7", // 30m
+		ansiContrastBackground: "#666666", // 30;1m
 		ansiBlue: "#458588",
-		ansiBrightBlue: "#83a598",
+		ansiContrastBlue: "#83a598",
 		ansiCyan: "#689d6a",
-		ansiBrightCyan: "#8ec07c",
+		ansiContrastCyan: "#8ec07c",
 		ansiGreen: "#98971a",
-		ansiBrightGreen: "#b8bb26",
+		ansiContrastGreen: "#b8bb26",
 		ansiYellow: "#d79921",
-		ansiBrightYellow: "#fabd2f",
+		ansiContrastYellow: "#fabd2f",
 		ansiRed: "#cc241d",
-		ansiBrightRed: "#fb4934",
+		ansiContrastRed: "#fb4934",
 		ansiMagenta: "#b16286",
-		ansiBrightMagenta: "#d3869b",
+		ansiContrastMagenta: "#d3869b",
 	},
 
 	ui: {

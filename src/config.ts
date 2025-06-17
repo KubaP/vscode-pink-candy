@@ -26,6 +26,14 @@ function isValidInlayHintStyle(str: string): str is InlayHintStyle {
 }
 
 /**
+ * Valid light terminal colour schemes.
+ */
+type LightTerminalColourScheme = "normal+dark" | "normal+light" | "dark+normal";
+function isValidLightTerminalColourScheme(str: string): str is LightTerminalColourScheme {
+	return str == "normal+dark" || str == "normal+light" || str == "dark+normal";
+}
+
+/**
  * Valid global accent options.
  */
 type GlobalAccent = "default" | "disabledStatusBar" | "minimal";
@@ -42,6 +50,7 @@ export class Config {
 	altCurrentLine: boolean;
 	monochromeBracketGuides: boolean;
 	inlayStyle: InlayHintStyle;
+	lightTerminalColourScheme: LightTerminalColourScheme;
 	globalAccent: GlobalAccent;
 
 	constructor(
@@ -50,6 +59,7 @@ export class Config {
 		altCurrentLine: boolean,
 		monochromeBracketGuides: boolean,
 		inlayStyle: InlayHintStyle,
+		lightTerminalColourScheme: LightTerminalColourScheme,
 		globalAccent: GlobalAccent
 	) {
 		this.markdownSyntaxStyle = markdownSyntaxStyle;
@@ -57,13 +67,14 @@ export class Config {
 		this.altCurrentLine = altCurrentLine;
 		this.inlayStyle = inlayStyle;
 		this.monochromeBracketGuides = monochromeBracketGuides;
+		this.lightTerminalColourScheme = lightTerminalColourScheme;
 		this.globalAccent = globalAccent;
 	}
 
 	/**
 	 * The default configuration settings.
 	 *
-	 * Note: these default values should be kept in-line with `package.json`.
+	 * WARNING: these default values should be kept in-line with `package.json`.
 	 */
 	static DEFAULT: Config = new Config(
 		"traditional",
@@ -71,6 +82,7 @@ export class Config {
 		false,
 		false,
 		"noBackground",
+		"normal+dark",
 		"default"
 	);
 
@@ -103,6 +115,7 @@ export class Config {
 				this.italicComments == cachedConfig.italicComments &&
 				this.monochromeBracketGuides == cachedConfig.monochromeBracketGuides &&
 				this.inlayStyle == cachedConfig.inlayStyle &&
+				this.lightTerminalColourScheme == cachedConfig.lightTerminalColourScheme &&
 				this.globalAccent == cachedConfig.globalAccent
 			) {
 				return false;
@@ -182,6 +195,18 @@ export function getConfig(): Config {
 		inlayStyle = "noBackground";
 	}
 
+	let lightTerminalColourScheme: LightTerminalColourScheme;
+	let lightTerminalColourSchemeRaw: string | undefined = config.get("light.terminalColourScheme");
+	if (lightTerminalColourSchemeRaw === undefined) {
+		lightTerminalColourScheme = "normal+dark";
+	}
+	// No idea why we need to explicitly cast here, but not for the others.
+	if (isValidLightTerminalColourScheme(lightTerminalColourSchemeRaw as string)) {
+		lightTerminalColourScheme = lightTerminalColourSchemeRaw as LightTerminalColourScheme;
+	} else {
+		lightTerminalColourScheme = "normal+dark";
+	}
+
 	let globalAccent: GlobalAccent;
 	let globalAccentRaw: string | undefined = config.get("globalAccent");
 	if (globalAccentRaw === undefined) {
@@ -199,6 +224,7 @@ export function getConfig(): Config {
 		altCurrentLine,
 		monochromeBracketGuides,
 		inlayStyle,
+		lightTerminalColourScheme,
 		globalAccent
 	);
 }
@@ -217,5 +243,6 @@ export function resetConfig() {
 	config.update("alternateCurrentLineStyle", undefined, true);
 	config.update("monochromeBracketPairGuides", undefined, true);
 	config.update("inlayHintStyle", undefined, true);
+	config.update("light.terminalColourScheme", undefined, true);
 	config.update("globalAccent", undefined, true);
 }

@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.6.0 - 2025-06-17
+### Added
+- The extension is now published on the [OpenVSX](https://open-vsx.org/extension/kuba-p/theme-pink-candy) marketplace.
+- Alternate terminal colour schemes for the light theme. This addresses the ambiguity in what "bright" ANSI/aixterm escape sequences mean for a light theme. This is accessible through the new `theme-pink-candy.light.terminalColourScheme` setting. See the documentation for a comparison of the different options.
+- UI styles for the revamped *Editor Action List* popup introduced in version 1.93.
+- UI styles for the new *Activity Bar Warning/Error Badges* introduced in version 1.94.
+- UI styles for the new *Source Control Graph* introduced in version 1.93.
+- UI styles for *multi-selecting tabs* introduced in version 1.91.
+- UI styles for the *editor git blame* introduced in version 1.96.
+- UI styles for the new *radio button control* (used in the profile editor) introduced in version 1.93.
+- Various minor missing UI styles.
+
+### Changed
+- Tweaked existing terminal colours in the light theme to improve contrast against the background and provide a more even lightness of hues.
+
 ## 1.5.0 - 2024-03-06
 ### Added
 - Syntax highlighting for Asciidoc files; most language features are now styled.
@@ -50,7 +65,7 @@
 - UI styles for the new *Command Center* introduced in version 1.69.
 - UI style for the new extension sponsor button introduced in version 1.68.
 
-## Changed
+### Changed
 - Increased contrast of disabled text.
 
 ### Fixed

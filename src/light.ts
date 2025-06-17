@@ -1,24 +1,24 @@
 import { SyntaxColors, UiColors } from "./theme";
 
 export const lightSyntax: SyntaxColors = {
+	fg: "#565869",
+	gray: "#777777",
+	fadedGray: "#ADB1C2",
 	strongPink: "#FF1277",
 	pink: "#F767BB",
 	purple: "#C75AF3",
 	blue: "#09A1ED",
-	cyan: "#13BBB7",
-	lightBlue: "#6E82A6",
+	lightBlue: "#6F7FB2",
+	cyan: "#27B0AC",
 	green: "#2DAE58",
-	lime: "#8CBA10",
-	yellow: "#CF9C00",
+	lime: "#85AF1A",
+	yellow: "#C69613",
 	orange: "#FF5C57",
 	mauve: "#A8759A",
-	fg: "#565869",
-	gray: "#777777",
-	fadedGray: "#ADB1C2",
+	boldFg: "#6C6E83",
 	boldPink: "#F871C0",
 	boldBlue: "#1DAEf6",
 	boldLightBlue: "#7B8dAE",
-	boldFg: "#6C6E83",
 };
 
 export const lightColors: UiColors = {
@@ -228,28 +228,60 @@ export const lightColors: UiColors = {
 	},
 
 	terminal: {
-		// Command decoration icons
-		default: "#ADB1C2", // +(SetMark sequence)
+		default: "#ADB1C2",
 		success: "#11C678",
 		error: "#FF1277",
 
-		foreground: "#333333", // 0m (foreground)
-		ansiBlack: "#000000", // 30m
-		ansiBrightBlack: "#666666", // 30;1m
-		ansiWhite: "#FAFBFC", //37m (background)
-		ansiBrightWhite: "#000000", // (technicall 37;1m but vscode also applies this to just bold 1m, hence it's black)
-		ansiBlue: "#0F7CD7",
-		ansiBrightBlue: "#09A1ED",
-		ansiCyan: "#1EA0AA",
-		ansiBrightCyan: "#13BBB7",
-		ansiGreen: "#1EA330",
-		ansiBrightGreen: "#30B95E",
-		ansiYellow: "#C07205",
-		ansiBrightYellow: "#CF9C00",
-		ansiRed: "#FF0046",
-		ansiBrightRed: "#FF3A70",
-		ansiMagenta: "#B016EE",
-		ansiBrightMagenta: "#C75AF3",
+		foreground: "#565869",
+
+		ansiForeground: "#565869",
+		ansiContrastForeground: "#343545",
+		ansiBackground: "#fafbfc",
+		ansiContrastBackground: "#8b8fa0",
+		ansiBlue: "#09a1ed",
+		ansiContrastBlue: "#1684c2",
+		ansiCyan: "#27b0ac",
+		ansiContrastCyan: "#288d8a",
+		ansiGreen: "#2dae58",
+		ansiContrastGreen: "#1e9347",
+		ansiYellow: "#c69613",
+		ansiContrastYellow: "#a1790c",
+		ansiRed: "#ff5c57",
+		ansiContrastRed: "#db3839",
+		ansiMagenta: "#c75af3",
+		ansiContrastMagenta: "#a853cb",
+
+		alternativeContrast: {
+			ansiContrastForeground: "#8b8fa0",
+			ansiContrastBackground: "#c9cee0",
+			ansiContrastBlue: "#78c6fd",
+			ansiContrastCyan: "#4bcac5",
+			ansiContrastGreen: "#55ce76",
+			ansiContrastYellow: "#ddac37",
+			ansiContrastRed: "#fe8b82",
+			ansiContrastMagenta: "#d991f9",
+		},
+
+		alternativeWhole: {
+			foreground: "#343545",
+
+			ansiForeground: "#343545",
+			ansiContrastForeground: "#565869",
+			ansiBackground: "#fafbfc",
+			ansiContrastBackground: "#8b8fa0",
+			ansiBlue: "#1684c2",
+			ansiContrastBlue: "#09a1ed",
+			ansiCyan: "#288d8a",
+			ansiContrastCyan: "#27b0ac",
+			ansiGreen: "#1e9347",
+			ansiContrastGreen: "#2dae58",
+			ansiYellow: "#a1790c",
+			ansiContrastYellow: "#c69613",
+			ansiRed: "#db3839",
+			ansiContrastRed: "#ff5c57",
+			ansiMagenta: "#a853cb",
+			ansiContrastMagenta: "#c75af3",
+		},
 	},
 
 	ui: {

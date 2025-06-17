@@ -18,17 +18,18 @@ Developer documentation lives in the `/docs` folder. User documentation lives in
 
 ## Development
 Prerequisites:
-- `npm` 8.0.0+
-- `node` 10.0.0+
-- `pwsh` 7.0.0+
+- `npm` 8.0+
+- `node` 20.0+
+- `pwsh` 7.0+
 
 The extension manifest defines the following npm scripts:
 - `buildTheme` - Builds the theme files.
 - `buildTs` - Build the typescript project.
 - `watchTs` - Watch the typescript project.
 - `package` - Package the extension into an `.vsix` file.
-- `publish` - Publish the extension to the marketplace.
-- `postPublish` - A script that outputs the extension's version number in a specific format for azure pipelines purposes.
+- `publishMS` - Publish the extension to the Microsoft marketplace.
+- `publishOVSX` - Publish the extension to the OpenVSX marketplace.
+- `getVersion` - A script that outputs the extension's version number in a specific format for azure pipelines purposes.
 
 ### Building the extension for debugging/testing
 To build the extension when developing it, use the `Run Extension` launch configuration. This will build the extension and launch the VS Code Extension Development Host with the extension preloaded.

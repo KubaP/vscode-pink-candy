@@ -32,6 +32,7 @@ const config = {
 	altCurrentLine: false,
 	monochromeBracketGuides: false,
 	inlayStyle: "noBackground",
+	lightTerminalColourScheme: "normal+dark",
 	globalAccent: "default",
 };
 

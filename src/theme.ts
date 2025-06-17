@@ -44,8 +44,7 @@ function createTheme(
 }
 
 // TODO: Review gutter comments
-// TODO: Notebooks
-// TODO: Status bar setting profiles (currently in insider 1.69)
+// TODO: Chat?
 
 function generateTheme(
 	color: UiColors,
@@ -277,6 +276,11 @@ function generateTheme(
 			"editorSuggestWidget.selectedBackground": color.ui.selectedBg, // Background of selected entry.
 			"editorSuggestWidget.selectedForeground": color.text.normal, // Text in selected entry.
 			"editorSuggestWidget.selectedIconForeground": color.text.normal, // Icon in selected entry.
+			// This is the light bulb popup.
+			"editorActionList.foreground": color.text.normal,
+			"editorActionList.background": color.ui.primaryBg,
+			"editorActionList.focusForeground": color.text.normal,
+			"editorActionList.focusBackground": color.ui.selectedBg,
 			//
 			"peekViewResult.selectionForeground": color.text.normal, // Clicked entry.
 			"peekViewResult.selectionBackground": color.ui.selectedBg, // Clicked entry.
@@ -286,6 +290,10 @@ function generateTheme(
 			"badge.background": color.ui.primaryBg,
 			"activityBarBadge.foreground": color.accent.primary,
 			"activityBarBadge.background": color.ui.primaryBg,
+			"activityWarningBadge.foreground": color.diag.warning, // ???
+			"activityWarningBadge.background": color.ui.primaryBg, // ???
+			"activityErrorBadge.foreground": color.diag.error, // ???
+			"activityErrorBadge.background": color.ui.primaryBg, // ???
 		};
 		banner = {
 			"banner.foreground": color.text.normal,
@@ -333,6 +341,11 @@ function generateTheme(
 			"editorSuggestWidget.selectedBackground": color.accent.primary, // Background of selected entry.
 			"editorSuggestWidget.selectedForeground": color.text.inverse, // Text in selected entry.
 			"editorSuggestWidget.selectedIconForeground": color.text.inverse, // Icon in selected entry.
+			// This is the light bulb popup.
+			"editorActionList.foreground": color.text.normal,
+			"editorActionList.background": color.ui.primaryBg,
+			"editorActionList.focusForeground": color.text.inverse,
+			"editorActionList.focusBackground": color.accent.primary,
 			//
 			"peekViewResult.selectionForeground": color.text.emphasised, // Clicked entry.
 			"peekViewResult.selectionBackground": color.accent.primary, // Clicked entry.
@@ -342,6 +355,10 @@ function generateTheme(
 			"badge.background": color.accent.primary,
 			"activityBarBadge.foreground": color.text.inverse,
 			"activityBarBadge.background": color.accent.primary,
+			"activityWarningBadge.foreground": color.text.inverse, // ???
+			"activityWarningBadge.background": color.diag.warning, // ???
+			"activityErrorBadge.foreground": color.text.inverse, // ???
+			"activityErrorBadge.background": color.diag.error, // ???
 		};
 		banner = {
 			"banner.foreground": color.text.inverse,
@@ -425,6 +442,78 @@ function generateTheme(
 			break;
 	}
 
+	// Terminal colour scheme.
+	let terminalColourScheme;
+	if (type == "light" && config.lightTerminalColourScheme != "normal+dark") {
+		if (config.lightTerminalColourScheme == "normal+light") {
+			terminalColourScheme = {
+				"terminal.foreground": color.terminal.foreground,
+				"terminal.background": color.ui.primaryBg,
+				"terminal.ansiBlack": color.terminal.ansiBackground,
+				"terminal.ansiBrightBlack":
+					color.terminal.alternativeContrast!.ansiContrastBackground,
+				"terminal.ansiWhite": color.terminal.ansiForeground,
+				"terminal.ansiBrightWhite":
+					color.terminal.alternativeContrast!.ansiContrastForeground,
+				"terminal.ansiBlue": color.terminal.ansiBlue,
+				"terminal.ansiBrightBlue": color.terminal.alternativeContrast!.ansiContrastBlue,
+				"terminal.ansiCyan": color.terminal.ansiCyan,
+				"terminal.ansiBrightCyan": color.terminal.alternativeContrast!.ansiContrastCyan,
+				"terminal.ansiGreen": color.terminal.ansiGreen,
+				"terminal.ansiBrightGreen": color.terminal.alternativeContrast!.ansiContrastGreen,
+				"terminal.ansiYellow": color.terminal.ansiYellow,
+				"terminal.ansiBrightYellow": color.terminal.alternativeContrast!.ansiContrastYellow,
+				"terminal.ansiRed": color.terminal.ansiRed,
+				"terminal.ansiBrightRed": color.terminal.alternativeContrast!.ansiContrastRed,
+				"terminal.ansiMagenta": color.terminal.ansiMagenta,
+				"terminal.ansiBrightMagenta":
+					color.terminal.alternativeContrast!.ansiContrastMagenta,
+			};
+		} else {
+			terminalColourScheme = {
+				"terminal.foreground": color.terminal.alternativeWhole!.foreground,
+				"terminal.background": color.ui.primaryBg,
+				"terminal.ansiBlack": color.terminal.alternativeWhole!.ansiBackground,
+				"terminal.ansiBrightBlack": color.terminal.alternativeWhole!.ansiContrastBackground,
+				"terminal.ansiWhite": color.terminal.alternativeWhole!.ansiForeground,
+				"terminal.ansiBrightWhite": color.terminal.alternativeWhole!.ansiContrastForeground,
+				"terminal.ansiBlue": color.terminal.alternativeWhole!.ansiBlue,
+				"terminal.ansiBrightBlue": color.terminal.alternativeWhole!.ansiContrastBlue,
+				"terminal.ansiCyan": color.terminal.alternativeWhole!.ansiCyan,
+				"terminal.ansiBrightCyan": color.terminal.alternativeWhole!.ansiContrastCyan,
+				"terminal.ansiGreen": color.terminal.alternativeWhole!.ansiGreen,
+				"terminal.ansiBrightGreen": color.terminal.alternativeWhole!.ansiContrastGreen,
+				"terminal.ansiYellow": color.terminal.alternativeWhole!.ansiYellow,
+				"terminal.ansiBrightYellow": color.terminal.alternativeWhole!.ansiContrastYellow,
+				"terminal.ansiRed": color.terminal.alternativeWhole!.ansiRed,
+				"terminal.ansiBrightRed": color.terminal.alternativeWhole!.ansiContrastRed,
+				"terminal.ansiMagenta": color.terminal.alternativeWhole!.ansiMagenta,
+				"terminal.ansiBrightMagenta": color.terminal.alternativeWhole!.ansiContrastMagenta,
+			};
+		}
+	} else {
+		terminalColourScheme = {
+			"terminal.foreground": color.terminal.foreground,
+			"terminal.background": color.ui.primaryBg,
+			"terminal.ansiBlack": color.terminal.ansiBackground,
+			"terminal.ansiBrightBlack": color.terminal.ansiContrastBackground,
+			"terminal.ansiWhite": color.terminal.ansiForeground,
+			"terminal.ansiBrightWhite": color.terminal.ansiContrastForeground,
+			"terminal.ansiBlue": color.terminal.ansiBlue,
+			"terminal.ansiBrightBlue": color.terminal.ansiContrastBlue,
+			"terminal.ansiCyan": color.terminal.ansiCyan,
+			"terminal.ansiBrightCyan": color.terminal.ansiContrastCyan,
+			"terminal.ansiGreen": color.terminal.ansiGreen,
+			"terminal.ansiBrightGreen": color.terminal.ansiContrastGreen,
+			"terminal.ansiYellow": color.terminal.ansiYellow,
+			"terminal.ansiBrightYellow": color.terminal.ansiContrastYellow,
+			"terminal.ansiRed": color.terminal.ansiRed,
+			"terminal.ansiBrightRed": color.terminal.ansiContrastRed,
+			"terminal.ansiMagenta": color.terminal.ansiMagenta,
+			"terminal.ansiBrightMagenta": color.terminal.ansiContrastMagenta,
+		};
+	}
+
 	return {
 		name: name,
 		type: type,
@@ -443,10 +532,12 @@ function generateTheme(
 			// Cursor/line
 			"editorCursor.foreground": color.accent.primary,
 			"editorCursor.background": color.ui.primaryBg, // Colour of a character when using block cursor.
+			// "editorMultiCursor"
 			...currentLine,
 			"editorLineNumber.foreground": color.text.muted, // Line number colour in the gutter.
 			"editorLineNumber.activeForeground": color.accent.primary, // Current line number colour in the gutter.
 			"editor.foldBackground": color.text.currentLineBgA, // Colour of a line containing a folded range.
+			"eidtor.foldPlaceholderForeground": color.text.normal, // Colour of the ... text when collapsed range.
 			"editor.hoverHighlightBackground": color.text.currentLineBgA, // Background when hovering over a symbol.
 			//
 			// Text selection boxes/ranges
@@ -563,6 +654,9 @@ function generateTheme(
 			"editorGutter.modifiedBackground": color.git.modified, // Modified strip.
 			"editorGutter.deletedBackground": color.git.removedOrConflicting, // Removed mark.
 			"editorGutter.commentRangeForeground": color.text.muted, // ???
+			// Buttons in gutter, e.g. in the diff view
+			"editorGutter.itemBackground": color.ui.tertiaryBg,
+			"editorGutter.itemGlyphForeground": color.text.normal,
 			//"editorGutter.foldingControlForeground": "", // Arrow for folding code ranges.
 			//
 			// MINIMAP [x]
@@ -637,7 +731,7 @@ function generateTheme(
 			"diffEditor.border": color.ui.border, // Border between the two diff viewers.
 			"diffEditor.diagonalFill": color.git.diffDiagonal, // Diagonal hatchings for differences.
 			"multiDiffEditor.border": color.ui.border,
-			"multiDiffEditor.background": color.ui.tertiaryBg,
+			"multiDiffEditor.background": color.ui.primaryBg,
 			//
 			// MERGE CONFLICT VIEWER [x]
 			"merge.currentHeaderBackground": color.git.currentHeaderBgA,
@@ -689,6 +783,15 @@ function generateTheme(
 			"checkbox.foreground": color.accent.primary, // Colour of the tick itself.
 			"checkbox.background": color.ui.inputBg,
 			"checkbox.border": color.ui.border,
+			"checkbox.disabled.foreground": color.text.faded, // ???
+			"checkbox.disabled.background": color.ui.secondaryBg, // ???
+			// Radio button can be found in profile editor
+			"radio.activeForeground": color.accent.primary,
+			"radio.activeBackground": color.ui.inputBg,
+			"radio.activeBorder": color.accent.primary,
+			"radio.inactiveForeground": color.text.normal,
+			"radio.inactiveBorder": color.ui.border,
+			"radio.inactiveHoverBackground": color.ui.primaryBg,
 			// All sorts of buttons everywhere, e.g. the little `...`, or the `show diff`, or the `vcs commit` buttons.
 			"toolbar.hoverBackground": color.ui.hoverBgA,
 			"toolbar.activeBackground": color.ui.activeBgA,
@@ -713,6 +816,7 @@ function generateTheme(
 			"list.inactiveFocusBackground": color.diag.selection, // ???
 			// Other
 			"list.dropBackground": color.ui.primaryDropBg,
+			"list.dropBetweenBackground": color.accent.primary, // ???
 			"list.errorForeground": color.diag.error, // Text colour when there's an error.
 			"list.warningForeground": color.diag.warning, // Text colour when there's a warning.
 			"list.deemphasizedForeground": color.text.muted,
@@ -774,6 +878,7 @@ function generateTheme(
 			"editorGroup.dropIntoPromptBorder": "#00000000",
 			// Individual tabs
 			"tab.border": "#00000000", // | Borders between tabs |
+			"tab.dragAndDropBorder": color.accent.primary,
 			//
 			"tab.activeForeground": color.text.normal,
 			"tab.activeBackground": color.ui.primaryBg,
@@ -802,6 +907,8 @@ function generateTheme(
 			"tab.unfocusedActiveModifiedBorder": "#00000000", // Top border for "dirty" files.
 			"tab.inactiveModifiedBorder": "#00000000",
 			"tab.unfocusedInactiveModifiedBorder": "#00000000",
+			// For tabs that are selected as part of a multi-select, but not the currently active tab.
+			"tab.selectedBackground": color.ui.primaryDropBg,
 			//
 			"editorPane.background": color.ui.primaryBg, // Background to the left/right side when the editor pane is centred.
 			"sideBySideEditor.horizontalBorder": color.ui.border,
@@ -839,6 +946,7 @@ function generateTheme(
 			"extensionIcon.starForeground": color.ui.star,
 			"extensionIcon.preReleaseForeground": color.ui.prerelease,
 			"extensionIcon.sponsorForeground": color.ui.sponsor,
+			"extensionIcon.privateForeground": color.ui.sponsor,
 			"extensionBadge.remoteForeground": color.text.inverse,
 			"extensionBadge.remoteBackground": color.ui.remote,
 			"extensionButton.prominentForeground": color.text.inverse, // `Install` button
@@ -1031,26 +1139,12 @@ function generateTheme(
 			"charts.orange": color.ui.chartOrange,
 			"charts.red": color.ui.chartRed,
 			"charts.purple": color.ui.chartPurple,
+			"chart.line": color.text.normal,
+			"chart.axis": color.text.faded,
+			"chart.guide": color.text.light,
 			//
 			// TERMINAL COLORS [x]
-			"terminal.background": color.ui.primaryBg,
-			"terminal.foreground": color.terminal.foreground, // 0m (foreground)
-			"terminal.ansiBlack": color.terminal.ansiBlack, // 30m
-			"terminal.ansiBrightBlack": color.terminal.ansiBrightBlack, // 30;1m
-			"terminal.ansiWhite": color.terminal.ansiWhite, //37m (background)
-			"terminal.ansiBrightWhite": color.terminal.ansiBrightWhite, // (technicall 37;1m but vscode also applies this to just bold 1m)
-			"terminal.ansiBlue": color.terminal.ansiBlue,
-			"terminal.ansiBrightBlue": color.terminal.ansiBrightBlue,
-			"terminal.ansiCyan": color.terminal.ansiCyan,
-			"terminal.ansiBrightCyan": color.terminal.ansiBrightCyan,
-			"terminal.ansiGreen": color.terminal.ansiGreen,
-			"terminal.ansiBrightGreen": color.terminal.ansiBrightGreen,
-			"terminal.ansiYellow": color.terminal.ansiYellow,
-			"terminal.ansiBrightYellow": color.terminal.ansiBrightYellow,
-			"terminal.ansiRed": color.terminal.ansiRed,
-			"terminal.ansiBrightRed": color.terminal.ansiBrightRed,
-			"terminal.ansiMagenta": color.terminal.ansiMagenta,
-			"terminal.ansiBrightMagenta": color.terminal.ansiBrightMagenta,
+			...terminalColourScheme,
 			//
 			"terminal.selectionBackground": color.text.selectionBgA,
 			"terminal.inactiveSelectionBackground": color.text.secondarySelectionBgA,
@@ -1082,6 +1176,18 @@ function generateTheme(
 			"gitDecoration.ignoredResourceForeground": color.git.ignoredOrSubmodule,
 			"gitDecoration.conflictingResourceForeground": color.git.removedOrConflicting,
 			"gitDecoration.submoduleResourceForeground": color.git.ignoredOrSubmodule,
+			"git.blame.editorDecorationForeground": color.text.faded,
+			// SCM GRAPH [x]
+			"scmGraph.foreground1": color.gitGraph[2],
+			"scmGraph.foreground2": color.gitGraph[3],
+			"scmGraph.foreground3": color.gitGraph[4],
+			"scmGraph.foreground4": color.gitGraph[5],
+			"scmGraph.foreground5": color.gitGraph[6],
+			"scmGraph.historyItemRefColor": color.accent.secondary,
+			"scmGraph.historyItemRemoteRefColor": color.accent.primary,
+			"scmGraph.historyItemBaseRefColor": color.text.normal, // ???
+			"scmGraph.historyItemHoverAdditionsForeground": color.git.addedOrStaged,
+			"scmGraph.historyItemHoverDeletionsForeground": color.git.removedOrConflicting,
 			//
 			// GIT GRAPH [x]
 			"git-graph.graph.colours": color.gitGraph,
@@ -3576,7 +3682,8 @@ export interface SyntaxColors {
 	fg: string;
 	gray: string;
 	fadedGray: string;
-
+	// Bold text, due to it's boldness, has a higher contrast. To maintain the same perceptual contrast, a lower
+	// contrast colour must be used instead.
 	boldPink: string;
 	boldBlue: string;
 	boldLightBlue: string;
@@ -3793,23 +3900,58 @@ export interface UiColors {
 		success: string;
 		error: string;
 
-		foreground: string; // 0m (foreground)
-		ansiBlack: string; // 30m
-		ansiBrightBlack: string; // 30;1m
-		ansiWhite: string; //37m (background)
-		ansiBrightWhite: string; // (technicall 37;1m but vscode also applies this to just bold 1m, hence it's white)
-		ansiBlue: string;
-		ansiBrightBlue: string;
-		ansiCyan: string;
-		ansiBrightCyan: string;
-		ansiGreen: string;
-		ansiBrightGreen: string;
-		ansiYellow: string;
-		ansiBrightYellow: string;
-		ansiRed: string;
-		ansiBrightRed: string;
-		ansiMagenta: string;
-		ansiBrightMagenta: string;
+		foreground: string;
+
+		ansiForeground: string; // 7
+		ansiContrastForeground: string; // 7^
+		ansiBackground: string; // 0
+		ansiContrastBackground: string; // 0^
+		ansiBlue: string; // 4
+		ansiContrastBlue: string; // 4^
+		ansiCyan: string; // 6
+		ansiContrastCyan: string; // 6^
+		ansiGreen: string; // 2
+		ansiContrastGreen: string; // 2^
+		ansiYellow: string; // 3
+		ansiContrastYellow: string; // 3^
+		ansiRed: string; // 1
+		ansiContrastRed: string; // 1^
+		ansiMagenta: string; // 5
+		ansiContrastMagenta: string; // 5^
+
+		// Alternative set of colours for the "bright" aixterm colours (90-97/100-107).
+		alternativeContrast?: {
+			ansiContrastForeground: string; // 7^
+			ansiContrastBackground: string; // 0^
+			ansiContrastBlue: string; // 4^
+			ansiContrastCyan: string; // 6^
+			ansiContrastGreen: string; // 2^
+			ansiContrastYellow: string; // 3^
+			ansiContrastRed: string; // 1^
+			ansiContrastMagenta: string; // 5^
+		};
+
+		// Alternative set of all ANSI/aixterm colours.
+		alternativeWhole?: {
+			foreground: string;
+
+			ansiForeground: string; // 7
+			ansiContrastForeground: string; // 7^
+			ansiBackground: string; // 0
+			ansiContrastBackground: string; // 0^
+			ansiBlue: string; // 4
+			ansiContrastBlue: string; // 4^
+			ansiCyan: string; // 6
+			ansiContrastCyan: string; // 6^
+			ansiGreen: string; // 2
+			ansiContrastGreen: string; // 2^
+			ansiYellow: string; // 3
+			ansiContrastYellow: string; // 3^
+			ansiRed: string; // 1
+			ansiContrastRed: string; // 1^
+			ansiMagenta: string; // 5
+			ansiContrastMagenta: string; // 5^
+		};
 	};
 
 	ui: {

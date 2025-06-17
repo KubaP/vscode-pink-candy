@@ -3,11 +3,15 @@
 
 <br>
 <p align="center">
-A vivid colour scheme with a pink accent, in both light and dark variants. Includes editor/syntax highlighting as well as full IDE and workbench theming.
+A vivid colour scheme with a pink accent, in both light and dark variants. Includes editor/syntax highlighting plus full IDE and workbench theming.
 </p>
 <br>
 <p align="center">
-⭐ <i>New:</i> The theme now has a warm variant of the dark theme. This variant was heavily inspired by the colour palette of <a href="https://github.com/morhetz/gruvbox">Gruvbox</a>, but with a number of tweaks to make it more readable and to support the larger number of syntax colours this theme employs.
+🎉 Now published on the <a href="https://open-vsx.org/extension/kuba-p/theme-pink-candy">OpenVSX</a> marketplace.
+</p>
+<br>
+<p align="center">
+⭐ <i>New:</i> Alternate terminal colour schemes for the light theme to control the meaning of "bright" ANSI/aixterm colour escape sequences.
 </p>
 <br>
 
